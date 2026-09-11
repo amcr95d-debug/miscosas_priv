@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Estudiantes con baja autoestima o baja percepción de competencia — Guía de salud mental para docentes de la APA, actualizada en octubre de 2021.">
+<title>Estudiantes con baja autoestima o baja percepción de competencia</title>
+<style>
+/* ═══════════════ ESTILOS ═══════════════ */
+:root{
+  --accent:#155e75;
+  --accent-soft:#e6f3f7;
+  --text:#23282e;
+  --muted:#5b6570;
+  --border:#dbe3e9;
+  --soft:#f7f9fb;
+  --do:#2e7d55;
+  --do-soft:#eef7f0;
+  --dont:#b0722a;
+  --dont-soft:#faf1ec;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--soft);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.75;
+}
+.page{
+  max-width:760px;
+  margin:0 auto;
+  background:#fff;
+  padding:48px 32px 56px;
+}
+.breadcrumb{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;
+  color:var(--muted);
+  letter-spacing:.04em;
+  margin:0 0 28px;
+}
+/* — Encabezado — */
+.kicker{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 14px;
+}
+h1{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.18;margin:0 0 14px;
+}
+.dek{font-size:1.12rem;font-style:italic;color:var(--muted);margin:0 0 26px;line-height:1.5;}
+.byline{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:12px 0;margin-bottom:30px;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.byline .author{font-weight:700;margin:0 0 2px;font-size:.95rem;}
+.byline .meta{margin:0;font-size:.8rem;color:var(--muted);line-height:1.55;}
+/* — Cuerpo — */
+h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.55rem;margin:44px 0 14px;color:var(--accent);
+}
+p{margin:0 0 18px;}
+.intro > p:first-child::first-letter{
+  font-size:3.3em;float:left;line-height:.85;padding-right:9px;
+  color:var(--accent);font-weight:bold;
+}
+ul.plain{padding-left:22px;margin:0 0 18px;}
+ul.plain li{margin:0 0 10px;}
+ul.plain li:last-child{margin:0;}
+/* — Recuadros — */
+.link-articulo{
+  border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:8px;padding:12px 16px;margin:24px 0;font-size:.92rem;background:var(--soft);
+}
+.disclaimer{
+  border:1px solid var(--border);
+  border-radius:8px;padding:12px 16px;margin:24px 0;font-size:.88rem;background:var(--soft);
+  color:var(--muted);
+}
+/* — Sí / No — */
+.dodont{margin:0 0 22px;}
+.dodont .do,.dodont .dont{
+  padding:12px 16px;border-radius:8px;margin:0 0 10px;font-size:.98rem;line-height:1.65;
+}
+.dodont .do{background:var(--do-soft);border-left:4px solid var(--do);}
+.dodont .dont{background:var(--dont-soft);border-left:4px solid var(--dont);}
+.dodont .do strong{color:var(--do);}
+.dodont .dont strong{color:var(--dont);}
+/* — Recursos — */
+ul.resources{list-style:none;padding:0;margin:0;}
+ul.resources li{border-bottom:1px solid var(--border);padding:12px 0;}
+ul.resources li:last-child{border-bottom:none;}
+ul.resources .r-title{font-weight:700;display:block;}
+ul.resources .r-src{font-size:.85rem;color:var(--muted);font-style:italic;}
+/* — Cajas — */
+aside.ficha{
+  background:var(--soft);border:1px solid var(--border);border-radius:10px;
+  padding:26px 28px;margin:34px 0;
+}
+aside.ficha h2{margin-top:0;font-size:1.3rem;}
+aside.ficha ul{list-style:none;padding:0;margin:0;}
+aside.ficha li{margin:0 0 10px;line-height:1.6;}
+aside.ficha li:last-child{margin:0;}
+aside.ficha strong{
+  color:var(--accent);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.85rem;
+  letter-spacing:.05em;
+}
+/* — Imágenes — */
+figure.imagen{margin:34px 0;}
+figure.imagen img{
+  width:100%;
+  height:auto;
+  min-height:150px;          /* mantiene el hueco visible si aún no existe el archivo */
+  display:block;
+  border-radius:10px;
+  background:var(--accent-soft);
+}
+footer{
+  margin-top:44px;padding-top:18px;border-top:3px solid var(--accent);
+  font-size:.8rem;color:var(--muted);line-height:1.6;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (max-width:600px){
+  .page{padding:32px 18px 40px;}
+  body{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <p class="breadcrumb">Inicio · APA · Educación · Guías de salud mental</p>
+
+  <!-- ═══════════════ ENCABEZADO ═══════════════ -->
+  <header>
+    <p class="kicker">Guía educativa · Mental Health Primers</p>
+    <h1>Estudiantes con baja autoestima o baja percepción de competencia</h1>
+    <p class="dek">Los docentes son una pieza clave para crear y mantener entornos sanos de aprendizaje y crecimiento: cómo ayudar a los estudiantes inseguros de sí mismos o con miedo a equivocarse a construir autocompasión y competencia, y cuándo derivarlos a los profesionales del centro</p>
+    <div class="byline">
+      <p class="author">De la Coalition for Psychology in Schools and Education</p>
+      <p class="meta">Guía de la serie Mental Health Primers · Actualizada: octubre de 2021 · Apoyo: acuerdo de cooperación de los CDC</p>
+    </div>
+  </header>
+
+  <!-- ═══════ IMAGEN 1: IX1.jpg ═══════ -->
+  <figure class="imagen">
+    <img src="IX1.jpg" alt="Maestra sonriendo mientras ayuda a una alumna con sus tareas">
+  </figure>
+
+  <div class="link-articulo">Serie de audio (en inglés): <em>Students experiencing low self-esteem or low perceptions of competence</em> — Amanda Dettmer, PhD, científica investigadora del Child Study Center de la Yale School of Medicine, conversa con Wendy Grolnick, PhD, profesora de psicología de la Clark University, que comparte su experiencia sobre el tema. Descarga de la guía (PDF, 423 KB, en inglés) en apa.org.</div>
+
+  <div class="disclaimer">Esta información está diseñada para ayudar a los docentes a responder a estudiantes que puedan necesitar apoyo. No está pensada como herramienta diagnóstica ni para sustituir las evaluaciones formales empleadas por profesionales de salud mental. Es importante considerar el contexto de la situación, las diferencias individuales y los factores culturales y lingüísticos.</div>
+
+  <!-- ═══════════════ ¿QUÉ ES LA AUTOESTIMA? ═══════════════ -->
+  <section class="intro">
+    <p>Los docentes son una parte importante del establecimiento y mantenimiento de entornos saludables donde los niños aprenden y crecen. Pueden ayudar a los estudiantes con menos confianza en sí mismos, o con miedo a equivocarse, a construir sentimientos de autocompasión y competencia. También pueden desempeñar un papel importante al derivar a los estudiantes a profesionales del centro que puedan ayudarles.</p>
+  </section>
+
+  <section>
+    <h2>¿Qué es la autoestima?</h2>
+
+    <p>La autoestima es el grado en que los estudiantes se sienten satisfechos consigo mismos y se sienten valiosos y merecedores de respeto.</p>
+
+    <p>La competencia percibida es la creencia de que uno posee habilidades en un ámbito determinado (p. ej., matemáticas, ortografía, relaciones con los compañeros). La autoestima y la competencia percibida son necesarias para que los estudiantes se arriesguen en su aprendizaje y reboten tras un fracaso o una adversidad. La baja autoestima o la falta de confianza lleva a los estudiantes a dudar de su capacidad para tener éxito, lo que les hace reacios a implicarse en el aprendizaje o a correr los riesgos académicos apropiados para crecer. La autoestima suele construirse y reforzarse mediante actos estimables y logros — incluso pequeños.</p>
+  </section>
+
+  <!-- ═══════════════ SEÑALES ═══════════════ -->
+  <section>
+    <h2>¿Cómo puede expresarse la baja autoestima en la escuela?</h2>
+
+    <ul class="plain">
+      <li>Los estudiantes pueden hacer comentarios autodespectivos como: «Soy tonto», «No puedo con esto», «Siempre lo hago todo mal», «A nadie le caigo bien», etc.</li>
+      <li>Pueden culparse de cosas que no son culpa suya o que escapan a su control, o intentar controlar la conducta de otros niños para aliviar una sensación de indefensión.</li>
+      <li>Pueden reaccionar a la adversidad rindiéndose, evitando riesgos o desconectándose de las tareas, o apagando sus cámaras durante el aprendizaje virtual.</li>
+      <li>Pueden mostrarse reacios a probar cosas nuevas o incapaces de tolerar niveles típicos de frustración. También pueden fingir indiferencia, hacer el payaso o comportarse con agresividad para tapar su falta de confianza, o desconectarse abruptamente del entorno de aprendizaje virtual.</li>
+      <li>Pueden rendir muy bien durante un periodo y, de pronto, rendir por debajo de lo esperado.</li>
+      <li>Pueden temer que su éxito fue casual o preocuparse porque las expectativas de los demás se han vuelto de repente demasiado altas.</li>
+    </ul>
+
+    <!-- ═══════ IMAGEN 2: IX2.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IX2.jpg" alt="Niño pensativo sentado en su pupitre en el aula">
+    </figure>
+  </section>
+
+  <!-- ═══════════════ QUÉ PUEDEN HACER LOS DOCENTES ═══════════════ -->
+  <section>
+    <h2>¿Qué pueden hacer los docentes?</h2>
+
+    <div class="dodont">
+      <p class="do"><strong>SÍ:</strong> Ofrecer retroalimentación positiva específica y genuina sobre el esfuerzo —más que sobre el resultado— cuando corresponda. Por ejemplo: «Has avanzado muchísimo en ese proyecto en solo una hora», o «La frase temática de ese párrafo es muy sólida».</p>
+      <p class="dont"><strong>NO:</strong> Elogiar en exceso o de forma vaga, o dar elogios genéricos del tipo «¡Bien hecho!».</p>
+    </div>
+
+    <div class="dodont">
+      <p class="do"><strong>SÍ:</strong> Señalar señales concretas de progreso, aunque sean pequeñas.</p>
+      <p class="dont"><strong>NO:</strong> Dar charlas motivacionales generales y repetitivas que incluyan «¡Tú puedes!».</p>
+    </div>
+
+    <div class="dodont">
+      <p class="do"><strong>SÍ:</strong> Exhibir los logros: mostrar los trabajos de los estudiantes en clase o llamar a las familias para contarles lo orgulloso/a que se está de su esfuerzo.</p>
+      <p class="dont"><strong>NO:</strong> Centrarse únicamente en las conductas o el rendimiento deficientes.</p>
+    </div>
+
+    <div class="dodont">
+      <p class="do"><strong>SÍ:</strong> Conversar con los estudiantes sobre sus intereses y señalar sus destrezas en privado.</p>
+      <p class="dont"><strong>NO:</strong> Abordar la conducta en público ni asumir que un estudiante es igual a los demás.</p>
+    </div>
+
+    <!-- ═══════ IMAGEN 3: IX3.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IX3.jpg" alt="Docente dando retroalimentación positiva a un estudiante en el aula">
+    </figure>
+
+    <div class="dodont">
+      <p class="do"><strong>SÍ:</strong> Aprovechar los intereses de los estudiantes preparándolos para el éxito: encargarles tareas concretas en las que destacarán, como cuidar la mascota de la clase o llevar documentos a secretaría. En un entorno virtual, esto puede traducirse en elegir la música del aula, publicar una pregunta de matemáticas en el foro o reflexionar con un compañero, en una sala de grupos, sobre sus fortalezas en una tarea determinada.</p>
+      <p class="dont"><strong>NO:</strong> Ignorar o evitar a los estudiantes o los problemas que enfrentan, ni asumir que no están a la altura de una tarea.</p>
+    </div>
+
+    <div class="dodont">
+      <p class="do"><strong>SÍ:</strong> Velar por la equidad al reconocer y dar retroalimentación positiva a todos los estudiantes.</p>
+      <p class="dont"><strong>NO:</strong> Afirmar continuamente a los mismos estudiantes ni comparar los logros entre ellos.</p>
+    </div>
+
+    <div class="dodont">
+      <p class="do"><strong>SÍ:</strong> Recordar que los estudiantes en transición entre el aula y el entorno virtual —o al revés— pueden experimentar niveles de éxito distintos según el entorno.</p>
+      <p class="dont"><strong>NO:</strong> Basar la retroalimentación en logros, expectativas o éxitos anteriores; la transición entre entornos de aprendizaje afecta a muchos estudiantes.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CUÁNDO ACTUAR ═══════════════ -->
+  <section>
+    <h2>Cuándo actuar</h2>
+
+    <ul class="plain">
+      <li>Si el estudiante sigue mostrando un cambio significativo de conducta a lo largo de varias semanas, o si la frecuencia o la gravedad aumenta, buscar apoyo adicional en la dirección o en los profesionales de salud mental del centro.</li>
+      <li>Si el estudiante muestra patrones de conducta similares con otros docentes de asignatura.</li>
+      <li>Si existen preocupaciones sobre conductas de autolesión.</li>
+    </ul>
+
+    <!-- ═══════ IMAGEN 4: IX4.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IX4.jpg" alt="Orientadora escolar conversando con un estudiante en su despacho">
+    </figure>
+
+    <h2 style="font-size:1.3rem;">Derivar a los estudiantes a más ayuda si es necesario</h2>
+
+    <ul class="plain">
+      <li>Asegurarse de seguir las políticas pertinentes del centro y del distrito escolar respecto a estudiantes que experimentan dificultades de atención y distracción en la escuela.</li>
+      <li>Contactar con los orientadores, psicólogos, trabajadores sociales y demás profesionales de salud mental o personal pertinente.</li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════ RECURSOS ═══════════════ -->
+  <section>
+    <h2>Recursos</h2>
+    <ul class="resources">
+      <li><span class="r-title">Temas de la American Psychological Association</span></li>
+      <li><span class="r-title">Usar el elogio para reforzar la resiliencia y los resultados de aprendizaje</span><span class="r-src">(Using Praise to Enhance Student Resilience and Learning Outcomes)</span></li>
+      <li><span class="r-title">Maximizar la resiliencia infantil</span><span class="r-src">(Maximizing children's resilience)</span></li>
+      <li><span class="r-title">Construir la autoestima</span><span class="r-src">(Building Self-Esteem)</span></li>
+      <li><span class="r-title">Being Me: A Kid's Guide to Boosting Confidence and Self-Esteem</span><span class="r-src">Guía para niños (en inglés)</span></li>
+      <li><span class="r-title">I Want Your Moo: A Story for Children About Self-Esteem (2.ª edición)</span><span class="r-src">Cuento infantil (en inglés)</span></li>
+      <li><span class="r-title">Estrategias basadas en investigación para el aprendizaje remoto eficaz</span><span class="r-src">Institute of Education Sciences (en inglés)</span></li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════ INVESTIGACIÓN EMPÍRICA ═══════════════ -->
+  <section>
+    <h2>Investigación empírica</h2>
+    <ul class="resources">
+      <li><span class="r-title">Factors associated with middle and secondary students' perceived science competence</span><span class="r-src">Beghetto, R. A. (2007) · Journal of Research in Science Teaching, 44(6), 800–814</span></li>
+      <li><span class="r-title">Autonomy support, intrinsic motivation, and perceived competence: Conceptual and empirical linkages</span><span class="r-src">Guay, F., Boggiano, A. K., &amp; Vallerand, R. J. (2001) · Personality and Social Psychology Bulletin, 27, 643–650</span></li>
+      <li><span class class="r-title">Person vs. process praise and criticism: Implications for contingent self-worth and coping</span><span class="r-src">Kamins, M., &amp; Dweck, C. S. (1999) · Developmental Psychology, 35, 835–847</span></li>
+      <li><span class="r-title">The role of parents' and teachers' beliefs in children's self-concept development</span><span class="r-src">Pesu, L., Viljaranta, J., &amp; Aunola, K. (2016) · Journal of Applied Developmental Psychology, 44, 63–71</span></li>
+      <li><span class="r-title">"Good job, you're so smart": The effects of inconsistency of praise type on young children's motivation</span><span class="r-src">Zentall, S. R., &amp; Morris, B. J. (2010) · Journal of Experimental Psychology, 107(2), 155–163</span></li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════ OTROS PRIMERS ═══════════════ -->
+  <aside class="ficha">
+    <h2>Otras guías relacionadas de la serie</h2>
+    <ul>
+      <li><strong>ESTRÉS:</strong> «Estudiantes que experimentan estrés» — los docentes guían a los estudiantes con estrés excesivo hacia otros profesionales que pueden ayudarles</li>
+      <li><strong>TRISTEZA:</strong> «Estudiantes que experimentan tristeza» — los docentes ayudan dando apoyo emocional, promoviendo relaciones positivas entre compañeros y conectando con otros profesionales del centro</li>
+      <li><strong>ACOSO:</strong> «Estudiantes que sufren acoso» — los docentes son colaboradores críticos para promover interacciones escolares seguras y relaciones positivas</li>
+    </ul>
+  </aside>
+
+  <!-- ═══════════════ FICHA DEL RECURSO ═══════════════ -->
+  <aside class="ficha">
+    <h2>Ficha del recurso</h2>
+    <ul>
+      <li><strong>SERIE:</strong> Mental Health Primers (Guías de salud mental) · American Psychological Association</li>
+      <li><strong>TÍTULO:</strong> «Students Experiencing Low Self-esteem or Low Perceptions of Competence»</li>
+      <strong>DESARROLLADO POR:</strong> Coalition for Psychology in Schools and Education
+      <li><strong>ACTUALIZACIÓN:</strong> Octubre de 2021 · Con apoyo del acuerdo de cooperación NU87PS004366, financiado por los Centros para el Control y la Prevención de Enfermedades (CDC)</li>
+      <li><strong>AUDIO:</strong> Serie con Amanda Dettmer, PhD (Child Study Center, Yale School of Medicine) y Wendy Grolnick, PhD (profesora de psicología, Clark University)</li>
+      <li><strong>DESCARGA:</strong> PDF, 23 KB, disponible en apa.org</li>
+    </ul>
+  </aside>
+
+  <footer>
+    Traducción al español de la guía «Students Experiencing Low Self-esteem or Low Perceptions of Competence», de la serie Mental Health Primers, desarrollada por la Coalition for Psychology in Schools and Education (APA). Actualizada en octubre de 2021 con apoyo del acuerdo de cooperación NU87PS004366 financiado por los CDC. Su contenido es responsabilidad exclusiva de los autores y no representa necesariamente la opinión oficial ni el respaldo de los CDC o del Departamento de Salud y Servicios Humanos. El original está disponible en apa.org.
+  </footer>
+
+</article>
+
+</body>
+</html>
