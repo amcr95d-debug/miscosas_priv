@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="El costo oculto del rustout laboral — Monitor on Psychology, septiembre de 2026.">
+<title>El costo oculto del rustout laboral</title>
+<style>
+/* ═══════════════ ESTILOS ═══════════════ */
+:root{
+  --accent:#155e75;
+  --accent-soft:#e6f3f7;
+  --text:#23282e;
+  --muted:#5b6570;
+  --border:#dbe3e9;
+  --soft:#f7f9fb;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--soft);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.75;
+}
+.page{
+  max-width:760px;
+  margin:0 auto;
+  background:#fff;
+  padding:48px 32px 56px;
+}
+.breadcrumb{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;
+  color:var(--muted);
+  letter-spacing:.04em;
+  margin:0 0 28px;
+}
+/* — Encabezado — */
+.kicker{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 14px;
+}
+h1{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.16;margin:0 0 14px;
+}
+.dek{font-size:1.12rem;font-style:italic;color:var(--muted);margin:0 0 26px;line-height:1.5;}
+.byline{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:12px 0;margin-bottom:30px;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.byline .author{font-weight:700;margin:0 0 2px;font-size:.95rem;}
+.byline .meta{margin:0;font-size:.8rem;color:var(--muted);line-height:1.55;}
+/* — Cuerpo — */
+h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.55rem;margin:44px 0 14px;color:var(--accent);
+}
+p{margin:0 0 18px;}
+.cite{font-size:.85em;color:var(--muted);}
+.intro > p:first-child::first-letter{
+  font-size:3.3em;float:left;line-height:.85;padding-right:9px;
+  color:var(--accent);font-weight:bold;
+}
+/* — Citas destacadas — */
+blockquote{
+  margin:28px 0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);
+  font-size:1.14rem;font-style:italic;line-height:1.6;
+}
+blockquote p{margin:0 0 10px;}
+blockquote p:last-child{margin:0;}
+.quote-by{
+  font-size:.85rem !important;font-style:normal;font-weight:600;
+  color:var(--muted);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/* — Caja de puntos clave — */
+aside.keypoints{
+  background:var(--soft);
+  border:1px solid var(--border);
+  border-left:4px solid var(--accent);
+  border-radius:10px;
+  padding:22px 26px;
+  margin:34px 0;
+}
+aside.keypoints h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.15rem;margin:0 0 12px;color:var(--accent);
+}
+aside.keypoints ul{margin:0;padding-left:20px;}
+aside.keypoints li{margin:0 0 10px;}
+aside.keypoints li:last-child{margin:0;}
+/* — Caja de etapas de la carrera — */
+aside.stages{
+  background:var(--soft);border:1px solid var(--border);border-radius:10px;
+  padding:26px 28px;margin:34px 0;
+}
+aside.stages h2{margin-top:0;font-size:1.3rem;}
+aside.stages .sub{font-style:italic;color:var(--muted);margin:0 0 6px;font-size:.98rem;}
+.stage{margin:18px 0 0;}
+.stage h3{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1rem;margin:0 0 6px;color:var(--accent);
+}
+/* — Imágenes — */
+figure.imagen{margin:34px 0;}
+figure.imagen img{
+  width:100%;
+  height:auto;
+  min-height:150px;          /* mantiene el hueco visible si aún no existe el archivo */
+  display:block;
+  border-radius:10px;
+  background:var(--accent-soft);
+}
+/* — Lecturas adicionales — */
+ul.resources{list-style:none;padding:0;margin:0;}
+ul.resources li{border-bottom:1px solid var(--border);padding:12px 0;}
+ul.resources li:last-child{border-bottom:none;}
+ul.resources .r-title{font-weight:700;display:block;}
+ul.resources .r-src{font-size:.85rem;color:var(--muted);font-style:italic;}
+footer{
+  margin-top:44px;padding-top:18px;border-top:3px solid var(--accent);
+  font-size:.8rem;color:var(--muted);line-height:1.6;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (max-width:600px){
+  .page{padding:32px 18px 40px;}
+  body{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <p class="breadcrumb">Inicio · Monitor on Psychology · 2026 · Septiembre</p>
+
+  <!-- ═══════════════ ENCABEZADO ═══════════════ -->
+  <header>
+    <p class="kicker">Reportaje</p>
+    <h1>El costo oculto del rustout laboral</h1>
+    <p class="dek">Cuando los empleos no son lo suficientemente exigentes, los trabajadores pueden sentirse aburridos, desconectados, subutilizados y frustrados</p>
+    <div class="byline">
+      <p class="author">Por Alyson Powell Key</p>
+      <p class="meta">Fecha de creación: 1 de septiembre de 2026 · 10 min de lectura<br>
+      Vol. 57, N.º 6 · Versión impresa: página 44</p>
+    </div>
+  </header>
+
+  <!-- ═══════ IMAGEN 1: IE1.jpg ═══════ -->
+  <figure class="imagen">
+    <img src="IE1.jpg" alt="Trabajadores agotados sentados en el suelo">
+  </figure>
+
+  <!-- ═══════════════ PUNTOS CLAVE ═══════════════ -->
+  <aside class="keypoints">
+    <h2>Puntos clave</h2>
+    <ul>
+      <li>El rustout —la subestimulación y el aburrimiento crónicos en el trabajo— es la cara opuesta del burnout, y la investigación emergente sugiere que conlleva sus propias consecuencias graves para la salud mental y física, incluida la disfunción del sistema nervioso autónomo.</li>
+      <li>A diferencia del burnout —el agotamiento por demandas laborales excesivas—, el rustout surge de demandas demasiado bajas, que dejan a los trabajadores desconectados, subutilizados y estancados; un problema que se agrava cuando los empleados no pueden irse por restricciones económicas o un mercado laboral estrecho.</li>
+      <li>Los psicólogos y los empleadores cuentan con herramientas basadas en evidencia para abordar el rustout, desde estrategias de rediseño del trabajo que amplían el alcance y el desafío, hasta enfoques de defensa de los propios intereses que los trabajadores pueden usar cuando el cambio estructural no es posible de inmediato.</li>
+    </ul>
+  </aside>
+
+  <!-- ═══════════════ INTRODUCCIÓN ═══════════════ -->
+  <section class="intro">
+    <p>Durante años, las conversaciones sobre el bienestar laboral se han centrado en el burnout: empleados abrumados por demasiado trabajo. Pero para un número creciente de trabajadores, el problema se ve muy diferente. Sus empleos no son demasiado exigentes, sino no lo suficientemente exigentes, lo que los deja desconectados, subutilizados y frustrados.</p>
+
+    <p>Los psicólogos dicen que esta experiencia tiene nombre: rustout. A diferencia de su opuesto más estudiado, el burnout (agotamiento por demandas laborales excesivas), el rustout (también llamado boreout, o aburrimiento laboral crónico) es un área madura para más investigación. Los efectos sobre las personas y las organizaciones pueden ser desastrosos: el rustout es persistente y puede dejar a los empleados sintiéndose desconectados incluso cuando tienen mucho por hacer.</p>
+
+    <p>«Es más bien un síntoma de que las actividades laborales carecen de significado», dijo Lotta Harju, PhD, profesora asociada de comportamiento organizacional en Emlyon Business School, en Francia. «Las personas pueden tener muchísimo por hacer y aun así sentirse aburridas si esas actividades no son suficientemente desafiantes, o si no tienen sentido ni se sienten valiosas para quienes las realizan».</p>
+
+    <p>En esencia, el aburrimiento no es simplemente la ausencia de actividad, sino el fracaso en conectar con la actividad misma. «El aburrimiento es querer, pero no lograr, involucrarse con el mundo de una manera significativa», dijo James Danckert, PhD, profesor de psicología de la Universidad de Waterloo, en Ontario, Canadá.</p>
+
+    <p>En el ámbito laboral, esta desconexión «no es una experiencia marginal, sino una condición sorprendentemente común», dijo Erin Eatough, PhD, psicóloga organizacional, profesora y consultora de empresas Fortune 500. Investigaciones recientes lideradas por Eatough muestran que más del 40 % de los trabajadores experimentan «angustia del estancamiento» (stagnation angst), una sensación crónica de sentirse poco desafiados, estancados e incapaces de crecer.</p>
+  </section>
+
+  <!-- ═══════════════ CÓMO SE SIENTE EL RUSTOUT ═══════════════ -->
+  <section>
+    <h2>Cómo se siente el rustout</h2>
+
+    <p>Desde afuera, el rustout puede ser difícil de detectar. Los empleados pueden parecer productivos y ocupados, pero internamente la experiencia es muy diferente. En lugar de sentir estrés, a menudo sienten una silenciosa sensación de desconexión. Esto puede significar querer interesarse por el propio trabajo, pero luchar por concentrarse o sentir interés en él.</p>
+
+    <!-- ═══════ IMAGEN 2: IE2.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IE2.jpg" alt="Gráfico con las señales del rustout en los trabajadores">
+    </figure>
+
+    <p>Con el tiempo, la falta de involucramiento puede pasar factura. «Los trabajadores aburridos a menudo luchan por mantener la atención, lo que puede manifestarse como divagación mental, ensueño o procrastinación», dijo Harju.</p>
+
+    <p>Algunos empleados comienzan a retraerse, haciendo lo mínimo necesario para pasar el día o buscando formas de desconectarse mentalmente de su trabajo.</p>
+  </section>
+
+  <!-- ═══════════════ POR QUÉ OCURRE EL RUSTOUT ═══════════════ -->
+  <section>
+    <h2>Por qué ocurre el rustout</h2>
+
+    <p>El rustout a menudo es más que una reacción al aburrimiento; es el resultado de cómo se diseña y estructura el trabajo. Décadas de investigación en psicología industrial y organizacional (I/O) encuentran que el diseño del trabajo desempeña un papel central en el involucramiento de los empleados, con recursos laborales como la autonomía, el significado y la variedad de tareas vinculados de manera consistente a una mayor motivación y bienestar <span class="cite">(Hakanen, J. J., &amp; Kaltiainen, J., Annual Review of Organizational Psychology and Organizational Behavior, Vol. 13, 2026)</span>.</p>
+
+    <p>Un factor clave es la naturaleza del trabajo mismo. Los empleos excesivamente rutinarios o de baja complejidad pueden limitar las oportunidades de los empleados para usar sus habilidades. «Simplemente no hay suficiente por hacer, o el trabajo es demasiado simple o repetitivo», dijo Frederick Morgeson, PhD, psicólogo I/O y profesor de gestión Eli Broad del Broad College of Business de la Universidad Estatal de Michigan. Añadió que los empleos que carecen de autonomía, variedad y desafío intelectual son especialmente propensos a provocar desconexión.</p>
+
+    <p>La falta de control sobre cómo se realiza el trabajo puede aumentar la sensación de desconexión. «La restricción es uno de los principales impulsores del aburrimiento», dijo Danckert. «Cualquier situación en la que tienes que hacer algo sin realmente querer es una receta perfecta para aburrirse». Sin autonomía, los empleados tienen menos oportunidades de moldear sus tareas o hacer que su trabajo sea más atractivo.</p>
+
+    <p>El rustout también está estrechamente ligado a un desajuste entre las necesidades de los empleados y las demandas de sus roles. La investigación de la consultora Fractional Insights sugiere que el crecimiento es una de las necesidades psicológicas más importantes en el trabajo y, sin embargo, a menudo no se satisface. Cuando las oportunidades de aprender y desarrollarse son limitadas, incluso los empleos estables pueden volverse desconectantes.</p>
+
+    <!-- ═══════ IMAGEN 3: IE3.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IE3.jpg" alt="Ilustración sobre el diseño del trabajo y el aburrimiento laboral">
+    </figure>
+
+    <p>Las prácticas organizacionales y las tendencias laborales más amplias pueden reforzar estas condiciones. Muchos empleos modernos todavía siguen métodos antiguos centrados en la eficiencia en lugar del involucramiento. «La forma en que se diseña el trabajo hoy sigue muy influenciada por las ideas tempranas de dividir los empleos en tareas pequeñas y repetitivas», dijo Sharon Parker, PhD, profesora de comportamiento organizacional en la Universidad Curtin, en Perth, Australia, y directora de su Centre for Transformative Work Design. En estos sistemas, la responsabilidad y la toma de decisiones a menudo se concentran en la cima, dejando a los empleados con tareas estrechamente definidas y poco margen para la iniciativa.</p>
+
+    <p>Los cambios más amplios en la naturaleza del trabajo también podrían estar haciendo más común el rustout. A medida que han aumentado las expectativas de un trabajo significativo y estimulante, no todos los roles se han mantenido al ritmo. «Las condiciones laborales han mejorado, pero nuestras expectativas siempre suben aún más por encima de eso», dijo Tomas Chamorro-Premuzic, PhD, profesor de psicología organizacional en el University College London. «Como las personas han invertido mucho dinero y tiempo en su educación, tienen expectativas muy altas sobre carreras que deberían ser realizadoras y estimulantes. Y cuando esas expectativas se encuentran con la realidad, llega una especie de golpe de realidad».</p>
+
+    <p>Además, los avances tecnológicos, incluida la IA, están reconfigurando los empleos de maneras que pueden reducir o intensificar el aburrimiento. «La IA no hará automáticamente el trabajo más interesante: depende de cómo se diseñe e implemente», dijo Parker. En algunos casos, los empleados se encuentran realizando tareas menos complejas y menos atractivas incluso mientras la tecnología se vuelve más sofisticada.</p>
+
+    <p>En conjunto, estos factores apuntan a un tema común: el rustout tiene menos que ver con la falta de trabajo y más con la falta de un trabajo significativo, desafiante y bien diseñado.</p>
+  </section>
+
+  <!-- ═══════════════ LAS CONSECUENCIAS DEL RUSTOUT ═══════════════ -->
+  <section>
+    <h2>Las consecuencias del rustout</h2>
+
+    <p>Aunque el rustout puede parecer menos urgente que el burnout, sus efectos son igual de significativos tanto para las personas como para las organizaciones.</p>
+
+    <!-- ═══════ IMAGEN 4: IE4.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IE4.jpg" alt="Gráfico comparativo entre el rustout y el burnout">
+    </figure>
+
+    <p>«Cuanto más a menudo se sienten aburridos los trabajadores, más síntomas de estrés y problemas de salud mental reportan», dijo Harju. En línea con esto, los estudios han vinculado el aburrimiento laboral crónico con una gama de problemas de salud mental, incluidos la depresión y la ansiedad <span class="cite">(Özsungur, F., Business &amp; Management Studies: An International Journal, Vol. 8, N.º 2, 2020)</span>.</p>
+
+    <p>La investigación emergente también apunta a posibles efectos fisiológicos. En un estudio reciente, los empleados que reportaron mayores niveles de aburrimiento laboral mostraron signos de un funcionamiento más deficiente del sistema nervioso autónomo, evidenciado por una menor variabilidad de la frecuencia cardíaca <span class="cite">(Seppälä, P., et al., Stress and Health, Vol. 40, N.º 3, 2024)</span>. El aburrimiento en el trabajo no es un estado neutral; los psicólogos lo describen como una experiencia aversiva que señaliza al cuerpo una amenaza persistente, aunque de bajo nivel, a su bienestar. Con el tiempo, este estado de malestar emocional crónico conduce a una retirada parasimpática y a una reducción del tono vagal. Los riesgos para la salud a largo plazo resultantes incluyen inflamación sistémica y enfermedad cardiovascular.</p>
+
+    <p>Más allá de su impacto en la salud, el rustout también puede afectar cómo las personas se ven a sí mismas y a su trabajo. «El aburrimiento intenso es desmoralizante, especialmente cuando pasamos un tercio de nuestras vidas trabajando», dijo Chamorro-Premuzic. Cuando los empleados no pueden usar sus capacidades o sienten que su trabajo carece de significado, esto puede mermar la motivación, la confianza, la autoestima y el sentido de identidad profesional.</p>
+
+    <p>Las organizaciones también asumen el costo. Los empleados que se sienten poco desafiados tienen más probabilidad de desconectarse y reducir su esfuerzo, y la investigación ha vinculado un menor involucramiento de los empleados con una reducción de la productividad, la rentabilidad, la satisfacción del cliente y la retención. En un metaanálisis de casi 8.000 unidades de negocio, investigadores de Gallup hallaron que las unidades con mayor involucramiento de los empleados superaban consistentemente a las de menor involucramiento en una gama de resultados clave del negocio <span class="cite">(Harter, J. K., et al., Journal of Applied Psychology, Vol. 87, N.º 2, 2002)</span>.</p>
+
+    <p>Estos hallazgos muestran que el rustout es más que simple aburrimiento: puede dañar la salud, el desempeño y el crecimiento profesional a largo plazo de los trabajadores.</p>
+  </section>
+
+  <!-- ═══════════════ QUÉ PUEDEN HACER LOS PSICÓLOGOS Y LAS ORGANIZACIONES ═══════════════ -->
+  <section>
+    <h2>Qué pueden hacer los psicólogos y las organizaciones</h2>
+
+    <p>Si el rustout tiene sus raíces en cómo se diseña el trabajo, los psicólogos dicen que también puede abordarse mediante cambios intencionales en ese diseño. La investigación sobre el involucramiento laboral ha encontrado de manera consistente que los recursos del trabajo —incluidas las oportunidades de usar las propias habilidades, aprender cosas nuevas, recibir retroalimentación y ejercer discreción en el trabajo— se asocian con mayores niveles de involucramiento y bienestar <span class="cite">(Hakanen, J. J., &amp; Kaltiainen, J., Annual Review of Organizational Psychology and Organizational Behavior, Vol. 13, 2026)</span>. Cuando las personas tienen autonomía, pueden organizar su trabajo de maneras que lo hagan más atractivo, dijo Parker. Por ejemplo, en lugar de asignar a los empleados un conjunto fijo de tareas, los gerentes podrían permitirles decidir cómo abordar un proyecto o elegir qué problemas priorizar. Este tipo de cambios da a los empleados más control y un sentido más claro de propósito.</p>
+
+    <p>Una de las palancas más eficaces es el crecimiento. Incluso mejoras modestas en las oportunidades de crecimiento pueden reducir significativamente el riesgo de desconexión, dijo Eatough. Esto podría incluir ampliar los roles para incorporar nuevos desafíos, crear trayectorias más claras de ascenso, o dar acceso a oportunidades de aprendizaje y desarrollo de habilidades. En la práctica, eso podría significar dar a un empleado la oportunidad de liderar un proyecto pequeño o asumir responsabilidades fuera de su rol habitual.</p>
+
+    <!-- ═══════ IMAGEN 5: IE5.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IE5.jpg" alt="Equipo de trabajo colaborando en la oficina">
+    </figure>
+
+    <p>El diseño del trabajo en sí también desempeña un papel central. Aumentar la variedad de tareas, la complejidad y las oportunidades de resolución de problemas puede ayudar a garantizar que los empleados puedan usar sus habilidades. Cuando eso no es posible, los psicólogos señalan otras formas de rediseñar el trabajo. «Si no puedes cambiar el trabajo mismo, una manera poderosa de rediseñar los empleos es a través del entorno social: con quién haces el trabajo», dijo Morgeson. El trabajo en equipo, la colaboración y la retroalimentación pueden ayudar a hacer más atractivas tareas que de otro modo serían rutinarias.</p>
+
+    <p>Las organizaciones también deberían reconsiderar supuestos de larga data sobre la eficiencia. Si bien ciertos enfoques, como estructurar el trabajo en tareas estrechamente definidas y repetitivas, pueden mejorar la eficiencia, también pueden limitar la capacidad de los empleados para involucrarse de manera significativa con su trabajo. «Si no das a las personas oportunidades de hacer un trabajo interesante y desafiante, nunca descubres de qué son capaces», dijo Parker. A medida que avanza la tecnología, algunos psicólogos dicen que las organizaciones tienen la oportunidad de repensar este equilibrio; por ejemplo, usando la IA para hacerse cargo de las tareas rutinarias mientras permiten que los empleados se concentren en los aspectos más complejos o creativos de su trabajo.</p>
+
+    <p>Abordar el rustout puede ser complicado para los trabajadores individuales, especialmente en un mercado laboral difícil. Algunos quizás quieran encontrar nuevas responsabilidades o hablar con sus supervisores sobre asumir tareas más desafiantes. Pero, como señaló Harju, el aburrimiento a menudo es difícil de discutir abiertamente. Los empleados podrían vacilar en plantear sus inquietudes por temor a que esto refleje mal en ellos o conduzca a más tareas indeseables.</p>
+
+    <p>Los psicólogos enfatizan que el rustout no es un fracaso personal, sino una señal: una que apunta a un desajuste entre los empleados y su trabajo. El aburrimiento refleja un deseo insatisfecho de involucrarse. Abordarlo requiere cambiar el enfoque de mantener ocupados a los empleados a garantizar que su trabajo sea significativo, desafiante y acorde con sus capacidades.</p>
+
+    <p>Para las organizaciones, ese cambio puede ser esencial. A medida que los lugares de trabajo siguen evolucionando, el desafío será gestionar la sobrecarga y prevenir la infracarga diseñando empleos que mantengan a los empleados involucrados.</p>
+  </section>
+
+  <!-- ═══════════════ ETAPAS DE LA CARRERA ═══════════════ -->
+  <aside class="stages">
+    <h2>Etapas de la carrera: ejemplos de rustout en diferentes contextos laborales</h2>
+    <p class="sub">El rustout puede verse muy diferente según el rol. Pero la experiencia subyacente a menudo es la misma: sentirse poco desafiado, desconectado e incapaz de crecer.</p>
+
+    <div class="stage">
+      <h3>Profesional en etapa temprana de su carrera</h3>
+      <p>Un graduado reciente consigue un empleo en su campo, pero pasa la mayor parte del día actualizando hojas de cálculo, dando formato a documentos o sentado en reuniones sin contribuir.</p>
+    </div>
+
+    <div class="stage">
+      <h3>Meseta de media a etapa tardía de la carrera</h3>
+      <p>Tras años en el mismo empleo, un empleado tiene pocos desafíos nuevos, oportunidades limitadas de ascenso y poco sentido de progreso. Los trabajadores mayores pueden ser pasados por alto para ascensos, capacitación o iniciativas de nueva tecnología, lo que limita sus oportunidades de aprender y crecer. Esta falta de inversión puede contribuir a la desconexión y a una sensación de haber quedado al margen profesionalmente.</p>
+    </div>
+
+    <div class="stage">
+      <h3>Roles repetitivos o estrechamente definidos</h3>
+      <p>En entornos de trabajo estructurados, como la manufactura o los empleos de oficina, las tareas a menudo son simples y repetitivas, y los trabajadores tienen un control limitado sobre su labor.</p>
+    </div>
+
+    <div class="stage">
+      <h3>Roles de monitoreo y baja actividad</h3>
+      <p>Algunos empleos, como el trabajo de seguridad o el monitoreo de sistemas, implican vigilar durante largos períodos con poca actividad física.</p>
+    </div>
+
+    <div class="stage">
+      <h3>Trabajo episódico con largos tramos de monotonía</h3>
+      <p>Empleos como el transporte de larga distancia tienen períodos de alta demanda seguidos de largos períodos de trabajo rutinario o inactividad.</p>
+    </div>
+
+    <div class="stage">
+      <h3>Trabajo del conocimiento en la era de la IA</h3>
+      <p>A medida que la automatización se hace cargo de tareas más complejas o creativas, algunos trabajadores se quedan con empleos que implican coordinación, supervisión o trabajo repetitivo de «prompts».</p>
+    </div>
+  </aside>
+
+  <!-- ═══════════════ LECTURAS ADICIONALES ═══════════════ -->
+  <section>
+    <h2>Lecturas adicionales</h2>
+    <ul class="resources">
+      <li>
+        <span class="r-title">El florecimiento de los trabajadores de EE. UU. disminuye mientras crece el pesimismo sobre el mercado laboral</span>
+        <span class="r-src">Fioroni, S., Gallup, 24 de marzo de 2026</span>
+      </li>
+      <li>
+        <span class="r-title">¿Aburrido o con burnout? Efectos recíprocos entre los estresores laborales, el aburrimiento y el burnout</span>
+        <span class="r-src">Harju, L. K., et al., Journal of Vocational Behavior, 2022</span>
+      </li>
+      <li>
+        <span class="r-title">Examen interdisciplinario de los costos y beneficios de los empleos ampliados: un cuasiexperimento de diseño del trabajo</span>
+        <span class="r-src">Campion, M. A., &amp; McClelland, C. L., Journal of Applied Psychology, 1991</span>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    Traducción al español del artículo «The hidden cost of workplace rustout», por Alyson Powell Key. Vol. 57, N.º 6, página 44.
+  </footer>
+
+</article>
+
+</body>
+</html>

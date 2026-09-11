@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lo que la IA le está haciendo a los cerebros jóvenes — Los psicólogos están desenredando cómo el uso de la IA podría moldear a la próxima generación.">
+<title>Lo que la IA le está haciendo a los cerebros jóvenes</title>
+<style>
+/* ═══════════════ ESTILOS ═══════════════ */
+:root{
+  --accent:#155e75;
+  --accent-soft:#e6f3f7;
+  --text:#23282e;
+  --muted:#5b6570;
+  --border:#dbe3e9;
+  --soft:#f7f9fb;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--soft);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.75;
+}
+.page{
+  max-width:760px;
+  margin:0 auto;
+  background:#fff;
+  padding:48px 32px 56px;
+}
+/* — Encabezado — */
+.kicker{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 14px;
+}
+h1{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.16;margin:0 0 14px;
+}
+.dek{font-size:1.12rem;font-style:italic;color:var(--muted);margin:0 0 26px;line-height:1.5;}
+.byline{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:12px 0;margin-bottom:30px;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.byline .author{font-weight:700;margin:0 0 2px;font-size:.95rem;}
+.byline .meta{margin:0;font-size:.8rem;color:var(--muted);line-height:1.55;}
+/* — Cuerpo — */
+h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.55rem;margin:44px 0 14px;color:var(--accent);
+}
+p{margin:0 0 18px;}
+.cite{font-size:.85em;color:var(--muted);}
+.intro > p:first-child::first-letter{
+  font-size:3.3em;float:left;line-height:.85;padding-right:9px;
+  color:var(--accent);font-weight:bold;
+}
+/* — Citas destacadas — */
+blockquote{
+  margin:28px 0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);
+  font-size:1.14rem;font-style:italic;line-height:1.6;
+}
+blockquote p{margin:0 0 10px;}
+blockquote p:last-child{margin:0;}
+.quote-by{
+  font-size:.85rem !important;font-style:normal;font-weight:600;
+  color:var(--muted);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/* — Imágenes — */
+figure.imagen{margin:30px 0;}
+figure.imagen img{
+  width:100%;
+  height:auto;
+  min-height:150px;          /* mantiene el hueco visible si aún no existe el archivo */
+  display:block;
+  border-radius:10px;
+  background:var(--accent-soft);
+}
+/* — Caja "Conexiones para la enseñanza" — */
+aside.teaching{
+  background:var(--soft);border:1px solid var(--border);border-radius:10px;
+  padding:26px 28px;margin:34px 0;
+}
+aside.teaching h2{margin-top:0;font-size:1.3rem;}
+aside.teaching .sub{font-style:italic;color:var(--muted);margin:0 0 6px;font-size:.98rem;}
+.prompt{margin:22px 0 0;}
+.prompt h3{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1.02rem;margin:0 0 8px;}
+.reinforces{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.8rem;color:var(--accent);background:var(--accent-soft);
+  border-radius:6px;padding:8px 12px;line-height:1.5;
+}
+.reinforces strong{letter-spacing:.05em;}
+/* — Cajas de contenido relacionado — */
+.related{
+  border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:8px;padding:12px 16px;margin:24px 0;font-size:.92rem;background:var(--soft);
+}
+/* — Recursos — */
+ul.resources{list-style:none;padding:0;margin:0;}
+ul.resources li{border-bottom:1px solid var(--border);padding:12px 0;}
+ul.resources li:last-child{border-bottom:none;}
+ul.resources .r-title{font-weight:700;display:block;}
+ul.resources .r-src{font-size:.85rem;color:var(--muted);font-style:italic;}
+footer{
+  margin-top:44px;padding-top:18px;border-top:3px solid var(--accent);
+  font-size:.8rem;color:var(--muted);line-height:1.6;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (max-width:600px){
+  .page{padding:32px 18px 40px;}
+  body{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <!-- ═══════════════ ENCABEZADO ═══════════════ -->
+  <header>
+    <p class="kicker">Tecnología · Desarrollo adolescente</p>
+    <h1>Lo que la IA le está haciendo a los cerebros jóvenes</h1>
+    <p class="dek">Los psicólogos están desenredando cómo el uso de la IA podría moldear a la próxima generación</p>
+    <div class="byline">
+      <p class="author">Por Zara Abrams</p>
+      <p class="meta">Fecha de creación: 1 de septiembre de 2026 · 12 min de lectura<br>
+      Vol. 57, N.º 6 · Versión impresa: página 28</p>
+    </div>
+  </header>
+
+  <!-- ═══════ IMAGEN 1: IA1.jpg ═══════ -->
+  <figure class="imagen">
+    <img src="IA1.jpg" alt="Adolescente usando un chatbot de inteligencia artificial">
+  </figure>
+
+  <!-- ═══════════════ INTRODUCCIÓN ═══════════════ -->
+  <section class="intro">
+    <p>Más de la mitad de los adolescentes estadounidenses dicen usar chatbots de IA para ayudar con las tareas escolares, según un informe de 2026 del Pew Research Center. Pero esa cifra apenas araña la superficie de cómo los niños y adolescentes están interactuando con la IA —todo, desde el entretenimiento hasta la compañía— y lo que ese uso podría significar para su desarrollo cognitivo, social y emocional.</p>
+
+    <blockquote>
+      <p>«Todo lo relacionado con los jóvenes y la IA es, en esencia, una pregunta abierta en este momento. Ciertamente hay algunos aspectos positivos, pero los expertos tienden a coincidir en que los riesgos potenciales son más pertinentes y urgentes de comprender».</p>
+      <p class="quote-by">— Anne Maheux, PhD, profesora asistente de psicología y neurociencia en la Universidad de Carolina del Norte en Chapel Hill</p>
+    </blockquote>
+
+    <p>Psicólogos como Maheux están trabajando para comprender no solo si los niños y adolescentes están usando la IA, sino, en tal caso, cómo. También están lanzando investigaciones sobre preguntas apremiantes, entre ellas: cómo las herramientas de IA pueden apoyar el aprendizaje en lugar de obstaculizarlo; qué sucede cuando los niños empiezan a ver a los chatbots como amigos; y cómo enseñar habilidades de alfabetización en IA para que las generaciones más jóvenes aprendan cuándo es seguro o recomendable pedir ayuda a la IA.</p>
+  </section>
+
+  <!-- ═══════════════ CONEXIONES PARA LA ENSEÑANZA ═══════════════ -->
+  <aside class="teaching">
+    <h2>Conexiones para la enseñanza</h2>
+    <p class="sub">Lecciones sobre IA, aprendizaje y desarrollo adolescente</p>
+    <p>Las siguientes consignas (organizadas por tema) pueden apoyar a los educadores de psicología al discutir en el aula cómo el uso de la IA afecta el aprendizaje, el desarrollo social y el bienestar adolescente.</p>
+
+    <div class="prompt">
+      <h3>1. Aprendizaje, memoria y cognición</h3>
+      <p>El artículo describe investigaciones que muestran que los estudiantes que usaron un tutor de IA lograron mejoras significativas en sus calificaciones, pero no rindieron mejor que un grupo de control una vez que se les retiró la herramienta. Con base en lo que sabe sobre codificación, recuperación y el concepto de dificultad deseable, explique por qué el aprendizaje que requiere esfuerzo puede producir conocimientos más duraderos que los atajos asistidos por IA. ¿Qué sugiere la teoría de la descarga cognitiva sobre los riesgos a largo plazo de delegar tareas de aprendizaje a la IA?</p>
+      <p class="reinforces"><strong>REFUERZA:</strong> codificación y recuperación de la memoria, dificultad deseable, descarga cognitiva y adquisición de habilidades</p>
+    </div>
+
+    <div class="prompt">
+      <h3>2. Desarrollo adolescente</h3>
+      <p>Los investigadores citados en este artículo describen la adolescencia como una ventana sensible para el desarrollo social y emocional, a veces llamada la «edad de la oportunidad» debido a la plasticidad única del cerebro adolescente para construir habilidades clave. Con base en lo que sabe sobre el desarrollo cerebral durante la adolescencia, evalúe la preocupación de que un uso intensivo de la IA durante este período podría interferir con el desarrollo de la empatía, la tolerancia al malestar y la resolución de conflictos. ¿Qué sugiere la investigación sobre los períodos sensibles acerca de la urgencia de estas preocupaciones en relación con el desarrollo de la función ejecutiva, la regulación emocional, la toma de decisiones y el comportamiento dirigido a metas?</p>
+      <p class="reinforces"><strong>REFUERZA:</strong> desarrollo del cerebro adolescente, neuroplasticidad, períodos sensibles, desarrollo de la corteza prefrontal, función ejecutiva, regulación emocional y toma de decisiones</p>
+    </div>
+
+    <div class="prompt">
+      <h3>3. Desarrollo social y emocional</h3>
+      <p>El artículo señala que los chatbots de IA tienden a ser cálidos, positivos y sin fricción, lo que significa que las interacciones con ellos rara vez requieren adoptar la perspectiva del otro, manejar desacuerdos o resolver conflictos. Con base en lo que sabe sobre cómo los niños y adolescentes desarrollan habilidades sociales, comprensión de las emociones, empatía y competencia social, analice las posibles consecuencias de que los niños establezcan relaciones de compañía con la IA. ¿En qué circunstancias podría ser beneficioso el uso de IA social y cuándo podría representar riesgos para un desarrollo social y emocional saludable?</p>
+      <p class="reinforces"><strong>REFUERZA:</strong> desarrollo prosocial, empatía, competencia social, socialización emocional, adopción de perspectivas, teoría del aprendizaje social y el papel de las relaciones entre pares en el desarrollo adolescente</p>
+    </div>
+
+    <div class="prompt">
+      <h3>4. Métodos de investigación</h3>
+      <p>El artículo cita varios estudios sobre el uso de IA entre los jóvenes, incluidos hallazgos no publicados e investigaciones que aún no han sido revisadas por pares. Con base en lo que sabe sobre el método científico y el proceso de revisión por pares, evalúe la solidez de la evidencia presentada. ¿Por qué los investigadores enfatizan la necesidad de estudios longitudinales en esta área? ¿Cuáles son los riesgos de extraer conclusiones de investigaciones en etapa temprana al tomar decisiones de política que afectan a los niños?</p>
+      <p class="reinforces"><strong>REFUERZA:</strong> método científico, revisión por pares, diseño de investigación longitudinal y evaluación de la evidencia</p>
+    </div>
+
+    <div class="prompt">
+      <h3>5. Motivación y autorregulación</h3>
+      <p>Varios investigadores citados en el artículo sostienen que, cuando los estudiantes reciben respuestas instantáneas de la IA, pierden oportunidades de desarrollar paciencia, perseverancia y regulación emocional. Con base en lo que sabe sobre motivación intrínseca, autorregulación y el papel de la lucha productiva en el aprendizaje, evalúe esta afirmación. ¿Cómo podría el diseño de las herramientas de IA —incluidas su capacidad de respuesta y su falta de fricción— interactuar con la capacidad de autorregulación en pleno desarrollo de los adolescentes?</p>
+      <p class="reinforces"><strong>REFUERZA:</strong> motivación intrínseca y extrínseca, autorregulación, regulación emocional y psicología del aprendizaje</p>
+    </div>
+  </aside>
+
+  <p>En última instancia, los psicólogos apoyan esfuerzos más amplios en toda la sociedad para integrar la IA en los entornos de aprendizaje con las salvaguardas adecuadas, y para preparar a los jóvenes de hoy para un mercado laboral y un mundo impregnados de esta tecnología.</p>
+
+  <blockquote>
+    <p>«Para cuando los adolescentes de hoy sean adultos, la IA estará tan integrada en la vida cotidiana como internet: algo en lo que dependemos tanto que apenas notamos que está ahí. El desafío será averiguar dónde encaja sin reemplazar las habilidades que los jóvenes necesitan para aprender, crecer y funcionar en la sociedad».</p>
+    <p class="quote-by">— Michael Robb, PhD, director de investigación de Common Sense Media, organización sin fines de lucro centrada en cómo los medios y la tecnología afectan a los niños y las familias</p>
+  </blockquote>
+
+  <!-- ═══════════════ UNA LUCHA PRODUCTIVA ═══════════════ -->
+  <section>
+    <h2>Una lucha productiva</h2>
+
+    <p>Según un informe de Anthropic de 2025 sobre las ganancias de productividad gracias a la IA, los grandes modelos de lenguaje (LLM) de uso general —como ChatGPT, Claude y Gemini— pueden mejorar la productividad en tareas como la escritura y la programación informática. Pero eso se hace a expensas del aprendizaje, probablemente porque los usuarios se implican de manera menos profunda con el material y realizan menos procesamiento activo.</p>
+
+    <p>En un estudio realizado con cerca de 1.000 estudiantes de matemáticas de secundaria en Turquía, las calificaciones mejoraron un 48 % cuando los estudiantes podían usar ChatGPT para resolver problemas. Pero cuando se les retiró ChatGPT, esos estudiantes rindieron un 17 % peor que quienes nunca habían tenido acceso a la herramienta <span class="cite">(Bastani, H., et al., PNAS, Vol. 122, N.º 26, 2025)</span>. Para examinar los mecanismos subyacentes a los LLM y el aprendizaje, investigadores del Instituto de Tecnología de Massachusetts usaron electroencefalografía para medir la actividad cerebral mientras los participantes escribían ensayos con o sin la ayuda de ChatGPT. Descubrieron que los participantes que usaron el LLM presentaban una conectividad neuronal más débil al completar la tarea. Los hallazgos aún no han sido revisados por pares <span class="cite">(Kosmyna, N., et al., arXiv, 2025)</span>.</p>
+
+    <!-- ═══════ IMAGEN 2: IA2.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IA2.jpg" alt="Estudiantes resolviendo problemas con y sin ayuda de inteligencia artificial">
+    </figure>
+
+    <div class="related">[Relacionado: <em>Cómo la IA está transformando las habilidades y el pensamiento humanos</em>]</div>
+
+    <p>«Creo que esto supone un riesgo significativo para los estudiantes jóvenes: cuanto más crezcan accediendo a soluciones rápidas de los problemas, menos probable será que desarrollen las habilidades necesarias para resolver esos problemas por sí mismos», dijo Shiri Melumad, PhD, profesora asociada de marketing en la Escuela Wharton de la Universidad de Pensilvania.</p>
+
+    <p>Esto plantea una pregunta más amplia: si la IA puede realizar ciertas tareas con una precisión casi perfecta, ¿siguen necesitando los jóvenes aprender esas habilidades? Los expertos en ciencias del aprendizaje responden que sí, y subrayan que las habilidades básicas son necesarias para adquirir las de orden superior. Por ejemplo, los estudiantes siguen aprendiendo aritmética a mano a pesar del fácil acceso a las calculadoras, porque esto les ayuda a construir los cimientos del razonamiento matemático más avanzado. Por la misma razón, aprender a programar sigue entrenando habilidades cognitivas útiles como la estructuración lógica, la división de problemas en pasos y el pensamiento computacional, incluso si la IA asume cada vez más las tareas de programación.</p>
+
+    <p>«Ese es el argumento de por qué no deberíamos delegar estos patrones críticos de pensamiento. Si los estudiantes no poseen ya estos hábitos mentales, no pueden construir sobre ellos», dijo Zachary A. Pardos, PhD, profesor asociado de educación en la Universidad de California, Berkeley, que estudia el aprendizaje adaptativo y la IA.</p>
+
+    <p>El aprendizaje puede ser un proceso laborioso —a veces llamado «lucha productiva»— en el que los estudiantes deben batallar con material desafiante para mejorar su desempeño. La idea tiene sus raíces en el concepto de dificultad deseable del psicólogo Robert Bjork, PhD: una tarea de aprendizaje que exige un esfuerzo considerable pero que ofrece beneficios a largo plazo.</p>
+
+    <p>«Si el objetivo es aprender, la eficiencia y la facilidad deben pasar a un segundo plano», dijo Brooke Macnamara, PhD, profesora asociada de ciencias psicológicas en la Universidad de Purdue, que estudia cómo depender de la IA puede debilitar las habilidades con el tiempo mediante un proceso llamado descarga cognitiva, en el que usamos herramientas externas para reducir el esfuerzo mental que requiere una tarea.</p>
+
+    <p>Cuando un estudiante obtiene gratificación instantánea de las respuestas rápidas de la IA, también pierde la oportunidad de desarrollar habilidades como la paciencia, la perseverancia y la regulación emocional, señaló Robb.</p>
+
+    <p>En una encuesta, Maheux preguntó a adultos jóvenes con qué frecuencia delegaban tareas completas a la IA. Quienes lo hacían con mayor frecuencia reportaban más ansiedad <span class="cite">(PsyArXiv, 2026)</span>. En datos aún no publicados, también mostraron un deterioro de la tolerancia al malestar con el tiempo.</p>
+
+    <p>«El malestar no siempre es negativo. Aprender a regular las emociones es una parte críticamente importante de la adolescencia, pero la descarga cognitiva que ocurre con el uso de la IA puede estar socavando el desarrollo de esa habilidad», dijo Maheux.</p>
+  </section>
+
+  <!-- ═══════════════ IA CON SALVAGUARDAS ═══════════════ -->
+  <section>
+    <h2>IA con salvaguardas</h2>
+
+    <p>Los LLM son tan adaptables y de tan final abierto que la experiencia del usuario puede variar sustancialmente de una persona a otra. Por esa razón, los investigadores insisten en que lo importante no es si los estudiantes usan IA, sino cómo y para qué la usan.</p>
+
+    <p>Incluso los LLM estándar, como ChatGPT, pueden tener un lugar en la educación cuando se usan para apoyar ciertas tareas cognitivas, señaló Pardos. Por ejemplo, los estudiantes pueden usar estas herramientas para delegar tareas no esenciales como dar formato, generar texto de plantilla o buscar información. También pueden actuar como compañeros de lluvia de ideas, crear problemas de matemáticas de ejemplo junto con un desglose paso a paso de las soluciones, o ofrecer retroalimentación crítica sobre un borrador escrito por el usuario.</p>
+
+    <p>«Esos usos son muy diferentes de automatizar y delegar por completo una tarea de aprendizaje», dijo Maheux.</p>
+
+    <p>La ciencia psicológica puede orientar las decisiones escolares sobre la IA al identificar qué experiencias de aprendizaje son esenciales para construir conocimientos y habilidades duraderos, y qué tareas puede apoyar la IA de manera segura.</p>
+
+    <p>Cada vez más evidencia sugiere también que la IA generativa con salvaguardas puede funcionar como un tutor eficaz. En el estudio de estudiantes de matemáticas de secundaria en Turquía, los investigadores probaron un LLM personalizado con indicaciones (prompts) diseñadas para apoyar el aprendizaje. Los estudiantes que usaron ese tutor obtuvieron ganancias aún mayores: una mejora del 127 % en las calificaciones, frente al 48 % de quienes usaban ChatGPT. Cuando se les retiró el tutor, estos estudiantes rindieron igual de bien que un grupo de control, evitando las pérdidas de aprendizaje observadas en el grupo de ChatGPT. Por otra parte, los estudiantes que usaron el tutor personalizado parecían sobreestimar su aprendizaje y su desempeño en los exámenes, lo que sugiere que incluso la IA con salvaguardas puede crear una ilusión de dominio <span class="cite">(Bastani, H., et al., PNAS, Vol. 122, N.º 26, 2025)</span>.</p>
+
+    <!-- ═══════ IMAGEN 3: IA3.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IA3.jpg" alt="Estudiante usando una aplicación de tutoría con inteligencia artificial">
+    </figure>
+
+    <p>Los sistemas de tutoría inteligente, como ALEKS de McGraw Hill y MATHia de Carnegie Learning, ya usan IA para analizar el desempeño de los estudiantes y ajustar en consecuencia el ritmo, la dificultad y el nivel de apoyo. La integración de un soporte de chatbot basado en LLM podría mejorar aún más estos sistemas al dividir los problemas en pasos más pequeños, hacer preguntas orientadoras y explicar los errores en tiempo real, señaló Pardos, quien lideró la creación de un sistema de tutoría inteligente de código abierto llamado OATutor.</p>
+
+    <p>Las herramientas de IA generativa también podrían ayudar a integrar la educación especial con la educación general, facilitando que estudiantes con necesidades diferentes aprendan en la misma aula, afirmó Tammy Kwan, EdD, emprendedora en residencia en el Laboratorio de IA de la Universidad de Princeton. Por ejemplo, la herramienta de tutoría de IA conocida como Read Sidekick, finalista del Create+AI Challenge 2026 del Stanford Accelerator for Learning, ayuda a personas con dificultades de lectura a acceder a textos complejos y comprenderlos. La extensión gratuita de navegador ofrece interpretaciones línea por línea e instrucción lectora, y pronto añadirá un traductor de inglés a la lengua de señas americana con un avatar animado que se comunica con señas.</p>
+
+    <p>«Esta es una dirección realmente emocionante para la IA y el aprendizaje aumentado. Si logramos hacerlo bien, la IA generativa puede contribuir a que el sistema educativo sea más inclusivo», dijo Kwan.</p>
+  </section>
+
+  <!-- ═══════════════ LA FALTA DE FRICCIÓN ═══════════════ -->
+  <section>
+    <h2>La falta de fricción</h2>
+
+    <p>Fuera del aula, los niños y adolescentes también usan lo que se conoce como «IA social» para entretenerse, buscar compañía y pedir consejos. Esto abarca actividades como escuchar una historia, pedir consejo sobre una interacción complicada o practicar conversaciones cara a cara. Estas interacciones pueden darse en aplicaciones especializadas como Replika o Nomi, o en LLM de uso general como ChatGPT.</p>
+
+    <p>Las encuestas de Common Sense Media muestran que el 72 % de los niños han usado IA social <span class="cite">(Talk, Trust, and Trade-Offs: How and Why Teens Use AI Companions, Common Sense Media, 2025)</span>. Aproximadamente un tercio de esos niños dice haber hablado de problemas serios con la IA en lugar de hacerlo con otra persona.</p>
+
+    <p>«Estos usos pueden generar incomodidad en los padres porque pueden reemplazar roles que antes ocupaba otra persona. Nos interesa mucho comprender qué efectos posteriores podría tener eso», dijo Robb.</p>
+
+    <div class="related">[Relacionado: <em>Inteligencia artificial y bienestar adolescente</em>]</div>
+
+    <!-- ═══════ IMAGEN 4: IA4.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IA4.jpg" alt="Niño conversando con un chatbot de IA en su teléfono">
+    </figure>
+
+    <p>En algunos casos, la IA social puede ser beneficiosa: por ejemplo, cuando un niño tiene acceso limitado a pares o redes de apoyo (por vivir en una zona remota), o cuando niños neurodivergentes quieren practicar interacciones presenciales. Los expertos advierten que estas herramientas deben complementar —no reemplazar— las relaciones reales. También existen riesgos significativos, señaló Maheux, y la mayoría de los beneficios potenciales siguen siendo especulativos. Además de desplazar las relaciones humanas, el uso de IA social puede interferir con el desarrollo de habilidades sociales clave, como conversar de forma sincrónica e interpretar el lenguaje corporal.</p>
+
+    <p>Otra gran preocupación: los chatbots de IA tienden a ser cálidos, positivos y aduladores, por lo que las interacciones con ellos generalmente carecen de fricción, explicó Robb. Los niños que usan IA social podrían, por tanto, perder oportunidades importantes de ponerse en el lugar del otro, manejar desacuerdos o resolver conflictos.</p>
+
+    <p>«Como no son criaturas sintientes, las IA no tienen necesidades propias, de modo que el niño no tiene oportunidad de practicar habilidades prosociales, empatía o negociación de conflictos. Por esas razones, es posible que la IA conduzca a creencias más disfuncionales sobre cómo deberían ser las relaciones humanas», dijo Maheux.</p>
+
+    <p>Aunque los resultados aún no se han publicado, su investigación sugiere que los jóvenes que sostienen creencias más disfuncionales sobre las relaciones —como la idea de que las personas deberían poder leerse la mente entre sí— podrían desarrollar, con el tiempo, más interés por relaciones de compañía con la IA.</p>
+
+    <p>Esas tendencias resultan especialmente preocupantes si se considera que la adolescencia es una ventana sensible para el desarrollo socioemocional, a veces llamada «edad de la oportunidad» porque el cerebro adolescente posee una plasticidad única para construir habilidades sociales y emocionales.</p>
+
+    <p>«Si estas habilidades se delegan o se socavan, los jóvenes podrían enfrentar dificultades en estas áreas más adelante en sus vidas», dijo Maheux.</p>
+  </section>
+
+  <!-- ═══════════════ MANTENER A LOS NIÑOS SEGUROS ═══════════════ -->
+  <section>
+    <h2>Mantener a los niños seguros</h2>
+
+    <p>Aunque algunas herramientas de IA exigen verificación de edad, muchos LLM populares permiten que cualquiera inicie sesión y empiece a chatear. Los expertos sostienen que añadir mejores salvaguardas podría ayudar a proteger a los jóvenes hasta que la investigación revele qué tipo de uso resulta problemático. Por ejemplo, una opción de configuración podría permitir que los padres, los docentes, los estudiantes o los usuarios menores de cierta edad cambien a una experiencia estructurada que funcione más como un tutor que como un compañero de conversación de final abierto, explicó Mutlu Cukurova, PhD, profesor de aprendizaje e inteligencia artificial en el University College London que estudia la interacción entre humanos e IA.</p>
+
+    <p>«Mi esperanza es que, a medida que invirtamos cada vez más en investigación, adoptemos un enfoque más precautorio respecto al uso de IA por parte de los niños, hasta que tengamos evidencia de que es seguro que se desarrollen en ese tipo de entorno», dijo Nita Farahany, PhD, JD, profesora de derecho y filosofía en la Universidad de Duke que estudia los aspectos legales, éticos y sociales de las tecnologías emergentes.</p>
+
+    <!-- ═══════ IMAGEN 5: IA5.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IA5.jpg" alt="Padres e hijos conversando sobre el uso de la inteligencia artificial">
+    </figure>
+
+    <p>Los padres también tienen un papel que desempeñar en la protección de los niños. Algunos pueden sentir que no comprenden del todo la IA y que, por tanto, no saben cómo hablar de ella con sus hijos. Pero abrir canales de comunicación —preguntar si los niños usan estas herramientas y cómo— puede ayudar a los padres a detectar problemas a tiempo y a orientar hacia límites más saludables.</p>
+
+    <p>«Sabemos, por la investigación sobre bienestar digital, que la mediación parental importa. Los niños que mantienen conversaciones activas con sus padres sobre cómo usan la tecnología, incluida la IA, están mejor preparados para desarrollar hábitos saludables en torno a ella», dijo Robb.</p>
+
+    <p>Las escuelas deben ofrecer políticas claras y bien elaboradas sobre cómo puede y no puede usarse la IA en las tareas escolares, para que los estudiantes no queden adivinando por su cuenta, añadió.</p>
+
+    <p>Otra prioridad para las escuelas debería ser enseñar a los estudiantes a usar la IA de forma responsable. La alfabetización en IA puede ayudar a los niños a conocer los riesgos y los beneficios, y a empezar a decidir por sí mismos qué constituye un uso seguro de la IA. Esto exigirá cambios en la infraestructura educativa y en el desarrollo profesional para que los docentes se sientan preparados para guiar a los estudiantes, señaló Kwan. Common Sense Media ofrece planes de clase gratuitos de alfabetización en IA y otros recursos para educadores.</p>
+
+    <p>«Enseñar a los estudiantes cuándo no usar la IA —y exigirles reflexionar sobre sus decisiones— puede ayudar a mitigar los riesgos para un desarrollo saludable», dijo Nicole Barnes, PhD, psicóloga principal ejecutiva de educación de la APA.</p>
+
+    <p>La investigación en curso busca comprender mejor cómo la IA puede apoyar, y no obstaculizar, el aprendizaje y el desarrollo. Cukurova explora un área conocida como complementariedad humano-IA, en la que nuevas capacidades pueden respaldar interacciones más sinérgicas. Por ejemplo, los modelos de IA con mejores capacidades de «teoría de la mente» —la conciencia de lo que alguien piensa o siente— podrían ser capaces de desafiar a los usuarios en lugar de complacerlos.</p>
+
+    <p>Maheux espera que los investigadores puedan aprender de la literatura sobre redes sociales y adoptar un enfoque más eficaz para estudiar el uso de IA entre los jóvenes. Las primeras investigaciones sobre redes sociales se centraron sobre todo en el tiempo de pantalla, pero luego demostraron que la manera en que los jóvenes usan la tecnología importa mucho más que la frecuencia con que la usan. En el caso de la IA, eso implica precisar qué están haciendo realmente los niños. El grupo de Maheux está construyendo actualmente una taxonomía de las formas en que niños y adolescentes usan la IA. Según ella, los estudios longitudinales serán clave para comprender los efectos de esta tecnología.</p>
+
+    <p>«Necesitamos saber qué aparece primero: las vulnerabilidades de los niños o algo inherente al propio uso de la IA. Si no consideramos tanto las escalas de tiempo cortas como las largas, podríamos perdernos la visión de conjunto de cómo estas tecnologías influyen en el desarrollo», dijo.</p>
+  </section>
+
+  <!-- ═══════════════ RECURSOS ADICIONALES ═══════════════ -->
+  <section>
+    <h2>Recursos adicionales</h2>
+    <ul class="resources">
+      <li>
+        <span class="r-title">Inteligencia artificial y bienestar adolescente: un aviso de salud de la APA</span>
+        <span class="r-src">APA, 2025</span>
+      </li>
+      <li>
+        <span class="r-title">Compañeros de IA y niños: lo que necesita saber</span>
+        <span class="r-src">Institute of Digital Media and Social Development, 2025</span>
+      </li>
+      <li>
+        <span class="r-title">Uso de aplicaciones de inteligencia artificial generativa entre los jóvenes de EE. UU.</span>
+        <span class="r-src">Maheux, A., et al., JAMA Network Open, 2026</span>
+      </li>
+      <li>
+        <span class="r-title">La paradoja cognitiva de la IA en la educación: entre el mejoramiento y la erosión</span>
+        <span class="r-src">Jose, B., et al., Frontiers in Psychology, 2025</span>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    Traducción al español del artículo «What AI is doing to young brains», por Zara Abrams. Vol. 57, N.º 6, página 28.
+  </footer>
+
+</article>
+
+</body>
+</html>

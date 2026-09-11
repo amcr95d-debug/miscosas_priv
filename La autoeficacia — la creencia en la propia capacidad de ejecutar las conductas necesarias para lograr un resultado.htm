@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Autoeficacia: la teoría en el corazón de la agencia humana — Breakthrough Research, APA, 22 de octubre de 2025, con el estudio clásico de Bandura (1977).">
+<title>Autoeficacia: la teoría en el corazón de la agencia humana</title>
+<style>
+/* ═══════════════ ESTILOS ═══════════════ */
+:root{
+  --accent:#155e75;
+  --accent-soft:#e6f3f7;
+  --text:#23282e;
+  --muted:#5b6570;
+  --border:#dbe3e9;
+  --soft:#f7f9fb;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--soft);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.75;
+}
+.page{
+  max-width:760px;
+  margin:0 auto;
+  background:#fff;
+  padding:48px 32px 56px;
+}
+.breadcrumb{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;
+  color:var(--muted);
+  letter-spacing:.04em;
+  margin:0 0 28px;
+}
+/* — Encabezado — */
+.kicker{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 14px;
+}
+h1{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.16;margin:0 0 14px;
+}
+.dek{font-size:1.12rem;font-style:italic;color:var(--muted);margin:0 0 26px;line-height:1.5;}
+.byline{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:12px 0;margin-bottom:30px;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.byline .author{font-weight:700;margin:0 0 2px;font-size:.95rem;}
+.byline .meta{margin:0;font-size:.8rem;color:var(--muted);line-height:1.55;}
+/* — Cuerpo — */
+h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.55rem;margin:44px 0 14px;color:var(--accent);
+}
+h3.sub{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.15rem;line-height:1.3;margin:28px 0 10px;color:var(--accent);
+}
+p{margin:0 0 18px;}
+.intro > p:first-child::first-letter{
+  font-size:3.3em;float:left;line-height:.85;padding-right:9px;
+  color:var(--accent);font-weight:bold;
+}
+.cite{font-size:.85em;color:var(--muted);}
+/* — Citas destacadas — */
+blockquote{
+  margin:28px 0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);
+  font-size:1.14rem;font-style:italic;line-height:1.6;
+}
+blockquote p{margin:0 0 10px;}
+blockquote p:last-child{margin:0;}
+.quote-by{
+  font-size:.85rem !important;font-style:normal;font-weight:600;
+  color:var(--muted);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/* — Recuadros — */
+.link-articulo{
+  border:1px solid var(--border);border-left:4px solid var(--accent);
+  border-radius:8px;padding:12px 16px;margin:24px 0;font-size:.92rem;background:var(--soft);
+}
+/* — Caja de fuentes — */
+aside.fuentes{
+  background:var(--soft);
+  border:1px solid var(--border);
+  border-left:4px solid var(--accent);
+  border-radius:10px;
+  padding:22px 26px;
+  margin:34px 0;
+}
+aside.fuentes h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.15rem;margin:0 0 12px;color:var(--accent);
+}
+aside.fuentes ul{margin:0;padding-left:20px;}
+aside.fuentes li{margin:0 0 10px;}
+aside.fuentes li:last-child{margin:0;}
+aside.fuentes strong{color:var(--accent);}
+/* — Cajas — */
+aside.ficha{
+  background:var(--soft);border:1px solid var(--border);border-radius:10px;
+  padding:26px 28px;margin:34px 0;
+}
+aside.ficha h2{margin-top:0;font-size:1.3rem;}
+aside.ficha ul{list-style:none;padding:0;margin:0;}
+aside.ficha li{margin:0 0 10px;line-height:1.6;}
+aside.ficha li:last-child{margin:0;}
+aside.ficha strong{
+  color:var(--accent);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.85rem;
+  letter-spacing:.05em;
+}
+ul.resources{list-style:none;padding:0;margin:0;}
+ul.resources li{border-bottom:1px solid var(--border);padding:12px 0;}
+ul.resources li:last-child{border-bottom:none;}
+ul.resources .r-title{font-weight:700;display:block;}
+ul.resources .r-src{font-size:.85rem;color:var(--muted);font-style:italic;}
+ul.claves{padding-left:22px;margin:0 0 18px;}
+ul.claves li{margin:0 0 10px;}
+ul.claves li:last-child{margin:0;}
+/* — Imágenes — */
+figure.imagen{margin:34px 0;}
+figure.imagen img{
+  width:100%;
+  height:auto;
+  min-height:150px;          /* mantiene el hueco visible si aún no existe el archivo */
+  display:block;
+  border-radius:10px;
+  background:var(--accent-soft);
+}
+footer{
+  margin-top:44px;padding-top:18px;border-top:3px solid var(--accent);
+  font-size:.8rem;color:var(--muted);line-height:1.6;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (max-width:600px){
+  .page{padding:32px 18px 40px;}
+  body{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <p class="breadcrumb">Inicio · APA · Investigación y práctica · Breakthrough Research</p>
+
+  <!-- ═══════════════ ENCABEZADO ═══════════════ -->
+  <header>
+    <p class="kicker">Breakthrough Research · Artículo + estudio clásico</p>
+    <h1>Autoeficacia: la teoría en el corazón de la agencia humana</h1>
+    <p class="dek">La teoría de la autoeficacia nos ayuda a comprender la conducta en campos como la educación, la salud, el rendimiento y más</p>
+    <div class="byline">
+      <p class="author">Por Kirsten Weir</p>
+      <p class="meta">Fecha de creación: 22 de octubre de 2025 · 14 min de lectura<br>
+      Temas: Personalidad · Emociones · Resiliencia</p>
+    </div>
+  </header>
+
+  <!-- ═══════ IMAGEN 1: IR1.jpg ═══════ -->
+  <figure class="imagen">
+    <img src="IR1.jpg" alt="Estudiante estudiando con determinación tras un mal examen">
+  </figure>
+
+  <div class="link-articulo">Durante más de 100 años, las revistas, libros y bases de datos de la APA han proporcionado a los académicos de todo el mundo contenido de investigación psicológica de la máxima calidad. La serie <em>Breakthrough Research</em> revisita artículos clave publicados en revistas de la APA que siguen moldeando el campo décadas después. En cada artículo se conoce la investigación original —su inspiración y su impacto— y se escucha a los científicos que hoy construyen sobre esos cimientos, demostrando su relevancia duradera y en evolución.</div>
+
+  <!-- ═══════════════ EL AVANCE ═══════════════ -->
+  <section class="intro">
+    <p>Dos estudiantes de primer año igual de brillantes se matriculan en un curso exigente. Las dos suspenden el primer examen. Una no se desanima y se compromete a estudiar más. La otra se siente derrotada y prácticamente abandona: apenas toma apuntes ni estudia el resto del semestre. En realidad, ambas empezaron el año perfectamente capacitadas para aprobar la asignatura. ¿Por qué son tan distintas sus experiencias? Albert Bandura, PhD, probablemente habría señalado sus creencias sobre sus propias capacidades.</p>
+
+    <p>En un influyente artículo de 1977, Bandura, profesor de psicología de la Universidad Stanford, expuso su teoría de la <strong>autoeficacia</strong>: la creencia en la propia capacidad de ejecutar las conductas necesarias para lograr un resultado específico. Quien tiene alta autoeficacia cree que aprobará el examen, superará el obstáculo o llegará a la cima de la montaña. Porque cree que puede, se fija metas más grandes, persevera ante los desafíos y se recupera más fácil de los reveses. Quien tiene baja autoeficacia, en cambio, evita las tareas difíciles y se desanima con facilidad.</p>
+
+    <p>La teoría ha impregnado la psicología e influido en un sinfín de campos, incluidos la educación, la salud pública y el deporte. «La teoría de la autoeficacia ha sido tan influyente porque es un constructo utilísimo para explicar la conducta y una teoría muy práctica sobre la que construir», dijo Robert Klassen, PhD, psicólogo educativo de la Universidad de Oxford. «Nuestras creencias sobre nuestras capacidades son al menos tan importantes como las capacidades mismas».</p>
+  </section>
+
+  <div class="link-articulo">El artículo clásico: Bandura, A. (1977). <em>Self-efficacy: Toward a unifying theory of behavioral change</em>. <em>Psychological Review</em>, 84(2), 191–215.</div>
+
+  <!-- ═══════════════ FUNDAMENTOS ═══════════════ -->
+  <section>
+    <h2>Fundamentos del descubrimiento</h2>
+
+    <p>El nombre de Bandura es familiar para la mayoría de los estudiosos de la psicología. Psicólogo social cognitivo que pasó casi 60 años en la Universidad Stanford y presidió la APA en 1974, publicó cientos de artículos y aparece con regularidad en las listas de los psicólogos más influyentes del mundo. Saltó a la fama en los años sesenta con sus experimentos del «muñeco Bobo», que mostraron que los niños que observaban a adultos agredir a un payaso hinchable eran más propensos a golpearlo o patearlo al jugar con él. El experimento demostró la importancia del modelado en el aprendizaje y ayudó a apartar al campo del lente estrictamente conductista que concebía el aprendizaje como simple producto de recompensa y castigo. También sentó las bases de la teoría social cognitiva de Bandura, un ambicioso marco que describe cómo la conducta, los factores personales —cognición y creencias— y el entorno interactúan e influyen entre sí. Bandura concibió la autoeficacia como un factor personal clave dentro de ese marco más amplio.</p>
+
+    <!-- ═══════ IMAGEN 2: IR2.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IR2.jpg" alt="Retrato del psicólogo Albert Bandura">
+    </figure>
+
+    <p>Hijo de inmigrantes, Bandura creció en una comunidad agrícola remota de Alberta, Canadá, y al desarrollar su teoría bebió de su propio viaje: de muchacho rural a gigante reconocido internacionalmente de la psicología. En una entrevista de 2013 para la serie <em>Inside the Psychologist's Studio</em>, grabada ocho años antes de su muerte a los 95, describió su creencia duradera en el potencial humano:</p>
+
+    <blockquote>
+      <p>«En cierto modo, mi teoría psicológica se funda en la agencia humana: que las personas tienen mano en el rumbo que toman sus vidas. Y en muchos aspectos mi teoría es realmente un reflejo de mi propio camino vital».</p>
+      <p class="quote-by">— Albert Bandura, PhD (1925–2021)</p>
+    </blockquote>
+
+    <p>Desde la publicación de la teoría, los investigadores han acumulado evidencia a su favor: creencias de autoeficacia mayores se han vinculado con rendimiento académico, cambio de conductas de salud, desempeño deportivo, conducta de liderazgo, resiliencia ante experiencias estresantes y mayor bienestar. Y sin embargo, pese a su impacto duradero, muchos investigadores creen que el constructo puede mejorarse — demostrando cómo una teoría importante puede reevaluarse y evolucionar a medida que avanza la ciencia.</p>
+  </section>
+
+  <!-- ═══════════════ ¿CAPACIDAD O MOTIVACIÓN? ═══════════════ -->
+  <section>
+    <h2>La autoeficacia hoy: ¿capacidad o motivación?</h2>
+
+    <p>Uno de los ámbitos donde la teoría ha causado impacto es el de las conductas de salud. En un metaanálisis de 2016, investigadores exploraron 204 estudios experimentales dirigidos a actitudes, normas y creencias de autoeficacia con el objetivo de mejorar intenciones y conductas relacionadas con la salud —uso del condón, ejercicio, consumo de alcohol y tabaco, donación de sangre, cribados sanitarios—. En conjunto, la autoeficacia tuvo un efecto de tamaño medio sobre las conductas, y los autores concluyeron que las intervenciones que cambian cogniciones sobre autoeficacia tuvieron un efecto causal y significativo tanto sobre la intención como sobre la conducta <span class="cite">(Sheeran, P., et al., Health Psychology, Vol. 35, N.º 11, 2016)</span>.</p>
+
+    <p>Pero ¿medían de verdad esos experimentos la autoeficacia? David M. Williams, PhD, psicólogo de la Universidad Brown, alberga dudas que reflejan preocupaciones más amplias del campo.</p>
+
+    <p>«La autoeficacia es un concepto extremadamente útil para entender, predecir y, en última instancia, ayudar a la gente a cambiar conductas que no están bajo su control volitivo — las que no puede simplemente decidir hacer aunque se le vaya en ello la vida», dijo Williams. Piensa en sacar buena nota en un examen o ganar una carrera ciclista: no puedes elegir la puntuación perfecta ni cruzar primero la meta por mucho que lo desees. Cuando el resultado escapa al control volitivo, mayor autoeficacia suele predecir mejores resultados: creer que puedes se convierte en algo así como una profecía autocumplida.</p>
+
+    <!-- ═══════ IMAGEN 3: IR3.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IR3.jpg" alt="Persona corriendo al aire libre al amanecer">
+    </figure>
+
+    <p>Pero las cosas que sí dependen del control volitivo —ejercitarse cada día o dejar de fumar— quizá no queden bien explicadas por el concepto. En el contexto de las conductas de salud, la autoeficacia se confunde a menudo con la motivación, sostiene: cuando preguntas a alguien cuán seguro está de que <em>puede</em> hacerse una colonoscopia o dejar de fumar, la gente tiende a oír «¿qué tan seguro estás de que lo <em>harás</em>?». Williams expuso su argumento en un artículo con Ryan Rhodes, PhD, de la Universidad de Victoria <span class="cite">(Health Psychology Review, Vol. 10, N.º 2, 2016)</span>. Una pieza de evidencia: sus hallazos de que las calificaciones de autoeficacia correlacionan a menudo con las expectativas de resultado <span class="cite">(Personality and Social Psychology Review, Vol. 14, N.º 4, 2010)</span> — quien confía en poder perder peso suele creer también que perderlo reducirá su riesgo cardiovascular:</p>
+
+    <blockquote>
+      <p>«Pero, lógicamente, mi calificación de mi habilidad para hacer algo no debería tener relación con lo que espero que sea el resultado de esa conducta. La razón de que correlacionen es que, si espero cosas positivas como resultado de mi comportamiento, eso me hará querer comprometerme más con él. Al final del día, creo que nuestras mediciones de autoeficacidad acaban siendo un proxy de la motivación, y no realmente una evaluación de la capacidad percibida».</p>
+      <p class="quote-by">— David M. Williams, PhD, Universidad Brown</p>
+    </blockquote>
+
+    <p>La discusión ronda la teoría desde que Bandura la publicó —y el campo nunca la ha afrontado del todo, dice Williams. Una razón: el malentendido común de que falta de motivación significa pereza. Pero la motivación, en sentido científico, no es un juicio de valor: es un input que impulsa la conducta. Un padre soltero con dos empleos puede decir que no confía en poder ejercitarse a diario; con las contingencias adecuadas —guardería asequible, un seguro que pague el gimnasio— podría estar suficientemente motivado para hacerlo. «No es cuestión de autoeficacia: es cuestión de aumentar la motivación de la gente para que pueda hacerlo».</p>
+
+    <p>Aunque parezca distinguir el pelo, separar motivación y autoeficacia tiene implicaciones para intervenir. No es que las intervenciones que buscan elevar la autoeficacia en salud no funcionen: una de ejercicio grupal que modela el éxito de iguales —dirigida a la experiencia vicaria, una de las fuentes de la autoeficacia— puede también aumentar la motivación haciendo el ejercicio más divertido. «Las intervenciones podrían seguir siendo beneficiosas, pero probablemente podrían retocarse para que fueran aún mejores», dijo Williams. Los mejores resultados vendrían de elevar la confianza en la capacidad de ser más sano <em>y</em> crear un contexto que apoye la motivación: «Hay buenas razones por las que la gente lo pasa mal para cambiar sus conductas. Averigüemos cómo cambiar su entorno de modo que esté motivada a hacerlo».</p>
+  </section>
+
+  <!-- ═══════════════ FUENTES DE LA AUTOEFICACIA ═══════════════ -->
+  <aside class="fuentes">
+    <h2>Fuentes de la autoeficacia</h2>
+    <p style="margin:0 0 10px;">Bandura describió cuatro fuentes que determinan las creencias de una persona sobre su propia autoeficacia:</p>
+    <ul>
+      <li><strong>Logros de desempeño.</strong> Los resultados positivos y negativos de experiencias previas que influyen en los sentimientos de autoeficacia. Quien ya rindió bien en una tarea —una «experiencia de dominio»— tiene más probabilidad de creer que logrará tareas similares en el futuro.</li>
+      <li><strong>Experiencia vicaria.</strong> Ver a otros lograr una meta indica al observador que él también podría lograr resultados similares — especialmente si percibe a esa persona como parecida a sí misma en algún sentido.</li>
+      <li><strong>Persuasión verbal.</strong> El ánimo y los aseguramientos de otros pueden ayudar a construir las creencias de autoeficacia, sobre todo si provienen de alguien creíble, como un entrenador o un maestro.</li>
+      <li><strong>Activación emocional.</strong> Sentir estrés o ansiedad puede mermar la autoeficacia; las experiencias positivas —como afrontar con éxito el estrés— pueden incrementarla.</li>
+    </ul>
+  </aside>
+
+  <!-- ═══════════════ CREER EN UNO MISMO Y EN LOS DEMÁS ═══════════════ -->
+  <section>
+    <h2>La autoeficacia hoy: creer en uno mismo —y en los demás—</h2>
+
+    <p>Separar autoeficacia y motivación es una inquietud válida, coincide Mark Beauchamp, PhD, de la Universidad de Columbia Británica, que estudia psicología del deporte y el ejercicio y conductas de salud, y ha abordado las críticas a la autoeficacia <span class="cite">(Psychology of Sport &amp; Exercise, Vol. 42, 2019)</span>. «Creo que hay una base sustantiva para esas críticas. Es una teoría de 50 años y, como toda ciencia, evoluciona. Eso no significa que la teoría entera sea problemática ni que haya que tirar al bebé con el agua del baño».</p>
+
+    <p>Las críticas, dice, subrayan la importancia del rigor metodológico en el estudio de la agencia humana. «Nos toca, a los que trabajamos en esta área, asegurar que mantenemos la motivación constante o la controlamos en lo posible para aislar los efectos de la autoeficacia. La medición importa».</p>
+
+    <p>En su propia investigación, Beauchamp estudia una extensión de la teoría desarrollada por los psicólogos Robert W. Lent, PhD, y Frederick G. Lopez, PhD <span class="cite">(Journal of Social &amp; Clinical Psychology, Vol. 21, N.º 3, 2002)</span>: la visión «tripartita» de la eficacia, según la cual las creencias de autoeficacia de una persona existen en interacción dinámica con las creencias que sostiene sobre los demás y con las que esos otros sostienen sobre ella. En ese modelo, la eficacia de un atleta se ve influida por su confianza en sus propias habilidades, su confianza en que su entrenador tiene lo necesario para ayudarle a ganar y su creencia sobre si el entrenador cree que puede lograrlo.</p>
+
+    <p>Beauchamp exploró esas interacciones con su entonces estudiante doctoral Ben Jackson, PhD, hoy en la Universidad de Australia Occidental. En un estudio con parejas junior de dobles de tenis, las creencias de un atleta en sus propias capacidades y en las de su pareja predijeron su compromiso y satisfacción con la alianza <span class="cite">(Journal of Sport and Exercise Psychology, Vol. 29, N.º 2, 2007)</span>. En otro estudio con jugadores juveniles de tenis y sus entrenadores, las creencias de los atletas sobre las capacidades de sus entrenadores —la «otro-eficacia»— se relacionaron con el compromiso, la satisfacción y el esfuerzo; los psicólogos del deporte pueden fortalecer las alianzas entre atletas, entrenadores y compañeros destacando con credibilidad las fortalezas de uno ante el otro <span class="cite">(Applied Psychology, Vol. 59, N.º 2, 2010)</span>.</p>
+
+    <blockquote>
+      <p>«Los humanos no existen en el vacío: existen en mundos sociales. Las creencias de eficacia importan de verdad, pero no se trata solo de la autoeficacia. Las eficacias relacionales también importan».</p>
+      <p class="quote-by">— Mark Beauchamp, PhD, Universidad de Columbia Británica</p>
+    </blockquote>
+  </section>
+
+  <!-- ═══════════════ LA CAPACIDAD DE APRENDER ═══════════════ -->
+  <section>
+    <h2>La autoeficacia hoy: la capacidad de aprender</h2>
+
+    <p>El concepto también ha influido poderosamente en la enseñanza y el aprendizaje — buena parte de esos efectos se detallaron en un número especial de <em>Theory Into Practice</em> dedicado al legado de Bandura en la educación <span class="cite">(Vol. 62, N.º 3, 2023)</span>.</p>
+
+    <p>Hoy, la investigación de Klassen se centra en aumentar la retención y el reclutamiento docente — un objetivo urgente en muchos países donde faltan maestros y cae la matrícula en los programas de formación. En un proyecto en curso, su equipo creó una intervención gamificada para elevar las creencias de autoeficacia docente entre universitarios y maestros en formación: <strong>TeachQuest</strong>, un juego con estética de novela gráfica animada en el que los estudiantes se ponen en los zapatos de un maestro e interactúan con estudiantes, padres y colegas virtuales en un aula simulada. «Experimentan qué se siente trabajar en una escuela, recibir feedback, interactuar con mentores y vivir los altibajos que uno tendría en cualquier trabajo», dijo Klassen.</p>
+
+    <!-- ═══════ IMAGEN 4: IR4.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IR4.jpg" alt="Joven docente en formación ante un aula">
+    </figure>
+
+    <p>El juego bebe directamente de las cuatro fuentes de la autoeficacia: los jugadores toman decisiones sobre cómo manejar situaciones de aula y ven el impacto de sus elecciones (logros de desempeño), reciben feedback sobre ellas (persuasión verbal) y presencian cómo otros personajes del juego manejan escenarios similares (experiencia vicaria). Y al convertir la intervención en un juego divertido, es más probable que la respuesta emocional de los participantes sea positiva (activación emocional).</p>
+
+    <p>En investigación temprana, el juego en línea aumentó la autoeficacia docente entre maestros en formación reclutados en el Reino Unido y Australia <span class="cite">(Teaching and Teacher Education, Vol. 154, N.º 1, 2025; Computers &amp; Education, Vol. 239, 2025)</span>, y Klassen sigue desarrollándolo para atraer a estudiantes capaces a la educación. «Una gran proporción de universitarios está insegura sobre su futuro. Queremos aumentar su autoeficacia y confianza para que sientan que tienen la capacidad de triunfar como maestros, si esa puede ser su meta».</p>
+  </section>
+
+  <!-- ═══════════════ FOCO AL FUTURO ═══════════════ -->
+  <section>
+    <h2>Foco al futuro</h2>
+
+    <p>Con decenas de miles de citas, no cabe duda de que la teoría ha dejado huella. Pero, al acercarse su 50 aniversario, queda trabajo por hacer. Un área es la medición del constructo, como animan Williams y Beauchamp. Otra: revisar si hay más de las cuatro fuentes que describió Bandura. James Maddux, PhD, de la Universidad George Mason, describió una quinta — las <strong>experiencias imaginadas</strong>, en las que las personas se visualizan a sí mismas triunfando <span class="cite">(Maddux &amp; Kleiman, The Oxford Handbook of Positive Psychology, 3.ª ed., 2021)</span>—, concepto que subyace a la práctica común de la imaginería guiada en psicología del deporte. «Probablemente hay otras fuentes que la teoría de Bandura no contempla. Deberíamos desafiar la idea de que solo hay cuatro y seguir buscando alternativas», dijo Klassen.</p>
+
+    <p>Los investigadores deberían también ir más allá del lente occidental e industrializado a través del cual se concibió la autoeficacia —y tantas otras teorías psicológicas—, apunta Klassen, que revisó parte de la investigación transcultural en trabajos previos. En un análisis halló que las creencias de autoeficacia tendían a ser más bajas en los grupos culturales no occidentales; y encontró indicios de que, para algunos de esos grupos, la <strong>eficacia colectiva</strong> —menos centrada en las creencias individuales y más en las de quienes rodean a la persona— puede importar más que la autoeficacia <span class="cite">(International Journal of Psychology, Vol. 39, N.º 3, 2004)</span>.</p>
+
+    <p>Bandura tocó la idea de la eficacia colectiva, pero ni él ni sus seguidores han ahondado en ella, dice Klassen. Y no atañe solo a las culturas no occidentales: formar parte de un todo importa en muchos contextos. En educación, la eficacia colectiva puede centrarse en lo que un aula o una escuela pueden lograr juntas; en el deporte y el trabajo, en una mentalidad de equipo compartida. «Puedes subirlo hasta el nivel nacional: los países también tienen un sentido de eficacia colectiva». En la actual era de división política, esa eficacia colectiva nacional quizá cueste más de ver, al menos en Estados Unidos. Pero si funciona como la autoeficacia, encontrar formas de apoyarla podría ayudarnos a perseverar juntos hacia un futuro mejor.</p>
+  </section>
+
+  <!-- ═══════════════ EL ESTUDIO ORIGINAL ═══════════════ -->
+  <section>
+    <h2>El estudio original de 1977, en profundidad</h2>
+
+    <p>El artículo que lo inició todo, «Self-efficacy: Toward a Unifying Theory of Behavioral Change», propuso un marco integrador para explicar y predecir los cambios psicológicos logrados por distintos modos de tratamiento. Su resumen, traducido:</p>
+
+    <blockquote>
+      <p>El presente artículo presenta un marco teórico integrador para explicar y predecir los cambios psicológicos logrados por diferentes modos de tratamiento. La teoría sostiene que los procedimientos psicológicos, sea cual sea su forma, alteran el nivel y la fuerza de la autoeficacia. Se hipotetiza que las expectativas de eficacia personal determinan si se iniciará la conducta de afrontamiento, cuánto esfuerzo se invertirá y cuánto se sostendrá frente a obstáculos y experiencias aversivas. La persistencia en actividades subjetivamente amenazantes pero de hecho relativamente seguras produce, mediante experiencias de dominio, un fortalecimiento adicional de la autoeficacia y reducciones correspondientes de la conducta defensiva. En el modelo propuesto, las expectativas de eficacia personal derivan de cuatro fuentes principales de información: logros de desempeño, experiencia vicaria, persuasión verbal y estados fisiológicos. Cuanto más fiables sean las fuentes experienciales, mayores serán los cambios en la autoeficacidad percibida. Se identifican diversos factores que influyen en el procesamiento cognitivo de la información de eficacia. El poder diferencial de los diversos procedimientos terapéuticos se analiza en términos del mecanismo cognitivo de operación postulado. Se reportan hallazgos de microanálisis de modos enactivos, vicarios y emotivos de tratamiento que apoyan la relación hipotetizada entre autoeficacidad percibida y cambios de conducta.</p>
+      <p class="quote-by">— Resumen del artículo original (traducido)</p>
+    </blockquote>
+
+    <!-- ═══════ IMAGEN 5: IR5.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IR5.jpg" alt="Ilustración de las cuatro fuentes de la autoeficacia">
+    </figure>
+
+    <p>Más allá del resumen, varias piezas del artículo merecen destacarse:</p>
+
+    <ul class="claves">
+      <li><strong>Expectativas de eficacia frente a expectativas de resultado.</strong> La distinción fundacional: la expectativa de resultado es la estimación de que una conducta dada conducirá a ciertos resultados; la expectativa de eficacia es la convicción de que uno puede ejecutar con éxito la conducta requerida para producirlos. Uno puede creer que una acción dará tal resultado — pero si abriga dudas serias sobre si puede realizar las actividades necesarias, esa información no influye en su conducta.</li>
+      <li><strong>Tres dimensiones.</strong> Las expectativas de eficacia varían en <em>magnitude</em> (desde las tareas simples hasta las más exigentes), <em>generalidad</em> (circunscritas a una situación o extendidas más allá) y <em>fuerza</em> (las débiles se extinguen con facilidad ante experiencias desconfirmatorias; las fuertes perseveran pese a ellas).</li>
+      <li><strong>Las cuatro fuentes, en los términos originales.</strong> Logros de desempeño, experiencia vicaria, persuasión verbal y <em>estados fisiológicos</em> — así nombraba Bandura la cuarta fuente que la divulgación actual llama «activación emocional». La más influyente es la primera, basada en la experiencia personal de dominio: los éxitos elevan las expectativas de maestría; los fracasos repetidos las bajan, sobre todo si ocurren al principio. Una vez consolidada la autoeficacia, los fracasos ocasionales superados con esfuerzo determinado pueden incluso fortalecer la persistencia.</li>
+      <li><strong>La superioridad del desempeño.</strong> El artículo revisó la evidencia comparativa de tratamientos para la conducta defensiva y fóbica: la desensibilización mediante desempeño supera a la simbólica; el modelado participativo —con ejecución guiada y ayudas graduales que luego se retiran— supera a la mera observación y a los procedimientos simbólicos. El mecanismo propuesto: el cambio está mediado por procesos cognitivos, pero los eventos cognitivos se inducen y alteran más fácilmente mediante experiencias de dominio surgidas del desempeño eficaz.</li>
+      <li><strong>El procesamiento cognitivo de la información de eficacia.</strong> La información no actúa directamente: depende de cómo se aprecie. Los éxitos atribuidos a la suerte o a ayudas externas elevan menos la autoeficacia que los atribuidos a la habilidad; el éxito logrado con esfuerzo mínimo refuerza más el sentido de capacidad que el logrado a base de gran esfuerzo; y dominar tareas desafiantes aporta más evidencia de competencia que superar las fáciles. Quien percibe su activación fisiológica como fruto de insuficiencias personales baja sus expectativas — y la atención exacerbada a los eventos internos puede escalar la activación en espiral.</li>
+    </ul>
+
+    <h3 class="sub">La autoeficacia entre las demás teorías</h3>
+
+    <p>El artículo sitúa además la autoeficacia frente a otras teorías de la motivación y la conducta. Frente al «motivo de efectividad» de White —un impulso intrínseco de transacción con el entorno—, Bandura objeta que no es verificable de forma independiente (se infiere de la conducta exploratoria que supuestamente causa) y que un motivo omnibus no permite predecir la ocurrencia, la generalidad ni la persistencia de la conducta de afrontamiento, mientras que las expectativas de eficacia, definidas y medidas aparte del desempeño, sí. El enfoque del aprendizaje social exige, además, un microanálisis de las capacidades percibidas — no rasgos globales de personalidad: la autoeficacia para hablar en público varía según el tema, el formato y el auditorio, y hablar de «autoeficacia en general» no es más informativo que hablar de «conducta de aproximación inespecífica».</p>
+
+    <p>Con el locus de control de Rotter —a menudo tratado como análogo—, la distinción es igual de nítida: Rotter se ocupa de creencias causales sobre las contingencias acción-resultado, no de la eficacia personal. Ambas deben distinguirse: quien cree que los resultados dependen de sus propias acciones pero carece de las habilidades necesarias experimenta baja autoeficacidad y un sentimiento de inutilidad — el niño que no logra entender la aritmética y espera que la nota dependa por entero de la habilidad «tiene motivos para desmoralizarse».</p>
+
+    <p>Y ante la indefensión aprendida de Maier y Seligman, Bandura aporta la distinción que atraviesa toda la teoría: hay <strong>dos fuentes separables de inutilidad</strong>. La basada en la eficacia — no se cree capaz de ejecutar la conducta requerida — exige para su remedio desarrollar competencias y expectativas de eficacia personal. La basada en el resultado — uno se sabe capaz, pero espera que su conducta no tenga efecto sobre un entorno que no responde — exige cambiar las contingencias ambientales que restauren el valor instrumental de las competencias que la persona ya posee.</p>
+
+    <h3 class="sub">Los microanálisis: la prueba de las serpientes</h3>
+
+    <p>La evidencia central del artículo viene de fóbicos severos de las serpientes. Adultos cuya fobia afectaba su vida recibieron, por períodos equivalentes, <strong>modelado participativo</strong> —interacciones progresivamente más amenazantes con una boa constrictor, asistidos por las ayudas de inducción necesarias: sostenerla, poner las manos abiertas ante su cabeza mientras se movía, dejarla reptar libremente en el regazo—, <strong>solo modelado</strong> —observar al terapeuta realizar las mismas actividades— o ningún tratamiento. Las expectativas de eficacia se midieron con una lista de 18 tareas ordenadas por amenaza, calificadas en una escala de probabilidad de 100 puntos, y con serpientes similares y distintas de la del tratamiento para captar la generalidad.</p>
+
+    <p>Los resultados: las experiencias basadas en logros de desempeño produjeron expectativas más altas, más generalizadas y más fuertes que la experiencia vicaria, y esta superó al control; el cambio de conducta correspondió de cerca a la magnitud del cambio de expectativa. Pero el hallazgo decisivo: las expectativas de eficacia predecían el desempeño posterior <em>por igual, independientemente de cómo se hubieran instaurado</em> (r = 0,83 en el modo enactivo; r = 0,84 en el vicario). El microanálisis tarea por tarea mostró congruencias del 89 % y el 86 % entre juicio de eficacia y ejecución real; y cuanto más fuerte la expectativa, mayor la probabilidad de completar con éxito la tarea. En el modelado solo, la observación repetida de ejecuciones exitosas elevó el nivel de autoeficacia un 44 % y su fuerza un 38 %, con un incremento del desempeño del 35 % — la exposición breve, apenas (9 %, 5 % y 10 %).</p>
+
+    <p>La pieza más elegante: frente a la explicación alternativa de que los sujetos simplemente deducen su desempeño futuro del pasado, las expectativas de eficacia resultaron <em>mejor</em> predictor que el desempeño previo — tasas de error del 21 %-24 % frente al 28 %-52 % ante la amenaza distinta. «La experiencia de dominio alteró el sentido de eficacia personal de los sujetos, en lugar de limitarse a aportar pistas conductuales para juzgarla», concluye.</p>
+
+    <h3 class="sub">La desensibilización: ansiedad y conducta como co-efectos</h3>
+
+    <p>¿Y los tratamientos dirigidos a reducir la activación emocional? La teoría del doble proceso —sobre la que descansa la desensibilización— sostiene que la ansiedad activa y refuerza la conducta defensiva, de modo que eliminar la conducta exige erradicar la ansiedad. Bandura la rebate: la activación autonómica no es necesaria para el aprendizaje defensivo, la conducta de evitación persiste mucho después de extinguidas las reacciones autonómicas, y la teoría del aprendizaje social concibe la ansiedad y la conducta defensiva como <strong>co-efectos</strong> de las expectativas de daño, no como causa y efecto.</p>
+
+    <p>La prueba: fóbicos severos desensibilizados hasta extinguir por completo sus reacciones emocionales ante las representaciones imaginadas de las escenas más aversivas. Salieron del tratamiento con expectativas de eficacia muy dispares — y el desempeño correspondió de cerca al nivel de autoeficacia (r = 0,74; congruencia del 85 %). Los sujetos ejecutaban las tareas dentro del rango de su autoeficacia percibida y fallaban en las que percibían más allá de sus capacidades. La lectura: reducir la activación mejora el desempeño <em>elevando las expectativas de eficacia</em> — la activación es solo una fuente más de información de eficacia, y no necesariamente la más fiable.</p>
+
+    <h3 class="sub">El cierre: un procesador central de la eficacia</h3>
+
+    <p>El artículo cierra con el balance. La formulación ordena las variaciones del cambio conductual entre distintos modos de tratamiento; explica la variación entre personas que reciben el mismo tratamiento; y predice los éxitos de desempeño a nivel de tarea individual, durante y después del tratamiento. Descarta las explicaciones alternativas: deducir del desempeño pasado no sirve para los tratamientos vicarios y emotivos, donde no hubo conducta manifiesta; y un mediador superordinado que controlara a la vez expectativas y conducta tendría que ser «exceedingly complex» para dar cuenta de todos los patrones. Un estudio adicional del cambio <em>durante</em> el tratamiento —modelado participativo segmentado en bloques de dificultad creciente— redondeó la evidencia: la autoeficacia formada por experiencias parciales de dominio predijo el desempeño en el 92 % de las tareas, y en el 84 % de las tareas altamente amenazantes que los sujetos jamás habían realizado.</p>
+
+    <p>En su lugar, la teoría postula un <strong>procesador central de la información de eficacia</strong>: las personas procesan, ponderan e integran diversas fuentes de información sobre su capacidad, y regulan su elección de conducta y su inversión de esfuerzo en consecuencia. Y remite al futuro: el procesamiento cognitivo de la información de eficacia y la relación entre expectativas y acción —la intensidad y persistencia del esfuerzo— son las áreas clave por investigar.</p>
+  </section>
+
+  <!-- ═══════════════ PROFUNDIZAR ═══════════════ -->
+  <section>
+    <h2>Profundizar</h2>
+    <ul class="resources">
+      <li>
+        <span class="r-title">Self-efficacy: The exercise of control</span>
+        <span class="r-src">Bandura, A. · W. H. Freeman, Nueva York, 1997</span>
+      </li>
+      <li>
+        <span class="r-title">Are self-efficacy measures confounded with motivation? An experimental test</span>
+        <span class="r-src">Williams, D. M., et al. · Psychology &amp; Health, 2020</span>
+      </li>
+      <li>
+        <span class="r-title">Albert Bandura's legacy in education</span>
+        <span class="r-src">Schunk, D. H., &amp; DiBenedetto, M. K. · Theory Into Practice, 2023</span>
+      </li>
+      <li>
+        <span class="r-title">Hoja de consejos docentes: autoeficacia</span>
+        <span class="r-src">APA, 2009</span>
+      </li>
+      <li>
+        <span class="r-title">How do educational inequalities develop? The role of socioeconomic status, cognitive ability, home environment, and self-efficacy along the educational path</span>
+        <span class="r-src">Paulus, L., et al. · Intelligence, 2021</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════ FICHA DEL ESTUDIO ═══════════════ -->
+  <aside class="ficha">
+    <h2>Ficha del estudio</h2>
+    <ul>
+      <li><strong>ESTUDIO CLÁSICO:</strong> «Self-efficacy: Toward a Unifying Theory of Behavioral Change» · Psychological Review, Vol. 84, N.º 2, pp. 191–215</li>
+      <li><strong>AUTOR:</strong> Albert Bandura, PhD (Universidad Stanford · Presidente de la APA en 1974 · 1925–2021)</li>
+      <li><strong>ARTÍCULO DE LA SERIE:</strong> «Self-efficacy: The theory at the heart of human agency», por Kirsten Weir · Breakthrough Research, APA · 22 de octubre de 2025</li>
+      <li><strong>TEORÍA:</strong> La autoeficacia — la creencia en la propia capacidad de ejecutar las conductas necesarias para lograr un resultado</li>
+      <li><strong>EVIDENCIA ORIGINAL:</strong> Microanálisis con fóbicos de serpientes — modelado participativo, modelado solo y desensibilización · Congruencia autoeficacia-desempeño del 83 %–92 % según el tratamiento · La autoeficacia predijo el desempeño mejor que el desempeño previo</li>
+      <li><strong>APORTACIONES CONTEMPORÁNEAS:</strong> Motivación frente a capacidad (Williams y Rhodes) · Eficacia relacional «tripartita» (Lent, Lopez, Beauchamp y Jackson) · TeachQuest para la autoeficacia docente (Klassen) · Experiencias imaginadas como quinta fuente (Maddux) · Eficacia colectiva y perspectiva transcultural</li>
+      <li><strong>DOI:</strong> 10.1037/0033-295X.84.2.191</li>
+    </ul>
+  </aside>
+
+  <footer>
+    Traducción al español del artículo «Self-efficacy: The theory at the heart of human agency» (serie Breakthrough Research, APA, 22 de octubre de 2025), por Kirsten Weir, ampliado con un resumen estructurado del artículo original «Self-efficacy: Toward a Unifying Theory of Behavioral Change», por Albert Bandura (Psychological Review, 1977). Copyright © 1977 y 2025 de la American Psychological Association.
+  </footer>
+
+</article>
+
+</body>
+</html>

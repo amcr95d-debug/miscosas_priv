@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Examen interdisciplinario de los costos y beneficios de los empleos ampliados — Campion y McClelland, Journal of Applied Psychology, 1991.">
+<title>Examen interdisciplinario de los costos y beneficios de los empleos ampliados</title>
+<style>
+/* ═══════════════ ESTILOS ═══════════════ */
+:root{
+  --accent:#155e75;
+  --accent-soft:#e6f3f7;
+  --text:#23282e;
+  --muted:#5b6570;
+  --border:#dbe3e9;
+  --soft:#f7f9fb;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--soft);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.75;
+}
+.page{
+  max-width:760px;
+  margin:0 auto;
+  background:#fff;
+  padding:48px 32px 56px;
+}
+.breadcrumb{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;
+  color:var(--muted);
+  letter-spacing:.04em;
+  margin:0 0 28px;
+}
+/* — Encabezado — */
+.kicker{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 14px;
+}
+h1{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.18;margin:0 0 14px;
+}
+.dek{font-size:1.12rem;font-style:italic;color:var(--muted);margin:0 0 26px;line-height:1.5;}
+.byline{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:12px 0;margin-bottom:30px;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.byline .author{font-weight:700;margin:0 0 2px;font-size:.95rem;}
+.byline .meta{margin:0;font-size:.8rem;color:var(--muted);line-height:1.55;}
+/* — Cuerpo — */
+h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.55rem;margin:44px 0 14px;color:var(--accent);
+}
+p{margin:0 0 18px;}
+.intro > p:first-child::first-letter{
+  font-size:3.3em;float:left;line-height:.85;padding-right:9px;
+  color:var(--accent);font-weight:bold;
+}
+ul.plain{padding-left:22px;margin:0 0 18px;}
+ul.plain li{margin:0 0 10px;}
+ul.plain li:last-child{margin:0;}
+/* — Cita del resumen — */
+blockquote{
+  margin:28px 0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);
+  font-size:1.14rem;font-style:italic;line-height:1.6;
+}
+blockquote p{margin:0 0 10px;}
+blockquote p:last-child{margin:0;}
+.quote-by{
+  font-size:.85rem !important;font-style:normal;font-weight:600;
+  color:var(--muted);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/* — Cajas — */
+aside.keypoints{
+  background:var(--soft);
+  border:1px solid var(--border);
+  border-left:4px solid var(--accent);
+  border-radius:10px;
+  padding:22px 26px;
+  margin:34px 0;
+}
+aside.keypoints h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.15rem;margin:0 0 12px;color:var(--accent);
+}
+aside.keypoints ul{margin:0;padding-left:20px;}
+aside.keypoints li{margin:0 0 10px;}
+aside.keypoints li:last-child{margin:0;}
+/* — Caja de resumen de hallazgos (apéndice) — */
+aside.hallazgos{
+  background:var(--soft);border:1px solid var(--border);border-radius:10px;
+  padding:26px 28px;margin:34px 0;
+}
+aside.hallazgos h2{margin-top:0;font-size:1.3rem;}
+aside.hallazgos .sub{font-style:italic;color:var(--muted);margin:0 0 6px;font-size:.98rem;}
+.grupo{margin:20px 0 0;padding-left:16px;border-left:4px solid var(--accent);}
+.grupo.bene{border-color:#2e7d55;}
+.grupo.cost{border-color:#b0722a;}
+.grupo h3{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1rem;margin:0 0 8px;color:var(--text);
+}
+.grupo ul{margin:0;padding-left:20px;}
+.grupo li{margin:0 0 6px;}
+.grupo li:last-child{margin:0;}
+aside.hallazgos > p:last-child{margin:20px 0 0;}
+/* — Ficha del estudio — */
+aside.ficha{
+  background:var(--soft);border:1px solid var(--border);border-radius:10px;
+  padding:26px 28px;margin:34px 0;
+}
+aside.ficha h2{margin-top:0;font-size:1.3rem;}
+aside.ficha ul{list-style:none;padding:0;margin:0;}
+aside.ficha li{margin:0 0 10px;line-height:1.6;}
+aside.ficha li:last-child{margin:0;}
+aside.ficha strong{
+  color:var(--accent);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.85rem;
+  letter-spacing:.05em;
+}
+/* — Imágenes — */
+figure.imagen{margin:34px 0;}
+figure.imagen img{
+  width:100%;
+  height:auto;
+  min-height:150px;          /* mantiene el hueco visible si aún no existe el archivo */
+  display:block;
+  border-radius:10px;
+  background:var(--accent-soft);
+}
+footer{
+  margin-top:44px;padding-top:18px;border-top:3px solid var(--accent);
+  font-size:.8rem;color:var(--muted);line-height:1.6;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (max-width:600px){
+  .page{padding:32px 18px 40px;}
+  body{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <p class="breadcrumb">Inicio · Journal of Applied Psychology · 1991 · Vol. 76, N.º 2</p>
+
+  <!-- ═══════════════ ENCABEZADO ═══════════════ -->
+  <header>
+    <p class="kicker">Investigación</p>
+    <h1>Examen interdisciplinario de los costos y beneficios de los empleos ampliados: un cuasiexperimento de diseño del trabajo</h1>
+    <p class="dek">Un estudio clásico de 1991 sobre la ampliación del empleo: rediseñar el trabajo para hacerlo más motivador genera beneficios y también costos, pero no todos los costos son inevitables</p>
+    <div class="byline">
+      <p class="author">Por Michael A. Campion y Carol L. McClelland</p>
+      <p class="meta">Journal of Applied Psychology · 1991 · Vol. 76, N.º 2 · pp. 185–198<br>
+      Krannert School of Management, Universidad de Purdue · Allstate Research and Planning Center</p>
+    </div>
+  </header>
+
+  <!-- ═══════ IMAGEN 1: IF1.jpg ═══════ -->
+  <figure class="imagen">
+    <img src="IF1.jpg" alt="Empleados realizando tareas variadas en una oficina">
+  </figure>
+
+  <!-- ═══════════════ PUNTOS CLAVE ═══════════════ -->
+  <aside class="keypoints">
+    <h2>Puntos clave</h2>
+    <ul>
+      <li>La ampliación del empleo —combinar tareas y añadir deberes auxiliares— mejora el diseño motivacional del trabajo, pero empeora el diseño mecanicista (de ingeniería).</li>
+      <li>Beneficios observados: más satisfacción de los empleados, menos subcarga mental, más detección de errores y mejor servicio al cliente. Costos: mayores requisitos de capacitación, habilidades básicas más exigentes y factores compensables más elevados.</li>
+      <li>Los aspectos biológicos (físicos) no se vieron afectados, y no todos los costos potenciales se materializaron: es posible obtener beneficios del rediseño sin incurrir en todos los costos.</li>
+    </ul>
+  </aside>
+
+  <!-- ═══════════════ INTRODUCCIÓN ═══════════════ -->
+  <section class="intro">
+    <p>A principios de los años noventa, la ampliación del empleo (<em>job enlargement</em>) era una de las intervenciones de rediseño del trabajo más populares de la literatura sobre comportamiento organizacional. Inspirada en los modelos motivacionales de diseño del trabajo —que destacan atributos como la variedad, la autonomía y el significado de las tareas (p. ej., Hackman y Oldham, 1980; Herzberg, 1966)—, esta intervención consiste en combinar empleos y añadir tareas auxiliares para que cada trabajador realice un conjunto más amplio de funciones.</p>
+
+    <p>El problema, señalaron Michael A. Campion y Carol L. McClelland, era que las evaluaciones de estas intervenciones solían fijarse únicamente en sus beneficios, como la satisfacción laboral. En este estudio, publicado en el <em>Journal of Applied Psychology</em>, los autores adoptaron una perspectiva interdisciplinaria para examinar, a la vez, los costos y los beneficios de ampliar los empleos en una gran organización de servicios financieros.</p>
+
+    <blockquote>
+      <p>Se examinaron los costos y beneficios de la ampliación del empleo dentro de un marco interdisciplinario. Se realizó un cuasiexperimento con múltiples grupos de comparación, variables dependientes y réplicas en una organización de servicios financieros. La ampliación consistía en combinar empleos y añadir tareas auxiliares. Se recopilaron datos de 11 empleos administrativos a partir de los empleados titulares (n = 377), los gerentes (n = 80) y los analistas (n = 90). Los empleos ampliados mostraron un mejor diseño motivacional y un peor diseño mecanicista. Presentaron los beneficios de mayor satisfacción de los empleados, menor subcarga mental, mayores probabilidades de detectar errores y mejor atención al cliente, pero también los costos de mayores requisitos de capacitación, habilidades básicas más exigentes y factores compensables más elevados. Los aspectos biológicos no se vieron afectados. No todos los costos potenciales se observaron siempre, lo que sugiere que es posible obtener beneficios mediante el rediseño sin incurrir en todos los costos.</p>
+      <p class="quote-by">— Resumen del estudio original (traducido)</p>
+    </blockquote>
+  </section>
+
+  <!-- ═══════════════ CUATRO ENFOQUES ═══════════════ -->
+  <section>
+    <h2>Cuatro enfoques del diseño del trabajo</h2>
+
+    <p>La perspectiva interdisciplinaria parte de una constatación: distintas disciplinas han producido distintos enfoques de diseño del trabajo y, aunque cada uno persigue un conjunto de beneficios, cada uno también arrastra costos asociados. El estudio identifica cuatro grandes enfoques:</p>
+
+    <ul class="plain">
+      <li><strong>Motivacional.</strong> Proveniente de la psicología organizacional; busca la satisfacción y la motivación de los empleados.</li>
+      <li><strong>Mecanicista.</strong> Proveniente de la ingeniería industrial clásica; busca la eficiencia de los recursos humanos, con dotación de personal y capacitación más sencillas.</li>
+      <li><strong>Biológico.</strong> Proveniente de la ergonomía y disciplinas afines (fisiología del trabajo, biomecánica); busca el confort físico y la salud.</li>
+      <li><strong>Perceptual-motor.</strong> Proveniente de la investigación en factores humanos y la psicología experimental; busca la fiabilidad y la usabilidad.</li>
+    </ul>
+
+    <!-- ═══════ IMAGEN 2: IF2.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IF2.jpg" alt="Ilustración sobre distintos enfoques del diseño del trabajo">
+    </figure>
+
+    <p>Los costos surgen porque existe divergencia y conflicto entre los enfoques. El más notable: el enfoque motivacional, con su orientación al individuo (mayor satisfacción), choca con el mecanicista, orientado a la organización (menores costos de capacitación). Por ello, cabía esperar que la ampliación del empleo —una intervención de base motivacional— tuviera costos que reflejaran los beneficios mecanicistas a los que se renunciaba. En los más de 20 estudios de campo previos revisados por los autores, las intervenciones guiadas por el enfoque motivacional solían dar resultados positivos, mientras que los cambios impulsados por el enfoque mecanicista (automatización, paso de la producción por lotes a la producción en masa) tendían a ser neutros o negativos para los resultados motivacionales.</p>
+  </section>
+
+  <!-- ═══════════════ EL ESTUDIO Y SU MÉTODO ═══════════════ -->
+  <section>
+    <h2>El estudio y su método</h2>
+
+    <p>La organización era una gran empresa de servicios financieros cuya unidad de interés procesaba documentación en apoyo de otras unidades que vendían los productos de la compañía. Los empleos tenían un diseño mecanicista: empleados separados preparaban, clasificaban, codificaban y digitaban los documentos. Guiada por el enfoque motivacional, la dirección quería rediseñar los puestos combinándolos en empleos más amplios. El proyecto tenía tres metas: mejorar la motivación y la satisfacción de los empleados; fortalecer el sentido de pertenencia para elevar el servicio al cliente; y —en reconocimiento de los costos potenciales— mantener la productividad y la calidad.</p>
+
+    <p>A diferencia de muchos estudios previos, que usaban muestras pequeñas, datos solo de los titulares de los puestos y una única sede, este trabajo usó un diseño cuasiexperimental de solo postest, fortalecido por tres vías: múltiples grupos de comparación no equivalentes (los empleos combinados se compararon con los separados y con empleos sin cambios); múltiples variables dependientes con predicciones diferenciales (beneficios en unas, costos en otras); y múltiples réplicas (varias combinaciones de tareas, cinco unidades y tres muestras).</p>
+
+    <p>Se estudiaron los 11 empleos administrativos de las sedes. La comparación principal enfrentaba el empleo de <strong>procesador</strong> (la combinación de codificador y digitador: el empleo ampliado) con esos dos empleos por separado, centrales para la función de las unidades y numerosos en personal. Además, algunos empleados absorbieron tareas auxiliares de otros puestos (por ejemplo, un codificador que también hacía llamadas, o un digitador que también verificaba la calidad), lo que permitió explorar combinaciones adicionales.</p>
+
+    <p>La muestra reunió a 377 titulares (la inmensa mayoría mujeres, y dos tercios menores de 33 años), 80 gerentes y 90 evaluaciones realizadas por 8 analistas de recursos humanos, sistemas de información y gestión de línea. El diseño del trabajo se midió con el <em>Multimethod Job Design Questionnaire</em> (MJDQ) de Campion, con escalas motivacional (21 ítems), mecanicista (10), biológica (12) y perceptual-motor (12). Se midieron además 12 resultados orientados a capturar todo el rango de beneficios y costos: satisfacción, subcarga mental, detección de errores y servicio al cliente (beneficios esperados); sobrecarga mental, requisitos de capacitación, habilidades básicas, comisión de errores, eficiencia, factores compensables y espacio de trabajo (costos esperados); y confort físico (sin efecto esperado). Las preferencias individuales y las variables demográficas se exploraron como posibles moderadores.</p>
+
+    <!-- ═══════ IMAGEN 3: IF3.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IF3.jpg" alt="Investigadores recopilando datos en un entorno de oficina">
+    </figure>
+
+    <p>Sobre esa base, los autores plantearon cuatro hipótesis:</p>
+
+    <ul class="plain">
+      <li><strong>Hipótesis 1:</strong> los empleos combinados tendrán mejor diseño motivacional, peor diseño mecanicista y perceptual-motor, y no diferirán en el diseño biológico.</li>
+      <li><strong>Hipótesis 2:</strong> los empleos ampliados mostrarán los beneficios del enfoque motivacional.</li>
+      <li><strong>Hipótesis 3:</strong> mostrarán los costos de los beneficios renunciados de los enfoques mecanicista y perceptual-motor.</li>
+      <li><strong>Hipótesis 4:</strong> no diferirán en los resultados biológicos.</li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════ RESULTADOS ═══════════════ -->
+  <section>
+    <h2>Resultados</h2>
+
+    <p>La fiabilidad de las medidas y el acuerdo entre las tres muestras fueron en general altos, aunque con algunas diferencias de perspectiva (los analistas, por ejemplo, puntuaron los empleos peor en motivacional y mejor en mecanicista que los titulares y los gerentes), por lo que las hipótesis se probaron por separado en cada muestra.</p>
+
+    <p><strong>Hipótesis 1.</strong> Ampliamente respaldada: el empleo de procesador tuvo mejor diseño motivacional y peor mecanicista que los empleos separados de codificador y digitador, y no hubo diferencias en el diseño biológico, tal como se predijo. Contra lo esperado, no se observaron diferencias en el diseño perceptual-motor. En los empleos con tareas auxiliares, tres de las cinco combinaciones tendieron al mismo patrón.</p>
+
+    <p><strong>Hipótesis 2.</strong> Apoyo claro: el empleo ampliado presentó los cuatro beneficios previstos —más satisfacción, menos subcarga mental (menos aburrimiento), mayores probabilidades de detectar errores y mejor servicio al cliente— y, según los gerentes, un beneficio adicional no previsto: menores requisitos de habilidades básicas.</p>
+
+    <!-- ═══════ IMAGEN 4: IF4.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IF4.jpg" alt="Gráfica ilustrativa de beneficios y costos del rediseño del trabajo">
+    </figure>
+
+    <p><strong>Hipótesis 3.</strong> Parcialmente respaldada: se observaron los costos previstos de mayores requisitos de capacitación, peor espacio de trabajo (según los titulares) y factores compensables más altos (según los gerentes). Sin embargo, contra lo predicho, ni titulares ni gerentes reportaron más sobrecarga mental, mayores probabilidades de cometer errores ni menor eficiencia.</p>
+
+    <p><strong>Hipótesis 4.</strong> Confirmada: el confort físico no difirió entre el empleo ampliado y los empleos separados.</p>
+
+    <p>Los patrones se replicaron de forma muy similar en las cinco sedes —en tres o más de ellas, el procesador fue calificado como más motivador, más satisfactorio, menos aburrido y con mejor servicio al cliente, aunque con más requisitos de capacitación—, con tamaños de efecto en torno a 0,5 desviaciones estándar. Además, las relaciones entre diseño y resultados —calculadas entre muestras distintas para evitar el sesgo de método común (Tablas 7 y 8 del original)— coincidieron con la teoría: los enfoques mecanicista y perceptual-motor correlacionaron negativamente con el motivacional y positivamente entre sí, y el biológico resultó bastante independiente. Un mejor diseño motivacional se asoció con más satisfacción y mejor servicio, pero también con más capacitación, habilidades y factores compensables.</p>
+
+    <p>Los moderadores individuales resultaron débiles: solo 8 de 48 interacciones fueron significativas (entre el 1 % y el 1,5 % de varianza explicada) y, de las 432 interacciones demográficas probadas, solo el 10,2 % alcanzó significación. Los efectos de selección —la principal amenaza del diseño cuasiexperimental— se examinaron mediante análisis de covarianza: al controlar las variables demográficas, las diferencias entre empleos se mantuvieron prácticamente idénticas (solo el control del salario volvió marginales algunas comparaciones).</p>
+  </section>
+
+  <!-- ═══════════════ CONCLUSIONES ═══════════════ -->
+  <section>
+    <h2>Conclusiones: los costos no son inevitables</h2>
+
+    <p>El mensaje central del estudio es doble. Primero: ampliar los empleos mejora el diseño motivacional y sus frutos (satisfacción, menor subcarga mental, detección de errores, servicio al cliente), pero empeora el diseño mecanicista y trae costos reales (capacitación, habilidades, factores compensables). Segundo, y quizá más importante: no todos los costos potenciales se materializaron. «No todos los costos potenciales de los empleos ampliados se observaron siempre», concluyen los autores, lo que sugiere que «es posible obtener beneficios mediante el rediseño sin incurrir en todos los costos». En otras palabras: el intercambio entre motivación y eficiencia no es absoluto, y ciertas configuraciones de trabajo pueden mejorar ambos frentes a la vez.</p>
+
+    <!-- ═══════ IMAGEN 5: IF5.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IF5.jpg" alt="Trabajador con un empleo ampliado y variado">
+    </figure>
+
+    <p>En términos prácticos, los resultados sugieren que la ampliación del empleo puede resultar especialmente atractiva cuando la organización valora la satisfacción, la detección de errores o el servicio al cliente, y está en condiciones de absorber sus costos, que se manifiestan sobre todo en los sistemas de personal (capacitación y requisitos de habilidad) y de compensación (factores compensables). Los beneficios del enfoque mecanicista —eficiencia, facilidad de dotación y capacitación— son reales, de modo que la elección entre empleos amplios o especializados depende de qué resultados pesen más en cada contexto.</p>
+
+    <p>Una posible explicación de que no aparecieran los costos perceptual-motores es que los empleos administrativos estudiados eran relativamente poco complejos: en contextos con mayores demandas de procesamiento de información, esos costos podrían sí manifestarse. La ausencia de efectos biológicos, por su parte, sugiere que, en trabajos de oficina, ampliar las tareas no altera por sí sola el confort físico. Los autores también discutieron las limitaciones del diseño —la falta de asignación aleatoria y la posibilidad de efectos de selección, examinados y mayormente descartados—, la potencia estadística marginal en las submuestras por sede, y direcciones futuras para la investigación interdisciplinaria del cambio laboral.</p>
+
+    <p>Tres décadas después, este estudio sigue siendo una referencia para pensar el <em>rustout</em>: su hallazgo de que la subcarga mental y el aburrimiento caen cuando los empleos se amplían y enriquecen anticipa la preocupación actual por los trabajos poco desafiantes, y su marco de costos y beneficios recuerda que cada rediseño tiene dos caras. No es casual que el artículo sobre el rustout de esta misma serie lo cite entre sus lecturas recomendadas.</p>
+  </section>
+
+  <!-- ═══════════════ RESUMEN DE HALLAZGOS (APÉNDICE) ═══════════════ -->
+  <aside class="hallazgos">
+    <h2>Resumen de hallazgos: beneficios y costos de los empleos ampliados</h2>
+    <p class="sub">Síntesis del apéndice del artículo original y de sus resultados.</p>
+
+    <div class="grupo bene">
+      <h3>Beneficios observados de forma consistente</h3>
+      <ul>
+        <li>Más satisfacción de los empleados</li>
+        <li>Menos subcarga mental (menos aburrimiento)</li>
+        <li>Mayores probabilidades de detectar errores</li>
+        <li>Mejor servicio al cliente</li>
+      </ul>
+    </div>
+
+    <div class="grupo bene">
+      <h3>Beneficios observados de forma menos consistente</h3>
+      <ul>
+        <li>Menores probabilidades de cometer errores</li>
+        <li>Mayor eficiencia del trabajo</li>
+        <li>Menores requisitos de capacitación</li>
+        <li>Menores requisitos de habilidades básicas</li>
+        <li>Más confort físico</li>
+      </ul>
+    </div>
+
+    <div class="grupo cost">
+      <h3>Costos observados</h3>
+      <ul>
+        <li>Mayores requisitos de capacitación</li>
+        <li>Habilidades básicas más exigentes</li>
+        <li>Factores compensables más elevados</li>
+        <li>Peor espacio de trabajo</li>
+      </ul>
+    </div>
+
+    <div class="grupo">
+      <h3>Costos previstos que no se observaron</h3>
+      <ul>
+        <li>Sobrecarga mental</li>
+        <li>Mayores probabilidades de cometer errores</li>
+        <li>Menor eficiencia del trabajo</li>
+      </ul>
+    </div>
+
+    <p>Algunos resultados aparecieron como costo en ciertas comparaciones y como beneficio en otras (p. ej., los requisitos de capacitación o la eficiencia). De ahí la conclusión central del estudio: los costos de ampliar los empleos no son inevitables.</p>
+  </aside>
+
+  <!-- ═══════════════ FICHA DEL ESTUDIO ═══════════════ -->
+  <aside class="ficha">
+    <h2>Ficha del estudio</h2>
+    <ul>
+      <li><strong>PUBLICACIÓN:</strong> Journal of Applied Psychology, 1991, Vol. 76, N.º 2, pp. 185–198</li>
+      <li><strong>AUTORES:</strong> Michael A. Campion (Krannert School of Management, Universidad de Purdue) y Carol L. McClelland (Allstate Research and Planning Center)</li>
+      <li><strong>DISEÑO:</strong> Cuasiexperimento de solo postest con grupos de comparación no equivalentes</li>
+      <li><strong>CONTEXTO:</strong> Organización de servicios financieros · 5 sedes · 11 empleos administrativos</li>
+      <li><strong>MUESTRA:</strong> 377 titulares · 80 gerentes · 90 evaluaciones de analistas</li>
+      <li><strong>INTERVENCIÓN:</strong> Ampliación del empleo (combinación de tareas y absorción de deberes auxiliares)</li>
+    </ul>
+  </aside>
+
+  <footer>
+    Página de resumen en español del artículo «Interdisciplinary Examination of the Costs and Benefits of Enlarged Jobs: A Job Design Quasi-Experiment», por Michael A. Campion y Carol L. McClelland (Journal of Applied Psychology, 1991, Vol. 76, N.º 2, pp. 185–198). Copyright © 1991 de la American Psychological Association. El texto original completo está disponible en APA PsycNet (doi: 10.1037/0021-9010.76.2.185).
+  </footer>
+
+</article>
+
+</body>
+</html>

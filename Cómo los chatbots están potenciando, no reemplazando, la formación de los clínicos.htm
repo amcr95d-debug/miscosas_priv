@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cómo los chatbots están potenciando, no reemplazando, la formación de los clínicos — Monitor on Psychology, septiembre de 2026.">
+<title>Cómo los chatbots están potenciando, no reemplazando, la formación de los clínicos</title>
+<style>
+/* ═══════════════ ESTILOS ═══════════════ */
+:root{
+  --accent:#155e75;
+  --accent-soft:#e6f3f7;
+  --text:#23282e;
+  --muted:#5b6570;
+  --border:#dbe3e9;
+  --soft:#f7f9fb;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--soft);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.75;
+}
+.page{
+  max-width:760px;
+  margin:0 auto;
+  background:#fff;
+  padding:48px 32px 56px;
+}
+.breadcrumb{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;
+  color:var(--muted);
+  letter-spacing:.04em;
+  margin:0 0 28px;
+}
+/* — Encabezado — */
+.kicker{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 14px;
+}
+h1{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.16;margin:0 0 14px;
+}
+.dek{font-size:1.12rem;font-style:italic;color:var(--muted);margin:0 0 26px;line-height:1.5;}
+.byline{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:12px 0;margin-bottom:30px;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.byline .author{font-weight:700;margin:0 0 2px;font-size:.95rem;}
+.byline .meta{margin:0;font-size:.8rem;color:var(--muted);line-height:1.55;}
+/* — Cuerpo — */
+h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.55rem;margin:44px 0 14px;color:var(--accent);
+}
+p{margin:0 0 18px;}
+.cite{font-size:.85em;color:var(--muted);}
+.intro > p:first-child::first-letter{
+  font-size:3.3em;float:left;line-height:.85;padding-right:9px;
+  color:var(--accent);font-weight:bold;
+}
+/* — Citas destacadas — */
+blockquote{
+  margin:28px 0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);
+  font-size:1.14rem;font-style:italic;line-height:1.6;
+}
+blockquote p{margin:0 0 10px;}
+blockquote p:last-child{margin:0;}
+.quote-by{
+  font-size:.85rem !important;font-style:normal;font-weight:600;
+  color:var(--muted);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/* — Imágenes — */
+figure.imagen{margin:34px 0;}
+figure.imagen img{
+  width:100%;
+  height:auto;
+  min-height:150px;          /* mantiene el hueco visible si aún no existe el archivo */
+  display:block;
+  border-radius:10px;
+  background:var(--accent-soft);
+}
+/* — Lecturas adicionales — */
+ul.resources{list-style:none;padding:0;margin:0;}
+ul.resources li{border-bottom:1px solid var(--border);padding:12px 0;}
+ul.resources li:last-child{border-bottom:none;}
+ul.resources .r-title{font-weight:700;display:block;}
+ul.resources .r-src{font-size:.85rem;color:var(--muted);font-style:italic;}
+footer{
+  margin-top:44px;padding-top:18px;border-top:3px solid var(--accent);
+  font-size:.8rem;color:var(--muted);line-height:1.6;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (max-width:600px){
+  .page{padding:32px 18px 40px;}
+  body{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <p class="breadcrumb">Inicio · Monitor on Psychology · 2026 · Septiembre</p>
+
+  <!-- ═══════════════ ENCABEZADO ═══════════════ -->
+  <header>
+    <p class="kicker">Carrera</p>
+    <h1>Cómo los chatbots están potenciando, no reemplazando, la formación de los clínicos</h1>
+    <p class="dek">Las herramientas de IA pueden ofrecer información valiosa que los supervisores pueden explorar y discutir con los estudiantes en formación</p>
+    <div class="byline">
+      <p class="author">Por Heather Stringer</p>
+      <p class="meta">Fecha de creación: 1 de septiembre de 2026 · 14 min de lectura<br>
+      Vol. 57, N.º 6 · Versión impresa: página 53</p>
+    </div>
+  </header>
+
+  <!-- ═══════ IMAGEN 1: IC1.jpg ═══════ -->
+  <figure class="imagen">
+    <img src="IC1.jpg" alt="Hombre usando auriculares">
+  </figure>
+
+  <!-- ═══════════════ INTRODUCCIÓN ═══════════════ -->
+  <section class="intro">
+    <p>La formación clínica en salud mental se ha visto limitada por un cuello de botella crónico: no existen suficientes horas de supervisión para que los estudiantes en formación reciban retroalimentación intensiva y de alta calidad. Para cerrar esta brecha formativa, los psicólogos están desarrollando y explorando herramientas de inteligencia artificial que ayuden tanto a los clínicos noveles como a los experimentados a dominar y conservar habilidades en cualquier etapa de su carrera y, en última instancia, a brindar una mejor atención a los pacientes.</p>
+
+    <p>Las aplicaciones de formación con IA tienen el potencial de ofrecer un espacio seguro para cometer errores y de entregar retroalimentación minuciosa a lo largo de una sesión simulada, además de muchas más oportunidades para practicar habilidades importantes. Y, como ocurre con cualquier herramienta de IA, corren el riesgo de generar retroalimentación que suena autorizada pero que puede ser clínicamente cuestionable, o que puede quedar fuera del alcance de las capacidades de un estudiante en formación.</p>
+
+    <p>A medida que la demanda de atención en salud mental continúa en ascenso, los profesionales están atentos a los hallazgos de investigación que evalúan la eficacia de estas aplicaciones, y la evidencia temprana sugiere que la formación asistida por IA podría transformar la supervisión clínica. Algunos psicólogos están experimentando con este uso prometedor, aunque complejo, de la tecnología: consiguen financiación para crear sus propias herramientas de formación con IA, las prueban con sus supervisados y asesoran a otros que intentan incorporar estas aplicaciones a sus prácticas formativas.</p>
+
+    <blockquote>
+      <p>«He estado involucrada en la formación clínica durante 50 años y estoy muy optimista respecto al potencial de la IA, porque hasta ahora los supervisores y formadores clínicos no han hecho un muy buen trabajo al introducir habilidades y proporcionar retroalimentación precisa e inmediata durante la formación».</p>
+      <p>«Este es el momento de que los psicólogos se involucren en descubrir cómo aprovechar la IA de forma segura, porque en última instancia esto puede mejorar la atención a nuestros pacientes».</p>
+      <p class="quote-by">— Hanna Levenson, PhD, profesora emérita del Wright Institute en Berkeley, California, quien ha trabajado con colegas en el desarrollo de una plataforma de IA que ayuda a los estudiantes a aprender la psicoterapia dinámica a corto plazo</p>
+    </blockquote>
+
+    <p>Los psicólogos que desarrollan estas herramientas subrayan que los chatbots están diseñados para complementar —no reemplazar— la supervisión humana, y trabajan con equipos tecnológicos para garantizar que la tecnología sea segura, eficaz y fácil de usar tanto para supervisores como para estudiantes.</p>
+
+    <p>«También estamos recopilando la opinión de los clínicos sobre cómo desean recibir retroalimentación de un chatbot, por ejemplo, la frecuencia, el tono y el contenido de las orientaciones que reciben», dijo Shannon Wiltsey Stirman, PhD, profesora de psiquiatría y ciencias del comportamiento y codirectora del Center for Responsible and Effective AI Technology Enhancement of PTSD Treatments (CREATE) de la Universidad de Stanford. «Queremos asegurarnos de que la retroalimentación se entregue de una manera que los clínicos quieran escuchar».</p>
+  </section>
+
+  <!-- ═══════════════ CERRANDO EL CICLO DE RETROALIMENTACIÓN ═══════════════ -->
+  <section>
+    <h2>Cerrando el ciclo de retroalimentación</h2>
+
+    <p>Un desafío persistente en la supervisión es que los psicólogos a menudo no pueden observar directamente cómo los estudiantes en formación interactúan con los pacientes en cada sesión, porque no es viable que un supervisor revise sesiones completas con regularidad, además de atender su propia carga de casos. Con frecuencia, los estudiantes se ven en la posición de reportar su propio trabajo a los supervisores. Torrey Creed, PhD, recuerda vívidamente que, durante su formación, se reunía con su supervisora una vez por semana para revisar una docena de casos. «Mi recuerdo estaba filtrado por mi percepción de las sesiones, y había muy poco tiempo para hablar de toda una carga de casos», dijo Creed, profesora asociada de psicología en la Perelman School of Medicine de la Universidad de Pensilvania, quien colaboró con el equipo que desarrolló una plataforma de IA para formación y mejora de la calidad llamada Lyssn.</p>
+
+    <p>La literatura sobre supervisión en torno al autoinforme de los terapeutas sugiere que estos quizá no sean los mejores jueces de sus propias capacidades, y que con frecuencia subestiman o sobreestiman su nivel de habilidad <span class="cite">(Hogue, A., et al., Administration and Policy in Mental Health and Mental Health Services Research, Vol. 42, 2015; McManus, F., et al., British Journal of Clinical Psychology, Vol. 51, N.º 3, 2012)</span>.</p>
+
+    <p>Investigadores de la Universidad de Stanford abordaron recientemente este problema al desarrollar un chatbot de IA llamado TherapyTrainer, que da seguimiento a lo que dice el estudiante durante una sesión. Con una subvención de 11,5 millones de dólares del Instituto Nacional de Salud Mental (NIMH), crearon una sala de terapia simulada en la que los proveedores conversan por texto o audio con un paciente simulado para practicar la terapia de exposición escrita (WET), un tratamiento centrado en escribir sobre recuerdos traumáticos <span class="cite">(Stade, E. C., et al., Cognitive and Behavioral Practice, 2025)</span>. Uno de los pacientes de IA es un veterano que vivió en el ejército un evento traumático relacionado con el maltrato entre compañeros; la segunda paciente virtual experimentó violencia de pareja y está en remisión de un trastorno por consumo de sustancias.</p>
+
+    <p>Los terapeutas y estudiantes pueden practicar todos los aspectos de la WET, como brindar psicoeducación sobre el trastorno de estrés postraumático (TEPT), explicar la justificación del tratamiento y conducir la sesión de escritura narrativa. El consultor de IA opera como lo haría un supervisor, proporcionando al terapeuta retroalimentación sobre las interacciones con el paciente de IA. El terapeuta puede pausar la sesión en cualquier momento y preguntar al consultor cosas como «¿Cómo lo estoy haciendo?» y «¿Qué debo hacer a continuación?».</p>
+
+    <!-- ═══════ IMAGEN 2: IC2.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IC2.jpg" alt="Clínica practicando una sesión de terapia simulada con un paciente virtual">
+    </figure>
+
+    <p>Los investigadores lanzarán dos ensayos clínicos en el verano de 2026 para estudiar cómo se compara TherapyTrainer con la consulta humana. «La consulta es uno de los estándares de oro para formar a terapeutas en tratamientos basados en evidencia, pero el problema es que la mayoría de los terapeutas que han aprendido un tratamiento no tienen la oportunidad de recibir consulta porque no hay suficientes consultores y el costo es alto», dijo Elizabeth Stade, PhD, psicóloga clínica computacional del Institute for Human-Centered AI de Stanford y directora asociada de CREATE. «Y muchos terapeutas no pueden renunciar a horas facturables para asistir a consultas».</p>
+
+    <p>Tim Overton, PsyD, que atiende un consultorio privado en Filadelfia, usó TherapyTrainer para refrescar sus habilidades en WET, aunque al principio era escéptico sobre el valor de la IA en la formación. «Cuando los proveedores aprenden una nueva técnica terapéutica, las formaciones incluyen viñetas clínicas y, posiblemente, consulta sobre uno o dos casos, pero eso no basta para alcanzar competencia», dijo. «El entrenador de IA me ayudó a identificar ciertos aspectos del tratamiento que no estaba priorizando».</p>
+
+    <p>También es una herramienta que le habría gustado tener cuando empezó a trabajar con veteranos al comienzo de su carrera, cuando carecía de antecedentes militares o de formación en la Administración de Veteranos (VA). «Este tipo de herramienta puede dar a los clínicos en ciernes la posibilidad de practicar con una población nueva para prepararse en la implementación de tratamientos basados en evidencia», dijo Overton.</p>
+
+    <p>Si bien muchas aplicaciones de formación con IA se centran en técnicas asociadas con intervenciones de terapia cognitivo-conductual (TCC), estas herramientas también pueden ayudar a los estudiantes a aprender enfoques orientados a la profundidad, relacionados con procesos mentales inconscientes. Levenson y su colega, el psicólogo clínico Josh Krieger, PsyD, desarrollaron una plataforma de IA llamada LearnTLDP que brinda a los estudiantes retroalimentación inmediata y aplicable sobre sus habilidades en psicoterapia dinámica de tiempo limitado mientras trabajan con pacientes virtuales. «También tienen la oportunidad de cuestionar o incluso desafiar a un supervisor de IA respecto a su retroalimentación sin temor a represalias académicas, lo que promueve una profundidad real de comprensión», dijo Levenson.</p>
+  </section>
+
+  <!-- ═══════════════ ALIVIANDO LAS DEMANDAS ═══════════════ -->
+  <section>
+    <h2>Aliviando las demandas</h2>
+
+    <p>La supervisión humana es extraordinariamente intensiva en tiempo, y las herramientas de IA están dando a los psicólogos la capacidad de evaluar a los estudiantes con mucha mayor eficiencia. «El proceso tradicional de codificación para evaluar la calidad de las sesiones de terapia requiere formación especializada y horas de codificación manual por sesión», dijo Milena Esherick, PsyD, quien asesora a empresas que desarrollan herramientas de formación con IA y es directora asociada del programa de Maestría en Ciencias en Consejería de la Kaiser Permanente School of Allied Health Sciences, en California. «La IA puede analizar rápidamente cada sesión y tiene la capacidad de evaluar cómo van los estudiantes en las habilidades clínicas más vinculadas con los resultados de los clientes, como la alianza terapéutica, la empatía, el consenso sobre las metas y la fidelidad al tratamiento».</p>
+
+    <p>Aunque los clínicos puedan sentir ansiedad ante la idea de que una IA evalúe sus habilidades clínicas, la tecnología está siendo diseñada para dar retroalimentación de la misma manera en que lo hacen los buenos supervisores. «Debe ser digerible, estar calibrada y entregarse de una forma que promueva el crecimiento en lugar de abrumar», dijo Esherick.</p>
+
+    <p>Krista Kaur, estudiante de posgrado en consejería de salud mental clínica en la Palo Alto University de California, realizó sus prácticas en una clínica que usa una herramienta de IA para grabar las sesiones con pacientes, generar una transcripción editada y producir notas de sesión. «Se sentía como un asistente personal que me ayudaba a crecer como clínica», dijo. Podía hacer clic en un enlace para recibir retroalimentación de la herramienta sobre lo que había hecho bien en la sesión y lo que debía considerar para la próxima. «Antes de entrar a una sesión, me daba algunos recordatorios sobre en qué punto nos habíamos quedado la última vez, lo cual era muy útil», comentó Kaur. En ocasiones, la IA grababa y transcribía incorrectamente palabras de una sesión; Kaur pasaba por alto esos aspectos del resumen del caso.</p>
+
+    <!-- ═══════ IMAGEN 3: IC3.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IC3.jpg" alt="Supervisora revisando retroalimentación de IA en una computadora">
+    </figure>
+
+    <p>El psicólogo Philip Held, PhD, profesor asociado del Departamento de Psiquiatría y Ciencias del Comportamiento del Rush University Medical Center de Chicago, desarrolló recientemente una herramienta de IA llamada Socrates Coach que ayuda a los terapeutas a practicar las habilidades del diálogo socrático: preguntas abiertas que invitan a los pacientes a explorar y desafiar creencias asociadas con el malestar y los pensamientos desadaptativos. La herramienta brindó a los terapeutas retroalimentación sobre sus fortalezas generales y sus áreas de crecimiento con esta habilidad, un componente de muchos enfoques de terapia cognitiva que está estrechamente vinculado con los resultados, pero que es difícil de dominar <span class="cite">(Vittorio, L. N., et al., Behaviour Research and Therapy, Vol. 150, 2022)</span>.</p>
+
+    <p>Held había desarrollado originalmente un chatbot de IA que los pacientes podían usar entre sesiones de terapia para practicar el diálogo socrático en lugar de completar las hojas de trabajo estándar de la terapia. Colegas clínicos comenzaron a preguntarle si podía adaptar la herramienta para ayudarlos a desarrollar y perfeccionar sus habilidades de diálogo socrático.</p>
+
+    <p>Su equipo construyó prototipos de Socrates Coach y los profesionales calificaron la calidad de las respuestas del entrenador de IA. Con base en esas calificaciones humanas, el equipo aplicó la optimización de instrucciones (prompts) —el refinamiento de las instrucciones de entrada para generar respuestas más precisas de los grandes modelos de lenguaje (LLM)— para mejorar la retroalimentación de los supervisores de IA <span class="cite">(Journal of Traumatic Stress, Vol. 38, N.º 5, 2025)</span>. La retroalimentación de la IA incluye preguntas alternativas que el clínico podría hacerle al paciente de IA, posibles direcciones para la conversación e información sobre qué tan bien está usando la técnica.</p>
+  </section>
+
+  <!-- ═══════════════ UN COMPLEMENTO, NO UN SUSTITUTO ═══════════════ -->
+  <section>
+    <h2>Un complemento, no un sustituto</h2>
+
+    <p>Aunque los entrenadores de IA pueden escalarse con rapidez, los psicólogos advierten que esta tecnología no puede determinar si un clínico está listo para aplicar estas habilidades con pacientes humanos. «Estas herramientas son una forma adicional de practicar, pero no reemplazan a los supervisores humanos», dijo Held. Los terapeutas humanos deben seguir ayudando a los estudiantes con las decisiones terapéuticas que dependen del contexto, como las dinámicas familiares complejas, las señales sutiles de riesgo que sugieren abuso o riesgo de suicidio, y otros tipos de intuición clínica basada en años de experiencia.</p>
+
+    <p>Las herramientas de IA también pueden pasar por alto detalles de los pacientes que se comunican de manera no verbal. «Los terapeutas observan la expresión facial, el lenguaje corporal y otros matices que pueden influir en cómo le hablan a un paciente o en las recomendaciones de tratamiento», dijo Eric Kuhn, PhD, profesor asociado de la Facultad de Medicina de la Universidad de Stanford y miembro del Comité Asesor de Tecnología en Salud Mental de la APA.</p>
+
+    <p>En el escenario ideal, estas herramientas pueden ofrecer información valiosa que los supervisores pueden leer y discutir con los estudiantes. Donna Sheperis, PhD, profesora del Departamento de Consejería de la Palo Alto University, trabajó con una empresa que le dio acceso a una herramienta que grababa las sesiones de terapia —con el permiso de los pacientes— y proporcionaba un análisis del contenido para ayudarla a dar seguimiento al progreso de sus estudiantes. El análisis mostraba qué intervenciones se habían usado, de qué se habló, cuánto tiempo habló cada persona y más. En un caso, notó que la estudiante hablaba sin interrupciones durante 4 minutos, lo que en general se considera un tiempo demasiado largo para la escucha de la mayoría de los pacientes, señaló. Cuando Sheperis comentó esta observación con la estudiante durante la supervisión, esta explicó que estaba acumulando sus comentarios para compartirlos con el paciente de una sola vez, porque no quería interrumpir. «Hablamos de la diferencia entre interrumpir e intercalar observaciones», dijo Sheperis, quien dirige la eClinic de la Palo Alto University.</p>
+
+    <!-- ═══════ IMAGEN 4: IC4.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IC4.jpg" alt="Supervisora y estudiante conversando durante una sesión de supervisión">
+    </figure>
+
+    <p>Creed, fundadora y directora del Penn Collaborative for CBT and Implementation Science, comenzó a interesarse por la IA tras pasar años formando a proveedores en sistemas de salud mental comunitarios con escasa financiación en todo el mundo. «Las horas humanas necesarias para formar a clínicos y calificar su competencia en nuevas habilidades a gran escala eran imposibles», dijo Creed. «Sabía que tenía que existir una mejor manera».</p>
+
+    <p>Creed quería explorar si Lyssn —una plataforma de IA desarrollada por psicólogos y científicos de la computación en 2017 para analizar sesiones de terapia y dar retroalimentación a terapeutas y estudiantes— podía apoyar a las agencias de salud mental comunitarias <span class="cite">(BMC Health Services Research, Vol. 22, N.º 1177, 2022)</span>. Mediante LLM entrenados con publicaciones científicas revisadas por pares y conversaciones de salud conductual evaluadas por expertos, la plataforma ofrece formación en entrevista motivacional, TCC, prevención del suicidio y más. La herramienta indica a los clínicos si están demostrando la habilidad y señala las áreas de fortaleza y de mejora. Los supervisores también pueden ver datos agregados de sus equipos, que pueden orientar decisiones sobre la formación específica que pudiera necesitarse.</p>
+
+    <p>Creed terminó recientemente de recopilar datos para un estudio de 5 años financiado por el NIMH, cuyo objetivo es investigar cómo la formación con Lyssn afecta el nivel de habilidad de los clínicos y los resultados de los pacientes. «Una clínica próxima a la jubilación me dijo que la retroalimentación de la IA ha transformado su forma de trabajar clínicamente», contó Creed. «Si hubiera contado con este apoyo desde el principio, la atención que habría brindado habría sido muy diferente».</p>
+  </section>
+
+  <!-- ═══════════════ MANTENER LA CONVERSACIÓN ABIERTA ═══════════════ -->
+  <section>
+    <h2>Mantener la conversación abierta</h2>
+
+    <p>Los psicólogos responsables de la supervisión también deben estar preparados para hablar con los estudiantes sobre el posible uso que hagan de herramientas de IA de propósito general, como ChatGPT, Claude y Gemini. «Tenerle miedo a la IA o prohibirla es una manera reactiva de lidiar con algo que ya forma parte de nuestras vidas», dijo Levenson. «Necesitamos preguntar a los estudiantes si usan herramientas como ChatGPT, y lo peor que podríamos decir es: "simplemente no la uses"». Levenson tiene pocas dudas de que muchos estudiantes ya recurren a la IA para recibir ayuda con sus casos clínicos, pero temen revelarlo a sus supervisores por miedo a ofenderlos o a ser criticados. «De verdad depende del supervisor indagar sobre el uso clínico que el estudiante hace de la IA, de una manera que abra oportunidades de discusión y aprendizaje».</p>
+
+    <p>Si se usan de manera responsable, estas herramientas pueden ser útiles compañeras de lluvia de ideas para ayudar a los terapeutas con la conceptualización de casos, la planificación del tratamiento y la identificación de estrategias para superar los desafíos con los pacientes. Los supervisores pueden comenzar preguntando a los estudiantes cómo usan la IA, qué están aprendiendo de ella, qué está funcionando bien y si tienen inquietudes. «También es importante ayudar a los supervisados a reconocer cuándo están recibiendo buena retroalimentación de la IA y cuándo se están cometiendo errores», dijo Levenson.</p>
+
+    <p>Los supervisores pueden orientar a los estudiantes para que identifiquen las señales de alerta relacionadas con la IA, como el sesgo, los riesgos para la confidencialidad y las alucinaciones —cuando una herramienta de IA genera un resultado que suena autorizado o plausible, pero que es incorrecto en los hechos—. Para ayudar a los estudiantes a aprender a usar de forma segura la IA de acceso público, Tony Rousmaniere, PsyD, director del programa de Terapia de Matrimonio y Familia de la Sentio University, en California, comenzó a ofrecer cursos en línea sobre este tema para estudiantes, terapeutas con licencia y supervisores clínicos.</p>
+
+    <p>Rousmaniere enseña a los estudiantes a proteger la confidencialidad del paciente evitando la información identificatoria, como el nombre, la edad, el género y los detalles del trabajo. En los casos en que una pregunta clínica requiere información identificatoria para responderse con eficacia, «esa pregunta no tiene cabida en una herramienta de IA», dijo Rousmaniere. «Le corresponde a un supervisor. La IA sirve para hacer lluvia de ideas en torno a un caso, no para obtener respuestas clínicas que dependen de quién es la persona en concreto».</p>
+
+    <p>También enseña a los estudiantes cómo darle a la IA un encuadre demográfico útil que no identifique a nadie. Por ejemplo, un cliente puede describirse como un hombre blanco de mediana edad que trabaja en la industria de la tecnología, un perfil que encaja con miles de personas. Un estudiante podría pedirle a la IA que genere ideas sobre los estresores laborales comunes en la industria tecnológica que podrían contribuir a un cuadro depresivo a mitad de la carrera, o sobre variantes de tareas para casa en TCC que suelen funcionar bien con identidades ocupacionales analíticas y de alto control.</p>
+
+    <!-- ═══════ IMAGEN 5: IC5.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IC5.jpg" alt="Estudiantes de salud mental en un curso sobre uso de IA">
+    </figure>
+
+    <p>Rousmaniere también alienta a los estudiantes a verificar los protocolos de tratamiento que la IA sugiere, para asegurarse de que las ideas sean válidas y adecuadas para el paciente. La IA también puede sugerir un protocolo terapéutico para el que el estudiante aún no tiene competencia, señaló, por lo que estos deberían realizar una autoevaluación para determinar si pueden brindar ese tratamiento.</p>
+
+    <p>«Hemos encontrado que aproximadamente el 90 % de las orientaciones de la IA de propósito general es preciso y útil», dijo Rousmaniere. «Nuestro enfoque está en ayudar a los estudiantes a identificar el 10 % que no lo es».</p>
+
+    <p>Los supervisores, docentes y formadores del campo de la salud mental pueden ser más eficaces para ayudar a los estudiantes a navegar estas herramientas si ellos mismos se alfabetizan en IA, añadió Levenson. Los instructores pueden experimentar usando la IA para practicar interacciones con distintos pacientes simulados y pedirle retroalimentación a la propia IA. Esto, a su vez, los equipará para guiar a sus supervisados cuando usen la tecnología para dominar nuevas habilidades terapéuticas.</p>
+
+    <p>Al explorar cómo usar la IA en la formación clínica, los psicólogos pueden hablar con los estudiantes tanto de los beneficios como de los riesgos de esta tecnología. «Existen desafíos enormes en términos de recursos humanos para ampliar una fuerza laboral de salud mental capaz de usar eficazmente los tratamientos basados en evidencia», dijo Kuhn. «Las herramientas de IA ofrecen un entorno seguro para una práctica ilimitada de desarrollo de habilidades, y los psicólogos deben participar en la creación de estos productos para garantizar que se ciñan a enfoques que produzcan los mejores resultados para los pacientes».</p>
+  </section>
+
+  <!-- ═══════════════ LECTURAS ADICIONALES ═══════════════ -->
+  <section>
+    <h2>Lecturas adicionales</h2>
+    <ul class="resources">
+      <li>
+        <span class="r-title">De la innovación a la implementación: la inteligencia artificial en la formación y supervisión en terapia cognitivo-conductual</span>
+        <span class="r-src">Shafran, R., et al., Behaviour Research and Therapy, 2026</span>
+      </li>
+      <li>
+        <span class="r-title">Integración de la IA en la formación en consejería: apoyo a los consejeros en formación en la mejora de la autoeficacia y la reducción de la ansiedad</span>
+        <span class="r-src">Jeong, D., et al., Journal of Counseling &amp; Development, 2025</span>
+      </li>
+      <li>
+        <span class="r-title">¿Pueden las tecnologías de IA apoyar la supervisión clínica? Evaluación del potencial de ChatGPT</span>
+        <span class="r-src">Cioffi, V., et al., Informatics, 2025</span>
+      </li>
+      <li>
+        <span class="r-title">Curso gratuito sobre el uso seguro y ético de la IA para profesionales de la salud mental</span>
+        <span class="r-src">Sentio University, 2026</span>
+      </li>
+      <li>
+        <span class="r-title">Uso de la supervisión apoyada en IA en una clínica universitaria de formación en telesalud mental</span>
+        <span class="r-src">Sheperis, D., &amp; Sadeh-Sharvit, S., Journal of Technology in Counselor Education and Supervision, 2023</span>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    Traducción al español del artículo «How chatbots are enhancing, not replacing, clinician training», por Heather Stringer. Vol. 57, N.º 6, página 53.
+  </footer>
+
+</article>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cómo los chatbots están potenciando, no reemplazando, la formación de los clínicos — Monitor on Psychology, septiembre de 2026.">
+<title>Cómo los chatbots están potenciando, no reemplazando, la formación de los clínicos</title>
+<style>
+/* ═══════════════ ESTILOS ═══════════════ */
+:root{
+  --accent:#155e75;
+  --accent-soft:#e6f3f7;
+  --text:#23282e;
+  --muted:#5b6570;
+  --border:#dbe3e9;
+  --soft:#f7f9fb;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--soft);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.75;
+}
+.page{
+  max-width:760px;
+  margin:0 auto;
+  background:#fff;
+  padding:48px 32px 56px;
+}
+.breadcrumb{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;
+  color:var(--muted);
+  letter-spacing:.04em;
+  margin:0 0 28px;
+}
+/* — Encabezado — */
+.kicker{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 14px;
+}
+h1{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.16;margin:0 0 14px;
+}
+.dek{font-size:1.12rem;font-style:italic;color:var(--muted);margin:0 0 26px;line-height:1.5;}
+.byline{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:12px 0;margin-bottom:30px;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.byline .author{font-weight:700;margin:0 0 2px;font-size:.95rem;}
+.byline .meta{margin:0;font-size:.8rem;color:var(--muted);line-height:1.55;}
+/* — Cuerpo — */
+h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.55rem;margin:44px 0 14px;color:var(--accent);
+}
+p{margin:0 0 18px;}
+.cite{font-size:.85em;color:var(--muted);}
+.intro > p:first-child::first-letter{
+  font-size:3.3em;float:left;line-height:.85;padding-right:9px;
+  color:var(--accent);font-weight:bold;
+}
+/* — Citas destacadas — */
+blockquote{
+  margin:28px 0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);
+  font-size:1.14rem;font-style:italic;line-height:1.6;
+}
+blockquote p{margin:0 0 10px;}
+blockquote p:last-child{margin:0;}
+.quote-by{
+  font-size:.85rem !important;font-style:normal;font-weight:600;
+  color:var(--muted);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/* — Imágenes — */
+figure.imagen{margin:34px 0;}
+figure.imagen img{
+  width:100%;
+  height:auto;
+  min-height:150px;          /* mantiene el hueco visible si aún no existe el archivo */
+  display:block;
+  border-radius:10px;
+  background:var(--accent-soft);
+}
+/* — Lecturas adicionales — */
+ul.resources{list-style:none;padding:0;margin:0;}
+ul.resources li{border-bottom:1px solid var(--border);padding:12px 0;}
+ul.resources li:last-child{border-bottom:none;}
+ul.resources .r-title{font-weight:700;display:block;}
+ul.resources .r-src{font-size:.85rem;color:var(--muted);font-style:italic;}
+footer{
+  margin-top:44px;padding-top:18px;border-top:3px solid var(--accent);
+  font-size:.8rem;color:var(--muted);line-height:1.6;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (max-width:600px){
+  .page{padding:32px 18px 40px;}
+  body{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <p class="breadcrumb">Inicio · Monitor on Psychology · 2026 · Septiembre</p>
+
+  <!-- ═══════════════ ENCABEZADO ═══════════════ -->
+  <header>
+    <p class="kicker">Carrera</p>
+    <h1>Cómo los chatbots están potenciando, no reemplazando, la formación de los clínicos</h1>
+    <p class="dek">Las herramientas de IA pueden ofrecer información valiosa que los supervisores pueden explorar y discutir con los estudiantes en formación</p>
+    <div class="byline">
+      <p class="author">Por Heather Stringer</p>
+      <p class="meta">Fecha de creación: 1 de septiembre de 2026 · 14 min de lectura<br>
+      Vol. 57, N.º 6 · Versión impresa: página 53</p>
+    </div>
+  </header>
+
+  <!-- ═══════ IMAGEN 1: IC1.jpg ═══════ -->
+  <figure class="imagen">
+    <img src="IC1.jpg" alt="Hombre usando auriculares">
+  </figure>
+
+  <!-- ═══════════════ INTRODUCCIÓN ═══════════════ -->
+  <section class="intro">
+    <p>La formación clínica en salud mental se ha visto limitada por un cuello de botella crónico: no existen suficientes horas de supervisión para que los estudiantes en formación reciban retroalimentación intensiva y de alta calidad. Para cerrar esta brecha formativa, los psicólogos están desarrollando y explorando herramientas de inteligencia artificial que ayuden tanto a los clínicos noveles como a los experimentados a dominar y conservar habilidades en cualquier etapa de su carrera y, en última instancia, a brindar una mejor atención a los pacientes.</p>
+
+    <p>Las aplicaciones de formación con IA tienen el potencial de ofrecer un espacio seguro para cometer errores y de entregar retroalimentación minuciosa a lo largo de una sesión simulada, además de muchas más oportunidades para practicar habilidades importantes. Y, como ocurre con cualquier herramienta de IA, corren el riesgo de generar retroalimentación que suena autorizada pero que puede ser clínicamente cuestionable, o que puede quedar fuera del alcance de las capacidades de un estudiante en formación.</p>
+
+    <p>A medida que la demanda de atención en salud mental continúa en ascenso, los profesionales están atentos a los hallazgos de investigación que evalúan la eficacia de estas aplicaciones, y la evidencia temprana sugiere que la formación asistida por IA podría transformar la supervisión clínica. Algunos psicólogos están experimentando con este uso prometedor, aunque complejo, de la tecnología: consiguen financiación para crear sus propias herramientas de formación con IA, las prueban con sus supervisados y asesoran a otros que intentan incorporar estas aplicaciones a sus prácticas formativas.</p>
+
+    <blockquote>
+      <p>«He estado involucrada en la formación clínica durante 50 años y estoy muy optimista respecto al potencial de la IA, porque hasta ahora los supervisores y formadores clínicos no han hecho un muy buen trabajo al introducir habilidades y proporcionar retroalimentación precisa e inmediata durante la formación».</p>
+      <p>«Este es el momento de que los psicólogos se involucren en descubrir cómo aprovechar la IA de forma segura, porque en última instancia esto puede mejorar la atención a nuestros pacientes».</p>
+      <p class="quote-by">— Hanna Levenson, PhD, profesora emérita del Wright Institute en Berkeley, California, quien ha trabajado con colegas en el desarrollo de una plataforma de IA que ayuda a los estudiantes a aprender la psicoterapia dinámica a corto plazo</p>
+    </blockquote>
+
+    <p>Los psicólogos que desarrollan estas herramientas subrayan que los chatbots están diseñados para complementar —no reemplazar— la supervisión humana, y trabajan con equipos tecnológicos para garantizar que la tecnología sea segura, eficaz y fácil de usar tanto para supervisores como para estudiantes.</p>
+
+    <p>«También estamos recopilando la opinión de los clínicos sobre cómo desean recibir retroalimentación de un chatbot, por ejemplo, la frecuencia, el tono y el contenido de las orientaciones que reciben», dijo Shannon Wiltsey Stirman, PhD, profesora de psiquiatría y ciencias del comportamiento y codirectora del Center for Responsible and Effective AI Technology Enhancement of PTSD Treatments (CREATE) de la Universidad de Stanford. «Queremos asegurarnos de que la retroalimentación se entregue de una manera que los clínicos quieran escuchar».</p>
+  </section>
+
+  <!-- ═══════════════ CERRANDO EL CICLO DE RETROALIMENTACIÓN ═══════════════ -->
+  <section>
+    <h2>Cerrando el ciclo de retroalimentación</h2>
+
+    <p>Un desafío persistente en la supervisión es que los psicólogos a menudo no pueden observar directamente cómo los estudiantes en formación interactúan con los pacientes en cada sesión, porque no es viable que un supervisor revise sesiones completas con regularidad, además de atender su propia carga de casos. Con frecuencia, los estudiantes se ven en la posición de reportar su propio trabajo a los supervisores. Torrey Creed, PhD, recuerda vívidamente que, durante su formación, se reunía con su supervisora una vez por semana para revisar una docena de casos. «Mi recuerdo estaba filtrado por mi percepción de las sesiones, y había muy poco tiempo para hablar de toda una carga de casos», dijo Creed, profesora asociada de psicología en la Perelman School of Medicine de la Universidad de Pensilvania, quien colaboró con el equipo que desarrolló una plataforma de IA para formación y mejora de la calidad llamada Lyssn.</p>
+
+    <p>La literatura sobre supervisión en torno al autoinforme de los terapeutas sugiere que estos quizá no sean los mejores jueces de sus propias capacidades, y que con frecuencia subestiman o sobreestiman su nivel de habilidad <span class="cite">(Hogue, A., et al., Administration and Policy in Mental Health and Mental Health Services Research, Vol. 42, 2015; McManus, F., et al., British Journal of Clinical Psychology, Vol. 51, N.º 3, 2012)</span>.</p>
+
+    <p>Investigadores de la Universidad de Stanford abordaron recientemente este problema al desarrollar un chatbot de IA llamado TherapyTrainer, que da seguimiento a lo que dice el estudiante durante una sesión. Con una subvención de 11,5 millones de dólares del Instituto Nacional de Salud Mental (NIMH), crearon una sala de terapia simulada en la que los proveedores conversan por texto o audio con un paciente simulado para practicar la terapia de exposición escrita (WET), un tratamiento centrado en escribir sobre recuerdos traumáticos <span class="cite">(Stade, E. C., et al., Cognitive and Behavioral Practice, 2025)</span>. Uno de los pacientes de IA es un veterano que vivió en el ejército un evento traumático relacionado con el maltrato entre compañeros; la segunda paciente virtual experimentó violencia de pareja y está en remisión de un trastorno por consumo de sustancias.</p>
+
+    <p>Los terapeutas y estudiantes pueden practicar todos los aspectos de la WET, como brindar psicoeducación sobre el trastorno de estrés postraumático (TEPT), explicar la justificación del tratamiento y conducir la sesión de escritura narrativa. El consultor de IA opera como lo haría un supervisor, proporcionando al terapeuta retroalimentación sobre las interacciones con el paciente de IA. El terapeuta puede pausar la sesión en cualquier momento y preguntar al consultor cosas como «¿Cómo lo estoy haciendo?» y «¿Qué debo hacer a continuación?».</p>
+
+    <!-- ═══════ IMAGEN 2: IC2.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IC2.jpg" alt="Clínica practicando una sesión de terapia simulada con un paciente virtual">
+    </figure>
+
+    <p>Los investigadores lanzarán dos ensayos clínicos en el verano de 2026 para estudiar cómo se compara TherapyTrainer con la consulta humana. «La consulta es uno de los estándares de oro para formar a terapeutas en tratamientos basados en evidencia, pero el problema es que la mayoría de los terapeutas que han aprendido un tratamiento no tienen la oportunidad de recibir consulta porque no hay suficientes consultores y el costo es alto», dijo Elizabeth Stade, PhD, psicóloga clínica computacional del Institute for Human-Centered AI de Stanford y directora asociada de CREATE. «Y muchos terapeutas no pueden renunciar a horas facturables para asistir a consultas».</p>
+
+    <p>Tim Overton, PsyD, que atiende un consultorio privado en Filadelfia, usó TherapyTrainer para refrescar sus habilidades en WET, aunque al principio era escéptico sobre el valor de la IA en la formación. «Cuando los proveedores aprenden una nueva técnica terapéutica, las formaciones incluyen viñetas clínicas y, posiblemente, consulta sobre uno o dos casos, pero eso no basta para alcanzar competencia», dijo. «El entrenador de IA me ayudó a identificar ciertos aspectos del tratamiento que no estaba priorizando».</p>
+
+    <p>También es una herramienta que le habría gustado tener cuando empezó a trabajar con veteranos al comienzo de su carrera, cuando carecía de antecedentes militares o de formación en la Administración de Veteranos (VA). «Este tipo de herramienta puede dar a los clínicos en ciernes la posibilidad de practicar con una población nueva para prepararse en la implementación de tratamientos basados en evidencia», dijo Overton.</p>
+
+    <p>Si bien muchas aplicaciones de formación con IA se centran en técnicas asociadas con intervenciones de terapia cognitivo-conductual (TCC), estas herramientas también pueden ayudar a los estudiantes a aprender enfoques orientados a la profundidad, relacionados con procesos mentales inconscientes. Levenson y su colega, el psicólogo clínico Josh Krieger, PsyD, desarrollaron una plataforma de IA llamada LearnTLDP que brinda a los estudiantes retroalimentación inmediata y aplicable sobre sus habilidades en psicoterapia dinámica de tiempo limitado mientras trabajan con pacientes virtuales. «También tienen la oportunidad de cuestionar o incluso desafiar a un supervisor de IA respecto a su retroalimentación sin temor a represalias académicas, lo que promueve una profundidad real de comprensión», dijo Levenson.</p>
+  </section>
+
+  <!-- ═══════════════ ALIVIANDO LAS DEMANDAS ═══════════════ -->
+  <section>
+    <h2>Aliviando las demandas</h2>
+
+    <p>La supervisión humana es extraordinariamente intensiva en tiempo, y las herramientas de IA están dando a los psicólogos la capacidad de evaluar a los estudiantes con mucha mayor eficiencia. «El proceso tradicional de codificación para evaluar la calidad de las sesiones de terapia requiere formación especializada y horas de codificación manual por sesión», dijo Milena Esherick, PsyD, quien asesora a empresas que desarrollan herramientas de formación con IA y es directora asociada del programa de Maestría en Ciencias en Consejería de la Kaiser Permanente School of Allied Health Sciences, en California. «La IA puede analizar rápidamente cada sesión y tiene la capacidad de evaluar cómo van los estudiantes en las habilidades clínicas más vinculadas con los resultados de los clientes, como la alianza terapéutica, la empatía, el consenso sobre las metas y la fidelidad al tratamiento».</p>
+
+    <p>Aunque los clínicos puedan sentir ansiedad ante la idea de que una IA evalúe sus habilidades clínicas, la tecnología está siendo diseñada para dar retroalimentación de la misma manera en que lo hacen los buenos supervisores. «Debe ser digerible, estar calibrada y entregarse de una forma que promueva el crecimiento en lugar de abrumar», dijo Esherick.</p>
+
+    <p>Krista Kaur, estudiante de posgrado en consejería de salud mental clínica en la Palo Alto University de California, realizó sus prácticas en una clínica que usa una herramienta de IA para grabar las sesiones con pacientes, generar una transcripción editada y producir notas de sesión. «Se sentía como un asistente personal que me ayudaba a crecer como clínica», dijo. Podía hacer clic en un enlace para recibir retroalimentación de la herramienta sobre lo que había hecho bien en la sesión y lo que debía considerar para la próxima. «Antes de entrar a una sesión, me daba algunos recordatorios sobre en qué punto nos habíamos quedado la última vez, lo cual era muy útil», comentó Kaur. En ocasiones, la IA grababa y transcribía incorrectamente palabras de una sesión; Kaur pasaba por alto esos aspectos del resumen del caso.</p>
+
+    <!-- ═══════ IMAGEN 3: IC3.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IC3.jpg" alt="Supervisora revisando retroalimentación de IA en una computadora">
+    </figure>
+
+    <p>El psicólogo Philip Held, PhD, profesor asociado del Departamento de Psiquiatría y Ciencias del Comportamiento del Rush University Medical Center de Chicago, desarrolló recientemente una herramienta de IA llamada Socrates Coach que ayuda a los terapeutas a practicar las habilidades del diálogo socrático: preguntas abiertas que invitan a los pacientes a explorar y desafiar creencias asociadas con el malestar y los pensamientos desadaptativos. La herramienta brindó a los terapeutas retroalimentación sobre sus fortalezas generales y sus áreas de crecimiento con esta habilidad, un componente de muchos enfoques de terapia cognitiva que está estrechamente vinculado con los resultados, pero que es difícil de dominar <span class="cite">(Vittorio, L. N., et al., Behaviour Research and Therapy, Vol. 150, 2022)</span>.</p>
+
+    <p>Held había desarrollado originalmente un chatbot de IA que los pacientes podían usar entre sesiones de terapia para practicar el diálogo socrático en lugar de completar las hojas de trabajo estándar de la terapia. Colegas clínicos comenzaron a preguntarle si podía adaptar la herramienta para ayudarlos a desarrollar y perfeccionar sus habilidades de diálogo socrático.</p>
+
+    <p>Su equipo construyó prototipos de Socrates Coach y los profesionales calificaron la calidad de las respuestas del entrenador de IA. Con base en esas calificaciones humanas, el equipo aplicó la optimización de instrucciones (prompts) —el refinamiento de las instrucciones de entrada para generar respuestas más precisas de los grandes modelos de lenguaje (LLM)— para mejorar la retroalimentación de los supervisores de IA <span class="cite">(Journal of Traumatic Stress, Vol. 38, N.º 5, 2025)</span>. La retroalimentación de la IA incluye preguntas alternativas que el clínico podría hacerle al paciente de IA, posibles direcciones para la conversación e información sobre qué tan bien está usando la técnica.</p>
+  </section>
+
+  <!-- ═══════════════ UN COMPLEMENTO, NO UN SUSTITUTO ═══════════════ -->
+  <section>
+    <h2>Un complemento, no un sustituto</h2>
+
+    <p>Aunque los entrenadores de IA pueden escalarse con rapidez, los psicólogos advierten que esta tecnología no puede determinar si un clínico está listo para aplicar estas habilidades con pacientes humanos. «Estas herramientas son una forma adicional de practicar, pero no reemplazan a los supervisores humanos», dijo Held. Los terapeutas humanos deben seguir ayudando a los estudiantes con las decisiones terapéuticas que dependen del contexto, como las dinámicas familiares complejas, las señales sutiles de riesgo que sugieren abuso o riesgo de suicidio, y otros tipos de intuición clínica basada en años de experiencia.</p>
+
+    <p>Las herramientas de IA también pueden pasar por alto detalles de los pacientes que se comunican de manera no verbal. «Los terapeutas observan la expresión facial, el lenguaje corporal y otros matices que pueden influir en cómo le hablan a un paciente o en las recomendaciones de tratamiento», dijo Eric Kuhn, PhD, profesor asociado de la Facultad de Medicina de la Universidad de Stanford y miembro del Comité Asesor de Tecnología en Salud Mental de la APA.</p>
+
+    <p>En el escenario ideal, estas herramientas pueden ofrecer información valiosa que los supervisores pueden leer y discutir con los estudiantes. Donna Sheperis, PhD, profesora del Departamento de Consejería de la Palo Alto University, trabajó con una empresa que le dio acceso a una herramienta que grababa las sesiones de terapia —con el permiso de los pacientes— y proporcionaba un análisis del contenido para ayudarla a dar seguimiento al progreso de sus estudiantes. El análisis mostraba qué intervenciones se habían usado, de qué se habló, cuánto tiempo habló cada persona y más. En un caso, notó que la estudiante hablaba sin interrupciones durante 4 minutos, lo que en general se considera un tiempo demasiado largo para la escucha de la mayoría de los pacientes, señaló. Cuando Sheperis comentó esta observación con la estudiante durante la supervisión, esta explicó que estaba acumulando sus comentarios para compartirlos con el paciente de una sola vez, porque no quería interrumpir. «Hablamos de la diferencia entre interrumpir e intercalar observaciones», dijo Sheperis, quien dirige la eClinic de la Palo Alto University.</p>
+
+    <!-- ═══════ IMAGEN 4: IC4.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IC4.jpg" alt="Supervisora y estudiante conversando durante una sesión de supervisión">
+    </figure>
+
+    <p>Creed, fundadora y directora del Penn Collaborative for CBT and Implementation Science, comenzó a interesarse por la IA tras pasar años formando a proveedores en sistemas de salud mental comunitarios con escasa financiación en todo el mundo. «Las horas humanas necesarias para formar a clínicos y calificar su competencia en nuevas habilidades a gran escala eran imposibles», dijo Creed. «Sabía que tenía que existir una mejor manera».</p>
+
+    <p>Creed quería explorar si Lyssn —una plataforma de IA desarrollada por psicólogos y científicos de la computación en 2017 para analizar sesiones de terapia y dar retroalimentación a terapeutas y estudiantes— podía apoyar a las agencias de salud mental comunitarias <span class="cite">(BMC Health Services Research, Vol. 22, N.º 1177, 2022)</span>. Mediante LLM entrenados con publicaciones científicas revisadas por pares y conversaciones de salud conductual evaluadas por expertos, la plataforma ofrece formación en entrevista motivacional, TCC, prevención del suicidio y más. La herramienta indica a los clínicos si están demostrando la habilidad y señala las áreas de fortaleza y de mejora. Los supervisores también pueden ver datos agregados de sus equipos, que pueden orientar decisiones sobre la formación específica que pudiera necesitarse.</p>
+
+    <p>Creed terminó recientemente de recopilar datos para un estudio de 5 años financiado por el NIMH, cuyo objetivo es investigar cómo la formación con Lyssn afecta el nivel de habilidad de los clínicos y los resultados de los pacientes. «Una clínica próxima a la jubilación me dijo que la retroalimentación de la IA ha transformado su forma de trabajar clínicamente», contó Creed. «Si hubiera contado con este apoyo desde el principio, la atención que habría brindado habría sido muy diferente».</p>
+  </section>
+
+  <!-- ═══════════════ MANTENER LA CONVERSACIÓN ABIERTA ═══════════════ -->
+  <section>
+    <h2>Mantener la conversación abierta</h2>
+
+    <p>Los psicólogos responsables de la supervisión también deben estar preparados para hablar con los estudiantes sobre el posible uso que hagan de herramientas de IA de propósito general, como ChatGPT, Claude y Gemini. «Tenerle miedo a la IA o prohibirla es una manera reactiva de lidiar con algo que ya forma parte de nuestras vidas», dijo Levenson. «Necesitamos preguntar a los estudiantes si usan herramientas como ChatGPT, y lo peor que podríamos decir es: "simplemente no la uses"». Levenson tiene pocas dudas de que muchos estudiantes ya recurren a la IA para recibir ayuda con sus casos clínicos, pero temen revelarlo a sus supervisores por miedo a ofenderlos o a ser criticados. «De verdad depende del supervisor indagar sobre el uso clínico que el estudiante hace de la IA, de una manera que abra oportunidades de discusión y aprendizaje».</p>
+
+    <p>Si se usan de manera responsable, estas herramientas pueden ser útiles compañeras de lluvia de ideas para ayudar a los terapeutas con la conceptualización de casos, la planificación del tratamiento y la identificación de estrategias para superar los desafíos con los pacientes. Los supervisores pueden comenzar preguntando a los estudiantes cómo usan la IA, qué están aprendiendo de ella, qué está funcionando bien y si tienen inquietudes. «También es importante ayudar a los supervisados a reconocer cuándo están recibiendo buena retroalimentación de la IA y cuándo se están cometiendo errores», dijo Levenson.</p>
+
+    <p>Los supervisores pueden orientar a los estudiantes para que identifiquen las señales de alerta relacionadas con la IA, como el sesgo, los riesgos para la confidencialidad y las alucinaciones —cuando una herramienta de IA genera un resultado que suena autorizado o plausible, pero que es incorrecto en los hechos—. Para ayudar a los estudiantes a aprender a usar de forma segura la IA de acceso público, Tony Rousmaniere, PsyD, director del programa de Terapia de Matrimonio y Familia de la Sentio University, en California, comenzó a ofrecer cursos en línea sobre este tema para estudiantes, terapeutas con licencia y supervisores clínicos.</p>
+
+    <p>Rousmaniere enseña a los estudiantes a proteger la confidencialidad del paciente evitando la información identificatoria, como el nombre, la edad, el género y los detalles del trabajo. En los casos en que una pregunta clínica requiere información identificatoria para responderse con eficacia, «esa pregunta no tiene cabida en una herramienta de IA», dijo Rousmaniere. «Le corresponde a un supervisor. La IA sirve para hacer lluvia de ideas en torno a un caso, no para obtener respuestas clínicas que dependen de quién es la persona en concreto».</p>
+
+    <p>También enseña a los estudiantes cómo darle a la IA un encuadre demográfico útil que no identifique a nadie. Por ejemplo, un cliente puede describirse como un hombre blanco de mediana edad que trabaja en la industria de la tecnología, un perfil que encaja con miles de personas. Un estudiante podría pedirle a la IA que genere ideas sobre los estresores laborales comunes en la industria tecnológica que podrían contribuir a un cuadro depresivo a mitad de la carrera, o sobre variantes de tareas para casa en TCC que suelen funcionar bien con identidades ocupacionales analíticas y de alto control.</p>
+
+    <!-- ═══════ IMAGEN 5: IC5.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IC5.jpg" alt="Estudiantes de salud mental en un curso sobre uso de IA">
+    </figure>
+
+    <p>Rousmaniere también alienta a los estudiantes a verificar los protocolos de tratamiento que la IA sugiere, para asegurarse de que las ideas sean válidas y adecuadas para el paciente. La IA también puede sugerir un protocolo terapéutico para el que el estudiante aún no tiene competencia, señaló, por lo que estos deberían realizar una autoevaluación para determinar si pueden brindar ese tratamiento.</p>
+
+    <p>«Hemos encontrado que aproximadamente el 90 % de las orientaciones de la IA de propósito general es preciso y útil», dijo Rousmaniere. «Nuestro enfoque está en ayudar a los estudiantes a identificar el 10 % que no lo es».</p>
+
+    <p>Los supervisores, docentes y formadores del campo de la salud mental pueden ser más eficaces para ayudar a los estudiantes a navegar estas herramientas si ellos mismos se alfabetizan en IA, añadió Levenson. Los instructores pueden experimentar usando la IA para practicar interacciones con distintos pacientes simulados y pedirle retroalimentación a la propia IA. Esto, a su vez, los equipará para guiar a sus supervisados cuando usen la tecnología para dominar nuevas habilidades terapéuticas.</p>
+
+    <p>Al explorar cómo usar la IA en la formación clínica, los psicólogos pueden hablar con los estudiantes tanto de los beneficios como de los riesgos de esta tecnología. «Existen desafíos enormes en términos de recursos humanos para ampliar una fuerza laboral de salud mental capaz de usar eficazmente los tratamientos basados en evidencia», dijo Kuhn. «Las herramientas de IA ofrecen un entorno seguro para una práctica ilimitada de desarrollo de habilidades, y los psicólogos deben participar en la creación de estos productos para garantizar que se ciñan a enfoques que produzcan los mejores resultados para los pacientes».</p>
+  </section>
+
+  <!-- ═══════════════ LECTURAS ADICIONALES ═══════════════ -->
+  <section>
+    <h2>Lecturas adicionales</h2>
+    <ul class="resources">
+      <li>
+        <span class="r-title">De la innovación a la implementación: la inteligencia artificial en la formación y supervisión en terapia cognitivo-conductual</span>
+        <span class="r-src">Shafran, R., et al., Behaviour Research and Therapy, 2026</span>
+      </li>
+      <li>
+        <span class="r-title">Integración de la IA en la formación en consejería: apoyo a los consejeros en formación en la mejora de la autoeficacia y la reducción de la ansiedad</span>
+        <span class="r-src">Jeong, D., et al., Journal of Counseling &amp; Development, 2025</span>
+      </li>
+      <li>
+        <span class="r-title">¿Pueden las tecnologías de IA apoyar la supervisión clínica? Evaluación del potencial de ChatGPT</span>
+        <span class="r-src">Cioffi, V., et al., Informatics, 2025</span>
+      </li>
+      <li>
+        <span class="r-title">Curso gratuito sobre el uso seguro y ético de la IA para profesionales de la salud mental</span>
+        <span class="r-src">Sentio University, 2026</span>
+      </li>
+      <li>
+        <span class="r-title">Uso de la supervisión apoyada en IA en una clínica universitaria de formación en telesalud mental</span>
+        <span class="r-src">Sheperis, D., &amp; Sadeh-Sharvit, S., Journal of Technology in Counselor Education and Supervision, 2023</span>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    Traducción al español del artículo «How chatbots are enhancing, not replacing, clinician training», por Heather Stringer. Vol. 57, N.º 6, página 53.
+  </footer>
+
+</article>
+
+</body>
+</html>

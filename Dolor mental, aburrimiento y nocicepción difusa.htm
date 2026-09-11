@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dolor mental, aburrimiento y nocicepción difusa — Barry H. Cohen, Psychology of Consciousness: Theory, Research, and Practice, 2025.">
+<title>Dolor mental, aburrimiento y nocicepción difusa</title>
+<style>
+/* ═══════════════ ESTILOS ═══════════════ */
+:root{
+  --accent:#155e75;
+  --accent-soft:#e6f3f7;
+  --text:#23282e;
+  --muted:#5b6570;
+  --border:#dbe3e9;
+  --soft:#f7f9fb;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--soft);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:17px;
+  line-height:1.75;
+}
+.page{
+  max-width:760px;
+  margin:0 auto;
+  background:#fff;
+  padding:48px 32px 56px;
+}
+.breadcrumb{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;
+  color:var(--muted);
+  letter-spacing:.04em;
+  margin:0 0 28px;
+}
+/* — Encabezado — */
+.kicker{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 14px;
+}
+h1{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.18;margin:0 0 14px;
+}
+.dek{font-size:1.12rem;font-style:italic;color:var(--muted);margin:0 0 26px;line-height:1.5;}
+.byline{
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:12px 0;margin-bottom:30px;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.byline .author{font-weight:700;margin:0 0 2px;font-size:.95rem;}
+.byline .meta{margin:0;font-size:.8rem;color:var(--muted);line-height:1.55;}
+/* — Cuerpo — */
+h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.55rem;margin:44px 0 14px;color:var(--accent);
+}
+p{margin:0 0 18px;}
+.intro > p:first-child::first-letter{
+  font-size:3.3em;float:left;line-height:.85;padding-right:9px;
+  color:var(--accent);font-weight:bold;
+}
+ul.plain{padding-left:22px;margin:0 0 18px;}
+ul.plain li{margin:0 0 10px;}
+ul.plain li:last-child{margin:0;}
+ol.plain{padding-left:26px;margin:0 0 18px;}
+ol.plain li{margin:0 0 10px;}
+ol.plain li:last-child{margin:0;}
+/* — Cita del resumen — */
+blockquote{
+  margin:28px 0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);
+  font-size:1.14rem;font-style:italic;line-height:1.6;
+}
+blockquote p{margin:0 0 10px;}
+blockquote p:last-child{margin:0;}
+.quote-by{
+  font-size:.85rem !important;font-style:normal;font-weight:600;
+  color:var(--muted);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/* — Cajas — */
+aside.keypoints{
+  background:var(--soft);
+  border:1px solid var(--border);
+  border-left:4px solid var(--accent);
+  border-radius:10px;
+  padding:22px 26px;
+  margin:34px 0;
+}
+aside.keypoints h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.15rem;margin:0 0 12px;color:var(--accent);
+}
+aside.keypoints ul{margin:0;padding-left:20px;}
+aside.keypoints li{margin:0 0 10px;}
+aside.keypoints li:last-child{margin:0;}
+aside.teoria{
+  background:var(--soft);border:1px solid var(--border);border-radius:10px;
+  padding:26px 28px;margin:34px 0;
+}
+aside.teoria h2{margin-top:0;font-size:1.3rem;}
+aside.teoria .sub{font-style:italic;color:var(--muted);margin:0 0 6px;font-size:.98rem;}
+aside.teoria ol{margin:0;padding-left:24px;}
+aside.teoria li{margin:0 0 12px;}
+aside.teoria li:last-child{margin:0;}
+aside.ficha{
+  background:var(--soft);border:1px solid var(--border);border-radius:10px;
+  padding:26px 28px;margin:34px 0;
+}
+aside.ficha h2{margin-top:0;font-size:1.3rem;}
+aside.ficha ul{list-style:none;padding:0;margin:0;}
+aside.ficha li{margin:0 0 10px;line-height:1.6;}
+aside.ficha li:last-child{margin:0;}
+aside.ficha strong{
+  color:var(--accent);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:.85rem;
+  letter-spacing:.05em;
+}
+/* — Imágenes — */
+figure.imagen{margin:34px 0;}
+figure.imagen img{
+  width:100%;
+  height:auto;
+  min-height:150px;          /* mantiene el hueco visible si aún no existe el archivo */
+  display:block;
+  border-radius:10px;
+  background:var(--accent-soft);
+}
+footer{
+  margin-top:44px;padding-top:18px;border-top:3px solid var(--accent);
+  font-size:.8rem;color:var(--muted);line-height:1.6;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+@media (max-width:600px){
+  .page{padding:32px 18px 40px;}
+  body{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <p class="breadcrumb">Inicio · Psychology of Consciousness · 2025 · Vol. 12, N.º 3</p>
+
+  <!-- ═══════════════ ENCABEZADO ═══════════════ -->
+  <header>
+    <p class="kicker">Investigación</p>
+    <h1>Dolor mental, aburrimiento y nocicepción difusa</h1>
+    <p class="dek">Una teoría especulativa propone que el aburrimiento —y quizá la soledad o el malhumor— es una forma leve de dolor mental con origen fisiológico: la nocicepción difusa, mantenida fuera de la conciencia por nuestras distracciones</p>
+    <div class="byline">
+      <p class="author">Por Barry H. Cohen</p>
+      <p class="meta">Psychology of Consciousness: Theory, Research, and Practice · 2025 · Vol. 12, N.º 3 · pp. 305–324<br>
+      En línea primero: 21 de noviembre de 2024 · Department of Applied Psychology, Universidad de Nueva York</p>
+    </div>
+  </header>
+
+  <!-- ═══════ IMAGEN 1: IG1.jpg ═══════ -->
+  <figure class="imagen">
+    <img src="IG1.jpg" alt="Persona con expresión de aburrimiento mirando al vacío">
+  </figure>
+
+  <!-- ═══════════════ PUNTOS CLAVE ═══════════════ -->
+  <aside class="keypoints">
+    <h2>Puntos clave</h2>
+    <ul>
+      <li>La teoría propone que el aburrimiento —y posiblemente la soledad o el estado de ánimo negativo— son formas leves de dolor mental con un posible origen fisiológico: la nocicepción difusa (ND).</li>
+      <li>La ND sería el legado de estresores pasados: cortisol elevado, inflamación crónica de bajo grado, tensión muscular y alteraciones viscerales, generadoras de señales de dolor dispersas y difíciles de localizar en el cuerpo.</li>
+      <li>Las distracciones habituales mantienen la ND fuera de la conciencia; al perderlas, emerge como dolor mental que se atribuye a la situación («estoy aburrido»).</li>
+      <li>Todo lo que reduce la ND se refuerza positivamente: de ahí el carácter potencialmente adictivo de las distracciones —deambulación mental, redes sociales, videojuegos— y el alivio que ofrecen la aceptación y la atención plena.</li>
+    </ul>
+  </aside>
+
+  <!-- ═══════════════ INTRODUCCIÓN ═══════════════ -->
+  <section class="intro">
+    <p>¿Por qué «duele» el aburrimiento? La pregunta tiene una versión seria: ¿qué mecanismos convierten una situación monótona en una experiencia aversiva de la que queremos escapar? Barry H. Cohen, de la Universidad de Nueva York, la aborda en este artículo teórico con una hipótesis que él mismo califica de «admitidamente especulativa»: la de un origen fisiológico para las formas leves de dolor mental que solemos etiquetar como aburrimiento, soledad o malhumor, según la situación.</p>
+
+    <p>La pieza central es la nocicepción difusa: señales de dolor que nacen en el cuerpo —en los músculos, las vísceras, los tejidos— pero que, por estar dispersas, no pueden localizarse subjetivamente. La mayoría de las personas de las sociedades modernas cargaría, según la teoría, con un nivel crónico de ND producto de estresores pasados: lo bastante leve para mantenerse fuera de la conciencia gracias a las distracciones, pero capaz de invadirla cuando esas distracciones desaparecen.</p>
+
+    <blockquote>
+      <p>En este artículo propongo una teoría novedosa para explicar los posibles orígenes fisiológicos del dolor mental relativamente leve que a menudo se etiqueta como aburrimiento y, posiblemente, soledad o estado de ánimo negativo, según la situación. Mi hipótesis, admitidamente especulativa, es que la mayoría de las personas en las sociedades modernas están aquejadas por un nivel crónico de nocicepción difusa, debido a los efectos persistentes de estresores pasados. […] Cuando las personas se ven privadas de sus distracciones habituales, la ND puede entrar en la conciencia y provocar una sensación de dolor sin asociarse a ninguna sensación corporal perceptible a la que el dolor pueda localizarse. Así, la incomodidad se experimenta como dolor mental. De ello se sigue que todo lo que reduzca la ND o la mantenga fuera de la conciencia será reforzado positivamente, lo que conduce a una adicción a diversas distracciones, incluida la deambulación mental.</p>
+      <p class="quote-by">— Resumen del artículo original (traducido, con omisión marcada con corchetes)</p>
+    </blockquote>
+  </section>
+
+  <!-- ═══════════════ DOS COMPONENTES DEL DOLOR ═══════════════ -->
+  <section>
+    <h2>El dolor tiene dos componentes</h2>
+
+    <p>Desde Melzack y Casey (1968), la investigación del dolor distingue dos dimensiones: una sensorial (la intensidad de la sensación) y otra motivacional-afectiva (cuánto nos desagrada). Price et al. (1987) pidieron a sus participantes que puntuaran ambas por separado y encontraron que el componente afectivo depende de la interpretación de la situación: con niveles iguales de intensidad, las parturientas centradas en el nacimiento de su bebé calificaban el dolor de parto como menos desagradable que quienes se centraban en el dolor mismo. Otros estudios muestran que un dolor de intensidad dada es menos aversivo si es predecible o controlable.</p>
+
+    <p>La separabilidad de ambas dimensiones se aprecia mejor cuando una aparece sin la otra. En la asimbolia del dolor —la indiferencia congénita al dolor—, las personas se lesionan con frecuencia porque no sienten el impulso de retirarse del estímulo dañino. La cingulotomía, una cirugía que extirpa porciones de la corteza cingulada anterior (CCA), produce un efecto análogo en el dolor crónico debilitante: según el servicio de neurocirugía de la Universidad de Columbia, se dirige al aspecto «molesto» del dolor, y aunque no todos los pacientes quedan libres de él, muchos reportan menos ansiedad y menos malestar por el dolor restante. El óxido nitroso disocia de forma dramática la dimensión sensorial de la aversiva; en sentido inverso, la hiperalgesia y la alodinia muestran una aversión que excede con mucho el estímulo nociceptivo.</p>
+  </section>
+
+  <!-- ═══════════════ ¿QUÉ ES EL DOLOR MENTAL? ═══════════════ -->
+  <section>
+    <h2>¿Qué es el dolor mental?</h2>
+
+    <p>El dolor mental recibe considerable atención clínica por su vínculo con la depresión y la suicidalidad, y en sus formas graves se describe con crudeza: en el estudio de Mee et al. (2006), pacientes deprimidos que habían intentado suicidarse comparaban su dolor psicológico con el de metástasis óseas o el de un cálculo renal —y lo situaban por encima de ambos.</p>
+
+    <p>Cohen da dos pasos más. Primero: así como el dolor corporal puede ser leve o intenso, el dolor mental también puede serlo, y el aburrimiento leve sería un ejemplo de dolor mental «puro», no coloreado por emociones específicas. Segundo: dado que el daño tisular no es necesario para sentir dolor, ¿por qué no podría activarse el centro afectivo del dolor por vías distintas a los nociceptores, como plantea Biro (2010)? Joffe y Sandler (1967) llegaron a proponer que todo dolor es, en rigor, mental: el dolor corporal sería un caso particular en el que el contenido de la experiencia se refiere a la idea de daño corporal.</p>
+
+    <p>Para claridad, el artículo adopta una convención de tres términos: <strong>dolor físico</strong>, cuando el dolor parece provenir de una localización corporal; <strong>dolor mental</strong>, cuando no hay sensación corporal asociada; y <strong>dolor psicológico</strong>, cuando el dolor mental parece tener una causa psicológica específica, como el rechazo social.</p>
+  </section>
+
+  <!-- ═══════════════ EL ABURRIMIENTO Y EL IMPULSO EXPLORATORIO ═══════════════ -->
+  <section>
+    <h2>El aburrimiento y el impulso exploratorio</h2>
+
+    <p>El aburrimiento es casi universalmente identificado con un sentimiento negativo del que se desea escapar (Goetz et al., 2014): cumple, pues, la definición de dolor mental. Pero la investigación reciente —abundante— se ha centrado sobre todo en las condiciones que lo provocan en laboratorio: tareas demasiado fáciles e intrínsecamente poco interesantes, o frustrantemente difíciles (Westgate y Wilson, 2018). Poco se ha estudiado la base fisiológica del dolor mental asociado al aburrimiento.</p>
+
+    <p>La vía habitual para explicar su aversividad es motivacional: el aburrimiento como frustración de un impulso innato. Bench y Lench (2013) le atribuyen una función adaptativa: crear el deseo de cambio que empuja a buscar metas y experiencias distintas, con sus oportunidades de crecimiento cognitivo y social. Los animales parecen compartir ese impulso exploratorio: visones alojados durante meses en jaulas empobrecidas respondían después a todo tipo de estímulos más rápidamente que los criados en jaulas enriquecidas (Meagher y Mason, 2012). Un impulso exploratorio frustrado generaría una incomodidad análoga al hambre que produce la privación de alimento.</p>
+
+    <p>La objeción implícita de Cohen a esta familia de teorías es que exigen postular impulsos específicamente humanos sin base fisiológica conocida. Su alternativa es fisiológica de principio a fin.</p>
+  </section>
+
+  <!-- ═══════════════ NEUROFISIOLOGÍA DEL DOLOR ═══════════════ -->
+  <section>
+    <h2>La neurofisiología del dolor: de la médula a la corteza</h2>
+
+    <p>Craig (2003) define el dolor humano como «una emoción que refleja actividad aferente homeostática primaria específica». Las señales nociceptivas ascienden por el tracto espino talámico lateral, innervan el núcleo parabraquial y la sustancia gris periacueductal (SGP) del tronco encefálico, y se reléan en dos núcleos mediales del tálamo: uno envía información muy específica a la corteza insular; el otro, información homeostática integrada a la CCA —la misma estructura cuya ablación reduce la aversividad del dolor.</p>
+
+    <p>Lieberman y Eisenberger (2015) identificaron la CCA dorsal (CCAd) como área crítica del procesamiento del dolor, pero la conceptualizaron en términos más amplios: un «sistema de alarma neural» que avisa a la corteza de que están amenazadas metas ligadas a la supervivencia «incluidas las que no implican nocicepción»: hambre, sed, falta de aire o rechazo social.</p>
+
+    <!-- ═══════ IMAGEN 2: IG2.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IG2.jpg" alt="Ilustración de las vías cerebrales del dolor">
+    </figure>
+
+    <p>Esa idea encaja con la <strong>red de prominencia</strong> (salience network), una de las tres grandes redes identificadas en reposo, junto a la ejecutiva central y la red por defecto. Sus nodos principales son la CCAd y la ínsula anterior (IA), e incluye la amígdala y áreas del tronco encefálico. Su nombre proviene de su activación ante estímulos prominentes, y engloba las áreas que responden al dolor, la llamada «matriz del dolor». Si la red se activa ante cualquier amenaza a metas relevantes para la supervivencia —la afiliación social, la necesidad de novedad y exploración—, ya hay un puente neuronal entre la frustración de un impulso y el dolor.</p>
+
+    <p>El rechazo social ilustra la superposición. En el estudio de Kross et al. (2011), personas con una ruptura reciente veían una fotografía de su expareja mientras pensaban en el rechazo, y se activaban áreas que sustentan el componente sensorial del dolor físico (la corteza somatosensorial secundaria y la ínsula posterior dorsal) —algo que ayuda a explicar metáforas como el «desgarro del corazón». Pero el análisis multivariado de Woo et al. (2014) logró discriminar la actividad del rechazo social de la del calor doloroso: regiones adyacentes, no idénticas. Cohen adopta como supuesto de trabajo una teoría simple de la identidad mente-cerebro —experiencias distinguibles deben corresponder a patrones cerebrales distintos—, de modo que el dolor social no sería idéntico al componente aversivo del dolor físico; ambos, en cambio, movilizan la red de prominencia y estrechan el foco de la conciencia, y tal vez sea esa movilización general lo que resulta aversivo.</p>
+
+    <p>El cuadro lo completa la corteza prefrontal. Bräscher et al. (2016) compararon dolor térmico controlable e incontrolable: el incontrolable se asoció a mayor conectividad entre la corteza prefrontal medial, la IA y partes de la CCA, mientras que en el controlable la corteza prefrontal dorsolateral parecía reducir la actividad de ínsula y tálamo. Jahn et al. (2016) localizaron el procesamiento aversivo del dolor en la corteza prefrontal ventromedial, y el repaso de Johansson et al. (2024) sugiere que su porción dorsal podría reflejar la tendencia a «rumiar el significado del dolor», elevando la amenaza personal y la susceptibilidad a experimentarlo.</p>
+  </section>
+
+  <!-- ═══════════════ LA PROPUESTA: NOCICEPCIÓN DIFUSA ═══════════════ -->
+  <section>
+    <h2>La propuesta: nocicepción difusa</h2>
+
+    <p>La teoría de Cohen para el dolor del aburrimiento es radicalmente distinta de las teorías del impulso frustrado: la mayoría de las personas viviría con un nivel bastante constante de nocicepción capaz de evocar dolor mental en condiciones particulares. Cuando la nocicepción proviene de una sensación corporal intensa, el dolor es físico y sus componentes sensorial y afectivo están fusionados en una única experiencia. Pero si las señales son tan difusas que no pueden localizarse subjetivamente, activan el componente aversivo mucho más que el sensorial: el resultado es un dolor de origen corporal experimentado como mental —y atribuido, erróneamente, a causas psicológicas.</p>
+
+    <p>¿De dónde saldría esa ND? La fuente más común sería la secuela de las reacciones al estrés:</p>
+
+    <ul class="plain">
+      <li><strong>Cortisol.</strong> El estrés activa la rama simpática y, vía el eje hipotálamo-hipófisis-adrenal, la secreción de cortisol. El estrés prolongado produce resistencia a los glucocorticoides: el cortisol se mantiene alto, resulta tóxico para el hipocampo (cuyo volumen reduce) y engorda la amígdala (Lupien et al., 2009), sembrando hipervigilancia y reacciones afectivas lábiles.</li>
+      <li><strong>Inflamación.</strong> Paradójicamente, la resistencia a los glucocorticoides anula el efecto antiinflamatorio del cortisol: pueden coexistir cortisol alto y citoquinas proinflamatorias altas (Silverman y Sternberg, 2012). Slavich e Irwin (2014) argumentaron que los eventos estresantes elevan la inflamación sistémica y que esta puede producir todos los síntomas comunes de la depresión. Eisenberger et al. (2009) inyectaron una endotoxina a la mitad de sus participantes: dos horas después reportaban más ánimo deprimido, y quienes más subían en interleucina-6 mostraban más actividad en la IA (y en la CCAd, en el caso de las mujeres). En línea con ello, los antiinflamatorios reducen los síntomas depresivos (Köhler et al., 2014). Y la inflamación aumenta la sensibilidad al dolor —una adaptación que induce conductas de «enfermedad» protectoras (Watkins y Maier, 2000)—. El malestar vago resultante se etiqueta según la situación: soledad, si uno se siente privado de interacción; nostalgia, si se añora el pasado; aburrimiento, si uno confía en que cambiar de actividad traerá alivio.</li>
+      <li><strong>Tensión muscular.</strong> La tensión crónica de los músculos esqueléticos, prominente en el trastorno de ansiedad generalizada, puede ser una forma de afrontar el exceso de activación (Pluess et al., 2009); Goldstein (1965) registró los mayores incrementos de tensión en pacientes deprimidos. Tensamos los músculos ante un dolor predecible —una inyección— o un estresor psicológico, y muchas personas mantienen tensiones innecesarias que elevan la activación general (Nielson et al., 1996).</li>
+      <li><strong>Fuentes viscerales.</strong> La activación simpática desvía el flujo sanguíneo desde los órganos viscerales —los gastrointestinales, entre otros—; las quejas digestivas acompañan con frecuencia a los trastornos de ansiedad y, en niveles bajos, podrían sumar su parte de ND.</li>
+    </ul>
+
+    <!-- ═══════ IMAGEN 3: IG3.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IG3.jpg" alt="Ilustración de los efectos fisiológicos del estrés">
+    </figure>
+
+    <p>¿Qué tan común es la ND? La pregunta es decisiva: si debe explicar algo tan frecuente como el aburrimiento, tiene que ser frecuente también. Cohen argumenta que el aburrimiento exige, por definición, un dolor mental bastante leve —uno moderado o severo se etiquetaría como ansiedad, depresión o, acaso, «aburrimiento existencial»—; que una ND muy leve puede sobre-reaccionar si se le suman emociones negativas (sentirse atrapado y resentir el estar atascado); y que los síntomas de ansiedad y depresión por debajo del umbral clínico, con sus correlatos fisiológicos —activación, tensión, disturbios viscerales—, son muy prevalentes en los países desarrollados. Conclusión: las perturbaciones fisiológicas leves y persistentes probablemente son la norma en las sociedades modernas.</p>
+  </section>
+
+  <!-- ═══════════════ NOCICEPCIÓN INCONSCIENTE Y PRECONSCIENTE ═══════════════ -->
+  <section>
+    <h2>Nocicepción inconsciente y preconsciente</h2>
+
+    <p>No toda la nocicepción llega a ser dolor consciente. Baliki y Apkarian (2015) sostienen que gran parte de ella controla la conducta sin pasar por la conciencia: «la razón principal por la que me muevo en la silla mientras escribo este artículo es que los nociceptores que inervan mi piel, mis músculos y mis huesos ordenan que ajuste la postura».</p>
+
+    <p>Freud distinguió lo reprimido de lo <em>preconsciente</em> —lo que no está en la conciencia pero podría entrar fácilmente—, y Dehaene et al. (2006) lo reformularon en términos neurales: procesos con activación suficiente para el acceso consciente, pero almacenados temporalmente fuera de él por falta de amplificación atencional. Piénsese en el zumbido de un motor que solo se nota cuando cesa, o en la ropa rozando la piel. Incluso sensaciones algo incómodas se desvanecen en lo preconsciente si estamos suficientemente distraídos: Garcia-Larrea y Bastuji (2018) señalan que la actividad combinada de las redes sensorial-específica y de segundo orden es crucial para el paso de la nocicepción preconsciente al dolor consciente.</p>
+
+    <p>Una ND preconsciente, próxima al borde de la conciencia, podría influir en sentimientos y conducta: percibirla «de fondo» motivaría a seguir enganchados a las distracciones preferidas.</p>
+  </section>
+
+  <!-- ═══════════════ LO QUE ALIVIA EL DOLOR FÍSICO ═══════════════ -->
+  <section>
+    <h2>Lo que alivia el dolor físico tiende a aliviar el mental</h2>
+
+    <p>Si el dolor mental comparte circuitos con el físico, lo que alivia uno debería aliviar el otro. La experiencia común lo sugiere: pocas personas se aburren bajo el efecto del alcohol, la marihuana o los opioides, y la huida del aburrimiento se cita a menudo como motivo de consumo. Hay datos: el paracetamol (acetaminofén) reduce el dolor social. En un estudio de campo de tres semanas (DeWall et al., 2010), el grupo que tomó paracetamol vio descender su dolor social, que permaneció plano en el grupo placebo; en laboratorio (Fung y Alden, 2017), los participantes con paracetamol reportaron menos dolor social tras ser excluidos en un juego informático. Los consumidores habituales de marihuana se sentían más aceptados tras la exclusión cuanto más frecuente era su consumo (Deckman et al., 2014), y el alcohol tiene propiedades analgésicas confirmadas experimentalmente (Thompson et al., 2017).</p>
+
+    <p>Las distracciones también alivian. Según la metáfora del «foco» de la conciencia, desplazar la atención hacia una percepción o actividad absorbente mueve las sensaciones nociceptivas de lo consciente a lo preconsciente —aunque cabe, además, una regulación neural directa a la baja.</p>
+
+    <p>Más llamativo aún: el dolor físico <em>controlable</em> puede preferirse al dolor mental <em>incontrolable</em>. En uno de los estudios de Wilson et al. (2014), participantes a los que se pidió entretenerse «solo pensando» durante 15 minutos, tras ser privados de toda otra distracción, se administraron descargas eléctricas que previamente habían declarado que pagarían por evitar. El hallazgo, que recibió críticas, fue replicado en al menos dos estudios independientes con condiciones más largas y monótonas (Havermans et al., 2015; Nederkoorn et al., 2016). Yusoufzai et al. (2022) fueron más lejos: una condición aburrida aumentó la frecuencia y la intensidad de las autodescargas, en correlación con la propensión al aburrimiento, y los efectos fueron significativos entre quienes reportaban historia de autolesión no suicida (ANS) —cerca del 55 % de la muestra, sorprendentemente, dado que el estudio no la reclutó específicamente—. Más de la mitad de los participantes se administró al menos una descarga calificada de dolorosa. La lectura de Cohen: usaban un dolor controlable para distraerse del dolor incontrolable del aburrimiento; Wiech et al. (2006) mostraron que la controlabilidad reduce la aversividad del dolor mediante una regulación a la baja originada en la corteza prefrontal anterolateral, un área asociada con la reevaluación cognitiva de la emoción.</p>
+
+    <!-- ═══════ IMAGEN 4: IG4.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IG4.jpg" alt="Participante en un experimento de laboratorio">
+    </figure>
+  </section>
+
+  <!-- ═══════════════ DEAMBULACIÓN MENTAL Y RED POR DEFECTO ═══════════════ -->
+  <section>
+    <h2>La deambulación mental y la red por defecto</h2>
+
+    <p>La inmensa mayoría no se aplica descargas: se distrae de otra manera, casi continuamente. La evidencia es la ubicuidad de la <strong>deambulación mental</strong> (mind wandering): contenido mental independiente del estímulo —el «pensamiento independiente del estímulo»— y ajeno a la tarea en curso —el «pensamiento no relacionado con la tarea»—. Los estudios de muestreo de experiencia estiman que la persona promedio pasa entre el 30 % y el 50 % de su tiempo deambulando mentalmente (Kucyi et al., 2023).</p>
+
+    <p>Killingsworth y Gilbert (2010) afirmaron que «la mente humana es una mente que deambula, y una mente que deambula es una mente infeliz». Pero Poerio et al. (2013) encontraron que la deambulación no suele ir seguida de ánimo negativo; el ánimo negativo sí puede evocarla, y las cogniciones negativas exacerbarlo después. Algunas personas divagan rumiando pensamientos negativos —creando su propio dolor mental—, lo que Cohen interpreta como un modo de resolución de problemas: intentar averiguar el origen del dolor en eventos pasados y planear cómo impedir su recurrencia. Y el dato paradójico: muy pocas personas pueden dejar de pensar voluntariamente durante más de unos segundos. La deambulación mental sería, en sí misma, adictiva.</p>
+
+    <p>La actividad neural responsable se descubrió por accidente: eran las áreas más activas mientras los participantes esperaban una tarea en el escáner. Raichle et al. (2001) las bautizaron <strong>red por defecto</strong> (DMN); sus nodos principales son la corteza cingulada posterior con el precúneo adyacente y la corteza prefrontal ventromedial. La DMN se activa al recordar recuerdos personales y hacer juicios sociales: el contenido mental más interesante —y por tanto más distractor— para un animal social. Su actividad consume, además, una cantidad sorprendente de energía incluso en reposo (Raichle y Snyder, 2007), lo que sugiere una motivación fuerte. La propuesta de Cohen: la DMN, evolucionada para funciones como el seguimiento de las relaciones y el estatus social, sería cada vez más «apropiada», a medida que aumenta el estrés del individuo, para reducir el dolor mental generando deambulación.</p>
+
+    <p>Hay un posible mecanismo directo. Danckert e Isacescu (2017) registraron la actividad de la DMN y de la IA durante un video aburrido y uno interesante: en el aburrido, la DMN subía y la IA bajaba (actividades anticorrelacionadas); en el interesante, el patrón se invertía. La DMN podría inhibir directamente a la IA, eslabón mayor de la cadena aversiva. No todas las tareas la inhiben por igual: Ulrich et al. (2016) la encontraron más deprimida en una condición de flujo (dificultad óptima) que en tareas demasiado fáciles o demasiado difíciles —una tarea poco absorbente deja espacio a los pensamientos ajenos a la tarea. Finalmente, Kucyi et al. (2013) hallaron que quienes tendían a deambular lejos de un estímulo doloroso tenían conexiones más fuertes de sustancia blanca entre la DMN y la SGP del mesencéfalo, y que, en los ensayos en que reportaban deambular, mostraban además mayor conectividad funcional entre ambas regiones: la DMN sería capaz de inhibir la nocicepción incluso en áreas cerebrales inferiores. Sus consecuencias analgésicas explicarían, de paso, por qué la DMN aparece tan a menudo activa en los estados de reposo.</p>
+
+    <p>Cohen añade una observación general: cualquier función corporal capaz de reducir el dolor mental puede ser «usurpada» para ese fin. Ingerir alimentos cumple una función vital, pero puede sobreusarse para aliviar el dolor mental de la soledad o de una depresión leve. La DMN está especialmente bien dotada como reductor del dolor: puede utilizarse casi constantemente, sin acumulación aparente de tolerancia y sin graves consecuencias fisiológicas —aunque consume mucha energía y puede resultar agotadora.</p>
+
+    <!-- ═══════ IMAGEN 5: IG5.jpg ═══════ -->
+    <figure class="imagen">
+      <img src="IG5.jpg" alt="Persona soñando despierta junto a una ventana">
+    </figure>
+  </section>
+
+  <!-- ═══════════════ COGNICIÓN Y PLACER ═══════════════ -->
+  <section>
+    <h2>La actividad cognitiva y el placer como reductores del dolor</h2>
+
+    <p>La deambulación mental puede reducir el dolor del aburrimiento, pero una tarea cognitiva absorbente —que activa la red ejecutiva central— puede ser aún más eficaz contra cualquier tipo de dolor. Valet et al. (2004) escanearon a participantes que recibían estimulación térmica dolorosa (o solo calor) mientras realizaban (o no) una tarea cognitiva exigente tipo Stroop. Las calificaciones del desagrado del dolor se redujeron significativamente durante la distracción cognitiva, junto con una disminución general de la actividad en diversas regiones de procesamiento del dolor y una mayor conectividad entre áreas corticales cingulofrontales y zonas inferiores del cerebrales que participan en la inhibición de las señales dolorosas (p. ej., la SGP). Los autores concluyeron que «la corteza prefrontal ejerce un control inhibitorio de las entradas sensoriales para permitir que las redes cognitivas realicen tareas que exigen atención». Esta reducción del dolor ayudaría a explicar la adicción de algunas personas a los videojuegos, los rompecabezas y otros pasatiempos mentalmente exigentes.</p>
+
+    <p>En cuanto al placer, apenas hace falta decir que el dolor mental puede reducirse activando el circuito cerebral de la recompensa. Formas muy diversas de placer —comer algo delicioso, escuchar una pieza favorita, encontrarse con un ser querido— estimulan el mismo circuito, que se apoya en el núcleo accumbens y el pallidum ventral y alcanza su ápice en una región de la corteza orbitofrontal (Berridge y Kringelbach, 2013, 2015). Dado que los sentimientos placenteros pueden «ahogar» sensaciones leves de dolor, se entiende que cualquier actividad que active el sistema de recompensa —comer (en especial comida de consuelo), el sexo, el juego de azar o incluso las compras— pueda volverse psicológicamente adictiva en la medida en que logre reducir el dolor mental.</p>
+  </section>
+
+  <!-- ═══════════════ CUANDO FALLAN LAS DISTRACCIONES ═══════════════ -->
+  <section>
+    <h2>Cuando fallan todas las distracciones</h2>
+
+    <p>En ausencia de una distracción exitosa, la ND puede pasar de lo preconsciente a la conciencia y desencadenar la actividad cortical que crea el aspecto aversivo del dolor. Verse obligado a realizar tareas tediosas o a ver videos monótonos puede dejar la deambulación mental como única distracción disponible —y la investigación muestra que no es lo bastante fuerte para impedir el aburrimiento en la mayoría de las personas.</p>
+
+    <p>Pero incluso en la vida diaria, cuando hay mejores distracciones a mano (el teléfono, la tableta), la persona puede reaccionar al inicio del dolor del aburrimiento con una emoción negativa: atascada en el tráfico o en una cola larga, empieza a sentir el dolor y se irrita o enoja por estar atrapada. La emoción negativa dificulta la distracción exitosa, de modo que el aburrimiento persiste —igual que el resentimiento hacia la propia situación—; y si ya había una emoción negativa previa, el dolor del aburrimiento solo la exacerba.</p>
+  </section>
+
+  <!-- ═══════════════ ACTITUDES, PLACEBO Y ACEPTACIÓN ═══════════════ -->
+  <section>
+    <h2>Actitudes, placebo y aceptación</h2>
+
+    <p>Nuestras interpretaciones de las sensaciones corporales pueden amplificar o reducir el desagrado del dolor. Los dolores musculares tras un ejercicio vigoroso pueden recordar una meta lograda e incluso sentirse placenteros; los mismos dolores sin explicación a la vista pueden alarmarnos —¿será gripe u otra enfermedad?—, aumentar el foco sobre esas sensaciones y facilitar la señal de dolor. El calor de un sauna o del sol en la piel es placentero si lo hemos buscado, no si nos lo imponen. Estas dos actitudes opuestas se denominan aceptación sensorial y rechazo sensorial (Williams et al., 1975).</p>
+
+    <p>Cambiar la actitud de una persona hacia sus sensaciones puede tener un efecto notablemente grande sobre su dolor —mental y físico—, y el <strong>efecto placebo</strong> logra ese cambio con sorprendente facilidad: la mera expectativa de alivio basta para activar parte de los sistemas cerebrales reductores del dolor. A diferencia de la inhibición cortical descendente, las reducciones del dolor por cambio de expectativas están mediadas, al menos en parte, por la secreción de endorfinas (Tracey, 2010) —las mismas que parecen protagonizar la «euforia del corredor» que genera el ejercicio vigoroso prolongado—. Buena parte de la evidencia proviene de estudios con naloxona, que bloquea los receptores opioides y atenúa o incluso elimina los efectos placebo.</p>
+
+    <p>La <strong>atención plena</strong> y la aceptación añaden una vía distinta. La reducción del estrés basada en la atención plena (Kabat-Zinn, 2013) y la terapia de aceptación y compromiso (Hayes et al., 2006) han impulsado la investigación sobre estrategias de aceptación para el dolor. Haspert et al. (2020) confirmaron sus beneficios: instrucciones del tipo «permitir cualquier experiencia sin evaluarla más» disminuyeron tanto la intensidad como el desagrado de una estimulación térmica, frente a una condición control. Gard et al. (2012) escanearon a practicantes experimentados de Vipassana y a controles mientras recibían descargas eléctricas: al atender la sensación con atención plena, los practicantes redujeron significativamente el desagrado del dolor —algo que los controles no lograron—, y sus resultados sugieren que la atención plena no usa el control ejecutivo, sino que permite enfocar la atención y procesar por completo (aceptar) las sensaciones potencialmente dolorosas: un mecanismo distinto del de otras manipulaciones cognitivas, incluido el placebo.</p>
+
+    <p>Zeidan et al. (2015) compararon directamente ambos mecanismos: tras cuatro días de entrenamiento en meditación o de práctica con una crema placebo, la meditación redujo el dolor —la intensidad y, sobre todo, el desagrado— significativamente más que el placebo. La meditación se asoció a mayor actividad en la corteza orbitofrontal y la IA, y a menor actividad en áreas inferiores (tálamo y SGP); el placebo, en cambio, a mayor actividad de la DMN y menor de la ínsula posterior. Y Zeidan et al. (2016) cerraron el círculo administrando naloxona: el analgésico de la meditación no se bloqueó —no hubo diferencia entre los meditadores con naloxona y los que recibieron suero salino—, de modo que no depende de las endorfinas.</p>
+  </section>
+
+  <!-- ═══════════════ INTEROCEPCIÓN ═══════════════ -->
+  <section>
+    <h2>Los efectos de una mayor conciencia interoceptiva</h2>
+
+    <p>Carvalho y Damasio (2021) describen el sistema nervioso interoceptivo como una amplia colección de estructuras que cooperan para producir «un mapa en tiempo real del estado homeostático del cuerpo». Fischer et al. (2017) hallaron que el entrenamiento en meditación de escaneo corporal mejoraba la precisión interoceptiva —medida con una tarea de detección del ritmo cardíaco—, y Wu et al. (2022) encontraron que la mejora de la atención plena reducía el ánimo negativo, un efecto totalmente mediado por la mejora en la precisión interoceptiva.</p>
+
+    <p>La aceptación de las sensaciones internas implica un mayor procesamiento de su dimensión sensorial, y uno de los hallazgos más consistentes entre meditadores y no meditadores es la mayor concentración de materia gris en la corteza insular de los primeros (Hölzel et al., 2008; Fox, Nijeboer, et al., 2014). Esto encaja con la idea de que el componente aversivo del dolor es una movilización de los recursos cerebrales para eliminar el estímulo amenazante (rechazo sensorial): se estrecha el campo atencional y ese foco estrecho bien puede intensificar el desagrado. Que la aceptación reduce también el dolor mental lo apoya la abundante investigación sobre meditación, con reducciones del afecto negativo y mejoras del ánimo (Sedlmeier et al., 2012).</p>
+  </section>
+
+  <!-- ═══════════════ DIFERENCIAS INDIVIDUALES ═══════════════ -->
+  <section>
+    <h2>Diferencias individuales: aburrimiento, neuroticismo e interocepción</h2>
+
+    <p>Las personas varían mucho en su facilidad para aburrirse, una diferencia cuantificada por varias escalas de propensión al aburrimiento (Vodanovich y Watt, 2015). Esa variación sería difícil de explicar solo por la fuerza del impulso exploratorio de cada persona —y más difícil aún explicar por qué la propensión al aburrimiento correlaciona tan alto con el neuroticismo (Mercer-Lynn et al., 2013), el rasgo medido cuantitativamente por primera vez por Eysenck (1983) y considerado un rasgo central de la personalidad (McCrae, 1991). La propensión al aburrimiento se asocia además con diversas psicopatologías (Sommers y Vodanovich, 2000), y Seiler et al. (2023) hallaron correlaciones aún más fuertes entre el aburrimiento-estado y medidas de psicopatología leve en personas mentalmente sanas.</p>
+
+    <p>La propuesta de Cohen: los niveles relativamente altos de ND contribuyen a sentimientos de ansiedad y depresión y, con ello, a la inestabilidad emocional —lo que explicaría las altas correlaciones entre medidas de aburrimiento y neuroticismo. Y si la ND participa en el neuroticismo, cabría esperar una conexión entre la capacidad interoceptiva y los autoinformes de ansiedad y depresión: Critchley et al. (2004) hallaron que la puntuación de ansiedad correlacionaba con la precisión interoceptiva durante el escaneo cerebral (R = 0,64), con tendencias similares para los síntomas depresivos y el afecto negativo.</p>
+  </section>
+
+  <!-- ═══════════════ LA TEORÍA EN SÍNTESIS ═══════════════ -->
+  <aside class="teoria">
+    <h2>La teoría en síntesis</h2>
+    <p class="sub">El circuito propuesto por Cohen, paso a paso:</p>
+    <ol>
+      <li>Estresores repetidos o sostenidos dejan secuelas fisiológicas: cortisol elevado (por resistencia a los glucocorticoides), inflamación crónica de bajo grado, tensión muscular y alteraciones viscerales.</li>
+      <li>Esas secuelas generan nocicepción difusa: señales de dolor dispersas, difíciles de localizar en el cuerpo.</li>
+      <li>La ND activa sobre todo el componente afectivo del dolor —el aversivo—, de modo que se experimenta como dolor mental.</li>
+      <li>Las distracciones habituales —estímulos externos, actividad, deambulación mental— mantienen la ND fuera de la conciencia.</li>
+      <li>Privados de distracciones (una tarea monótona, 15 minutos «solo pensando»), la ND emerge y se etiqueta según la situación: aburrimiento, soledad o malhumor.</li>
+      <li>Todo lo que reduce la ND se refuerza positivamente: las distracciones se vuelven adictivas —desde el teléfono hasta la rumiación.</li>
+    </ol>
+  </aside>
+
+  <!-- ═══════════════ SUPUESTOS Y PODER EXPLICATIVO ═══════════════ -->
+  <section>
+    <h2>Los supuestos y el poder explicativo de la teoría</h2>
+
+    <p>La teoría descansa sobre el supuesto —admitidamente especulativo— de que los cuerpos de la mayoría de las personas generan algún nivel crónico de ND a partir de los cambios fisiológicos dejados por estresores pasados. Cohen no puede probarlo, pero sostiene que es plausible, y que el poder de la teoría proviene de explicar parsimoniosamente, mediante mecanismos neurales y hormonales bien conocidos, un amplio conjunto de experiencias humanas comunes y de investigación reciente. Los fenómenos que pretende explicar, al menos parcialmente:</p>
+
+    <ol class="plain">
+      <li>La presencia ubicua y persistente de la deambulación mental, y la dificultad de la mayoría por dejar de pensar.</li>
+      <li>La adicción actual a las redes sociales, los videojuegos y el teléfono, y otras distracciones fácilmente accesibles.</li>
+      <li>La presencia común de dolor mental leve cuando las personas se ven privadas de sus distracciones habituales.</li>
+      <li>Las diferencias individuales en propensión al aburrimiento y neuroticismo en función del nivel de ND, moderadas por la habilidad en estrategias de afrontamiento y regulación emocional.</li>
+      <li>La estabilidad del neuroticismo como rasgo y, a la inversa, la del «punto de referencia de felicidad» (happiness setpoint; Cummins et al., 2014).</li>
+    </ol>
+
+    <p>Cohen aclara que no sostiene que la teoría explique ninguno de estos fenómenos por completo —sí que la posible influencia de la ND no debería pasarse por alto si se quiere comprenderlos a fondo. Queda por explicar, reconoce, por qué los efectos del estrés son tan comunes en las sociedades modernas y por qué hay evidencia de niveles crecientes de estrés, ansiedad y depresión, especialmente entre los jóvenes.</p>
+  </section>
+
+  <!-- ═══════════════ POR QUÉ ES TAN PREVALENTE LA ND ═══════════════ -->
+  <section>
+    <h2>¿Por qué es tan prevalente la ND en la población humana?</h2>
+
+    <p>La respuesta de Cohen remonta la ND hasta las etapas más tempranas del desarrollo. Un alto grado de estrés materno puede elevar anormalmente el cortisol y otras hormonas del estrés en el torrente fetal, «reprogramando» el sistema de estrés del feto para volverlo hiperactivo y predisponiendo al niño a diversos trastornos afectivos y conductuales, así como a enfermedades metabólicas (Harris y Seckl, 2011). La reactividad al estrés puede así transmitirse epigenéticamente de generación en generación. Estas predisposiciones pueden agravarse con cuidados maternos deficientes —sobre todo si la madre padece depresión—, y las hormonas del estrés siguen entrando en el cuerpo del lactante a través de la lactancia. Es posible, en suma, imaginar el estrés acumulándose a lo largo de las generaciones.</p>
+
+    <p>La investigación demuestra que el estrés temprano —pobreza extrema, abuso, negligencia— tiene efectos conductuales de largo alcance en la infancia y la adolescencia posteriores, además de elevar las tasas de depresión a lo largo de la vida (Evans y English, 2002; Slavich e Irwin, 2014). Las crías humanas, comparadas con nuestros primos primates, permanecen en un estado de total indefensión y dependencia durante un período inusualmente largo: los antropólogos han señalado que un bebé humano «a término» nace hasta un año antes de lo esperado (Gould, 1977). Las ventajas evolutivas de un cerebro grande y profundamente plegado tienen su contrapartida en el estrés temprano que programa nuestros sistemas neural y hormonal para lidiar de manera ineficiente con los estresores posteriores.</p>
+  </section>
+
+  <!-- ═══════════════ PRUEBAS EXPERIMENTALES ═══════════════ -->
+  <section>
+    <h2>Pruebas experimentales propuestas</h2>
+
+    <p>De la teoría se derivan varias hipótesis verificables. Así como un fármaco proinflamatorio aumenta el ánimo deprimido, debería también aumentar el aburrimiento inducido por una tarea o un video monótonos, así como la deambulación mental y la actividad de la DMN durante la tarea. En el laboratorio, la ND podría producirse con medios deliberadamente leves: subir la temperatura de la sala lo justo para que resulte algo incómoda, hacer que el participante lleve ropa algo incómoda o adopte una postura levemente incómoda. La clave de una manipulación exitosa sería titular las condiciones para que el participante no pueda localizar la incomodidad ni atribuirla al entorno.</p>
+
+    <p>A la inversa, así como el paracetamol reduce el desagrado de la exclusión social, un analgésico debería reducir el desagrado de una inducción experimental de aburrimiento, y un antiinflamatorio podría tener un efecto similar. El entrenamiento previo en meditación de escaneo corporal —con atención sin juicio y aceptación incluso de las sensaciones incómodas— debería reducir los autoinformes de aburrimiento-estado, y la relajación muscular progresiva, al reducir el exceso de tensión, podría tener esencialmente el mismo efecto. Un diseño de dos factores podría incluso cruzar una manipulación de ND con un analgésico para probar los efectos de ambas variables y su interacción.</p>
+  </section>
+
+  <!-- ═══════════════ CONCLUSIONES ═══════════════ -->
+  <section>
+    <h2>Conclusiones</h2>
+
+    <p>La teoría, en su síntesis final: los cuerpos de la mayoría de las personas —al menos en las sociedades modernas— generan un nivel bastante constante de ND, suficiente para evocar un dolor mental leve cuando entra en la conciencia. Ese nivel varía de persona a persona según la historia de eventos estresantes (su intensidad, frecuencia y duración) y según factores de personalidad y fisiológicos que afectan la resiliencia. En la mayoría, la ND es lo bastante baja para mantenerse en lo preconsciente casi continuamente mediante estrategias de afrontamiento aprendidas temprano —distracciones exitosas, incluido el pensamiento en forma de habla interna—. Los niveles más altos, en cambio, se relacionan con mayor propensión al aburrimiento y neuroticismo. Las emociones negativas pueden aumentar la ND, y el dolor que esta evoca puede desencadenar o exacerbar emociones negativas: un círculo vicioso.</p>
+
+    <p>En general, Cohen concibe la ND como un amplificador potencial de los impulsos humanos normales, en la medida en que satisfacerlos mantiene la ND en lo preconsciente: el hambre amplificado se convierte en comer (por) estrés; el impulso social amplificado, en el exceso de redes sociales; el impulso exploratorio amplificado, en la búsqueda extrema de sensaciones.</p>
+
+    <p>La nota optimista: la investigación sobre los beneficios de la aceptación sugiere que entrenar la capacidad introspectiva puede reducir las reacciones negativas a la nocicepción y, en última instancia, romper el círculo vicioso que mantiene el nivel crónico de ND. Las prácticas meditativas regulares aumentan el rasgo de atención plena (Kiken et al., 2015), negativamente relacionado con la propensión al aburrimiento y el neuroticismo, y prometen elevar el punto de referencia de felicidad y reducir el neuroticismo. La ironía final: el aburrimiento que la mayoría siente al empezar a meditar tiende a alejarla precisamente de la práctica que reduciría su propensión al aburrimiento (Osin y Turilina, 2022).</p>
+
+    <p>El aburrimiento es, de hecho, un hilo recurrente de esta serie: el artículo sobre el rustout lo describió como el síntoma central del trabajo poco desafiante; el estudio clásico de Campion y McClelland mostró que la subcarga mental disminuye cuando los empleos se amplían; y esta teoría de Cohen propone, desde la psicología de la conciencia, un posible mecanismo fisiológico para el malestar que todos esos trabajos describen.</p>
+  </section>
+
+  <!-- ═══════════════ FICHA DEL ARTÍCULO ═══════════════ -->
+  <aside class="ficha">
+    <h2>Ficha del artículo</h2>
+    <ul>
+      <li><strong>PUBLICACIÓN:</strong> Psychology of Consciousness: Theory, Research, and Practice · 2025 · Vol. 12, N.º 3 · pp. 305–324 (en línea primero: 21 de noviembre de 2024)</li>
+      <li><strong>AUTOR:</strong> Barry H. Cohen (Department of Applied Psychology, Steinhardt School of Culture, Education, and Human Development, Universidad de Nueva York)</li>
+      <li><strong>TIPO:</strong> Artículo teórico</li>
+      <li><strong>PALABRAS CLAVE:</strong> Aburrimiento · Dolor mental · Nocicepción · Deambulación mental · Estrés</li>
+      <li><strong>HISTORIAL EDITORIAL:</strong> Recibido: 30 de diciembre de 2022 · Revisión: 30 de julio de 2024</li>
+      <li><strong>DOI:</strong> 10.1037/cns0000405</li>
+      <li><strong>LICENCIA:</strong> CC BY-NC-ND 4.0 (compartir con atribución y sin uso comercial; no se permiten obras derivadas)</li>
+    </ul>
+  </aside>
+
+  <footer>
+    Página de resumen en español del artículo «Mental Pain, Boredom, and Diffuse Nociception», por Barry H. Cohen (Psychology of Consciousness: Theory, Research, and Practice, 2025, Vol. 12, N.º 3, pp. 305–324). Copyright © 2024 del autor; publicado por la American Psychological Association. El texto original está disponible en APA PsycNet (doi: 10.1037/cns0000405).
+  </footer>
+
+</article>
+
+</body>
+</html>
