@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Índice de artículos</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --acento: #2563eb;
+      --borde: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.5;
+    }
+
+    .contenedor {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      margin: 0 0 .25rem;
+    }
+
+    .subtitulo {
+      color: #6b7280;
+      margin: 0;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: 1.25rem 0;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .indice {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .75rem;
+    }
+
+    .indice li {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+    }
+
+    .indice li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+      border-color: #c7d2fe;
+    }
+
+    .indice a {
+      display: block;
+      padding: 1rem 1.1rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .indice a:hover {
+      color: var(--acento);
+    }
+
+    .oculto {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <header>
+      <h1>Índice de artículos</h1>
+      <p class="subtitulo">23 artículos disponibles</p>
+    </header>
+
+    <input type="search" id="buscador" class="buscador" placeholder="Filtrar por título...">
+
+    <ul class="indice" id="indice">
+      <li><a href="Aprender a vivir con la incertidumbre puede dar sus frutos en el trabajo.htm">Aprender a vivir con la incertidumbre puede dar sus frutos en el trabajo</a></li>
+      <li><a href="Comprendiendo la «psicosis por IA».htm">Comprendiendo la «psicosis por IA»</a></li>
+      <li><a href="Cuando tropiezas, la risa gana a la vergüenza.htm">Cuando tropiezas, la risa gana a la vergüenza</a></li>
+      <li><a href="Cómo la ciencia puede ayudarte a cambiar tu conducta para bien.htm">Cómo la ciencia puede ayudarte a cambiar tu conducta para bien</a></li>
+      <li><a href="Cómo la competición dirige nuestra conducta.htm">Cómo la competición dirige nuestra conducta</a></li>
+      <li><a href="Cómo los chatbots están potenciando, no reemplazando, la formación de los clínicos.htm">Cómo los chatbots están potenciando, no reemplazando, la formación de los clínicos</a></li>
+      <li><a href="Cómo volverse más paciente.htm">Cómo volverse más paciente</a></li>
+      <li><a href="Dolor mental, aburrimiento y nocicepción difusa.htm">Dolor mental, aburrimiento y nocicepción difusa</a></li>
+      <li><a href="El antropomorfismo fomenta la gratitud hacia entidades no humanas.htm">El antropomorfismo fomenta la gratitud hacia entidades no humanas</a></li>
+      <li><a href="El coraje es asumir un riesgo que vale la pena.htm">El coraje es asumir un riesgo que vale la pena</a></li>
+      <li><a href="El costo oculto del rustout laboral.htm">El costo oculto del rustout laboral</a></li>
+      <li><a href="Examen interdisciplinario de los costos y beneficios de los empleos ampliados.htm">Examen interdisciplinario de los costos y beneficios de los empleos ampliados</a></li>
+      <li><a href="Historias, no listas de la compra los perfiles de citas narrativos despiertan más interés.htm">Historias, no listas de la compra: los perfiles de citas narrativos despiertan más interés</a></li>
+      <li><a href="La autoeficacia — la creencia en la propia capacidad de ejecutar las conductas necesarias para lograr un resultado.htm">La autoeficacia — la creencia en la propia capacidad de ejecutar las conductas necesarias para lograr un resultado</a></li>
+      <li><a href="Las creencias y las intenciones vinculan el autocontrol con las conductas saludables, y más hallazgos científicos.htm">Las creencias y las intenciones vinculan el autocontrol con las conductas saludables, y más hallazgos científicos</a></li>
+      <li><a href="Lo que la IA le está haciendo a los cerebros jóvenes.htm">Lo que la IA le está haciendo a los cerebros jóvenes</a></li>
+      <li><a href="Los adultos jóvenes son más perfeccionistas que nunca.htm">Los adultos jóvenes son más perfeccionistas que nunca</a></li>
+      <li><a href="Por qué amamos viajar.htm">Por qué amamos viajar</a></li>
+      <li><a href="Por qué el «humblebrag» nunca es una buena idea.htm">Por qué el «humblebrag» nunca es una buena idea</a></li>
+      <li><a href="Por qué la psicopatía es más común de lo que crees.htm">Por qué la psicopatía es más común de lo que crees</a></li>
+      <li><a href="Saber que la ayuda está ahí lo cambia todo.htm">Saber que la ayuda está ahí lo cambia todo</a></li>
+      <li><a href="¿Crees que esa conversación será aburrida La ciencia dice lo contrario.htm">¿Crees que esa conversación será aburrida? La ciencia dice lo contrario</a></li>
+      <li><a href="¿Qué tan precisas son nuestras primeras impresione.htm">¿Qué tan precisas son nuestras primeras impresiones?</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const items = document.querySelectorAll('#indice li');
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.toLowerCase().trim();
+
+      items.forEach(item => {
+        const coincide = item.textContent.toLowerCase().includes(texto);
+        item.classList.toggle('oculto', !coincide);
+      });
+    });
+  </script>
+</body>
+</html>
