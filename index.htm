@@ -96,13 +96,19 @@
     .oculto {
       display: none !important;
     }
+
+    .vacio {
+      text-align: center;
+      color: #6b7280;
+      padding: 2rem 0;
+    }
   </style>
 </head>
 <body>
   <div class="contenedor">
     <header>
       <h1>Índice de artículos</h1>
-      <p class="subtitulo">23 artículos disponibles</p>
+      <p class="subtitulo">27 artículos disponibles</p>
     </header>
 
     <input type="search" id="buscador" class="buscador" placeholder="Filtrar por título...">
@@ -119,32 +125,43 @@
       <li><a href="El antropomorfismo fomenta la gratitud hacia entidades no humanas.htm">El antropomorfismo fomenta la gratitud hacia entidades no humanas</a></li>
       <li><a href="El coraje es asumir un riesgo que vale la pena.htm">El coraje es asumir un riesgo que vale la pena</a></li>
       <li><a href="El costo oculto del rustout laboral.htm">El costo oculto del rustout laboral</a></li>
+      <li><a href="Estudiantes con baja autoestima o baja percepción de competencia.htm">Estudiantes con baja autoestima o baja percepción de competencia</a></li>
       <li><a href="Examen interdisciplinario de los costos y beneficios de los empleos ampliados.htm">Examen interdisciplinario de los costos y beneficios de los empleos ampliados</a></li>
       <li><a href="Historias, no listas de la compra los perfiles de citas narrativos despiertan más interés.htm">Historias, no listas de la compra: los perfiles de citas narrativos despiertan más interés</a></li>
       <li><a href="La autoeficacia — la creencia en la propia capacidad de ejecutar las conductas necesarias para lograr un resultado.htm">La autoeficacia — la creencia en la propia capacidad de ejecutar las conductas necesarias para lograr un resultado</a></li>
+      <li><a href="La confianza en los demás y en las instituciones mejora el bienestar.htm">La confianza en los demás y en las instituciones mejora el bienestar</a></li>
       <li><a href="Las creencias y las intenciones vinculan el autocontrol con las conductas saludables, y más hallazgos científicos.htm">Las creencias y las intenciones vinculan el autocontrol con las conductas saludables, y más hallazgos científicos</a></li>
       <li><a href="Lo que la IA le está haciendo a los cerebros jóvenes.htm">Lo que la IA le está haciendo a los cerebros jóvenes</a></li>
       <li><a href="Los adultos jóvenes son más perfeccionistas que nunca.htm">Los adultos jóvenes son más perfeccionistas que nunca</a></li>
       <li><a href="Por qué amamos viajar.htm">Por qué amamos viajar</a></li>
       <li><a href="Por qué el «humblebrag» nunca es una buena idea.htm">Por qué el «humblebrag» nunca es una buena idea</a></li>
+      <li><a href="Por qué elegimos sufrir.htm">Por qué elegimos sufrir</a></li>
       <li><a href="Por qué la psicopatía es más común de lo que crees.htm">Por qué la psicopatía es más común de lo que crees</a></li>
       <li><a href="Saber que la ayuda está ahí lo cambia todo.htm">Saber que la ayuda está ahí lo cambia todo</a></li>
+      <li><a href="Ser cool es cool, estés donde estés.htm">Ser cool es cool, estés donde estés</a></li>
       <li><a href="¿Crees que esa conversación será aburrida La ciencia dice lo contrario.htm">¿Crees que esa conversación será aburrida? La ciencia dice lo contrario</a></li>
       <li><a href="¿Qué tan precisas son nuestras primeras impresione.htm">¿Qué tan precisas son nuestras primeras impresiones?</a></li>
     </ul>
+
+    <p class="vacio oculto" id="vacio">No se encontraron artículos.</p>
   </div>
 
   <script>
     const buscador = document.getElementById('buscador');
     const items = document.querySelectorAll('#indice li');
+    const vacio = document.getElementById('vacio');
 
     buscador.addEventListener('input', () => {
       const texto = buscador.value.toLowerCase().trim();
+      let visibles = 0;
 
       items.forEach(item => {
         const coincide = item.textContent.toLowerCase().includes(texto);
         item.classList.toggle('oculto', !coincide);
+        if (coincide) visibles++;
       });
+
+      vacio.classList.toggle('oculto', visibles > 0);
     });
   </script>
 </body>
