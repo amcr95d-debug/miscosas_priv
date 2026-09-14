@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dinámica de un microcircuito prefrontal desinhibidor en el control de la competencia social</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul-profundo: #1b3a5c;
+    --azul-medio: #2d5a87;
+    --azul-calido: #4a7fb5;
+    --azul-claro: #6ba3d6;
+    --azul-suave: #a8c8e4;
+    --azul-hielo: #d9e8f5;
+    --azul-fondo: #eef4fa;
+    --azul-brillo: #f4f9fd;
+    --acento-calido: #e8a87c;
+    --texto-principal: #1a2f45;
+    --texto-secundario: #3d5a73;
+    --texto-suave: #5c7a96;
+    --borde-suave: #c5d9eb;
+    --sombra: 0 4px 20px rgba(27, 58, 92, 0.08);
+    --sombra-hover: 0 8px 30px rgba(27, 58, 92, 0.14);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Lexend', 'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif;
+    background: linear-gradient(160deg, var(--azul-fondo) 0%, #e3eef8 50%, #eaf2fa 100%);
+    color: var(--texto-principal);
+    line-height: 1.75;
+    font-weight: 300;
+    font-size: 16px;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* ====== FONDO DECORATIVO ====== */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    right: -20%;
+    width: 80vw;
+    height: 80vw;
+    background: radial-gradient(circle, rgba(107, 163, 214, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -30%;
+    left: -15%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(74, 127, 181, 0.10) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* ====== CONTENEDOR PRINCIPAL ====== */
+  .contenedor {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 28px 80px;
+  }
+
+  /* ====== CABECERA ====== */
+  .cabecera {
+    background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-medio) 60%, var(--azul-calido) 100%);
+    border-radius: 24px;
+    padding: 56px 48px 48px;
+    color: #ffffff;
+    margin-bottom: 48px;
+    box-shadow: var(--sombra-hover);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cabecera::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cabecera::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: 30%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(168, 200, 228, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cabecera .etiqueta {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--azul-hielo);
+    background: rgba(255,255,255,0.12);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .cabecera h1 {
+    font-family: 'Lexend', 'Futura', 'Century Gothic', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cabecera .autores {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--azul-hielo);
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cabecera .autores strong {
+    font-weight: 500;
+    color: #ffffff;
+  }
+
+  .cabecera .revista {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-size: 0.85rem;
+    color: var(--azul-suave);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cabecera .revista span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cabecera .revista a {
+    color: var(--azul-hielo);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+  }
+
+  .cabecera .revista a:hover {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+  }
+
+  /* ====== SECCIONES ====== */
+  .seccion {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px 44px;
+    margin-bottom: 28px;
+    box-shadow: var(--sombra);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: box-shadow 0.35s ease, transform 0.35s ease;
+  }
+
+  .seccion:hover {
+    box-shadow: var(--sombra-hover);
+    transform: translateY(-2px);
+  }
+
+  /* ====== TÍTULOS ====== */
+  h2 {
+    font-family: 'Lexend', 'Futura', 'Century Gothic', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--azul-profundo);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--azul-hielo);
+    letter-spacing: -0.005em;
+    position: relative;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--azul-calido), var(--azul-claro));
+    border-radius: 2px;
+  }
+
+  h3 {
+    font-family: 'Lexend', 'Futura', 'Century Gothic', sans-serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--azul-medio);
+    margin-top: 28px;
+    margin-bottom: 14px;
+    letter-spacing: -0.003em;
+  }
+
+  h4 {
+    font-family: 'Lexend', 'Futura', 'Century Gothic', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--azul-calido);
+    margin-top: 22px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ====== PÁRRAFOS ====== */
+  p {
+    margin-bottom: 16px;
+    text-align: justify;
+    color: var(--texto-principal);
+    hyphens: auto;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ====== LISTAS ====== */
+  ul, ol {
+    margin: 12px 0 18px 24px;
+    color: var(--texto-principal);
+  }
+
+  li {
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+
+  li::marker {
+    color: var(--azul-calido);
+    font-weight: 500;
+  }
+
+  /* ====== DESTACADOS ====== */
+  .destacado {
+    background: linear-gradient(135deg, rgba(107, 163, 214, 0.10) 0%, rgba(74, 127, 181, 0.06) 100%);
+    border-left: 4px solid var(--azul-calido);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-style: italic;
+    color: var(--texto-secundario);
+  }
+
+  .destacado strong {
+    color: var(--azul-medio);
+    font-weight: 500;
+  }
+
+  /* ====== TARJETAS DE PUNTOS CLAVE ====== */
+  .puntos-clave {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .punto-clave {
+    background: linear-gradient(145deg, #ffffff 0%, var(--azul-brillo) 100%);
+    border: 1px solid var(--borde-suave);
+    border-radius: 16px;
+    padding: 22px 24px;
+    transition: all 0.3s ease;
+  }
+
+  .punto-clave:hover {
+    border-color: var(--azul-claro);
+    box-shadow: 0 4px 16px rgba(74, 127, 181, 0.12);
+    transform: translateY(-3px);
+  }
+
+  .punto-clave .icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--azul-medio), var(--azul-calido));
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+
+  .punto-clave p {
+    font-size: 0.92rem;
+    text-align: left;
+    margin-bottom: 0;
+    color: var(--texto-secundario);
+  }
+
+  /* ====== BLOQUE DE RESUMEN ====== */
+  .resumen {
+    background: linear-gradient(135deg, var(--azul-profundo) 0%, #244a6e 100%);
+    color: var(--azul-hielo);
+    border-radius: 20px;
+    padding: 40px 44px;
+    margin-bottom: 28px;
+    box-shadow: var(--sombra);
+  }
+
+  .resumen h2 {
+    color: #ffffff;
+    border-bottom-color: rgba(255,255,255,0.15);
+  }
+
+  .resumen h2::after {
+    background: linear-gradient(90deg, var(--azul-claro), var(--azul-suave));
+  }
+
+  .resumen p {
+    color: var(--azul-hielo);
+    font-weight: 300;
+  }
+
+  .resumen strong {
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  /* ====== TABLA ====== */
+  .tabla-contenedor {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 14px;
+    border: 1px solid var(--borde-suave);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    background: #ffffff;
+  }
+
+  thead {
+    background: linear-gradient(135deg, var(--azul-medio), var(--azul-calido));
+    color: #ffffff;
+  }
+
+  th {
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+  }
+
+  td {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--azul-hielo);
+    color: var(--texto-secundario);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr:hover {
+    background: var(--azul-brillo);
+  }
+
+  /* ====== REFERENCIAS ====== */
+  .referencias {
+    font-size: 0.82rem;
+    line-height: 1.7;
+  }
+
+  .referencias p {
+    text-align: left;
+    margin-bottom: 8px;
+    padding-left: 28px;
+    text-indent: -28px;
+    color: var(--texto-suave);
+  }
+
+  /* ====== SEPARADOR ====== */
+  .separador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 36px 0;
+    gap: 16px;
+  }
+
+  .separador::before,
+  .separador::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--azul-suave), transparent);
+  }
+
+  .separador .simbolo {
+    color: var(--azul-calido);
+    font-size: 1.4rem;
+    font-weight: 300;
+    opacity: 0.6;
+  }
+
+  /* ====== ENLACES ====== */
+  a {
+    color: var(--azul-calido);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  a:hover {
+    color: var(--azul-profundo);
+    text-decoration: underline;
+  }
+
+  /* ====== CÓDIGO ====== */
+  code {
+    font-family: 'Lexend', 'Futura', monospace;
+    background: var(--azul-hielo);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.88em;
+    color: var(--azul-medio);
+  }
+
+  /* ====== FOOTER ====== */
+  .pie {
+    text-align: center;
+    padding: 40px 20px 20px;
+    color: var(--texto-suave);
+    font-size: 0.82rem;
+    font-weight: 300;
+  }
+
+  .pie .linea {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--azul-calido), var(--azul-claro));
+    margin: 0 auto 20px;
+    border-radius: 2px;
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 700px) {
+    .contenedor {
+      padding: 20px 14px 60px;
+    }
+
+    .cabecera {
+      padding: 36px 26px 32px;
+      border-radius: 18px;
+    }
+
+    .cabecera h1 {
+      font-size: 1.5rem;
+    }
+
+    .seccion,
+    .resumen {
+      padding: 28px 22px;
+      border-radius: 16px;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+    }
+
+    .puntos-clave {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ====== ANIMACIONES ====== */
+  @keyframes aparecer {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .seccion,
+  .resumen,
+  .cabecera {
+    animation: aparecer 0.6s ease both;
+  }
+
+  .seccion:nth-child(2) { animation-delay: 0.05s; }
+  .seccion:nth-child(3) { animation-delay: 0.10s; }
+  .seccion:nth-child(4) { animation-delay: 0.15s; }
+  .seccion:nth-child(5) { animation-delay: 0.20s; }
+  .seccion:nth-child(6) { animation-delay: 0.25s; }
+
+  /* ====== SCROLLBAR ====== */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--azul-fondo);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--azul-suave);
+    border-radius: 10px;
+    border: 2px solid var(--azul-fondo);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--azul-claro);
+  }
+</style>
+</head>
+<body>
+
+<div class="contenedor">
+
+  <!-- ============ CABECERA ============ -->
+  <header class="cabecera">
+    <span class="etiqueta">Artículo · Neuron 110, 516–531</span>
+    <h1>Dinámica de un microcircuito prefrontal desinhibidor en el control de la competencia social</h1>
+    <div class="autores">
+      <strong>Chaoyi Zhang,<sup>1,2,10</sup> Hong Zhu,<sup>1,2,10,*</sup> Zheyi Ni,<sup>1,2,10</sup> Qiuhong Xin,<sup>1,2</sup> Tingting Zhou,<sup>1,2</sup> Runlong Wu,<sup>3</sup> Guangping Gao,<sup>4</sup> Zhihua Gao,<sup>2</sup> Huan Ma,<sup>2</sup> Haohong Li,<sup>2</sup> Miao He,<sup>5</sup> Jue Zhang,<sup>3</sup> Heping Cheng,<sup>3</sup></strong> y <strong>Hailan Hu<sup>1,2,6,7,8,9,11,*</sup></strong>
+    </div>
+    <div class="revista">
+      <span>📅 2 de febrero de 2022</span>
+      <span>📖 Neuron 110, 516–531</span>
+      <span>🔗 <a href="https://doi.org/10.1016/j.neuron.2021.10.034" target="_blank">doi.org/10.1016/j.neuron.2021.10.034</a></span>
+    </div>
+  </header>
+
+  <!-- ============ RESUMEN ============ -->
+  <section class="resumen">
+    <h2>Resumen</h2>
+    <p>La competencia social desempeña un papel fundamental en la determinación del estatus social de los individuos. Si bien la corteza prefrontal dorsomedial (dmPFC) es esencial en la regulación de la competencia social, aún no está claro cómo se procesa la información dentro de sus redes locales. Aquí, mediante la aplicación de manipulaciones optogenéticas y quimiogenéticas en una prueba de tubo de dominancia, revelamos que, en concordancia con la activación de neuronas piramidales (PYR), la excitación de las interneuronas del polipéptido intestinal vasoactivo (VIP) o la inhibición de las interneuronas de parvalbúmina (PV) induce la victoria. El comportamiento de victoria se asocia con actividades secuenciales de calcio iniciadas por neuronas VIP y seguidas por neuronas PYR y PV. Utilizando microscopía de dos fotones en miniatura (MTPM) y registros con optrodo en ratones despiertos, mostramos que la estimulación de VIP conduce directamente a un patrón de actividad bifásico tanto en neuronas PYR como PV: supresión rápida seguida de activación. La activación tardía de PV implica un ajuste de retroalimentación incorporado. Este motivo desinhibidor VIP-PV-PYR forma el núcleo de un microcircuito de la dmPFC para controlar la competencia social.</p>
+  </section>
+
+  <!-- ============ ASPECTOS DESTACADOS ============ -->
+  <section class="seccion">
+    <h2>Aspectos destacados</h2>
+    <div class="puntos-clave">
+      <div class="punto-clave">
+        <div class="icono">01</div>
+        <p>La activación de interneuronas VIP o la inhibición de interneuronas PV en la dmPFC induce la victoria.</p>
+      </div>
+      <div class="punto-clave">
+        <div class="icono">02</div>
+        <p>La inhibición de interneuronas VIP o la activación de interneuronas PV en la dmPFC induce la derrota.</p>
+      </div>
+      <div class="punto-clave">
+        <div class="icono">03</div>
+        <p>Las actividades de calcio de las neuronas VIP de la dmPFC preceden a las de las neuronas PYR y PV en la victoria.</p>
+      </div>
+      <div class="punto-clave">
+        <div class="icono">04</div>
+        <p>Los registros con MTPM y optrodo revelan un microcircuito desinhibidor VIP-PV-PYR en la dmPFC.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTRODUCCIÓN ============ -->
+  <section class="seccion">
+    <h2>Introducción</h2>
+    <p>La salud y la calidad de vida de los animales dependen en gran medida de su estatus de dominancia, que se adquiere a través de repetidas competencias sociales (Sandi y Haller, 2015; Sapolsky, 2005; So et al., 2015; Wilson, 2000). El resultado de la competencia social a menudo no es solo una cuestión de tamaño corporal o fuerza física (Mooney et al., 2014), sino que está determinado por rasgos de personalidad que son regulados por funciones corticales superiores (Fernald, 2014; Zhou et al., 2018). Entre las áreas corticales superiores, la corteza prefrontal medial (mPFC) ha sido particularmente implicada en la dominancia social (Rushworth et al., 2013; Wang et al., 2014). La mPFC codifica varias características cognitivas que pueden estar relacionadas con la competencia social, como la toma de decisiones basada en el esfuerzo (Bailey et al., 2016; Friedman et al., 2015; Holroyd y McClure, 2015; Walton et al., 2002) y la planificación de acciones en situaciones desafiantes o competitivas (Fujii et al., 2009; Hillman y Bilkey, 2012; Hosokawa y Watanabe, 2012; Porter et al., 2019; Warden et al., 2012). Una lesión en la corteza prefrontal (PFC) en roedores o primates deteriora el procesamiento de la información de jerarquía social, reduce el interés social y disminuye el rango social (Blair y Cipolotti, 2000; Mah et al., 2004; Rudebeck et al., 2006, 2007).</p>
+
+    <p>En ratones, la dominancia social se puede medir mediante la prueba del tubo, donde dos ratones compiten por el paso en un tubo estrecho (Fan et al., 2019; Lindzey et al., 1961; Wang et al., 2011). En la competencia de la prueba del tubo, la manipulación de la fuerza sináptica o la actividad de las neuronas de la corteza prefrontal dorsomedial (dmPFC) controla bidireccionalmente el resultado de la competencia y el estatus de dominancia de los ratones (Wang et al., 2011; Zhu y Hu, 2018). Si bien la entrada ascendente a la dmPFC ha sido mapeada en comportamientos relacionados con la victoria o la derrota (Franklin et al., 2017; Nelson et al., 2019; Zhou et al., 2017), poco se sabe sobre cómo se procesa y computa la información dentro de los microcircuitos locales de la mPFC durante la competencia social.</p>
+
+    <p>Se sabe que la función de la PFC depende de un delicado equilibrio entre excitación e inhibición, mediado por las neuronas piramidales excitatorias (PYR) y una variedad de interneuronas GABAérgicas (Kamigaki y Dan, 2017; Kvitsiani et al., 2013; Pi et al., 2013). La mayoría (80%) de las interneuronas corticales son las neuronas del polipéptido intestinal vasoactivo (VIP), parvalbúmina (PV) y somatostatina (SOM) (Kepecs y Fishell, 2014; Rudy et al., 2011). Estos distintos tipos de interneuronas están modulados diferencialmente por estímulos sensoriales o comportamientos motores (Fu et al., 2014; Hattori et al., 2017; Kerlin et al., 2010), así como por estados cerebrales y entradas neuromoduladoras (Alitto y Dan, 2013; Zhang et al., 2014). Por lo tanto, diferentes tipos de interneuronas pueden desempeñar diversos roles en la computación local y ejercer un control distinto sobre la salida excitatoria (Huang, 2014; Kepecs y Fishell, 2014). Recientemente, una serie de trabajos elegantes ha establecido el papel de las interneuronas de la mPFC en diversos comportamientos sociales, incluida la interacción social (Bicks et al., 2020; Cao et al., 2018; Yizhar et al., 2011), el miedo social condicionado (Xu et al., 2019), la representación del sexo de los congéneres (Kingsbury et al., 2020) y la discriminación del estado afectivo (Scheggia et al., 2020). Sin embargo, no se ha explorado cómo los diferentes tipos de células de la mPFC participan en la competencia social, cómo son sus dinámicas y cómo regulan el comportamiento de dominancia.</p>
+
+    <p>Para abordar estas preguntas, nos propusimos aplicar herramientas optogenéticas y quimiogenéticas específicas de tipo celular para manipular la actividad de las neuronas PYR y tres tipos principales de interneuronas en la dmPFC durante la competencia social. Descubrimos que la activación o inhibición de estas neuronas condujo a resultados distintos, o incluso opuestos, en el rendimiento de la prueba de dominancia del tubo. Los registros de imágenes de calcio específicos de tipo celular, optrodo y microscopio de dos fotones en miniatura (MTPM) revelaron además interacciones dinámicas entre estos tipos de células e identificaron un posible microcircuito desinhibidor de VIP a PYR a través de neuronas PV en la competencia social.</p>
+  </section>
+
+  <!-- ============ RESULTADOS ============ -->
+  <section class="seccion">
+    <h2>Resultados</h2>
+
+    <h3>Efectos conductuales de la activación de diferentes tipos de neuronas de la dmPFC en la prueba del tubo</h3>
+    <p>Anteriormente encontramos que la fotoestimulación de las neuronas de la dmPFC y, en particular, de las neuronas PYR excitatorias, induce comportamientos de victoria en la prueba de dominancia del tubo (Figuras 1A–1D) (Zhou et al., 2017). Para examinar sistemáticamente la contribución de diferentes tipos de interneuronas de la dmPFC a la competencia social, empleamos tres líneas de ratones Cre (SOM-Cre, PV-Cre y VIP-Cre; Taniguchi et al., 2011) para impulsar la expresión específica de tipo de interneurona de ChR2 (Boyden et al., 2005) (Figuras 1E–1O). La inyección de virus adenoasociado (AAV) que codifica ChR2 dependiente de Cre en la dmPFC bilateral de las tres líneas Cre o el cruce de estas líneas con una línea de ratón ChR2 dependiente de Cre Ai32 (Madisen et al., 2012) permitió la activación optogenética específica de diferentes tipos de interneuronas en la dmPFC (Figuras 1E, 1H, 1L y S1A–S1C). Mientras que la activación de las neuronas SOM en la dmPFC causó un cambio insignificante en el rango de la prueba del tubo (Figuras 1E–1G), la fotoactivación de las neuronas PV condujo a una disminución del rango (p = 0,004, ANOVA de dos vías; Figuras 1I y 1J). El análisis detallado de video reveló que estos ratones con rango disminuido mostraron comportamientos de esfuerzo significativamente reducidos, incluidos empujar y resistir, y aumentaron las retiradas (prueba de Mann-Whitney U; Figura 1K). Por el contrario, la fotoestimulación de las neuronas VIP indujo con éxito la elevación del rango (p = 0,037, ANOVA de dos vías; Figuras 1M y 1N). Hubo significativamente más empujones y menos retiradas en estos ratones con rango elevado (prueba de Mann-Whitney U; Figura 1O). La locomoción general no se vio afectada bajo la estimulación de PV o VIP (Figuras S2). Como control, la fotoestimulación de la dmPFC en ratones PV::EYFP y VIP::EYFP no indujo ningún cambio de rango (Figuras 1J y 1N).</p>
+
+    <h3>Efectos conductuales de la inhibición de diferentes interneuronas de la dmPFC en la prueba del tubo</h3>
+    <p>A continuación, examinamos la necesidad de diferentes tipos de interneuronas de la dmPFC en la competencia de la prueba del tubo (Figura 2). Aplicamos el sistema DREADD inhibidor (receptores de diseño exclusivamente activados por fármacos de diseño) (Armbruster et al., 2007) inyectando bilateralmente AAV que codifica el receptor hM4D acoplado a Gi dependiente de Cre en la dmPFC de ratones SOM-Cre (Figuras 2B y S3A), PV-Cre (Figuras 2E y S3B) o VIP-Cre (Figuras 2I y S3C). Un ratón de los grupos de cuatro ratones con rangos estables fue inyectado intraperitonealmente con Clozapina-N-óxido (CNO) y los otros tres ratones fueron inyectados con solución salina como control (Figura 2A). Consistente con el resultado de activación, la aplicación de CNO en ratones SOM::hM4D no causó ningún cambio significativo de rango en la prueba del tubo (Figuras 2C y 2D). En ratones PV::hM4D, sin embargo, observamos cinco de siete ratones con rangos elevados comenzando 0,5 h después de la inyección de CNO (p = 0,007, ANOVA de dos vías; Figuras 2F y 2G). El análisis detallado de video reveló que estos ratones con rango elevado mostraron más empujones y resistencia y menos retiradas (prueba de Mann-Whitney U; Figura 2H). Por el contrario, la inhibición quimiogenética de las neuronas VIP de la dmPFC indujo una caída de rango en cinco de ocho ratones (p < 0,001, ANOVA de dos vías; Figuras 2J y 2K), y hubo una disminución significativa en los empujones y la resistencia y un aumento en los comportamientos de retirada en estos ratones con rango disminuido (prueba de Mann-Whitney U; Figura 2L). Como control del efecto del fármaco, la inyección de solución salina no causó ningún cambio significativo de rango en ratones PV::hM4D y VIP::hM4D (Figuras 2G y 2K). Como control del efecto viral, la inyección de CNO en ratones PV::EYFP y VIP::EYFP no causó ningún cambio significativo de rango (Figuras 2G y 2K).</p>
+
+    <h3>Las neuronas de la dmPFC se activan durante los empujones esforzados y se inhiben durante las retiradas pasivas en la prueba de dominancia del tubo</h3>
+    <p>A continuación, deseamos observar la actividad en tiempo real de diferentes tipos de neuronas de la dmPFC cuando los ratones compiten en la prueba del tubo. Utilizando el sistema de fotometría de fibra (Flusberg et al., 2005; Gunaydin et al., 2014) en la dmPFC (Figura 3A), primero monitoreamos la actividad general de la dmPFC expresando el indicador de Ca²⁺ codificado genéticamente GCaMP6s (Chen et al., 2013) bajo el promotor de sinaptina humana en la dmPFC derecha e implantando una fibra óptica 300 µm por encima del sitio de inyección (Figura 3B). Para alinear el comportamiento, utilizamos un tubo alargado con dos puertas cercanas a las entradas, que se abren 5 s después de la llegada de ambos ratones (Figura 3C). Se registraron ratones ganadores o perdedores de parejas de ratones con rangos estables para sus señales de fotometría de la dmPFC, mientras que sus comportamientos fueron videograbados y anotados en épocas de empujón y retirada (Figura 3C). Tres a cuatro semanas después de la inyección viral, los ratones fueron aclimatados a caminar por el tubo con o sin un oponente al otro lado. No se detectó ningún cambio significativo en la señal de fluorescencia de GCaMP6s cuando los ratones caminaron por el tubo sin un oponente (p > 0,05, prueba de permutación, n = 58 ensayos de seis ratones; Figuras 3D y 3E) o cuando los ratones que expresaban GFP participaron en la prueba del tubo (p > 0,05, prueba de permutación, n = 26 ensayos de dos ratones; Figuras 3F y 3G). Sin embargo, cuando los ratones de prueba tuvieron confrontación directa con un oponente, la señal de Ca²⁺ de la dmPFC aumentó inmediatamente después de que los ratones registrados iniciaron empujones que llevaron a la victoria. El pico de señal promedio (puntuación Z) fue de 4,0 ± 0,7 (media ± SEM, p < 0,05, prueba de permutación, n = 55 ensayos de siete ratones; Figuras 3H y 3J). Por el contrario, se observó una disminución leve pero significativa en la señal de Ca²⁺ de la dmPFC en las retiradas que llevaron a la derrota. El valle de señal promedio (puntuación Z) fue de 1,8 ± 0,6 (media ± SEM, p < 0,05, prueba de permutación, n = 42 ensayos de siete ratones; Figuras 3I y 3J). Esta dinámica de Ca²⁺ sugiere que las neuronas de la dmPFC se activaron generalmente durante los empujones "esforzados" y se inhibieron durante las retiradas "pasivas" en las competencias sociales.</p>
+
+    <h3>Diferentes tipos de neuronas de la dmPFC se reclutan diferencialmente durante los empujones esforzados y las retiradas pasivas</h3>
+    <p>Para comprender mejor cómo reaccionan los diferentes tipos de neuronas en los microcircuitos de la dmPFC durante las competencias sociales, realizamos por separado registros de Ca²⁺ con fotometría de fibra en las neuronas PYR, PV y VIP de la dmPFC. Inyectamos AAV que expresaba GCaMP6s bajo el promotor de CaMKIIa en la dmPFC de ratones de tipo salvaje o AAV que expresaba GCaMP6s inducible por Cre en la dmPFC de ratones PV-Cre o VIP-Cre, y verificamos la expresión específica de tipo celular con inmunotinción (Figuras S4A–S4F). Similar a la actividad de toda la red de la dmPFC como se mostró anteriormente, las neuronas PYR se activaron durante las épocas de empujón (puntuación Z = 4,86 ± 1,34, media ± SEM, p < 0,05, prueba de permutación, n = 40 ensayos de cinco ratones; Figuras 4A y 4C) y se inhibieron durante las retiradas (puntuación Z = 1,48 ± 0,39, media ± SEM, p < 0,05, prueba de permutación, n = 39 ensayos de cuatro ratones; Figuras 4B y 4C). Las neuronas VIP mostraron una tendencia similar a las neuronas PYR, activándose durante los empujones (puntuación Z = 2,45 ± 0,8, media ± SEM, p < 0,05, prueba de permutación, n = 34 ensayos de cuatro ratones; Figuras 4D y 4F) y inhibiéndose durante las retiradas (puntuación Z = 2,12 ± 0,33, media ± SEM, p < 0,05, prueba de permutación, n = 38 ensayos de seis ratones; Figuras 4E y 4F), pero con alguna diferencia en la dinámica de la señal (ver más abajo). Las neuronas PV, por otro lado, mostraron un aumento significativo tanto en las épocas de empujón (puntuación Z = 4,56 ± 0,94, media ± SEM, p < 0,05, prueba de permutación, n = 41 ensayos de ocho ratones; Figuras 4G y 4I) como en las épocas de retirada (puntuación Z = 3,62 ± 0,78, media ± SEM, p < 0,05, prueba de permutación, n = 37 ensayos de seis ratones; Figuras 4H y 4I). El análisis de la latencia del inicio de la señal durante las épocas de empujón reveló que las señales de Ca²⁺ de las neuronas VIP aumentaron antes del inicio del empujón, con una latencia más corta que el aumento de las señales de Ca²⁺ de las neuronas PYR y PV (VIP versus PYR, p = 0,04; VIP versus PV, p = 0,0004; prueba de Mann-Whitney U; Figuras 4J, S5A y S5B), y fueron más transitorias (VIP versus PYR, p = 0,0002; VIP versus PV, p < 0,0001; prueba de Mann-Whitney U; Figuras 4J, S5D y S5E). En las épocas de retirada, no hubo una diferencia obvia en la latencia de cambio y el tiempo de decaimiento de las señales de Ca²⁺ entre los tres tipos de células (Figuras 4K, S5C y S5F). Colectivamente, las señales de Ca²⁺ de los tres tipos neuronales durante la competencia fueron en gran medida consistentes con la predicción de los resultados de manipulación, excepto por el aumento de la respuesta de PV durante los empujones. Además, la diferencia en el tiempo de inicio sugiere que las neuronas VIP pueden ser responsables de iniciar la actividad del microcircuito de la dmPFC durante las épocas de empujón.</p>
+
+    <h3>Efectos de la inhibición de neuronas PV o VIP sobre la actividad de la red de la dmPFC</h3>
+    <p>Intrigados por la dinámica del calcio de las neuronas VIP y PV de la dmPFC y a la luz de sus efectos opuestos sobre la competencia social, nos propusimos explorar cómo estos dos tipos de neuronas influyen en la actividad de la red de la dmPFC. Primero probamos los efectos de silenciar las interneuronas PV y VIP sobre la actividad de la red de la dmPFC in vivo, utilizando optogenética combinada con el sistema de microscopía de dos fotones en miniatura de alta resolución y rápida (FHIRM-TPM V2.0) (Zong et al., 2017, 2021) (Figura 5A). Coexpresamos en la dmPFC de ratones transgénicos PV-Cre o VIP-Cre dos AAV: uno que expresaba GCaMP6f bajo el promotor de sinaptina humana y el otro que expresaba la opsina inhibidora dependiente de Cre JAWs (Chuong et al., 2014) (Figuras 5A, 5B y S6; Métodos STAR). Esto nos permitió rastrear simultáneamente la actividad del calcio de las neuronas de la dmPFC en el campo de visión (FOV) a nivel de célula individual mientras inhibíamos optogenéticamente las neuronas PV o VIP en ratones despiertos.</p>
+
+    <p>Primero caracterizamos la dinámica de respuesta de las neuronas de la dmPFC mientras inhibíamos optogenéticamente las neuronas PV (Figuras 5C–5G). El colabelado por fluorescencia reveló que el 9% (15 de 169 neuronas de tres ratones) de las neuronas que expresaban GCaMP6f coexpresaban JAWs-tdTomato, que eran neuronas PV+ (Figura 5C). El sesenta por ciento de estas (9 de 15) neuronas PV+ fueron inhibidas durante la sesión de luz encendida (por ejemplo, neuronas 1 y 2 en la Figura 5D; Figuras 5D–5F). Entre las 154 neuronas no-PV de la dmPFC, el 16% fueron significativamente excitadas y el 4% fueron inhibidas durante la sesión de luz encendida (Figuras 5E y 5F). En general, cuando se inhibieron las neuronas PV, la actividad de la red de la dmPFC aumentó significativamente (ver Métodos STAR para el cálculo, p = 0,009, ANOVA de dos vías; Figuras 5G, S7A y S7B).</p>
+
+    <p>Luego caracterizamos la dinámica de respuesta de las neuronas de la dmPFC mientras inhibíamos optogenéticamente las neuronas VIP (Figuras 5H–5L). Los resultados mostraron que el 4,6% (6 de 129 de dos ratones) de las neuronas que expresaban GCaMP6f coexpresaban JAWs-tdTomato, que eran neuronas VIP+ (Figura 5H); el 67% de estas neuronas VIP+ fueron inhibidas durante la sesión de luz encendida (por ejemplo, neuronas 1 y 2 en la Figura 5I; Figuras 5I–5K). Entre las 123 neuronas no-VIP restantes, el 13% mostró transitorios de calcio significativamente disminuidos y el 3% se activaron durante la sesión de luz encendida (Figuras 5J y 5K). En general, durante la estimulación luminosa cuando se inhibieron las neuronas VIP, hubo una disminución en la actividad de la red de la dmPFC (p = 0,003, ANOVA de dos vías; Figuras 5L, S7C y S7D). Colectivamente, estos datos confirmaron un papel inhibidor de PV y un papel excitador de las neuronas VIP en la regulación de la actividad general de la red de la dmPFC.</p>
+
+    <h3>Efectos de la activación de neuronas PV sobre la actividad de la red neural de la dmPFC</h3>
+    <p>Para inferir la secuencia de actividad de las neuronas VIP, PYR y PV, necesitábamos examinar su dinámica a una resolución temporal aún mayor. Para esto, realizamos registros electrofisiológicos de unidad única de neuronas de la dmPFC mientras activábamos optogenéticamente las neuronas PV y VIP en ratones despiertos (Figuras 6 y 7). Realizamos registros con optrodo de 16 canales en la capa V/VI de la dmPFC de ratones transgénicos PV-Cre::Ai32 o VIP-Cre::Ai32 (Chen et al., 2017), mientras administrábamos luz azul para estimular las interneuronas PV o VIP (Figuras 6A, 7A y S8). Registramos 201 neuronas bien aisladas de cinco ratones PV-Cre::Ai32, incluidas siete neuronas PV etiquetadas optogenéticamente (Figura 6B; ver Métodos STAR para los criterios de etiquetado optogenético), 139 unidades de espiga ancha (WS) (en su mayoría neuronas putativas PYR [pPYR]) y 55 unidades de espiga estrecha (NS) (interneurona putativa [pIN]) (duración de valle a pico de 400 µs como límite para la aclaración de NS versus WS; ver Métodos STAR para más criterios de aislamiento de unidad única y clasificación de tipo celular) (Chen et al., 2017; Stark et al., 2013; Xu et al., 2019). Basado en la frecuencia de disparo, las neuronas NS pueden dividirse además en 16 interneuronas de espiga rápida (FSI; frecuencia ≥ 8 Hz), que son neuronas putativas de parvalbúmina (pPV) (Kim et al., 2016; Varga et al., 2012), y 39 NS no-FSI (< 8 Hz) (Figuras 6C y 6D). Para la fotoestimulación de las interneuronas PV, utilizamos el mismo patrón constante (constante 10 s) que disminuyó con éxito el rango en la prueba del tubo (Figuras 1I-1K y 6D). Durante la fotoestimulación de PV, el cambio más llamativo fue una disminución universal en la actividad de la mayoría (92%, 128 de 139) de las neuronas WS pPYR (Figuras 6D y 6E). Muchas neuronas FSI (31%) y NS no-FSI (72%) también se inhibieron (Figuras 6F y 6G), lo que sugiere que las neuronas PV pueden inhibirse entre sí u otros tipos de interneuronas.</p>
+
+    <h3>La activación de neuronas VIP conduce a una actividad bifásica</h3>
+    <p>Para la estimulación de las neuronas VIP, primero aplicamos el protocolo de estimulación luminosa de 1 Hz a los ratones VIP-Cre::Ai32 para etiquetar las neuronas VIP de la dmPFC y revelar la dinámica completa de la respuesta neural después de cada pulso de activación de VIP (Figuras 7A–7H). Registramos 156 neuronas bien aisladas, incluidas 4 neuronas VIP etiquetadas optogenéticamente (Figura 7B), 127 unidades WS pPYR, 14 unidades NS no-FSI y 11 unidades FSI pPV (Figura 7C). Consistente con un estudio reportado previamente (Pi et al., 2013), las respuestas neuronales pueden categorizarse en grupos de inhibición (Inh), inhibición-activación (Inh-act) y activación retardada (dAct) (Figuras 7D–7H y S9A-S9C). La mayor parte de la inhibición ocurrió dentro de un retraso corto (valle de inhibición: 8,2 ± 0,8 ms), consistente con la inhibición monosináptica por neuronas VIP; y la excitación ocurrió con un retraso más largo (pico de excitación: 74,3 ± 4,4 ms) y una dispersión temporal más amplia (Figura S9B), consistente con eventos disinápticos o polisinápticos.</p>
+
+    <p>Luego aplicamos el protocolo de estimulación luminosa de 20 Hz, que aumentó con éxito el rango en la prueba del tubo, en el registro in vivo (Figuras 1M-1O, 7I y 7J). Durante todo el período de 1 s de fotoestimulación de neuronas VIP, más neuronas pPYR fueron excitadas que inhibidas (pPYRs: 53% excitadas, 6% inhibidas; Figuras 7K y S9D). La actividad promedio de las neuronas WS pPYR aumentó en un 60% durante la fotoestimulación de neuronas VIP (Figuras 7I y 7K). Una tendencia similar de cambio ocurrió en las neuronas pIN, incluidas las NS no-FSI (64% excitadas, 0% inhibidas, Figura 7L) y las FSI (73% excitadas, 27% inhibidas; Figura 7M). Después de cada pulso de luz, de todas las neuronas excitadas, una pequeña porción mostró una inhibición transitoria inmediata seguida de excitación (Inh-act), pero la mayoría (76%) de ellas mostró activación retardada (dAct) (Figuras 7N y 7O). Nuevamente, la inhibición ocurrió con un valle de inhibición monosináptica (3,7 ± 0,3 ms), y la activación siguió con un pico de excitación polisináptica (36,5 ± 0,8 ms) (Figuras S9E y S9F). A pesar de la similitud general en la activación de respuestas neuronales, en comparación con el protocolo de 1 Hz, el protocolo de estimulación de 20 Hz produjo un número muy reducido de neuronas no responsivas (23% versus 43% del total de neuronas; Figuras 7H y 7O) y una fracción mucho mayor de neuronas dAct (45% versus 24% del total de neuronas; Figuras 7H y 7O), lo que sugiere que a la frecuencia de estimulación conductualmente relevante, la activación de VIP puede activar una fracción mayor de la red. También vale la pena señalar que la activación de VIP inhibió una fracción significativa de neuronas FSI (pPV) (Figuras 7F y 7M), lo que podría mediar potencialmente la desinhibición sobre otros tipos de neuronas, incluidas las neuronas PYR.</p>
+
+    <p>Dado que la inhibición de pPV por neuronas VIP es de naturaleza transitoria (Figuras 7G y 7H), a continuación probamos el impacto de la inactivación transitoria de las neuronas PV en la red PYR. Para eso, realizamos registros con optrodo in vivo en ratones PV::eNpHR3.0 (Figura S10A), y aplicamos luz amarilla de 1 Hz, 10 ms en la dmPFC para inhibir transitoriamente las interneuronas PV. Esto condujo a la activación transitoria de una fracción significativa (52%, n = 171) de neuronas pPYR (Figura S10B y S10C).</p>
+
+    <h3>La respuesta dinámica de las neuronas pPV y pPYR durante la competencia social</h3>
+    <p>En el experimento de fotometría de Ca²⁺, no pudimos observar la inhibición transitoria de las neuronas PV o PYR durante el inicio del empujón (Figura 4J). Esto puede deberse a la naturaleza muy transitoria (durando 10–20 ms) de la inhibición y la resolución temporal relativamente baja del registro de señales de Ca²⁺. Para diseccionar más a fondo la relación dinámica de las neuronas PV y PYR en la competencia social en ratones en comportamiento, utilizamos un optrodo móvil para realizar registros de unidad única en ratones PV-Cre::Ai32 durante las pruebas del tubo (Figura S11A). Las neuronas putativas PV y PYR de la capa V/VI fueron dirigidas e identificadas en función de sus respuestas a pulsos de luz azul y clasificación de formas de onda (Figuras S11B y S11C; ver Métodos STAR). Entre las 361 unidades aisladas, había 267 unidades WS, 50 unidades NS no-FSI, 21 FSI y 23 neuronas PV etiquetadas optogenéticamente. Tanto las neuronas PV etiquetadas optogenéticamente como las FSI se combinaron como neuronas pPV (n = 44, 12,2% de todas las unidades registradas) y sus actividades durante la prueba del tubo se alinearon con la anotación manual de las épocas de empujón. Entre estas 44 neuronas pPV, 17 (39%) aumentaron su disparo y 9 (20%) disminuyeron su disparo al inicio del empujón (definido por el cambio de disparo en -0,5 a 0,5 s alrededor del inicio del empujón; ver Métodos STAR, Figuras S11D–S11F). También existe una heterogeneidad similar en las neuronas pPYR (Figuras S11G–S11I). Para comparar el tiempo preciso de inicio del cambio de actividad neural, alineamos el punto temporal de cambio significativo para las neuronas pPV y pPYR y encontramos que la inhibición de las neuronas pPV inhibidas por el empujón precede a la excitación de las neuronas pPYR excitadas por el empujón (p = 0,03, prueba de dos muestras de Kolmogorov-Smirnov; Figuras S11J–S11L). También hicimos el mismo análisis para las neuronas pPV excitadas por el empujón, revelando que la distribución del tiempo de inicio de la excitación de las neuronas pPV excitadas por el empujón se alinea con la de las neuronas pPYR excitadas por el empujón (p = 0,63, prueba de dos muestras de Kolmogorov-Smirnov; Figuras S11J, S11K y S11M), y que va por detrás de la de las neuronas pPV inhibidas por el empujón (p = 0,02, prueba de dos muestras de Kolmogorov-Smirnov; Figuras S11J, S11K y S11N). Por lo tanto, existe una clara heterogeneidad en la respuesta y la dinámica temporal de las neuronas pPV y pPYR durante el inicio del empujón. Además, una fracción de neuronas PV tiene el potencial de mediar la desinhibición de las neuronas PYR durante el inicio del empujón en la competencia social.</p>
+  </section>
+
+  <!-- ============ DISCUSIÓN ============ -->
+  <section class="seccion">
+    <h2>Discusión</h2>
+
+    <p>Utilizando imágenes de Ca²⁺ específicas de tipo celular, herramientas electrofisiológicas, optogenéticas y quimiogenéticas, estudiamos la función de los principales tipos de interneuronas de la dmPFC en la regulación de los comportamientos de dominancia. En competencias entre congéneres modeladas por la prueba de dominancia del tubo, encontramos que las neuronas VIP y PV de la dmPFC desempeñan funciones opuestas en la regulación de empujones y retiradas. La dinámica de las señales de calcio durante las pruebas del tubo sugirió que durante los empujones, las neuronas VIP de la dmPFC se activan antes y de manera más transitoria que las neuronas PV o PYR. Durante las retiradas, las neuronas PV de la dmPFC se activan, mientras que las neuronas VIP o PYR se inhiben. La microscopía de dos fotones en miniatura de doble color combinada con la manipulación optogenética confirmó que las neuronas VIP y PV regulan de manera opuesta la actividad de la red neural de la dmPFC en ratones despiertos. Además, los registros con optrodo revelaron la dinámica de respuesta de diferentes tipos de neuronas bajo un patrón fisiológico de activación de VIP o PV. Basándonos en esta colección de datos y en el conocimiento de informes previos, proponemos un modelo de trabajo para delinear la acción secuencial de las neuronas VIP, PV y PYR dentro de los microcircuitos de la dmPFC durante la competencia social (Figura 8). En el estado basal, las neuronas PV tienen una actividad basal relativamente alta (Figura 6C) y ejercen una leve inhibición tónica sobre otras neuronas (Figura 8Aa). Durante los empujones, las neuronas VIP se activan (Figuras 4J y 8Ab), lo que lleva a una inhibición transitoria tanto de las neuronas PV como de las PYR (Figuras 7E y 8Ab). La inhibición de PV conduce entonces a la desinhibición de PYR (Figuras 5E y 8Ac), cuya actividad puede mantenerse durante un período de tiempo mediante activación recurrente (Douglas et al., 1995). La activación de PYR también excita a PV (Figura 8Ac), cuya inhibición de retroalimentación eventualmente lleva a todas las neuronas de vuelta a su estado basal (Figura 8Ad) (Couey et al., 2013; Ozeki et al., 2009). Durante las retiradas, ya sea debido a la inhibición de las neuronas VIP o a la entrada de otras señales ascendentes, las neuronas PV se activan (Figuras 4K y 8Bb). Su actividad inhibe globalmente las neuronas en la red de la dmPFC (Figuras 6 y 8Bc). El retorno al estado basal se puede lograr mediante la autoinhibición de las neuronas PV (Figura 8Bd) (Bacci y Huguenard, 2006; Pfeffer et al., 2013). A través de estas interacciones dinámicas, las interneuronas y las neuronas piramidales en la red de la dmPFC orquestan comportamientos relacionados con la victoria y la derrota en la competencia social. Específicamente, destacamos un microcircuito desinhibidor en este proceso desde las neuronas VIP a las neuronas PYR mediado por interneuronas PV.</p>
+
+    <h3>Papel de las interneuronas VIP</h3>
+    <p>Se ha demostrado que las interneuronas VIP desinhiben las neuronas PYR en varios circuitos neurales (por ejemplo, corteza visual, corteza auditiva, amígdala, mPFC) y en el contexto de una amplia gama de rendimientos conductuales, que van desde el aprendizaje del miedo (Krabbe et al., 2019; Letzkus et al., 2011), el aprendizaje por refuerzo (Pi et al., 2013), el procesamiento de información visual (Fu et al., 2014; Zhang et al., 2014), el rendimiento motor (Garcia-Junco-Clemente et al., 2017), hasta la evitación (Lee et al., 2019), la memoria a corto plazo (Kamigaki y Dan, 2017) y el aprendizaje espacial de recompensa (Turi et al., 2019). Sumándose a este tema general, nuestros resultados demuestran que la desinhibición mediada por VIP de las neuronas PYR de la dmPFC juega un papel instrumental en la regulación de comportamientos motivacionales durante la competencia social entre congéneres. Nuestro registro de imágenes de Ca²⁺ revela que las neuronas VIP se activan antes y de manera más transitoria que las neuronas PV y PYR en la dmPFC durante los empujones. Esta característica temporal es consistente con la propuesta de que las interneuronas VIP pueden estar involucradas en las etapas iniciales del procesamiento de información cortical (Fu et al., 2014; Khan et al., 2018; Staiger et al., 1996; Zhang et al., 2014). Las interneuronas VIP reciben entradas del tálamo sensorial (Lee et al., 2013; Staiger et al., 1996; Wall et al., 2016), proyecciones corticales de largo alcance (Ahrlund-Richter et al., 2019; Lee et al., 2013; Sun et al., 2019; Zhang et al., 2014), así como del prosencéfalo basal colinérgico (Ahrlund-Richter et al., 2019; Alitto y Dan, 2013; Askew et al., 2019; Prönneke et al., 2020). Integrando estas entradas sensoriales, intercorticales y neuromoduladoras, VIP puede iniciar una cascada de propagación de señales en los microcircuitos de la mPFC, liberando así a las células principales de la inhibición y permitiendo un control de arriba hacia abajo de comportamientos esforzados durante la competencia social.</p>
+
+    <h3>Papel de las interneuronas PV</h3>
+    <p>Aguas abajo de VIP, ¿qué tipo(s) de células pueden mediar sus efectos desinhibidores sobre las neuronas PYR? Mientras que algunos trabajos previos implicaron a las neuronas SOM en este proceso desinhibidor, como en la corteza de barril (Lee et al., 2013), en la competencia social y en la dmPFC, nuestros datos de manipulación sugieren que las neuronas PV son un fuerte candidato (Figuras 1 y 2). Además, como se reveló en nuestros registros con optrodo, la dinámica de activación/inhibición de las neuronas PV también se alinea con tal papel mediador. Al analizar las características electrofisiológicas de las neuronas que fueron inhibidas inmediatamente tras la fotoestimulación específica de VIP, entre las 51 (de 152 neuronas registradas) neuronas inhibidas e Inh-act, había 4 pIN NS no-FS y 9 neuronas FSI pPV, que mostraron inhibición dentro de un retraso monosináptico de 10 ms (Figuras 7G y 7H). Además, en ratones en comportamiento, identificamos una subpoblación de neuronas pPV inhibidas por el empujón cuya disminución del disparo precedió a un aumento del disparo de las neuronas pPYR activadas por el empujón (Figuras S11J y S11K). Por lo tanto, algunas neuronas pPV se inhiben en el momento adecuado para mediar potencialmente la desinhibición de PYR por neuronas VIP.</p>
+
+    <p>Aunque la conectividad de VIP a PV puede ser escasa, como se muestra en registros en cortes corticales (Ahrlund-Richter et al., 2019; Lee et al., 2013; Pfeffer et al., 2013; Pi et al., 2013), ha habido informes de neuronas PV que median funcionalmente el efecto desinhibidor de las neuronas VIP en varios circuitos neurales. En la capa profunda de la corteza de barril, las neuronas PV se inhiben fuertemente cuando se estimulan las neuronas VIP de la capa superior, y esta inhibición directa puede superar la vía desinhibidora indirecta VIP-SST-PV (Yu et al., 2019). En la amígdala basolateral, VIP desinhibe las PYR a través de la inhibición tanto de neuronas SOM como PV, con conectividad comparable (Krabbe et al., 2019). En la mPFC, VIP inhibe una fracción significativa (25%) de neuronas PV (Pi et al., 2013) y las frecuencias de disparo de las neuronas PV se correlacionan inversamente con la cantidad de entrada VIP (Lagler et al., 2016). En el hipocampo, la plasticidad de la red inducida por el aprendizaje está mediada por un aumento de la transmisión de VIP a PV (Donato et al., 2013). Debido a que las neuronas VIP se dirigen principalmente al compartimento somático de las neuronas PV, su regulación puede ser muy efectiva (Hioki et al., 2013, 2018). Además, debido a su extensa orientación y características morfológicas y electrofisiológicas únicas, las neuronas PV pueden conectarse con un gran número de células, permitiendo un enorme nivel de inhibición feedforward y feedback (Hu et al., 2014; Packer y Yuste, 2011). Por lo tanto, la inhibición de un número limitado de neuronas PV tiene el potencial de tener un impacto extenso en la actividad de la red.</p>
+
+    <p>En nuestro experimento de fotometría de Ca²⁺, las neuronas PV mostraron un aumento general de actividad durante la fase tardía de las épocas de empujón (Figura 4I). Esta excitación contraintuitiva se predice en nuestro modelo de trabajo: una vez que las neuronas PYR se activan, su actividad recurrente activará rápidamente a PV (Figura 8Ac). El rápido aumento de la actividad de PV es consistente con la opinión de que la actividad inhibidora sigue de cerca la actividad de las neuronas PYR, lo cual es necesario para mantener el equilibrio excitación-inhibición de la red (Anderson et al., 2000; Okun y Lampl, 2008; Shu et al., 2003; Wehr y Zador, 2003; Xue et al., 2014).</p>
+
+    <h3>Papel de las interneuronas SOM</h3>
+    <p>En el experimento de registro con fotometría, las neuronas SOM en general mostraron una respuesta similar en las pruebas del tubo a las neuronas PV pero con una amplitud de cambio menor (Figuras S12 y 4G–4I). Aunque las neuronas SOM son capaces de inhibir las neuronas PYR en la mPFC (Kvitsiani et al., 2013; Scheggia et al., 2020; Yamamuro et al., 2020), a diferencia de PV, ni la activación ni la inhibición de las neuronas SOM parecieron tener un impacto significativo en las competencias de dominancia del tubo (Figuras 1 y 2). Una posible razón puede ser que las neuronas SOM tienen funciones más heterogéneas, enviando salidas inhibidoras tanto a PYR como a otros tipos de interneuronas (Miao et al., 2016; Pfeffer et al., 2013; Xu et al., 2013) y ejerciendo así funciones tanto inhibidoras como desinhibidoras sobre las neuronas PYR (Cummings y Clem, 2020; Xu et al., 2019). Sin embargo, a pesar de la falta de efectos conductuales al activar o inhibir la dmPFC SOM en su conjunto, no descartamos la posibilidad de que subpoblaciones de SOM puedan estar involucradas en el proceso. Aunque no se representa en nuestro modelo de trabajo (Figura 8), es bastante probable que algunas neuronas SOM y otras interneuronas también contribuyan a la dinámica del microcircuito subyacente a la competencia social. En el futuro, los estudios que utilicen un enfoque de intersección dependiente de Cre y Flp (que permite el registro simultáneo de un tipo de célula mientras se manipula otro tipo) ayudarán a delinear una imagen más clara de la dinámica del microcircuito de la dmPFC en la competencia social.</p>
+  </section>
+
+  <!-- ============ MÉTODOS STAR ============ -->
+  <section class="seccion">
+    <h2>Métodos STAR</h2>
+    <p>Los métodos detallados se proporcionan en la versión en línea de este artículo e incluyen lo siguiente:</p>
+    <ul>
+      <li>Tabla de recursos clave</li>
+      <li>Disponibilidad de recursos
+        <ul>
+          <li>Contacto principal</li>
+          <li>Disponibilidad de materiales</li>
+          <li>Disponibilidad de datos y código</li>
+        </ul>
+      </li>
+      <li>Detalles del modelo experimental y del sujeto
+        <ul>
+          <li>Animales</li>
+        </ul>
+      </li>
+      <li>Detalles del método
+        <ul>
+          <li>Inyección viral e implantación de fibra</li>
+          <li>Ensayos conductuales</li>
+          <li>Inmunohistoquímica</li>
+          <li>Registro con fotometría de fibra</li>
+          <li>Registro agudo in vivo con optrodo en ratones con cabeza fija</li>
+          <li>Registro crónico in vivo con optrodo en ratones PVCre::ChR2</li>
+          <li>Clasificación de espigas y clasificación de unidades con etiquetado optogenético</li>
+          <li>Análisis de disparo de unidades</li>
+          <li>Imágenes de dos fotones en miniatura y experimentos optogenéticos</li>
+          <li>Análisis de datos de imágenes de calcio de dos fotones</li>
+        </ul>
+      </li>
+      <li>Cuantificación y análisis estadístico</li>
+    </ul>
+  </section>
+
+  <!-- ============ INFORMACIÓN COMPLEMENTARIA ============ -->
+  <section class="seccion">
+    <h2>Información complementaria</h2>
+    <p>La información complementaria se puede encontrar en línea en <a href="https://doi.org/10.1016/j.neuron.2021.10.034" target="_blank">https://doi.org/10.1016/j.neuron.2021.10.034</a>.</p>
+  </section>
+
+  <!-- ============ AGRADECIMIENTOS ============ -->
+  <section class="seccion">
+    <h2>Agradecimientos</h2>
+    <p>Agradecemos a Qiye He, Min Chen y Melissa Skibba por las discusiones y comentarios sobre el manuscrito; a Shiqi Wang, Fei Wang, Hexin Liang, Baixiu Zheng y Jiarui Chang por su asistencia en los experimentos; a Karl Deisseroth y Zilong Qiu por los constructos AAV-ChR2; a Xiaohui Zhang, Xiaohong Xu y Xiang Yu por los ratones Cre; al Observatorio Cerebral de Nanjing por los servicios de observación FHIRM-TPM V2.0 y procesamiento de datos de dos fotones; y a Xinkuan Xiang, Lin Liu y Yi Li por sus consejos sobre el análisis de datos. Este trabajo fue apoyado por subvenciones de la Fundación Nacional de Ciencias Naturales de China (81527901 y 31830032), el Programa de Investigación y Desarrollo de Áreas Clave de la Provincia de Guangdong (2018B030334001 y 2018B030331001), el Fondo de Instituto de Investigación Central sin fines de lucro de la Academia China de Ciencias Médicas (2017PT31038 y 2018PT31041), el Programa Nacional Clave de Investigación y Desarrollo de China (2016YFA0501000), el Proyecto 111 (B13026), el Fondo de Ciencias de la Vida Fountain-Valley de la Fundación Educativa de la Universidad de la Academia China de Ciencias y el Fondo de Innovación CAMS para Ciencias Médicas (2019-I2M5-057), el Programa Clave de I+D de la Provincia de Zhejiang (2020C03009) y el Fondo de Ciencias Starry Night del Instituto de Estudios Avanzados de Shanghái de la Universidad de Zhejiang (SN-ZJU-SIAS-002).</p>
+  </section>
+
+  <!-- ============ CONTRIBUCIONES DE LOS AUTORES ============ -->
+  <section class="seccion">
+    <h2>Contribuciones de los autores</h2>
+    <p>H.H., H.Z. y C.Z. diseñaron el estudio y analizaron los datos. H.Z., T.Z., Q.X. y C.Z. realizaron manipulaciones optogenéticas y quimiogenéticas y análisis conductuales relacionados. C.Z., H.Z. y Q.X. realizaron experimentos de registro con fotometría de fibra y registro in vivo con optrodo. Z.N. escribió la mayoría de los scripts de MATLAB para el análisis de datos de fotometría de fibra y registro in vivo con optrodo. C.Z. y R.W. realizaron la adquisición y análisis de datos de imágenes de dos fotones con el apoyo del Observatorio Cerebral de Nanjing bajo la supervisión de J.Z. y H.C.; G.G., Z.G., H.M., H.L. y M.H. contribuyeron con reactivos y discusiones. H.H. escribió el manuscrito con la ayuda de C.Z., H.Z. y Z.N.</p>
+  </section>
+
+  <!-- ============ DECLARACIÓN DE INTERESES ============ -->
+  <section class="seccion">
+    <h2>Declaración de intereses</h2>
+    <p>H.H. es miembro del consejo asesor de Neuron.</p>
+    <div class="destacado">
+      <p><strong>Recibido:</strong> 22 de marzo de 2021 · <strong>Revisado:</strong> 12 de agosto de 2021 · <strong>Aceptado:</strong> 22 de octubre de 2021 · <strong>Publicado:</strong> 17 de noviembre de 2021</p>
+    </div>
+  </section>
+
+  <!-- ============ REFERENCIAS ============ -->
+  <section class="seccion">
+    <h2>Referencias</h2>
+    <div class="referencias">
+      <p>Ahrlund-Richter, S., Xuan, Y., van Lunteren, J.A., Kim, H., Ortiz, C., Pollak Dorocic, I., Meletis, K., y Carlén, M. (2019). Un atlas de todo el cerebro de entrada monosináptica dirigida a cuatro tipos diferentes de células en la corteza prefrontal medial del ratón. Nat. Neurosci. 22, 657–668.</p>
+      <p>Alitto, H.J., y Dan, Y. (2013). Modulación específica de tipo celular de la actividad neocortical por entrada del prosencéfalo basal. Front. Syst. Neurosci. 6, 79.</p>
+      <p>Anderson, J.S., Carandini, M., y Ferster, D. (2000). Sintonización de orientación de conductancia de entrada, excitación e inhibición en la corteza visual primaria del gato. J. Neurophysiol. 84, 909–926.</p>
+      <p>Armbruster, B.N., Li, X., Pausch, M.H., Herlitze, S., y Roth, B.L. (2007). Evolucionando la cerradura para adaptarla a la llave para crear una familia de receptores acoplados a proteína G potenciados por un ligando inerte. Proc. Natl. Acad. Sci. USA 104, 5163–5168.</p>
+      <p>Askew, C.E., Lopez, A.J., Wood, M.A., y Metherate, R. (2019). La nicotina excita las interneuronas VIP para desinhibir las neuronas piramidales en la corteza auditiva. Synapse 73, e22116.</p>
+      <p>Bacci, A., y Huguenard, J.R. (2006). Mejora de la precisión del tiempo de espiga por transmisión autáptica en interneuronas inhibitorias neocorticales. Neuron 49, 119–130.</p>
+      <p>Bailey, M.R., Simpson, E.H., y Balsam, P.D. (2016). Sustratos neurales subyacentes al esfuerzo, el tiempo y la toma de decisiones basada en el riesgo en el comportamiento motivado. Neurobiol. Learn. Mem. 133, 233–256.</p>
+      <p>Bicks, L.K., Yamamuro, K., Flanigan, M.E., Kim, J.M., Kato, D., Lucas, E.K., Koike, H., Peng, M.S., Brady, D.M., Chandrasekaran, S., et al. (2020). Las interneuronas de parvalbúmina prefrontal requieren experiencia social juvenil para establecer el comportamiento social adulto. Nat. Commun. 11, 1003.</p>
+      <p>Blair, R.J., y Cipolotti, L. (2000). Reversión de respuesta social deteriorada. Un caso de 'sociopatía adquirida'. Brain 123, 1122–1141.</p>
+      <p>Boyden, E.S., Zhang, F., Bamberg, E., Nagel, G., y Deisseroth, K. (2005). Control óptico genéticamente dirigido de la actividad neural a escala de milisegundos. Nat. Neurosci. 8, 1263–1268.</p>
+      <p>Cao, W., Lin, S., Xia, Q.Q., Du, Y.L., Yang, Q., Zhang, M.Y., Lu, Y.Q., Xu, J., Duan, S.M., Xia, J., et al. (2018). Disfunción de la oscilación gamma en la mPFC conduce a déficits sociales en ratones knockin Neuroligin 3 R451C. Neuron 97, 1253–1260.e7.</p>
+      <p>Chen, G., Zhang, Y., Li, X., Zhao, X., Ye, Q., Lin, Y., Tao, H.W., Rasch, M.J., y Zhang, X. (2017). Circuitos inhibitorios distintos orquestan las oscilaciones de banda beta y gamma corticales. Neuron 96, 1403–1418.e6.</p>
+      <p>Chen, T.-W., Wardill, T.J., Sun, Y., Pulver, S.R., Renninger, S.L., Baohan, A., Schreiter, E.R., Kerr, R.A., Orger, M.B., Jayaraman, V., et al. (2013). Proteínas fluorescentes ultrasensibles para imágenes de actividad neuronal. Nature 499, 295–300.</p>
+      <p>Chuong, A.S., Miri, M.L., Busskamp, V., Matthews, G.A., Acker, L.C., Sørensen, A.T., Young, A., Klapoetke, N.C., Henninger, M.A., Kodandaramaiah, S.B., et al. (2014). Inhibición óptica no invasiva con una rodopsina microbiana desplazada al rojo. Nat. Neurosci. 17, 1123–1129.</p>
+      <p>Couey, J.J., Witoelar, A., Zhang, S.J., Zheng, K., Ye, J., Dunn, B., Czajkowski, R., Moser, M.B., Moser, E.I., Roudi, Y., y Witter, M.P. (2013). Circuito inhibitorio recurrente como mecanismo para la formación de rejilla. Nat. Neurosci. 16, 318–324.</p>
+      <p>Cummings, K.A., y Clem, R.L. (2020). Las interneuronas somatostatina prefrontal codifican la memoria de miedo. Nat. Neurosci. 23, 61–74.</p>
+      <p>Donato, F., Rompani, S.B., y Caroni, P. (2013). La plasticidad de la red de células en cesta que expresan parvalbúmina inducida por la experiencia regula el aprendizaje adulto. Nature 504, 272–276.</p>
+      <p>Douglas, R.J., Koch, C., Mahowald, M., Martin, K.A., y Suarez, H.H. (1995). Excitación recurrente en circuitos neocorticales. Science 269, 981–985.</p>
+      <p>Fan, Z., Zhu, H., Zhou, T., Wang, S., Wu, Y., y Hu, H. (2019). Uso de la prueba del tubo para medir la jerarquía social en ratones. Nat. Protoc. 14, 819–831.</p>
+      <p>Fernald, R.D. (2014). Habilidades cognitivas necesarias para las jerarquías sociales. Cold Spring Harb. Symp. Quant. Biol. 79, 229–236.</p>
+      <p>Flusberg, B.A., Cocker, E.D., Piyawattanametha, W., Jung, J.C., Cheung, E.L., y Schnitzer, M.J. (2005). Imágenes de fluorescencia por fibra óptica. Nat. Methods 2, 941–950.</p>
+      <p>Franklin, T.B., Silva, B.A., Perova, Z., Marrone, L., Masferrer, M.E., Zhan, Y., Kaplan, A., Greetham, L., Verrechia, V., Halman, A., et al. (2017). Control cortical prefrontal de un circuito de comportamiento social del tronco encefálico. Nat. Neurosci. 20, 260–270.</p>
+      <p>Friard, O., y Gamba, M. (2016). BORIS: un software de código abierto, versátil para el registro de eventos de video/audio y observaciones en vivo. Methods Ecol. Evol. 7, 1325–1330.</p>
+      <p>Friedman, A., Homma, D., Gibb, L.G., Amemori, K., Rubin, S.J., Hood, A.S., Riad, M.H., y Graybiel, A.M. (2015). Una vía corticostriatal dirigida a los estriosomas controla la toma de decisiones bajo conflicto. Cell 161, 1320–1333.</p>
+      <p>Fu, Y., Tucciarone, J.M., Espinosa, J.S., Sheng, N., Darcy, D.P., Nicoll, R.A., Huang, Z.J., y Stryker, M.P. (2014). Un circuito cortical para el control de ganancia por estado conductual. Cell 156, 1139–1152.</p>
+      <p>Fujii, N., Hihara, S., Nagasaka, Y., e Iriki, A. (2009). Representación del estado social en la corteza prefrontal. Soc. Neurosci. 4, 73–84.</p>
+      <p>Garcia-Junco-Clemente, P., Ikrar, T., Tring, E., Xu, X., Ringach, D.L., y Trachtenberg, J.T. (2017). Un circuito inhibitorio de empujar-jalar en la corteza frontal. Nat. Neurosci. 20, 389–392.</p>
+      <p>Gunaydin, L.A., Grosenick, L., Finkelstein, J.C., Kauvar, I.V., Fenno, L.E., Adhikari, A., Lammel, S., Mirzabekov, J.J., Airan, R.D., Zalocusky, K.A., et al. (2014). Dinámica neural natural subyacente al comportamiento social. Cell 157, 1535–1551.</p>
+      <p>Hattori, R., Kuchibhotla, K.V., Froemke, R.C., y Komiyama, T. (2017). Funciones y disfunciones de los subtipos de interneuronas inhibitorias neocorticales. Nat. Neurosci. 20, 1199–1208.</p>
+      <p>Hillman, K.L., y Bilkey, D.K. (2012). Codificación neural del esfuerzo competitivo en la corteza cingulada anterior. Nat. Neurosci. 15, 1290–1297.</p>
+      <p>Hioki, H., Okamoto, S., Konno, M., Kameda, H., Sohn, J., Kuramoto, E., Fujiyama, F., y Kaneko, T. (2013). Entradas inhibitorias específicas de tipo celular a los compartimentos dendríticos y somáticos de las interneuronas neocorticales que expresan parvalbúmina. J. Neurosci. 33, 544–555.</p>
+      <p>Hioki, H., Sohn, J., Nakamura, H., Okamoto, S., Hwang, J., Ishida, Y., Takahashi, M., y Kameda, H. (2018). Entradas preferenciales de neuronas positivas a colecistoquinina al compartimento somático de neuronas que expresan parvalbúmina en la corteza somatosensorial primaria del ratón. Brain Res. 1695, 18–30.</p>
+      <p>Hippenmeyer, S., Vrieseling, E., Sigrist, M., Portmann, T., Laengle, C., Ladle, D.R., y Arber, S. (2005). Un cambio de desarrollo en la respuesta de las neuronas DRG a la señalización del factor de transcripción ETS. PLoS Biol. 3, e159.</p>
+      <p>Holroyd, C.B., y McClure, S.M. (2015). Control jerárquico sobre el comportamiento esforzado por la corteza frontal medial del roedor: un modelo computacional. Psychol. Rev. 122, 54–83.</p>
+      <p>Hosokawa, T., y Watanabe, M. (2012). Las neuronas prefrontales representan ganar y perder durante juegos competitivos de disparo de video entre monos. J. Neurosci. 32, 7662–7671.</p>
+      <p>Hu, H., Gan, J., y Jonas, P. (2014). Interneuronas. Interneuronas GABAérgicas de espiga rápida y parvalbúmina+: desde el diseño celular hasta la función del microcircuito. Science 345, 1255263.</p>
+      <p>Hua, R., Wang, X., Chen, X., Wang, X., Huang, P., Li, P., Mei, W., y Li, H. (2018). Las neuronas de calretinina en el tálamo de la línea media modulan la excitación inducida por la inanición. Curr. Biol. 28, 3948–3959.e4.</p>
+      <p>Huang, Z.J. (2014). Hacia una disección genética de los circuitos corticales en el ratón. Neuron 83, 1284–1302.</p>
+      <p>Kamigaki, T., y Dan, Y. (2017). La actividad de retardo de subtipos específicos de interneuronas prefrontales modula el comportamiento guiado por la memoria. Nat. Neurosci. 20, 854–863.</p>
+      <p>Kepecs, A., y Fishell, G. (2014). Los tipos de células de interneuronas están hechos para funcionar. Nature 505, 318–326.</p>
+      <p>Kerlin, A.M., Andermann, M.L., Berezovskii, V.K., y Reid, R.C. (2010). Propiedades de respuesta ampliamente sintonizadas de diversos subtipos de neuronas inhibitorias en la corteza visual del ratón. Neuron 67, 858–871.</p>
+      <p>Khan, A.G., Poort, J., Chadwick, A., Blot, A., Sahani, M., Mrsic-Flogel, T.D., y Hofer, S.B. (2018). Cambios distintos inducidos por el aprendizaje en la selectividad de estímulos e interacciones de las clases de interneuronas GABAérgicas en la corteza visual. Nat. Neurosci. 21, 851–859.</p>
+      <p>Kim, H., Ahrlund-Richter, S., Wang, X., Deisseroth, K., y Carlén, M. (2016). Neuronas de parvalbúmina prefrontal en el control de la atención. Cell 164, 208–218.</p>
+      <p>Kingsbury, L., Huang, S., Raam, T., Ye, L.S., Wei, D., Hu, R.K., Ye, L., y Hong, W. (2020). Las representaciones corticales del sexo de los congéneres dan forma al comportamiento social. Neuron 107, 941–953.e7.</p>
+      <p>Krabbe, S., Paradiso, E., d'Aquin, S., Bitterman, Y., Courtin, J., Xu, C., Yonehara, K., Markovic, M., Muller, C., Eichlisberger, T., et al. (2019). El control desinhibidor adaptativo por interneuronas VIP permite el aprendizaje asociativo. Nat. Neurosci. 22, 1834–1843.</p>
+      <p>Kvitsiani, D., Ranade, S., Hangya, B., Taniguchi, H., Huang, J.Z., y Kepecs, A. (2013). Correlatos conductuales y de red distintos de dos tipos de interneuronas en la corteza prefrontal. Nature 498, 363–366.</p>
+      <p>Lagler, M., Ozdemir, A.T., Lagoun, S., Malagon-Vina, H., Borhegyi, Z., Hauer, R., Jelem, A., y Klausberger, T. (2016). Divisiones de células en cesta identificadas que expresan parvalbúmina durante la toma de decisiones guiada por memoria de trabajo. Neuron 91, 1390–1401.</p>
+      <p>Lee, A.T., Cunniff, M.M., See, J.Z., Wilke, S.A., Luongo, F.J., Ellwood, I.T., Ponnavolu, S., y Sohal, V.S. (2019). Las interneuronas VIP contribuyen al comportamiento de evitación al regular el flujo de información a través de las redes hipocampo-prefrontal. Neuron 102, 1223–1234.e4.</p>
+      <p>Lee, S., Kruglikov, I., Huang, Z.J., Fishell, G., y Rudy, B. (2013). Un circuito desinhibidor media la integración motora en la corteza somatosensorial. Nat. Neurosci. 16, 1662–1670.</p>
+      <p>Letzkus, J.J., Wolff, S.B., Meyer, E.M., Tovote, P., Courtin, J., Herry, C., y Luthi, A. (2011). Un microcircuito desinhibidor para el aprendizaje de miedo asociativo en la corteza auditiva. Nature 480, 331–335.</p>
+      <p>Li, Y., Zhong, W., Wang, D., Feng, Q., Liu, Z., Zhou, J., Jia, C., Hu, F., Zeng, J., Guo, Q., et al. (2016). Las neuronas de serotonina en el núcleo dorsal del rafe codifican señales de recompensa. Nat. Commun. 7, 10503.</p>
+      <p>Lindzey, G., Winston, H., y Manosevitz, M. (1961). Dominancia social en cepas de ratones endogámicos. Nature 191, 474–476.</p>
+      <p>Madisen, L., Mao, T., Koch, H., Zhuo, J.M., Berenyi, A., Fujisawa, S., Hsu, Y.W., Garcia, A.J., 3rd, Gu, X., Zanella, S., et al. (2012). Una caja de herramientas de ratones transgénicos optogenéticos dependientes de Cre para activación y silenciamiento inducidos por luz. Nat. Neurosci. 15, 793–802.</p>
+      <p>Mah, L., Arnold, M.C., y Grafman, J. (2004). Deterioro de la percepción social asociado con lesiones de la corteza prefrontal. Am. J. Psychiatry 161, 1247–1255.</p>
+      <p>Miao, Q., Yao, L., Rasch, M.J., Ye, Q., Li, X., y Zhang, X. (2016). Maduración selectiva de la dinámica temporal de la transmisión excitatoria intracortical al inicio del período crítico. Cell Rep. 16, 1677–1689.</p>
+      <p>Mooney, S.J., Peragine, D.E., Hathaway, G.A., y Holmes, M.M. (2014). Juego de tronos: plasticidad neural en las jerarquías sociales de mamíferos. Soc. Neurosci. 9, 108–117.</p>
+      <p>Nelson, A.C., Kapoor, V., Vaughn, E., Gnanasegaram, J.A., Rubinstein, N.D., Murthy, V.N., y Dulac, C. (2019). Arquitectura molecular y de circuitos de la jerarquía social. bioRxiv, 838664. https://doi.org/10.1101/838664.</p>
+      <p>Okun, M., y Lampl, I. (2008). Correlación instantánea de excitación e inhibición durante actividades continuas y evocadas sensorialmente. Nat. Neurosci. 11, 535–537.</p>
+      <p>Ozeki, H., Finn, I.M., Schaffer, E.S., Miller, K.D., y Ferster, D. (2009). La estabilización inhibitoria de la red cortical subyace a la supresión del entorno visual. Neuron 62, 578–592.</p>
+      <p>Packer, A.M., y Yuste, R. (2011). Conectividad densa e inespecífica de interneuronas positivas a parvalbúmina neocorticales: ¿un microcircuito canónico para la inhibición? J. Neurosci. 31, 13260–13271.</p>
+      <p>Pfeffer, C.K., Xue, M., He, M., Huang, Z.J., y Scanziani, M. (2013). Inhibición de la inhibición en la corteza visual: la lógica de las conexiones entre interneuronas molecularmente distintas. Nat. Neurosci. 16, 1068–1076.</p>
+      <p>Pi, H.J., Hangya, B., Kvitsiani, D., Sanders, J.I., Huang, Z.J., y Kepecs, A. (2013). Interneuronas corticales que se especializan en el control desinhibidor. Nature 503, 521–524.</p>
+      <p>Pinto, L., y Dan, Y. (2015). Actividad específica de tipo celular en la corteza prefrontal durante el comportamiento dirigido a objetivos. Neuron 87, 437–450.</p>
+      <p>Pnevmatikakis, E.A., y Giovannucci, A. (2017). NoRMCorre: un algoritmo en línea para la corrección de movimiento rígido por partes de datos de imágenes de calcio. J. Neurosci. Methods 291, 83–94.</p>
+      <p>Porter, B.S., Hillman, K.L., y Bilkey, D.K. (2019). Codificación de la corteza cingulada anterior del comportamiento esforzado. J. Neurophysiol. 121, 701–714.</p>
+      <p>Prönneke, A., Witte, M., Möck, M., y Staiger, J.F. (2020). La neuromodulación conduce a un cambio de ráfaga a tónico en un subconjunto de neuronas VIP en la corteza somatosensorial primaria (barril) del ratón. Cereb. Cortex 30, 488–504.</p>
+      <p>Rudebeck, P.H., Buckley, M.J., Walton, M.E., y Rushworth, M.F. (2006). Un papel para el giro cingulado anterior del macaco en la valoración social. Science 313, 1310–1312.</p>
+      <p>Rudebeck, P.H., Walton, M.E., Millette, B.H., Shirley, E., Rushworth, M.F., y Bannerman, D.M. (2007). Contribuciones distintas de las áreas frontales a la emoción y el comportamiento social en la rata. Eur. J. Neurosci. 26, 2315–2326.</p>
+      <p>Rudy, B., Fishell, G., Lee, S., y Hjerling-Leffler, J. (2011). Tres grupos de interneuronas representan casi el 100% de las neuronas GABAérgicas neocorticales. Dev. Neurobiol. 71, 45–61.</p>
+      <p>Rushworth, M.F., Mars, R.B., y Sallet, J. (2013). ¿Existen circuitos especializados para la cognición social y son exclusivos de los humanos? Curr. Opin. Neurobiol. 23, 436–442.</p>
+      <p>Sandi, C., y Haller, J. (2015). Estrés y cerebro social: efectos conductuales y mecanismos neurobiológicos. Nat. Rev. Neurosci. 16, 290–304.</p>
+      <p>Sapolsky, R.M. (2005). La influencia de la jerarquía social en la salud de los primates. Science 308, 648–652.</p>
+      <p>Scheggia, D., Manago, F., Maltese, F., Bruni, S., Nigro, M., Dautan, D., Latuske, P., Contarini, G., Gomez-Gonzalo, M., Requie, L.M., et al. (2020). Las interneuronas somatostatina en la corteza prefrontal controlan la discriminación del estado afectivo en ratones. Nat. Neurosci. 23, 47–60.</p>
+      <p>Shu, Y., Hasenstaub, A., y McCormick, D.A. (2003). Encendido y apagado de la actividad cortical recurrente equilibrada. Nature 423, 288–293.</p>
+      <p>So, N., Franks, B., Lim, S., y Curley, J.P. (2015). Un enfoque de red social revela asociaciones entre la dominancia social del ratón y la expresión génica cerebral. PLoS ONE 10, e0134509.</p>
+      <p>Soltanian-Zadeh, S., Sahingur, K., Blau, S., Gong, Y., y Farsiu, S. (2019). Segmentación rápida y robusta de neuronas activas en imágenes de calcio de dos fotones utilizando aprendizaje profundo espacio-temporal. Proc. Natl. Acad. Sci. USA 116, 8554–8563.</p>
+      <p>Staiger, J.F., Zilles, K., y Freund, T.F. (1996). Inervación de neuronas inmunorreactivas a VIP por el núcleo talámico ventroposteromedial en la corteza de barril de la rata. J. Comp. Neurol. 367, 194–204.</p>
+      <p>Stark, E., Eichler, R., Roux, L., Fujisawa, S., Rotstein, H.G., y Buzsáki, G. (2013). Resonancia theta inducida por inhibición en circuitos corticales. Neuron 80, 1263–1276.</p>
+      <p>Sun, Q., Li, X., Ren, M., Zhao, M., Zhong, Q., Ren, Y., Luo, P., Ni, H., Zhang, X., Zhang, C., et al. (2019). Un mapa de todo el cerebro de entradas de largo alcance a las interneuronas GABAérgicas en la corteza prefrontal medial del ratón. Nat. Neurosci. 22, 1357–1370.</p>
+      <p>Taniguchi, H., He, M., Wu, P., Kim, S., Paik, R., Sugino, K., Kvitsiani, D., Fu, Y., Lu, J., Lin, Y., et al. (2011). Un recurso de líneas conductoras Cre para el direccionamiento genético de neuronas GABAérgicas en la corteza cerebral. Neuron 71, 995–1013.</p>
+      <p>Tseng, W.T., Yen, C.T., y Tsai, M.L. (2011). Un conjunto de microalambres agrupados para el registro crónico de unidad única a largo plazo en regiones cerebrales profundas de ratas en comportamiento. J. Neurosci. Methods 201, 368–376.</p>
+      <p>Turi, G.F., Li, W.K., Chavlis, S., Pandi, I., O'Hare, J., Priestley, J.B., Grosmark, A.D., Liao, Z., Ladow, M., Zhang, J.F., et al. (2019). Las interneuronas que expresan polipéptido intestinal vasoactivo en el hipocampo apoyan el aprendizaje espacial dirigido a objetivos. Neuron 101, 1150–1165.e8.</p>
+      <p>Varga, C., Golshani, P., y Soltesz, I. (2012). Ordenamiento temporal invariante en frecuencia de las descargas interneuronales durante las oscilaciones hipocampales en ratones despiertos. Proc. Natl. Acad. Sci. USA 109, E2726–E2734.</p>
+      <p>Wall, N.R., De La Parra, M., Sorokin, J.M., Taniguchi, H., Huang, Z.J., y Callaway, E.M. (2016). Mapas de todo el cerebro de entrada sináptica a las interneuronas corticales. J. Neurosci. 36, 4000–4009.</p>
+      <p>Walton, M.E., Bannerman, D.M., y Rushworth, M.F. (2002). El papel de la corteza frontal medial de la rata en la toma de decisiones basada en el esfuerzo. J. Neurosci. 22, 10996–11003.</p>
+      <p>Wang, F., Kessels, H.W., y Hu, H. (2014). El ratón que rugió: mecanismos neurales de la jerarquía social. Trends Neurosci. 37, 674–682.</p>
+      <p>Wang, F., Zhu, J., Zhu, H., Zhang, Q., Lin, Z., y Hu, H. (2011). Control bidireccional de la jerarquía social por la eficacia sináptica en la corteza prefrontal medial. Science 334, 693–697.</p>
+      <p>Warden, M.R., Selimbeyoglu, A., Mirzabekov, J.J., Lo, M., Thompson, K.R., Kim, S.Y., Adhikari, A., Tye, K.M., Frank, L.M., y Deisseroth, K. (2012). Una proyección neuronal corteza prefrontal-tronco encefálico que controla la respuesta al desafío conductual. Nature 492, 428–432.</p>
+      <p>Wehr, M., y Zador, A.M. (2003). La inhibición equilibrada subyace a la sintonización y agudiza el tiempo de espiga en la corteza auditiva. Nature 426, 442–446.</p>
+      <p>Wilson, E.O. (2000). Sociobiología: la nueva síntesis (Cambridge: Belknap Press of Harvard University Press).</p>
+      <p>Xu, H., Jeong, H.Y., Tremblay, R., y Rudy, B. (2013). Las interneuronas GABAérgicas que expresan somatostatina neocorticales desinhiben la capa 4 talamorreceptora. Neuron 77, 155–167.</p>
+      <p>Xu, H., Liu, L., Tian, Y., Wang, J., Li, J., Zheng, J., Zhao, H., He, M., Xu, T.L., Duan, S., y Xu, H. (2019). Un microcircuito desinhibidor media el miedo social condicionado en la corteza prefrontal. Neuron 102, 668–682.e5.</p>
+      <p>Xue, M., Atallah, B.V., y Scanziani, M. (2014). Igualación de las relaciones excitación-inhibición en todas las neuronas corticales visuales. Nature 511, 596–600.</p>
+      <p>Yamamuro, K., Bicks, L.K., Leventhal, M.B., Kato, D., Im, S., Flanigan, M.E., Garkun, Y., Norman, K.J., Caro, K., Sadahiro, M., et al. (2020). Un circuito prefrontal-tálamo paraventricular requiere experiencia social juvenil para regular la sociabilidad adulta en ratones. Nat. Neurosci. 23, 1240–1252.</p>
+      <p>Yizhar, O., Fenno, L.E., Prigge, M., Schneider, F., Davidson, T.J., O'Shea, D.J., Sohal, V.S., Goshen, I., Finkelstein, J., Paz, J.T., et al. (2011). El equilibrio excitación/inhibición neocortical en el procesamiento de información y la disfunción social. Nature 477, 171–178.</p>
+      <p>Yu, J., Hu, H., Agmon, A., y Svoboda, K. (2019). Reclutamiento de interneuronas GABAérgicas en la corteza de barril durante el comportamiento táctil activo. Neuron 104, 412–427.e4.</p>
+      <p>Zhang, S., Xu, M., Kamigaki, T., Hoang Do, J.P., Chang, W.C., Jenvay, S., Miyamichi, K., Luo, L., y Dan, Y. (2014). Atención selectiva. Circuitos de largo alcance y locales para la modulación de arriba hacia abajo del procesamiento de la corteza visual. Science 345, 660–665.</p>
+      <p>Zhou, T., Sandi, C., y Hu, H. (2018). Avances en la comprensión de los mecanismos neurales de la dominancia social. Curr. Opin. Neurobiol. 49, 99–107.</p>
+      <p>Zhou, T., Zhu, H., Fan, Z., Wang, F., Chen, Y., Liang, H., Yang, Z., Zhang, L., Lin, L., Zhan, Y., et al. (2017). El historial de victorias remodela el circuito tálamo-PFC para reforzar la dominancia social. Science 357, 162–168.</p>
+      <p>Zhu, H., y Hu, H. (2018). El interruptor neural del cerebro para la dominancia social en animales. Sci. China Life Sci. 61, 113–114.</p>
+      <p>Zong, W., Wu, R., Chen, S., Wu, J., Wang, H., Zhao, Z., Chen, G., Tu, R., Wu, D., Hu, Y., et al. (2021). Microscopía de dos fotones en miniatura para imágenes cerebrales de campo de visión ampliado, multiplano y a largo plazo. Nat. Methods 18, 46–49.</p>
+      <p>Zong, W., Wu, R., Li, M., Hu, Y., Li, Y., Li, J., Rong, H., Wu, H., Xu, Y., Lu, Y., et al. (2017). Microscopía de dos fotones en miniatura de alta resolución y rápida para imágenes cerebrales en ratones en libre movimiento. Nat. Methods 14, 713–719.</p>
+    </div>
+  </section>
+
+  <!-- ============ PIE ============ -->
+  <footer class="pie">
+    <div class="linea"></div>
+    <p>Artículo traducido al español · Publicado originalmente en <em>Neuron</em> 110, 516–531 · 2 de febrero de 2022</p>
+    <p>© 2021 Elsevier Inc. · <a href="https://doi.org/10.1016/j.neuron.2021.10.034" target="_blank">doi.org/10.1016/j.neuron.2021.10.034</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
