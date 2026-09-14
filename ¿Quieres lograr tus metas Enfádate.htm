@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¿Quieres lograr tus metas? Enfréscate</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .cita {
+      border-left: 4px solid var(--borde);
+      margin: 1rem 0;
+      padding: .5rem 1rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    .cita strong {
+      color: var(--texto);
+      font-style: normal;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .estudio {
+      border-left: 4px solid var(--acento);
+    }
+
+    .estudio h3 {
+      margin-top: 0;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Nota de prensa · 30 de octubre de 2023</span>
+      <h1>¿Quieres lograr tus metas? Enfréscate</h1>
+      <p class="subtitulo">La ira puede ser útil al enfrentar un desafío, según un estudio</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Ira</span>
+      <span class="tema">Emociones</span>
+      <span class="tema">Personalidad</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p>Washington — Aunque a menudo se percibe como una emoción negativa, la ira también puede ser un poderoso motivador para que las personas logren metas desafiantes en sus vidas, según una investigación publicada por la Asociación Americana de Psicología.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>Las personas a menudo creen que un estado de felicidad es ideal, y la mayoría considera la búsqueda de la felicidad un objetivo vital importante</strong>», dijo la autora principal Heather Lench, PhD, profesora del departamento de ciencias psicológicas y del cerebro de la Texas A&M University. «La idea de que la emoción positiva es ideal para la salud mental y el bienestar ha sido prominente en los relatos populares y psicológicos sobre la emoción, pero investigaciones previas sugieren que una mezcla de emociones, incluidas emociones negativas como la ira, produce los mejores resultados».</p>
+        <p>La teoría funcionalista de la emoción, que se estudia desde hace décadas, sugiere que todas las emociones, buenas o malas, son reacciones a eventos dentro del entorno de una persona y cumplen el propósito de alertarla sobre situaciones importantes que requieren acciones, según Lench. Cada emoción puede requerir una respuesta diferente. Por ejemplo, la tristeza puede indicar que una persona necesita buscar ayuda o apoyo emocional, mientras que la ira puede sugerir que necesita tomar medidas para superar un obstáculo.</p>
+        <p class="articulo-ref">La investigación fue publicada en la revista <em>Journal of Personality and Social Psychology</em>.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Para comprender mejor el papel de la ira en el logro de metas, los investigadores realizaron una serie de experimentos con más de 1000 participantes y analizaron datos de encuestas de más de 1400 encuestados. En cada experimento, los investigadores inducían una respuesta emocional (como ira, diversión, deseo o tristeza) o un estado emocional neutro, y luego presentaban a los participantes una meta desafiante.</p>
+        <p>En un experimento, se mostró a los participantes imágenes diseñadas para inducir respuestas emocionales específicas o neutras, y luego se les pidió resolver una serie de crucigramas de palabras. En otro, el objetivo era lograr puntuaciones altas en un videojuego de esquí, con un juego desafiante (esquivar banderas en un circuito de slalom) y uno más fácil que involucraba solo un salto.</p>
+        <p>En todos los experimentos, la ira mejoró la capacidad de las personas para alcanzar sus metas en comparación con una condición neutra, en una variedad de situaciones desafiantes. En algunos casos, se asoció con puntuaciones más altas o tiempos de respuesta más cortos. En un experimento, también aumentó el hacer trampa para lograr un mejor resultado.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Los investigadores también analizaron datos de una serie de encuestas recolectadas durante las elecciones presidenciales de Estados Unidos de 2016 y 2020. Antes de las elecciones, se pidió a las personas que calificaran qué tan enojadas estarían si su candidato favorito no ganaba. Después de las elecciones, informaron si habían votado y por quién. Los participantes de la encuesta que indicaron que estarían enojados si su candidato no ganaba tenían más probabilidades de votar en la elección, pero la ira no tuvo efecto sobre el candidato por el que votaban.</p>
+        <p class="cita">«<strong>Estos hallazgos demuestran que la ira aumenta el esfuerzo dirigido a lograr una meta deseada, lo que frecuentemente resulta en un mayor éxito</strong>», dijo Lench.</p>
+        <p>Los efectos de la ira al impulsar a las personas a esforzarse por sus metas —y frecuentemente a lograrlas— fueron específicos de las situaciones en las que las metas eran más desafiantes, según Lench. La ira no pareció estar asociada con el logro de metas cuando estas eran más fáciles, como en el videojuego de salto de esquí.</p>
+        <p>Lench también señaló que, aunque la ira se asoció con un mayor éxito en general, en algunos casos la diversión o el deseo también se asociaron con un mayor logro de metas.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Los resultados sugieren que las emociones que a menudo se consideran negativas —como la ira, el aburrimiento o la tristeza— pueden ser útiles, según Lench.</p>
+        <p class="cita">«<strong>Las personas a menudo prefieren usar las emociones positivas como herramientas más que las negativas, y tienden a ver las emociones negativas como indeseables y maladaptativas</strong>», dijo. «Nuestra investigación se suma a la creciente evidencia de que una mezcla de emociones positivas y negativas promueve el bienestar, y que usar emociones negativas como herramientas puede ser particularmente eficaz en algunas situaciones».</p>
+        <p class="articulo-ref"><strong>Artículo:</strong> «Anger Has Benefits for Attaining Goals» («La ira tiene beneficios para alcanzar metas»), de Heather Lench, PhD, Noah Reed, BA, Tiffany George, PhD, Kaitlyn Kaiser, BA, y Sophie North, BS, Texas A&M University. <em>Journal of Personality and Social Psychology</em>, publicado en línea el 30 de octubre de 2023.</p>
+      </div>
+
+      <h2>El artículo científico</h2>
+
+      <h2>Los tres supuestos de las cuentas funcionalistas</h2>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Las emociones surgen de discrepancias</h3>
+          <p>Las personas experimentan emociones negativas, como la ira, cuando perciben que no están obteniendo lo que quieren; y emociones positivas relacionadas con metas, como el entusiasmo, cuando perciben una oportunidad de obtenerlo o ya lo han obtenido. En un estudio de experiencias emocionales diarias, casi el 70 % de las experiencias emocionales específicas podían predecirse a partir de los reportes de las personas sobre los eventos relevantes para sus metas.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Cambios coordinados entre sistemas</h3>
+          <p>Una vez inducidas, las emociones se definen por cambios coordinados en la cognición, la experiencia, la fisiología y la conducta. Las respuestas entre sistemas se corresponden más fuertemente durante las experiencias emocionales que en situaciones neutras, lo que sugiere que la emoción organiza las respuestas. La relación no es determinista sino probabilística.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Las emociones resuelven desafíos</h3>
+          <p>Las emociones funcionan para resolver desafíos relacionados con metas. Es el supuesto central de esta investigación, centrado en la ira. Sorprendentemente, hay poca evidencia de que emociones específicas ayuden a resolver desafíos en situaciones no sociales, particularmente para emociones negativas específicas como la ira.</p>
+        </div>
+      </div>
+
+      <h2>La función de la ira</h2>
+
+      <div class="tarjeta">
+        <p>La ira fue seleccionada como la emoción objetivo porque se discute frecuentemente como una emoción que debe regularse o controlarse, y es hedónicamente aversiva (tanto que las personas pagan dinero por evitar experimentarla). Sin embargo, según las cuentas funcionalistas, la ira debería facilitar la persecución de metas en situaciones particulares.</p>
+        <p>La ira surge cuando una meta se ve obstaculizada y requiere atención para lograrse, o cuando una frustración debe eliminarse. Algunas cuentas especifican que el factor que impide el logro debe ser humano para inducir ira, y otras se centran en la injusticia percibida por otros humanos. Sin embargo, las personas reportan experimentar ira en una gama de experiencias con metas obstaculizadas que no incluyen humanos, incluidas tareas imaginativas, recuerdo, extractos de texto y experiencias de la vida real. Estudios con bebés frecuentemente inducen ira quitando o bloqueando un juguete o vídeo atractivo.</p>
+        <p>En general, la ira se asocia con respuestas coordinadas que caracterizan una «disposición para la acción». Se teoriza que esta activación ante un desafío a una meta impulsa un enfoque en lograr la meta hasta que se alcance o se pierda irrevocablemente, y la ira promueve mayor atención a las metas y una toma de decisiones coherente con ellas. En un metaanálisis, la ira inducida experimentalmente se asoció con cambios moderados (<em>g</em> = 0,51) en todos los resultados en comparación con condiciones neutras.</p>
+        <p>Evidencia previa sobre consecuencias sociales muestra que la expresión de ira afecta el comportamiento de otros: los participantes que enfrentaban a un oponente enojado en una negociación eran más propensos a ceder, aparentemente porque perciben la ira como una amenaza implícita. Pero los cambios intrapersonales asociados a la ira deberían aportar beneficios no completamente dependientes de las respuestas de los demás. Evidencia correlacional sugiere que una mayor ira se asocia con persistencia en tareas difíciles y, en consecuencia, con mejor desempeño.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Consideraciones adicionales</h3>
+        <p><strong>Creencias sobre la utilidad de las emociones:</strong> múltiples estudios recientes muestran que las personas varían en sus creencias sobre la utilidad de las emociones en situaciones particulares. Sin embargo, para la mayoría de las cuentas funcionalistas, el impacto teorizado de las emociones específicas en el logro de metas no debería depender de las actitudes individuales. Varios estudios de esta investigación incluyeron una evaluación de las creencias sobre la utilidad de la ira.</p>
+        <p><strong>Efectos de transferencia:</strong> el impacto teorizado de las emociones sobre el logro de metas no debería limitarse a la situación que las indujo, sino que debería tener efectos de transferencia sobre situaciones posteriores. Las personas parecen ser intuitivamente conscientes de esto: expresan preferencias por estímulos que inducirán emociones específicas antes de entrar en ciertos tipos de situaciones (por ejemplo, prefieren ver un vídeo que induce ira antes de entrar en una negociación conflictiva).</p>
+        <p><strong>Condiciones de comparación:</strong> se seleccionaron estados que variaban en valencia y motivación de aproximación: la tristeza como estado negativo de baja aproximación, el deseo como estado positivo de alta aproximación, y la diversión como estado positivo de baja aproximación. La ira se considera típicamente una emoción negativa motivada por la aproximación.</p>
+      </div>
+
+      <h2>Los seis estudios</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Estudio</th>
+              <th>Tarea / Situación</th>
+              <th><em>N</em></th>
+              <th>Hallazgo clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Anagramas difíciles</td>
+              <td>233</td>
+              <td>La ira mejoró la resolución un 39,18 % frente a la condición neutra (<em>d</em> = 0,81)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Tarea con oportunidad de hacer trampa</td>
+              <td>242</td>
+              <td>La ira aumentó las trampas: 57 % frente a 27 % en la condición neutra</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Videojuego de esquí (slalom vs. salto)</td>
+              <td>288</td>
+              <td>Mejores puntuaciones en el slalom desafiante (<em>d</em> = 0,72); sin diferencias en el salto fácil</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Tarea de incentivo de demora de la ira</td>
+              <td>131</td>
+              <td>Reacciones más rápidas y mayor deseo de reintentar en el bloque de ira</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Elecciones presidenciales de 2016 y 2020</td>
+              <td>989 + 416</td>
+              <td>La ira anticipada predijo votar, independientemente del candidato</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Firmar petición contra subida de matrícula</td>
+              <td>126</td>
+              <td>89 % firmó en condición de ira frente a 69 % en activación fisiológica</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 1: Anagramas difíciles</h3>
+        <p>Se asignó aleatoriamente a 233 estudiantes universitarios a una condición emocional (ira, neutra, diversión, deseo, tristeza). Las emociones se indujeron mediante imágenes del sistema IAPS y otras desarrolladas específicamente (por ejemplo, insultos al equipo de fútbol universitario). Los participantes luego completaron cuatro series de siete anagramas de dificultad variable, siendo la primera serie difícil (en la prueba piloto, solo el 50 % la resolvió con tiempo ilimitado) y el marco el de un «test de inteligencia verbal».</p>
+        <p>Los participantes en la condición de ira resolvieron más anagramas que los de la condición neutra (<em>d</em> = 0,81), una mejora del 39,18 % en el logro de la meta. También superaron a las condiciones de diversión (<em>d</em> = 0,64), deseo (<em>d</em> = 0,55) y tristeza (<em>d</em> = 0,52). Y en todas las condiciones, la ira autoinformada tras la inducción predijo resolver más anagramas. La mejora fue específica de la serie desafiante: no hubo diferencias en una serie fácil posterior.</p>
+        <p>Los participantes enojados también dedicaron más tiempo a la serie difícil (<em>M</em> = 53,78 s frente a 44,50 s), y un análisis de moderación suplementario mostró que esta mayor persistencia no se debía a mayor dificultad para resolver los anagramas. La utilidad percibida de la ira no se correlacionó con el número de anagramas resueltos (<em>r</em> = 0,10; <em>p</em> = ,522).</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 2: Hacer trampa para ganar premios</h3>
+        <p>A 242 estudiantes se les dijo que podrían ganar artículos conmemorativos de la universidad por cada acertijo numérico resuelto en 5 minutos —una tarea imposible de completar en ese tiempo—. Después, quedando el experimentador fuera de la sala, debían autoinformar cuántos acertijos habían resuelto y tirar las hojas a una papelera de reciclaje, lo que daba la oportunidad de hacer trampa.</p>
+        <p>Como se esperaba, el desempeño fue pobre (36 % de los acertijos en promedio) y no hubo diferencias entre condiciones. En general, el 38 % de los participantes hizo trampa. La ira produjo tasas de trampa más altas (57 %) que la condición neutra (27 %; <em>p</em> = ,003), que la condición de deseo (31 %) y que la de tristeza (36 %); y de manera no significativa frente a la diversión (40 %). En todas las condiciones, la ira autoinformada predijo más trampas. La utilidad percibida de la ira no se correlacionó con el comportamiento de trampa. Los autores aclaran: no pretenden sugerir que hacer trampa sea bueno, solo que puede ser una forma eficaz de conseguir más recursos.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 3: Videojuego de esquí con Wii</h3>
+        <p>Con 288 estudiantes sobre una tabla de equilibrio de Nintendo Wii, se compararon dos juegos: el slalom (desafiante: bajar una pendiente esquivando banderas, con penalización por cada una golpeada) y el salto de esquí (fácil: un solo salto). Esta tarea permitía evaluar la generalización de los efectos de la ira a conductas que dependen menos de cambios cognitivos y más del movimiento físico.</p>
+        <p>En el slalom desafiante, la ira produjo mejores puntuaciones (es decir, más bajas) que la condición neutra (<em>d</em> = 0,72) y que la tristeza (<em>d</em> = 0,68); no difirió significativamente del deseo ni de la diversión. Este patrón podría indicar que la activación física general también benefició las puntuaciones. En el salto, que era relativamente fácil, no hubo diferencias entre condiciones.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 4: Tarea de incentivo de demora de la ira</h3>
+        <p>A diferencia de los estudios 1-3, aquí la ira era inducida y medida sobre la misma tarea, un paradigma más válido ecológicamente. Los participantes (131 estudiantes) respondían a un objetivo en pantalla dentro de una ventana de tiempo para ganar o perder 0,50 dólares por prueba. Se incluyeron un bloque de práctica (400 ms), uno de éxito (500 ms), uno de éxito con incentivo (duplicar ganancias) y un bloque de ira (ventana reducida a 100 ms, diseñado para provocar fracaso e ira).</p>
+        <p>La ira fue mucho más alta en el bloque de ira que en todos los demás. Los participantes respondieron más rápido en el bloque de ira que en los bloques de práctica, de éxito y de éxito con incentivo; y la intensidad de la ira reportada predijo un tiempo de reacción más rápido (<em>r</em> = 0,21), incluso controlando tristeza, deseo y relajación. Además, el 38,2 % quiso repetir el bloque de ira (frente al 1,5 % en los bloques de éxito), y la intensidad de la ira predijo ese deseo de reintentar (<em>r</em> = 0,38).</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 5: Elecciones presidenciales de 2016 y 2020</h3>
+        <p>Semanas antes de las elecciones de 2016 (989 participantes) y de 2020 (416 participantes), se pidió a las personas que imaginaran que el candidato contrario había ganado y que calificaran qué tan enojados y asustados se sentirían. Después de las elecciones, se registró si habían votado y por quién.</p>
+        <p>En 2016, la ira predijo votar (β = 1,19; <em>p</em> &lt; ,001), resultado que se mantuvo controlando el miedo predicho —que no predijo el voto—, y por separado tanto para quienes apoyaban a Clinton como para quienes apoyaban a Trump. En 2020, la ira también predijo votar (β = 1,33; <em>p</em> &lt; ,001), de nuevo independiente del miedo; la relación se mantuvo para los seguidores de Biden, pero no alcanzó la significación para los de Trump. La ira no tuvo efecto sobre el candidato elegido.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 6: Ira frente a activación fisiológica</h3>
+        <p>Este estudio comparó directamente la ira con la activación fisiológica pura, midiendo la respuesta en una situación poco probable que se viera afectada por la activación física: firmar una petición para impedir una subida del 20 % de la matrícula universitaria. Un grupo completó el bloque de ira de la tarea del estudio 4 (retroalimentación monetaria negativa programada); el otro hizo 10 minutos de ejercicio cardiovascular con monitor de frecuencia cardíaca en la zona de intensidad moderada.</p>
+        <p>La ira fue más alta en la condición de ira (<em>M</em> = 2,86) que en la fisiológica (<em>M</em> = 1,55), y los participantes en la condición de ira tuvieron más probabilidades de firmar la petición (89 % frente a 69 %; <em>p</em> = ,004). Esto sugiere que la activación fisiológica es solo un componente de la ira, y que otros componentes también pueden aumentar el desempeño en situaciones desafiantes.</p>
+      </article>
+
+      <h2>Discusión</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Cómo y cuándo es funcional la ira</h3>
+        <p>En todos los estudios, la ira mejoró el logro de metas frente a la condición neutra en una variedad de situaciones desafiantes: mayor persistencia con acertijos difíciles, más trampas para obtener premios, mejores puntuaciones en el videojuego exigente, reacciones más rápidas y mayor interés en reintentar, mayor probabilidad de votar en elecciones disputadas y mayor disposición a firmar una petición. Este efecto se detectó en tareas con mayor desafío y no fue evidente en tareas relativamente fáciles, en línea con la teoría de recalibración de Sell, según la cual la ira es una respuesta motivacional a la experiencia de mayor desafío frente a los beneficios.</p>
+        <p>Dos hallazgos adicionales son informativos. Primero, las creencias de los participantes sobre la utilidad de la ira <strong>no</strong> predijeron un mayor logro de metas, lo que sugiere que los beneficios no dependen de creer que la ira es útil. Segundo, la investigación demuestra efectos de transferencia de la ira sobre respuestas conductuales en situaciones posteriores a la que la indujo.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Implicaciones para la teoría de la emoción</h3>
+        <p>Las condiciones de comparación (tristeza, diversión, deseo y activación fisiológica) permitieron evaluar si los efectos eran específicos de la ira o derivaban de la activación general. En general, el mayor esfuerzo y logro fue específico de la ira, aunque en algunos casos no difirió de la diversión o del deseo, un patrón que merece investigación futura para identificar los componentes cognitivos y fisiológicos compartidos.</p>
+        <p>Identificar la función de emociones específicas es crítico para desarrollar explicaciones de la emoción atípica y la perturbación psicológica. Al igual que las profesiones médicas necesitan entender la función de un sistema para evaluar la enfermedad física, entender qué es normal para una emoción podría ayudar a determinar si una respuesta conductual particular está dentro de un rango típico o representa un problema que debería tratarse. Estos hallazgos sugieren que los modelos de emoción en la perturbación psicológica deberían tener en cuenta la utilidad potencial de las emociones negativas.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Limitaciones y direcciones futuras</h3>
+        <p>La experiencia de la ira es compleja y los estudios futuros deberían incluir diferentes inducciones emocionales —por ejemplo, desafíos a metas relacionales e insultos al honor, dos tipos de situaciones que se sabe que inducen ira— y diferentes condiciones de comparación. Además, la investigación se centró en la ira como respuesta coordinada entre sistemas, sin desglosar las contribuciones específicas de cada respuesta al comportamiento; los estudios futuros deberían incluir múltiples medidas de los sistemas cognitivo, conductual y fisiológico para ver en qué medida cada uno predice la conducta.</p>
+        <p>Si las emociones funcionan para resolver tipos particulares de desafíos a las metas, entonces deberían producir mejores resultados en esas situaciones específicas. La perspectiva teórica y empírica desarrollada aquí para la ira puede aplicarse a cualquier emoción teorizada como funcional durante la persecución de metas.</p>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>¿Ayudan o perjudican las emociones el razonamiento y el funcionamiento humanos? Los autores ofrecen una respuesta preliminar a esta pregunta de siempre para la ira: «depende». Los resultados respaldan la afirmación de que la ira produce un mayor logro de metas en situaciones que involucran desafíos. Esta perspectiva más matizada sobre la función potencial de la emoción, que tiene en cuenta el tipo de situación en la que se examina la función, puede aplicarse al estudio de otras emociones y debería conducir al desarrollo de una explicación más completa de las funciones de la emoción.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Anger Has Benefits for Attaining Goals (PDF, 349 KB) — artículo original</a></li>
+      <li><a href="#">Journal of Personality and Social Psychology — revista de la APA</a></li>
+    </ul>
+
+    <footer>
+      <p>Fecha de creación: 30 de octubre de 2023 · Nota de prensa de la Asociación Americana de Psicología</p>
+      <p>Contacto de prensa: Jim Sliwa · (202) 336-5707</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

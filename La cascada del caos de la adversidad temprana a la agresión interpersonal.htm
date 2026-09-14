@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La cascada del caos: de la adversidad temprana a la agresión interpersonal</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor { max-width: 860px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    header { margin-bottom: 1.5rem; }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); margin: 0 0 .5rem; line-height: 1.25; }
+    .subtitulo { color: var(--texto-suave); margin: 0; }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 { font-size: 1.05rem; margin: 1.5rem 0 .5rem; color: var(--acento); }
+
+    .temas { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 1.5rem; }
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .tarjeta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+    .tarjeta p { margin: 0 0 .75rem; }
+    .tarjeta p:last-child { margin-bottom: 0; }
+
+    .entradilla { border-left: 4px solid var(--acento); font-size: 1.05rem; }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+    .buscador:focus { border-color: var(--acento); box-shadow: 0 0 0 3px rgba(37, 99, 235, .15); }
+
+    .contador { font-size: .85rem; color: var(--texto-suave); min-height: 1.3em; margin: 0 0 1rem; }
+
+    .tabla-scroll { overflow-x: auto; margin: 1rem 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+    th, td { border: 1px solid var(--borde); padding: .5rem .75rem; text-align: left; vertical-align: top; }
+    th { background: var(--acento-suave); color: var(--acento); font-weight: 600; }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+    .pilares h3 { margin: 0 0 .5rem; font-size: 1rem; }
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .paso { border-left: 4px solid var(--acento); }
+    .paso h3 { margin-top: 0; }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado { border-left: 4px solid var(--acento); }
+    .articulo-ref { font-size: .92rem; color: var(--texto-suave); }
+
+    mark { background: var(--marca); border-radius: 3px; padding: 0 2px; }
+
+    .relacionados { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+    .relacionados a:hover { color: var(--acento); border-color: #c7d2fe; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+    footer p { margin: .25rem 0; }
+
+    .cadena {
+      background: var(--acento-suave);
+      border: 1px dashed var(--acento);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      margin: .75rem 0;
+      font-size: .95rem;
+      font-weight: 500;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Artículo empírico · Evolutionary Behavioral Sciences · 2020</span>
+      <h1>La cascada del caos: de la adversidad temprana a la agresión interpersonal</h1>
+      <p class="subtitulo">Figueredo, Black, Patch, Heym, Ferreira, Varella, Defelipe, Cosentino, Castro, Natividade, Hattori, Pérez-Ramos, Madison &amp; Fernandes</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Adversidad temprana</span>
+      <span class="tema">Estrategia de Historia de Vida</span>
+      <span class="tema">Regulación conductual</span>
+      <span class="tema">Triada Oscura</span>
+      <span class="tema">Agresión interpersonal</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p><strong>Resumen.</strong> Desarrollamos un modelo de cascada para reconstruir la progresión del desarrollo hipotetizada desde (a) mayor inestabilidad de recursos durante la infancia a (b) menor sensibilidad materna durante la infancia a (c) esquemas cognitivos de vulnerabilidad social a (d) estrategias de Historia de Vida (HV) más rápidas a (e) menor regulación conductual a (f) personalidades de «Triada Oscura» más pronunciadas a (g) mayores niveles de agresión interpersonal en la adultez. El modelo también evaluó la generalidad transcultural de esta progresión del desarrollo en cinco sociedades: Estados Unidos (<em>N</em> = 144), México (<em>N</em> = 118), Brasil (<em>N</em> = 1091), Suecia (<em>N</em> = 144) y Reino Unido (<em>N</em> = 260). De 21 pruebas interactivas de la robustez transcultural de los parámetros principales del modelo, solo 5 alcanzaron significación estadística, y de magnitud relativamente pequeña comparada con sus efectos principales. En ningún caso la magnitud y dirección de la interacción revirtió por completo la del efecto principal correspondiente del predictor, sino que solo lo aumentó o atenuó algo en los sitios afectados. Concluimos que los resultados apoyan generalmente tanto la invarianza configuracional como métrica del modelo de cascada a un grado relativamente alto, aunque imperfecto.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta destacado">
+        <p><strong>Declaración de significancia pública:</strong> este estudio transcultural puso a prueba la generalidad de una secuencia del desarrollo que conduce desde la dureza y la impredecibilidad de la infancia, a través de varias etapas teóricamente especificadas, hasta la agresión interpersonal adulta.</p>
+      </div>
+
+      <div class="cadena">Inestabilidad de recursos → Sensibilidad materna → Esquemas de vulnerabilidad social → HV lenta → Regulación conductual → Personalidad Oscura → Agresión interpersonal</div>
+
+      <h2>El modelo en siete pasos</h2>
+
+      <div class="pilares">
+        <div class="tarjeta paso">
+          <h3><span class="num">1</span>Inestabilidad de recursos en la infancia</h3>
+          <p>Se evaluó la inestabilidad del entorno midiendo la inestabilidad de recursos económicos, incluido el acceso impredecible a comida, ropa y otras necesidades básicas. Las tasas de morbilidad/mortalidad y la escasez de recursos caracterizan la dureza ambiental; la variación de la dureza en tiempo y espacio caracteriza la inestabilidad.</p>
+        </div>
+        <div class="tarjeta paso">
+          <h3><span class="num">2</span>Sensibilidad materna en la infancia</h3>
+          <p>La impredecibilidad ambiental crea intereses competitivos para los padres que crían descendencia en estas condiciones. Siguiendo el trabajo de Belsky et al., la sensibilidad materna se midió en tres dimensiones: presencia de apoyo, respeto por la autonomía y hostilidad.</p>
+        </div>
+        <div class="tarjeta paso">
+          <h3><span class="num">3</span>Esquemas cognitivos de vulnerabilidad social</h3>
+          <p>Evaluar cómo los individuos internalizan los eventos externos es un argumento importante a favor de medir características psicológicas de HV además de las biodemográficas. Se midieron tres dimensiones: abandono/inestabilidad, desconfianza/abuso y vulnerabilidad al daño (Young, 1999).</p>
+        </div>
+        <div class="tarjeta paso">
+          <h3><span class="num">4</span>Estrategia de HV más rápida (Super-K)</h3>
+          <p>La estrategia de HV es un compuesto psicométrico de tres constituyentes mayores: el <strong>Factor K</strong> (estrategia lenta, medida por indicadores convergentes de conducta y cognición), el <strong>Factor de Covitalidad</strong> (funcionamiento mental y físico superior, reflejo del esfuerzo somático y parental recibido) y el <strong>Factor de Personalidad</strong> (el Factor General de Personalidad, construido de los Cinco Grandes).</p>
+        </div>
+        <div class="tarjeta paso">
+          <h3><span class="num">5</span>Regulación conductual</h3>
+          <p>Detectar la inestabilidad ambiental en la infancia disminuye el sentido de control, lo que media la relación entre condiciones ambientales y conducta impulsiva. La conducta impulsiva desarrollada en la adolescencia aumenta el riesgo de agresión, delincuencia y otras conductas temerarias.</p>
+        </div>
+        <div class="tarjeta paso">
+          <h3><span class="num">6</span>Personalidades de la Triada Oscura</h3>
+          <p>En el Inventario Oscuro (DI), la varianza de los rasgos de la Triada Oscura se reorganiza en tres constructos: esquemas sociales <strong>antagonistas</strong> (el núcleo común de crueldad y falta de empatía emocional), esquemas sociales <strong>mutualistas</strong> (su opuesto funcional: formar vínculos y preocuparse por otros) y <strong>labilidad</strong> emocional y cognitiva (la incapacidad de regular la propia conducta).</p>
+        </div>
+        <div class="tarjeta paso">
+          <h3><span class="num">7</span>Agresión interpersonal</h3>
+          <p>Se conceptualizó ampliamente a través de cinco manifestaciones de agresión hacia objetivos del mismo y distinto sexo: control coercitivo, abuso psicológico, abuso físico, violencia escalada (con riesgo vital) y abuso sexual. El estudio no aborda la dimensión de victimización, solo la perpetración.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Fundamento evolucionista: por qué este orden</h3>
+        <p>La impredecibilidad ambiental, particularmente para los juveniles, <strong>acelera el calendario del desarrollo y la maduración</strong>, porque la impredecibilidad plantea riesgos para la supervivencia y la reproducción: acelerar el desarrollo para llegar a ser reproductivo aumenta la aptitud ante tales riesgos. Según la teoría de la HV, alta inestabilidad de recursos en la infancia, baja sensibilidad materna y el consiguiente esquema de vulnerabilidad social deberían contribuir al desarrollo de una estrategia de HV más rápida, expresada en la adultez.</p>
+        <p>Sobre la Triada Oscura: los psicópatas se caracterizan por conducta no planificada, errática e impulsiva; los maquiavélicos mantienen la capacidad de planificar a largo plazo; los narcisistas, por un sentido grandioso del yo y un sentimiento extremo de derecho propio. Si un esquema social antagonista es una adaptación, debería ser al menos parcialmente heredable. La naturaleza heredable de la psicopatía y de la estrategia de HV podría haber sido seleccionada por los beneficios de las conductas desviadas, como el engaño social. Los psicópatas tienen respuestas autonómicas desreguladas, fallan en reconocer estímulos de miedo y desarrollan respuestas inapropiadas a ellos: su disminuida respuesta de miedo, sustentada en una subactividad o desregulación del sistema límbico, les impide aprender a evitar estímulos peligrosos. Niños de solo 7 años demuestran rasgos de crueldad-falta de emoción vinculados a falta de culpa, empatía y preocupación por otros, con heredabilidad de alrededor del 67 % (o 81 % junto con trastorno de conducta). Y pese a las influencias genéticas, la psicopatía tiene una mayor prevalencia observada en entornos desfavorables.</p>
+      </div>
+
+      <h2>Método</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Demografía</th>
+              <th>Brasil</th>
+              <th>México</th>
+              <th>Suecia</th>
+              <th>Reino Unido</th>
+              <th>EE. UU.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><em>N</em></td><td>1.091</td><td>118</td><td>135</td><td>260</td><td>144</td></tr>
+            <tr><td>Edad media (DE)</td><td>32,8 (10,6)</td><td>21,3 (2,11)</td><td>25,7 (5,1)</td><td>19,6 (2,5)</td><td>18,9 (1,85)</td></tr>
+            <tr><td>Rango de edad</td><td>18-74</td><td>18-32</td><td>19-27</td><td>18-45</td><td>18-31</td></tr>
+            <tr><td>Mujeres</td><td>757 (69 %)</td><td>93 (78 %)</td><td>85 (57 %)</td><td>233 (86 %)</td><td>99 (69 %)</td></tr>
+            <tr><td>Hombres</td><td>333 (31 %)</td><td>25 (22 %)</td><td>51 (34 %)</td><td>27 (14 %)</td><td>44 (31 %)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tarjeta">
+        <p>Se reclutaron estudiantes universitarios en la Universidad de Arizona (EE. UU.), la Universidad de Umeå (Suecia), la Universidad Autónoma Metropolitana (México), la Universidad Nottingham Trent (Reino Unido) y las universidades de São Paulo, Federal de Rio Grande do Norte y Federal de Rio Grande do Sul (Brasil; las muestras brasileñas se desglosaron por lugar de origen del estudiante, no por lugar de recolección). Con un tamaño muestral compuesto final de <em>N</em> = 1.660 tras excluir los casos con datos faltantes, un análisis de potencia post hoc reveló probabilidades de error tipo II de <em>p</em> = ,01 para <em>r</em> = ,2, <em>r</em> = ,3 y <em>r</em> = ,5.</p>
+        <p>Todos los cuestionarios fueron traducidos y adaptados culturalmente mediante el procedimiento estándar de traducción inversa. Los instrumentos incluyeron: <strong>Environment Questionnaire</strong> (inestabilidad ambiental), <strong>Young Schema Questionnaire</strong> abreviado (esquemas), <strong>Mini-K</strong>, la encuesta Rand de salud (36 ítems) y el <strong>Ten-Item Personality Inventory</strong> (Super-K), la <strong>Behavioral Regulation Scale BRIEF</strong> (regulación), el <strong>Dark Inventory</strong> abreviado (Triada Oscura) y la <strong>Interpersonal Relations Rating Scale</strong> (agresión). Todas las fiabilidades y validaciones psicométricas se consideraron aceptables (los α del total de escalas oscilaron entre ,557 y ,977).</p>
+        <p class="datos"><strong>Estrategia analítica:</strong> el modelo de cascada se construyó como una serie de regresiones múltiples jerárquicas en las que cada variable criterio previa se introducía como primer predictor en cada ecuación sucesiva, controlando estadísticamente todos los efectos indirectos para que cada modelo estimara solo los efectos directos sin contaminar por las vías a través de criterios previos. Para la consistencia transcultural se construyó un sistema de contraste ortogonales (América vs. Europa; Norteamérica vs. Sudamérica; EE. UU. vs. México; Suecia vs. Reino Unido; y cuatro contrastes entre regiones de Brasil), introducidos primero como efectos principales y luego como interacciones. Para protegerse del deslizamiento alfa, cada conjunto de contrastes se evaluó por una razón F omnibus protectora: si el test omnibus no era significativo, todo el conjunto se consideraba no significativo como bloque.</p>
+      </div>
+
+      <h2>Resultados: las siete ecuaciones de la cascada</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Ecuación</th>
+              <th>Efecto principal clave</th>
+              <th>Dirección y magnitud</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1. Inestabilidad de recursos (<em>R</em> = ,26)</td><td>Diferencias de línea base entre países</td><td>Mayor inestabilidad en las Américas que en Europa; menor en Norteamérica que en Sudamérica</td></tr>
+            <tr><td>2. Sensibilidad materna (<em>R</em> = ,24)</td><td>Inestabilidad → sensibilidad materna</td><td>Negativa: <em>sR</em> = −,21; la variable resultó estadísticamente invariante entre sitios</td></tr>
+            <tr><td>3. Esquemas de vulnerabilidad (<em>R</em> = ,46)</td><td>Sensibilidad materna ↓ esquemas; inestabilidad ↑ esquemas</td><td><em>sR</em> = −,35 y <em>sR</em> = +,10; efectos de predictores invariantes</td></tr>
+            <tr><td>4. Super-K, HV lenta (<em>R</em> = ,46)</td><td>Esquemas ↓ HV lenta; sensibilidad materna ↑ HV lenta; inestabilidad ↓ HV lenta</td><td><em>sR</em> = −,37; +,21; −,08; los tres predictores invariantes entre sitios</td></tr>
+            <tr><td>5. Regulación conductual (<em>R</em> = ,60)</td><td>HV lenta ↑ regulación; esquemas ↓ regulación</td><td><em>sR</em> = +,47 y <em>sR</em> = −,31; solo interacciones pequeñas (Américas &gt; Europa; EE. UU. &lt; México) sin reversión</td></tr>
+            <tr><td>6. Triada Oscura (<em>R</em> = ,69)</td><td>Regulación ↓ DT; HV lenta ↓ DT; esquemas ↑ DT</td><td><em>sR</em> = −,55; −,35; +,13; los efectos de la sensibilidad materna y la inestabilidad se transmitieron como efectos indirectos</td></tr>
+            <tr><td>7. Agresión interpersonal (<em>R</em> = ,41)</td><td>DT ↑ agresión; regulación ↓ agresión; inestabilidad ↑ agresión</td><td><em>sR</em> = +,28; −,18; +,08; los efectos de la HV lenta, los esquemas y la sensibilidad materna se transmitieron indirectamente</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tarjeta">
+        <p><strong>Balance transcultural:</strong> los siete conjuntos de efectos principales de los contrastes ortogonales (diferencias de línea base entre sitios) fueron estadísticamente significativos, <em>excepto</em> para la sensibilidad materna en la infancia, que resultó invariante. De las 21 pruebas de interacción (contrastes × cada predictor sucesivo), solo cinco alcanzaron significación, y de magnitud relativamente pequeña. <strong>En ningún caso la interacción revirtió la dirección del efecto principal correspondiente</strong>: solo lo aumentó o atenuó algo en los sitios afectados. Esto permite concluir que los resultados apoyan generalmente tanto la invarianza configuracional como la métrica del modelo de cascada a un grado relativamente alto, aunque imperfecto.</p>
+      </div>
+
+      <div class="tarjeta destacado">
+        <h3 style="margin-top:0;">Resumen narrativo de resultados</h3>
+        <p>Primero, la inestabilidad de recursos durante la infancia reduce la sensibilidad materna percibida durante la infancia. Segundo, la sensibilidad materna percibida inhibe el desarrollo de los esquemas cognitivos tempranos de vulnerabilidad social, mientras que la inestabilidad de recursos los promueve. Tercero, los esquemas tempranos de vulnerabilidad social inhiben el desarrollo de la estrategia adulta de HV lenta, igual que la inestabilidad de recursos, mientras que la sensibilidad materna la promueve. Cuarto, la estrategia adulta de HV lenta aumenta la regulación conductual, mientras que los esquemas tempranos de vulnerabilidad social la disminuyen. Quinto, la regulación conductual inhibe el desarrollo de los rasgos de personalidad «Oscuros» adultos, igual que la estrategia adulta de HV lenta, mientras que los esquemas tempranos de vulnerabilidad social los promueven. Sexto y por último, los rasgos de personalidad Oscura adultos promueven la agresión interpersonal, igual que la inestabilidad de recursos en la infancia, mientras que la regulación conductual mejorada la inhibe.</p>
+        <p>Las magnitudes de los vínculos entre constructos inmediatamente adyacentes en el diagrama son generalmente más fuertes que las de los constructos no adyacentes entre sí, lo que aporta cierto grado de apoyo empírico al ordenamiento teórico de las variables en la secuencia hipotetizada.</p>
+      </div>
+
+      <h2>Limitaciones del estudio</h2>
+
+      <div class="tarjeta">
+        <p><strong>Autorreporte retrospectivo y muestreo por conveniencia:</strong> la secuencia temporal reconstruida se basa en el orden entre los referentes de estos autorreportes. La secuencia causal hipotetizada se basa, por tanto, en consideraciones teóricas y no en los resultados de un estudio longitudinal verdadero, donde cada evento se midiera cuando ocurrió a lo largo de la vida del participante. Posiblemente, los recuerdos en que se basan estos reportes retrospectivos estén al menos parcialmente reconstruidos a partir de experiencias posteriores. Alternativamente, un estudio longitudinal verdadero tomaría al menos dos décadas y sería una empresa monumental de coordinar entre cinco ubicaciones internacionales de muestreo.</p>
+        <p><strong>El problema de las permutaciones:</strong> como el orden entre los criterios se especificó teóricamente, cabe notar que la generación de hipótesis alternativas plausibles sobre el orden causal es siempre posible. Específicamente, el número de permutaciones matemáticamente posibles entre las siete variables criterio es siete factorial (7!), nada menos que <strong>5.040</strong>. Por tanto, es evidente que probar todas esas permutaciones es estadísticamente indefendible, dada la masiva capitalización del azar que sin duda ocurriría tanto en las pruebas de hipótesis como en la estimación de parámetros. Dicho esto, hay rivales plausibles dignos de mención:</p>
+        <p><strong>Confusión genética:</strong> la relación entre la inestabilidad de recursos y la sensibilidad materna percibida es un caso especial de la observación general de que la investigación del desarrollo a menudo sufre la confusión genética de efectos comúnmente atribuidos al ambiente. Los putativos constructos «ambientales» están inevitablemente influidos por conductas parentales; en la medida en que esas conductas parentales puedan ser parcialmente heredables, los entornos infantiles resultantes pueden estar influidos por genes también presentes en la descendencia. Esto crea correlaciones gen-ambiente que necesariamente confunden cualquier predicción de resultados conductuales futuros. Si esto ocurriera, la dirección del efecto de la inestabilidad de recursos a la sensibilidad materna en el modelo debería invertirse; hay trabajo en curso para abordar esta cuestión con métodos de genética conductual sobre datos genéticamente informativos.</p>
+        <p><strong>Orden entre regulación y Triada Oscura:</strong> el déficit de regulación conductual (por ejemplo, «impulsividad» frente a «autocontrol») a menudo se incluye en la misma definición de algunos rasgos Oscuros, como la psicopatía, por lo que el orden causal entre ellos permanece incierto. Ambos modelos (regulación antes que DT, y DT antes que déficits ejecutivos) han sido replicados transculturalmente y explican una cantidad sustancial de varianza en la agresión interpersonal (<em>R²</em> = ,76 y <em>R²</em> = ,52, respectivamente). No es posible a esta etapa del programa de investigación afirmar definitivamente qué constructos preceden a otros, y revertir la dirección de la predicción ha tenido un impacto mínimo en el rendimiento de tales modelos.</p>
+        <p><strong>Entornos modernos vs. ancestrales:</strong> todos los eventos reportados presumiblemente transcurrieron en entornos modernos, que pueden o no reflejar fielmente los entornos ancestrales más distantes de estas mismas sociedades. El modelo evolucionista-del-desarrollo se basa en el supuesto de que los mecanismos del desarrollo expresados en tales entornos modernos presumiblemente evolucionaron en entornos más ancestrales, y que las presiones selectivas que moldearon tales mecanismos eran razonablemente comparables entonces y ahora (el concepto de Ambientes de Relevancia Adaptativa). Pero no hay manera de determinar en el presente si, o hasta qué punto, ese supuesto está justificado.</p>
+      </div>
+
+      <h2>Significancia evolucionista: construcción de nichos</h2>
+
+      <div class="tarjeta">
+        <p>Es consenso general tanto en la psicología de la salud como del desarrollo que el desarrollo del bienestar, la autoestima, el apego seguro y los patrones cooperativos de relación social en la adultez son en gran parte consecuencia de un cuidado parental de apoyo: contacto afectuoso, ausencia de castigo corporal, responsividad a las necesidades del niño, actividades lúdicas y arraigo social. Sin embargo, esto es un relato parcial e incompleto de la diversidad de los paisajes de aptitud humanos: <strong>no hay una única forma de optimizar la adaptación</strong>. Las condiciones de desarrollo alternativas que conducen a otros rasgos psicosociales también pueden ser adaptativas desde la perspectiva del éxito evolucionista y su mantenimiento intergeneracional, pese a no ser «saludables» desde el punto de vista de los estándares culturales modernos. Individuos y comunidades pueden crear y reforzar nichos sociales donde síndromes de conducta aparentemente caóticos son funcionalmente adaptativos en el contexto de estrategias de HV rápidas.</p>
+        <p>La <strong>construcción de nichos</strong> es el proceso por el cual los organismos modifican sus propios nichos y los ajenos mediante sus actividades, generando nuevas condiciones de desarrollo y un nuevo contexto de adaptación. Aunque la teoría se ha centrado primariamente en las modificaciones ecológicas, su lógica también puede aplicarse a modificaciones psicosociales. Las poblaciones y sus subgrupos, como familias e individuos, pueden analizarse a través de esta lente, pues modifican y son impactados por las modificaciones de sus micronichos: los nichos del desarrollo construidos para la descendencia a lo largo de la historia evolutiva no son todos iguales.</p>
+        <p>El término «construcción» no debe connotar necesariamente intencionalidad premeditada: la construcción de nichos es a menudo una respuesta seleccionada a las condiciones del ambiente y limitada al repertorio conductual actual de quienes construyen el nicho. Comunidades comparativamente más rápidas de HV construirían nichos que no solo se ajustan sino que <strong>refuerzan activamente sus adaptaciones biopsicosociales</strong>, optimizando su aptitud mediante prácticas culturales que capitalizan la alta variabilidad de las condiciones. La inestabilidad y la adversidad son constantes fiables en su ecología, y tales comunidades se beneficiarían, desde el punto de vista del éxito evolucionista, de la capacidad de navegar tales entornos en lugar de evitarlos, priorizando rasgos «óptimos» desde el punto de vista de la psicología de la salud.</p>
+        <p>Así, el entorno familiar puede servir para preparar al niño para el entorno social promedio que ocurre recurrentemente en la historia previa de la familia: <strong>un entorno familiar adaptativo no prepara a los niños para un futuro idealizado, sino para condiciones cercanas a su realidad presente</strong>. La noción de que los nichos construidos protegen contra la dureza y promueven la seguridad y la cohesión social es común, y el mantenimiento de tales rasgos sociales a largo plazo es priorizado por individuos y grupos que viven en nichos relativamente estables y predecibles, en los que las retribuciones acumulativas y futuras de las inversiones presentes son fiables.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">La agresión como (potencialmente) adaptativa</h3>
+        <p>La agresión interpersonal se interpreta con frecuencia como manifestación de un control de impulsos fallido o de una condición psicopatológica subyacente, y por tanto vista como maladaptativa. Y es cierto que la agresión compromete la implementación exitosa de estrategias de emparejamiento a largo plazo, las inversiones en parientes y el mantenimiento de esfuerzos cooperativos a largo plazo, reduciendo así la cohesión grupal. Pero otros nichos implican condiciones en gran parte inestables. Los estilos de crianza que fomentan la estabilidad pueden parecer ideales desde el punto de vista de la producción de bienestar subjetivo, pero <strong>fuera de sintonía con la realidad de la ecología adulta que aguarda a los individuos</strong>. En comunidades de HV más rápida e inestables, las intervenciones sobre la agresión sin intervenciones simultáneas que ofrezcan oportunidades estables y predecibles probablemente produzcan desajuste, disonancia y privación de estrategias adaptativas para resolver los problemas del propio nicho.</p>
+        <p>Modificar estilos de crianza que entrenan a los niños para enfrentar y superar la adversidad quizá no deba descartarse como meta, pero para asegurar el ajuste a largo plazo se debería argumentablemente también modificar correspondientemente el nicho social que estos niños encontrarán de adultos. Por ejemplo, la reactividad y la irritabilidad tempranas en la vida pueden ser una base valiosa para la asertividad y la búsqueda de estatus en la adultez, y los estilos de crianza pueden entrenar a los niños para eso, mientras que en otros nichos sociales tales rasgos tempranos pueden ser perjudiciales para navegar con éxito las relaciones adultas.</p>
+        <p>El hecho de que las múltiples formas de abuso infantil, negligencia, falta de sensibilidad y adversidad en los estilos de crianza en general sean cíclicamente intergeneracionales es bien conocido, y el presente análisis de cascada refuerza esa noción. De hecho, un reciente estudio longitudinal transnacional ha usado dimensiones críticas como el caos del hogar, el peligro del barrio, la crianza materna severa y el afecto materno para predecir resultados infantiles como conductas externalizantes, internalizantes y rendimiento escolar, confirmando la invarianza transcultural de estos resultados en países de renta baja y media mediante modelos de ecuaciones estructurales multigrupo. Sin embargo, hasta donde sabemos, este es el primer estudio que vincula empíricamente este fenómeno explícitamente con el nexo de la velocidad de la HV, permitiendo un análisis teórico de los aspectos adaptativos detrás de él.</p>
+        <p><strong>Autorefuerzo intergeneracional:</strong> lo que se plantea aquí es la hipótesis de que los patrones de relación caóticos en la infancia preparan para los nichos igualmente caóticos, impredecibles y severos de la adultez de HV rápida. El conjunto psicocomportamental de características descrito en la cascada no es necesariamente maladaptativo desde el punto de vista de la replicación exitosa a través de las generaciones y, por tanto, parece funcional evolucionistamente. Solo aparece desajustado ante las expectativas de alguien que no está embebido en nichos de HV rápida. El autorrefuerzo colectivo de las estrategias de HV permite el establecimiento del esfuerzo comunitario en la construcción de nichos.</p>
+        <p>Finalmente, más que ser premeditada, intencional o incluso egosintónica, la repetición intergeneracional de estas prácticas de crianza puede ser percibida como indeseable incluso por quienes las practican. Esta toma de conciencia sirve para evitar culpar a los individuos y para entender que las prácticas de crianza pueden percibirse al menos en parte como inevitables e incontrolables, lo que refuerza la noción teórica de que son un producto del nicho. Y, segundo, ninguna relación entre experiencias de la infancia y patrones de conducta adulta identificada en este estudio o en estudios previos es determinista. Ante el error de medición y los procesos estocásticos, los individuos sí rompen a veces el patrón de repetición intergeneracional. En modo alguno se implica en la presente discusión que sea el destino inevitable de los individuos reproducir los patrones de crianza y relación familiar a los que fueron expuestos en las etapas más tempranas de su desarrollo.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Artículo original (Evolutionary Behavioral Sciences, DOI: 10.1037/ebs0000241) — con materiales suplementarios</a></li>
+      <li><a href="#">Figueredo et al. (2006) — el Mini-K y el Factor K de la estrategia de HV lenta</a></li>
+      <li><a href="#">Figueredo et al. (2018) — el Dark Inventory: antagonismo, mutualismo y labilidad</a></li>
+      <li><a href="#">Ellis, Figueredo, Brumbach &amp; Schlomer (2009) — dureza e impredecibilidad ambiental en teoría de la HV</a></li>
+    </ul>
+
+    <footer>
+      <p>Figueredo, A. J., Black, C. J., Patch, E. A., Heym, N., Ferreira, J. H. B. P., Varella, M. A. C., Defelipe, R. P., Cosentino, L. A. M., Castro, F. N., Natividade, J. C., Hattori, W. T., Pérez-Ramos, M., Madison, G., &amp; Fernandes, H. B. F. (2020). The Cascade of Chaos: From Early Adversity to Interpersonal Aggression. <em>Evolutionary Behavioral Sciences</em> · © 2020 American Psychological Association</p>
+      <p>Traducción al español con fines de estudio · El original prevalece en caso de discrepancia</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

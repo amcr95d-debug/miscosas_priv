@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control bidireccional de la jerarquía social por la eficacia sináptica en la corteza prefrontal medial</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor { max-width: 860px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    header { margin-bottom: 1.5rem; }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); margin: 0 0 .5rem; line-height: 1.25; }
+    .subtitulo { color: var(--texto-suave); margin: 0; }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 { font-size: 1.05rem; margin: 1.5rem 0 .5rem; color: var(--acento); }
+
+    .temas { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 1.5rem; }
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .tarjeta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+    .tarjeta p { margin: 0 0 .75rem; }
+    .tarjeta p:last-child { margin-bottom: 0; }
+
+    .entradilla { border-left: 4px solid var(--acento); font-size: 1.05rem; }
+
+    .aviso {
+      background: #fff7ed;
+      border: 1px solid #fdba74;
+      border-radius: .75rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      font-size: .95rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+    .buscador:focus { border-color: var(--acento); box-shadow: 0 0 0 3px rgba(37, 99, 235, .15); }
+
+    .contador { font-size: .85rem; color: var(--texto-suave); min-height: 1.3em; margin: 0 0 1rem; }
+
+    .tabla-scroll { overflow-x: auto; margin: 1rem 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+    th, td { border: 1px solid var(--borde); padding: .5rem .75rem; text-align: left; vertical-align: top; }
+    th { background: var(--acento-suave); color: var(--acento); font-weight: 600; }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+    .pilares h3 { margin: 0 0 .5rem; font-size: 1rem; }
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .hallazgo { border-left: 4px solid var(--acento); }
+
+    .ejemplo {
+      background: var(--acento-suave);
+      border: 1px dashed var(--acento);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      margin: .75rem 0;
+      font-size: .95rem;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado { border-left: 4px solid var(--acento); }
+    .articulo-ref { font-size: .92rem; color: var(--texto-suave); }
+
+    mark { background: var(--marca); border-radius: 3px; padding: 0 2px; }
+
+    .relacionados { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+    .relacionados a:hover { color: var(--acento); border-color: #c7d2fe; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+    footer p { margin: .25rem 0; }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Report · Science · 29 de septiembre de 2011 · Vol. 334, n.º 6056, pp. 693-697</span>
+      <h1>Control bidireccional de la jerarquía social por la eficacia sináptica en la corteza prefrontal medial</h1>
+      <p class="subtitulo">Fei Wang, Jun Zhu y Hailan Hu — DOI: 10.1126/science.1209951</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Jerarquía de dominancia</span>
+      <span class="tema">Corteza prefrontal medial</span>
+      <span class="tema">Eficacia sináptica</span>
+      <span class="tema">Neuronas piramidales</span>
+      <span class="tema">Rango social</span>
+    </div>
+
+    <div class="aviso">
+      <strong>Nota sobre la fuente:</strong> el documento disponible es la página del artículo en <em>Science</em> con el resumen completo, pero no el texto completo del artículo (que requiere registro/acceso). Esta página traduce íntegramente el resumen y desarrolla secciones de contexto claramente marcadas; no se atribuyen al artículo detalles experimentales específicos que el resumen no contenga.
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en la página...">
+      <p class="contador" id="contador"></p>
+
+      <h2>Resumen (traducción completa)</h2>
+
+      <div class="tarjeta entradilla">
+        <p>La jerarquía de dominancia tiene un profundo impacto en la supervivencia, la salud y el éxito reproductivo de los animales, pero su mecanismo de circuito neural es prácticamente desconocido. Encontramos que el rango de dominancia en ratones es <strong>transitivo, relativamente estable y se correlaciona altamente entre múltiples medidas conductuales</strong>. Los registros de neuronas piramidales de la capa V de la corteza prefrontal medial (CPFm) mostraron una <strong>mayor fuerza de las entradas sinápticas excitatorias en los ratones con rango más alto</strong>, en comparación con sus compañeros de jaula subordinados. Además, las manipulaciones moleculares que resultaron en un aumento y una disminución de la eficacia sináptica en las neuronas de la CPFm dorsal causaron un <strong>movimiento ascendente y descendente en el rango social</strong>, respectivamente. Estos resultados proporcionan evidencia directa de la implicación de la CPFm en la jerarquía social y sugieren que el rango social es <strong>plástico y puede ajustarse alterando la fuerza sináptica en las células piramidales de la CPFm</strong>.</p>
+      </div>
+
+      <h2>Por qué importa la jerarquía de dominancia</h2>
+
+      <div class="tarjeta">
+        <p>El punto de partida del estudio es un hecho biológico de primer orden: la jerarquía de dominancia tiene un profundo impacto en la supervivencia, la salud y el éxito reproductivo de los animales. Este impacto está bien documentado en la literatura —desde la sociobiología clásica hasta los estudios de Sapolsky sobre cómo la posición en la jerarquía social influye en la salud de los primates, citado en las referencias del artículo—. Y sin embargo, en el momento de su publicación, el <strong>mecanismo de circuito neural que subyace a la jerarquía social era prácticamente desconocido</strong>. Existían indicios previos —por ejemplo, el trabajo citado sobre la modulación serotoninérgica del circuito de escape del cangrejo de río según la experiencia social— que sugerían que la experiencia social deja huella en la función neural, pero faltaba una demostración directa de un circuito mamífero que sustentara el rango social.</p>
+        <p>Los autores eligieron la <strong>corteza prefrontal medial (CPFm)</strong> como región candidata, una estructura que ya se sabía involucrada en funciones ejecutivas, toma de decisiones y conducta social, y se centraron en las <strong>neuronas piramidales de la capa V</strong>, las neuronas de salida principal de la corteza hacia estructuras subcorticales.</p>
+      </div>
+
+      <h2>Los tres pilares del estudio</h2>
+
+      <div class="pilares">
+        <div class="tarjeta hallazgo">
+          <h3><span class="num">1</span>Caracterización conductual del rango</h3>
+          <p>Antes de tocar el cerebro, había que saber que el rango medido era real y robusto. Los autores encontraron que la dominancia en ratones es <strong>transitiva</strong> (si A domina a B y B domina a C, entonces A domina a C), <strong>relativamente estable</strong> en el tiempo, y que <strong>se correlaciona altamente entre múltiples medidas conductuales</strong> distintas. Esto es esencial metodológicamente: si el rango fuera inconsistente entre pruebas, cualquier correlación neural sería ininterpretable. La transitivity y estabilidad convierten al rango en un constructo biológico sólido, no en un artefacto de una prueba concreta.</p>
+        </div>
+        <div class="tarjeta hallazgo">
+          <h3><span class="num">2</span>Evidencia correlacional: registros electrofisiológicos</h3>
+          <p>Los registros de neuronas piramidales de la capa V de la CPFm revelaron una <strong>mayor fuerza de las entradas sinápticas excitatorias en los ratones dominantes</strong> en comparación con sus compañeros de jaula subordinados. Es decir, la posición en la jerarquía social del animal se refleja en la eficacia de las conexiones sinápticas excitatorias que llegan a (o dentro de) las neuronas de salida de la CPFm. Este es el lado correlacional del estudio: dominancia y fuerza sináptica van juntas.</p>
+        </div>
+        <div class="tarjeta hallazgo">
+          <h3><span class="num">3</span>Evidencia causal: manipulación bidireccional</h3>
+          <p>El paso decisivo: las manipulaciones moleculares que <strong>aumentaron</strong> la eficacia sináptica en las neuronas de la CPFm dorsal causaron un <strong>movimiento ascendente en el rango social</strong>; las que la <strong>disminuyeron</strong> causaron un <strong>movimiento descendente</strong>. La bidireccionalidad es lo que eleva el hallazgo de correlación a causa: no solo los dominantes tienen sinapsis más fuertes, sino que modificar la fuerza sináptica en cualquier dirección mueve el rango en esa misma dirección.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta destacado">
+        <p><strong>La conclusión conceptual:</strong> estos resultados proporcionan evidencia directa de la implicación de la CPFm en la jerarquía social y sugieren que el rango social <strong>no es un rasgo fijado</strong>, sino una propiedad <em>plástica</em> que puede ajustarse alterando la fuerza sináptica de las células piramidales de la CPFm. La formulación es doblemente notable: primero, localiza un sustrato circuito-nivel para un constructo social complejo; segundo, demuestra que ese sustrato es maleable —el rango social se puede «sintonizar» desde el circuito—.</p>
+      </div>
+
+      <h2>Contexto y lectura del hallazgo</h2>
+
+      <div class="tarjeta">
+        <p><strong>¿Por qué es importante la bidireccionalidad?</strong> En neurociencia, mostrar que una medida cerebral correlaciona con una conducta deja abierta la pregunta de la dirección: quizá ser dominante <em>produce</em> sinapsis más fuertes (una consecuencia del estatus, no su causa), o quizá una tercera variable produce ambas. Las manipulaciones moleculares bidireccionales del estudio abordan esta ambigüedad: si subir la eficacia sináptica <em>causa</em> ascenso en el rango y bajarla <em>causa</em> descenso, la fuerza sináptica de la CPFm no es un simple marcador del estatus, sino una palanca causal del mismo. El resumen del artículo formula esto con precisión: el rango social «puede ser ajustado» (can be tuned) alterando la fuerza sináptica.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p><strong>¿Por qué la CPFm dorsal y la capa V?</strong> La región dorsal de la CPFm de roedor es homóloga funcional a áreas prefrontales dorsales de primates implicadas en la acción dirigida a meta y la regulación conductual. Las neuronas piramidales de la capa V son la principal vía de salida de la corteza hacia el tronco encefálico, el estriado y otras estructuras subcorticales: son, en un sentido literal, las neuronas que convierten los cómputos corticales en acción. Que la eficacia sináptica sobre estas neuronas de salida prediga —y ajuste— el rango social sugiere un mecanismo plausible: diferencias en la ganancia excitatoria de la CPFm podrían traducirse en diferencias en la eficacia de las conductas sociales que deciden los encuentros de dominancia (por ejemplo, la persistencia o la retirada en confrontaciones entre machos). Cabe subrayar que esta interpretación mecanística va más allá del resumen: el estudio establece el vínculo circuito-rango; la pregunta de <em>cómo</em> la fuerza sináptica se traduce en conductas concretas de dominancia quedó abierta para trabajos posteriores.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p><strong>Conexión con la investigación posterior sobre estrés, jerarquía y CPFm:</strong> este estudio de 2011 se ha convertido en una referencia estándar del campo de la neurobiología de la dominancia social. Su relevancia se extiende a líneas de investigación que aparecen repetidamente en esta colección: el estrés crónico y la función de la CPFm (v. los estudios de extinción del miedo en adolescentes estresados, donde la CPFm es estructura clave), la modulación serotoninérgica de la conducta social (v. la revisión de Duerler et al. sobre serotonina y adaptación social), y los modelos animales de trastornos neuropsiquiátricos donde las diferencias individuales en dominancia y en eficacia sináptica prefrontal convergen. La idea de que el rango social es un estado plástico del circuito —no un rasgo inmutable— prepara el terreno para preguntar qué experiencias (victorias, derrotas, estrés) y qué moléculas (dopamina, serotonina, BDNF) reescriben esa fuerza sináptica y con ello el estatus social.</p>
+      </div>
+
+      <h2>Ficha bibliométrica</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr><th>Métrica</th><th>Valor (según la página de <em>Science</em>)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Descargas totales</td><td>10.275 (435 en los últimos 6 meses; 778 en los últimos 12)</td></tr>
+            <tr><td>Citas totales</td><td>1.841 (30 en los últimos 6 meses; 43 en los últimos 12)</td></tr>
+            <tr><td>Material suplementario</td><td>Disponible (1209951.wang.som.pdf y revisión, ~3 MB cada uno)</td></tr>
+            <tr><td>Acceso</td><td>Disponible gratuitamente como servicio a la comunidad (registro requerido)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>Este estudio de Wang, Zhu y Hu (2011) estableció tres cosas que definieron el campo posterior de la neurobiología de la jerarquía social. Primero, que el rango social del ratón es una magnitud biológica seria: transitiva, estable y consistente entre pruebas. Segundo, que su asiento neural está en la CPFm: los dominantes tienen entradas sinápticas excitatorias más fuertes sobre las neuronas piramidales de la capa V que sus compañeros subordinados de jaula. Y tercero —lo decisivo—, que esa relación es causal y bidireccional: manipulaciones moleculares que aumentan o disminuyen la eficacia sináptica en la CPFm dorsal mueven el rango social hacia arriba o hacia abajo, respectivamente. La jerarquía social, lejos de ser un rasgo inmutable del animal, es un estado plástico del circuito prefrontal que puede sintonizarse alterando la fuerza sináptica de sus neuronas de salida.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Zhou et al. (2017) — «History of winning remodels thalamo-PFC circuit to reinforce social dominance» (Science): la experiencia de ganar reescribe el circuito tálamo-prefrontal que refuerza la dominancia</a></li>
+      <li><a href="#">Sapolsky (2005) — «The Influence of Social Hierarchy on Primate Health» (Science): jerarquía y salud en primates, referencia n.º 3 del artículo</a></li>
+      <li><a href="#">Okuyama et al. (2016) — «Ventral CA1 neurons store social memory» (Science): la memoria social en el hipocampo ventral</a></li>
+      <li><a href="#">Kohl (2018) — «Circuits for care» (Science): circuitos de conducta social parental</a></li>
+      <li><a href="#">Mice lacking acid-sensing ion channel 2 in the mPFC exhibit social dominance (Research Article, 2024): seguimiento reciente sobre canales iónicos en la CPFm y dominancia</a></li>
+      <li><a href="#">Material suplementario del artículo (1209951.wang.som.pdf) — disponible en Science</a></li>
+    </ul>
+
+    <footer>
+      <p>Wang, F., Zhu, J., &amp; Hu, H. (2011). Bidirectional Control of Social Hierarchy by Synaptic Efficacy in Medial Prefrontal Cortex. <em>Science</em>, 334(6056), 693-697 · DOI: 10.1126/science.1209951 · © 2011 American Association for the Advancement of Science</p>
+      <p>Traducción al español con fines de estudio · Página construida a partir del resumen oficial; el artículo completo prevalece en caso de discrepancia</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en la página.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La personalidad y la satisfacción están vinculadas durante toda la vida adulta</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .cita {
+      border-left: 4px solid var(--borde);
+      margin: 1rem 0;
+      padding: .5rem 1rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    .cita strong {
+      color: var(--texto);
+      font-style: normal;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .destacado {
+      border-left: 4px solid var(--acento);
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Nota de prensa · 20 de marzo de 2023</span>
+      <h1>La personalidad y la satisfacción están vinculadas durante toda la vida adulta</h1>
+      <p class="subtitulo">Ciertos rasgos se relacionan con la satisfacción vital independientemente de la edad, según un estudio</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Personalidad</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p>Washington — Ciertos rasgos de personalidad están asociados con la satisfacción en la vida y, a pesar de los cambios que las personas pueden experimentar en sus roles y responsabilidades sociales a lo largo de su vida adulta, esa asociación es estable independientemente de la edad, según una investigación publicada por la Asociación Americana de Psicología.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>Muchos estudios han demostrado que las personas con ciertos perfiles de personalidad están más satisfechas con su vida que otras. Sin embargo, no se había estudiado extensamente si esto se mantiene a lo largo de la vida. Por ejemplo, las personas extrovertidas —es decir, sociables y habladoras— podrían ser particularmente felices en la adultez joven, cuando típicamente están formando nuevas relaciones sociales</strong>», dijo el coautor del estudio Gabriel Olaru, PhD, profesor asistente en la Universidad de Tilburg. «Por eso quisimos examinar si algunos rasgos de personalidad son más o menos relevantes para la satisfacción con la vida, social y laboral en fases específicas de la vida».</p>
+        <p class="articulo-ref">La investigación fue publicada en la revista <em>Journal of Personality and Social Psychology</em>.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Para determinar cómo cambia la relación entre los rasgos de personalidad y la satisfacción vital a lo largo del tiempo, los investigadores analizaron datos recolectados de 2008 a 2019 por la encuesta del panel LISS (Longitudinal Internet Studies for the Social Sciences), una encuesta nacionalmente representativa de hogares en los Países Bajos. A lo largo de 11 años, 9110 participantes neerlandeses, con edades comprendidas entre los 16 y los 95 años en el momento de la primera encuesta, respondieron múltiples cuestionarios para evaluar sus cinco grandes rasgos de personalidad —apertura, escrupulosidad, extraversión, amabilidad y estabilidad emocional/neuroticismo— y su satisfacción con sus conexiones sociales y con su vida en general. Solo los 5928 participantes que estaban empleados en el momento de la encuesta respondieron también preguntas sobre su satisfacción con su vida laboral.</p>
+        <p>Los investigadores encontraron que la mayoría de las relaciones entre los rasgos de personalidad y la satisfacción se mantuvieron iguales a lo largo de la vida adulta, y que la estabilidad emocional era el rasgo más fuertemente asociado con la satisfacción de las personas con su vida, sus conexiones sociales y su carrera.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>Nuestros hallazgos muestran que, a pesar de las diferencias en los desafíos vitales y los roles sociales, los rasgos de personalidad son relevantes para nuestra satisfacción con la vida, el trabajo y los contactos sociales a lo largo de la adultez joven, media y mayor</strong>», dijo Manon van Scheppingen, PhD, profesora asistente en la Universidad de Tilburg y otra coautora del estudio. «Los rasgos de personalidad se mantuvieron igual de relevantes durante toda la vida adulta, o se volvieron incluso más interconectados en algunos casos para la satisfacción laboral».</p>
+        <p>Los investigadores también encontraron que diferentes rasgos de personalidad se relacionaban con la satisfacción de las personas con su vida social y su carrera: más notablemente, la escrupulosidad para la satisfacción laboral, y la extraversión y la amabilidad para la satisfacción social. Las personas que vieron aumentos en estos rasgos a lo largo del tiempo también reportaron aumentos en su satisfacción vital, social y laboral.</p>
+        <p>La satisfacción de las personas con su trabajo fue la más afectada por las diferencias de edad. A medida que los participantes del estudio envejecían, la relación entre la satisfacción laboral y la estabilidad emocional se fortaleció moderadamente.</p>
+        <p>A pesar de una correlación más débil entre la apertura y la satisfacción vital en general, los investigadores encontraron que las personas que aumentaron en apertura también aumentaron en satisfacción vital a lo largo de los 11 años medidos por la encuesta LISS. Según los investigadores, esta relación puede explicarse por procesos indirectos.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>La estabilidad emocional probablemente muestra un vínculo fuerte con la satisfacción global y específica de dominio porque este rasgo tiñe la visión general que las personas tienen del mundo</strong>», dijo Olaru.</p>
+        <p class="cita">«<strong>Un buen ejemplo de cómo la personalidad interactúa con el ambiente se encuentra en el contexto laboral. Uno de nuestros hallazgos fue que el vínculo entre la estabilidad emocional y la satisfacción laboral aumenta con la edad</strong>», añadió van Scheppingen. «Esto podría explicarse por el hecho de que las personas emocionalmente estables tienen menos miedo a renunciar a trabajos insatisfactorios y son más propensas a solicitar empleos más desafiantes y quizás más gratificantes y disfrutables a largo plazo».</p>
+        <p>Según los investigadores, los estudios futuros deberían examinar cómo las variables que cambian con la edad —como los ingresos, el estado laboral, el estado civil y la salud— afectan la relación entre los rasgos de personalidad y la satisfacción general con la vida.</p>
+        <p class="cita">«<strong>Aunque no examinamos qué causó estos cambios, [la investigación] muestra que nuestras personalidades y nuestra felicidad no están grabadas en piedra</strong>», dijo van Scheppingen. «Quizás incluso podamos influir en cómo cambiamos: si intentamos ser más organizados, extrovertidos y amistosos, esto también podría aumentar la satisfacción vital, social o laboral».</p>
+        <p class="articulo-ref"><strong>Artículo:</strong> «The Link Between Personality, Global, and Domain-Specific Satisfaction Across the Adult Lifespan» («El vínculo entre la personalidad, la satisfacción global y la satisfacción específica de dominio a lo largo de la vida adulta»), de Gabriel Olaru, PhD, y Manon van Scheppingen, PhD, Universidad de Tilburg; Wiebke Bleidorn, PhD, Universidad de Zúrich; y Jaap Denissen, PhD, Universidad de Utrecht. <em>Journal of Personality and Social Psychology</em>, publicado en línea el 20 de marzo de 2023.</p>
+      </div>
+
+      <h2>El artículo científico</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Resumen</h3>
+        <p>La evidencia metaanalítica ha demostrado que la personalidad es uno de los correlatos más fuertes de la satisfacción global y específica de dominio. El objetivo principal del presente estudio fue examinar si las asociaciones entre los rasgos de personalidad y la satisfacción difieren a lo largo de la vida adulta. Utilizamos modelos de curva de crecimiento latente bivariados y modelado de ecuaciones estructurales local (LSEM) para estudiar las correlaciones entre los niveles y el cambio de los cinco grandes rasgos de personalidad y la satisfacción con la vida, con el trabajo y con los contactos sociales. Los datos provienen de una gran muestra longitudinal representativa neerlandesa (<em>N</em> = 9110; rango de edad 16-95). A través de las edades, la estabilidad emocional mostró las asociaciones más fuertes tanto con la satisfacción global como con la específica de dominio. Después de la estabilidad emocional, la escrupulosidad fue el correlato más fuerte de la satisfacción laboral (SL), y la extraversión y la amabilidad fueron los correlatos más fuertes de la satisfacción social (SS).</p>
+        <p>Los cambios longitudinales en la personalidad y la satisfacción a lo largo de los 11 años cubiertos en este estudio estuvieron moderadamente correlacionados, lo que sugiere un codesarrollo entre estos constructos. La mayoría de los patrones correlacionales fueron estables a lo largo de la vida, lo que indica que los rasgos de personalidad son igualmente relevantes para la satisfacción en las diferentes fases de la vida adulta.</p>
+        <p class="articulo-ref"><strong>Palabras clave:</strong> personalidad, satisfacción vital, diferencias de edad, cambio correlacionado, modelado de ecuaciones estructurales local.</p>
+      </div>
+
+      <h2>Planteamiento del problema</h2>
+
+      <div class="tarjeta">
+        <p>Las personas con ciertos perfiles de personalidad tienden a ser más felices que otras. En concreto, quienes puntúan alto en los rasgos de los cinco grandes —estabilidad emocional, extraversión, escrupulosidad y amabilidad— generalmente están más satisfechas con sus vidas que quienes puntúan bajo. Sin embargo, existe un problema que potencialmente socava esta conclusión: tanto los rasgos de personalidad como la satisfacción vital son constructos maleables que cambian de manera normativa a lo largo de la vida. Y se sabe poco sobre cómo estos cambios graduados por la edad pueden afectar los vínculos entre ambos.</p>
+        <p>En efecto, diferentes patrones de pensamientos, sentimientos y conductas pueden ser más o menos ideales para dominar las tareas del desarrollo asociadas con distintas fases de la vida. Por ejemplo, niveles más altos de extraversión podrían ser particularmente centrales para la satisfacción en la adolescencia y la adultez joven, cuando las personas típicamente construyen una red social y encuentran pareja, pero podrían disminuir en relevancia cuando el foco cambia hacia el mantenimiento de las relaciones sociales en la adultez media y mayor.</p>
+        <p>El objetivo del presente estudio fue examinar en qué medida las asociaciones bien establecidas entre los cinco grandes rasgos de personalidad y los dominios de satisfacción están moderadas por la edad. Además de la satisfacción vital general, se centró en dos dominios salientes a lo largo de un amplio rango de edad y considerados indicadores centrales de una vida satisfactoria: la satisfacción con el trabajo y la satisfacción con los contactos sociales.</p>
+      </div>
+
+      <h2>Asociaciones directas e indirectas</h2>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Procesos directos</h3>
+          <p>Los modelos impulsados por rasgos argumentan que las diferencias individuales relativamente estables en personalidad afectan nuestra satisfacción vital porque determinan nuestra perspectiva general del mundo. Estos procesos son plausibles para todos los cinco grandes, pero podrían ser particularmente fuertes para la estabilidad emocional, porque las puntuaciones bajas en este rasgo afectivo se vinculan a una visión generalmente negativa del mundo. La extraversión también tendría efectos directos a través de una visión más positiva del mundo y del afecto positivo.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Procesos indirectos</h3>
+          <p>Los modelos transaccionales sugieren que la personalidad y la satisfacción están vinculadas a través de interacciones con el ambiente: las personas seleccionan y crean ambientes compatibles con sus rasgos, y esos ambientes impactan a su vez su satisfacción y sus propios rasgos. El vínculo indirecto podría ser más fuerte para la escrupulosidad (personas autocontroladas, eficientes e industriosas, que tienen éxito en el ámbito escolar y laboral) y la amabilidad (personas empáticas, cálidas y compasivas, que establecen relaciones sociales cercanas y significativas).</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Dominios específicos</h3>
+          <p>Comparada con la satisfacción vital general, en la satisfacción de dominio los procesos indirectos son probablemente más fuertes, porque implica evaluar experiencias y condiciones objetivas en un contexto específico. Los rasgos de personalidad influyen en la formación, mantenimiento y disolución de relaciones sociales, y predicen experiencias laborales como la selección en ciertos empleos, el equilibrio trabajo-vida y el desempeño.</p>
+        </div>
+      </div>
+
+      <h2>Hallazgos previos por dominio</h2>
+
+      <div class="tarjeta">
+        <p><strong>Satisfacción vital:</strong> un metaanálisis reciente encontró que la estabilidad emocional (ρ = 0,46) era el correlato más fuerte de la satisfacción vital, seguida de la extraversión (ρ = 0,38), la escrupulosidad (ρ = 0,31) y la amabilidad (ρ = 0,24). Los estudios longitudinales han encontrado vínculos recíprocos entre los rasgos y la satisfacción vital: los cambios en la personalidad predijeron prospectivamente cambios en la satisfacción, y viceversa, lo que sugiere que se influyen mutuamente a lo largo del tiempo.</p>
+        <p><strong>Satisfacción social:</strong> la mayor parte de la investigación se ha realizado en el ámbito de las relaciones románticas, mostrando consistentemente que la estabilidad emocional, la escrupulosidad y la amabilidad predicen la satisfacción de pareja. Para la satisfacción con las amistades, dos estudios transversales en muestras universitarias sugirieron que la extraversión y la amabilidad son igual o más importantes que la estabilidad emocional. Los estudios longitudinales han indicado que los constructos de bienestar social codesarrollan con los cinco grandes, especialmente con la estabilidad emocional.</p>
+        <p><strong>Satisfacción laboral:</strong> las correlaciones con los cinco grandes tienden a ser algo más bajas que con la satisfacción vital general, como muestra el metaanálisis de Judge et al. (2002):</p>
+        <div class="tabla-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Rasgo</th>
+                <th>Satisfacción vital (metaanálisis, 2020)</th>
+                <th>Satisfacción laboral (metaanálisis, 2002)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Estabilidad emocional</td><td>0,46</td><td>0,29</td></tr>
+              <tr><td>Extraversión</td><td>0,38</td><td>0,25</td></tr>
+              <tr><td>Escrupulosidad</td><td>0,31</td><td>0,26</td></tr>
+              <tr><td>Amabilidad</td><td>0,24</td><td>0,17</td></tr>
+              <tr><td>Apertura</td><td>—</td><td>0,02</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h2>¿Modera la edad estos vínculos?</h2>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Efectos acumulativos</h3>
+          <p>Ciertas características de personalidad pueden iniciar una cadena de circunstancias vitales más positivas o negativas que se extiende a lo largo del curso de la vida, y los rasgos que seleccionan a las personas en ciertos ambientes —como el laboral— también pueden cambiar en respuesta a esas experiencias. Estos efectos acumulativos podrían hacer que los rasgos se relacionen cada vez más fuertemente con la satisfacción durante la vida adulta.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>La edad como «igualadora»</h3>
+          <p>La hipótesis <em>age-as-leveler</em> asumiría que las correlaciones entre personalidad y satisfacción se estabilizan o se debilitan con la edad, quizá tras la adultez joven, cuando las transacciones entre rasgos y ambiente son únicas. En la adultez media, un vínculo más estable podría explicarse por una creciente estabilidad de los roles sociales y el autoconocimiento.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Tareas del desarrollo</h3>
+          <p>En lo social, la adultez joven se caracteriza por establecer redes y encontrar pareja (donde la extraversión sería clave); en la adultez media y mayor, el mantenimiento de las relaciones cobra protagonismo, con mayores pérdidas sociales (hijos que se marchan, muerte de padres, pareja o amigos). Rasgos asociados a un mejor mantenimiento —estabilidad emocional, escrupulosidad y amabilidad, vinculadas a estilos de conflicto más adaptativos y menores tasas de divorcio— podrían ganar relevancia. En el trabajo, la adultez joven implica transitar a la vida laboral, mientras que la adultez media se define por mantener el desempeño y asumir nuevas responsabilidades.</p>
+        </div>
+      </div>
+
+      <h2>Método</h2>
+
+      <div class="tarjeta">
+        <p><strong>Muestra:</strong> se utilizaron datos del panel LISS, una muestra longitudinal representativa de participantes neerlandeses (16-95 años en la primera evaluación), con datos de 2008 a 2019. Cuatro cohortes principales comenzaron en 2008, 2010, 2012 y 2014. Se incluyó a participantes con al menos dos mediciones, resultando en tres muestras combinadas: satisfacción vital <em>N</em> = 9110 (edad media en 2008 = 43,88), satisfacción social <em>N</em> = 8889 y satisfacción laboral <em>N</em> = 5928 (solo encuestados con empleo). En la línea base de 2008, el 54 % estaba casado, el 20 % vivía solo y el 48 % tenía el empleo remunerado como ocupación principal.</p>
+        <p><strong>Medidas:</strong> los cinco grandes se midieron con la versión de 50 ítems de los <em>Big-Five Factor Markers</em> (escala de 1 «muy inexacto» a 5 «muy exacto»), en hasta 7 olas. La satisfacción vital se midió con la Escala de Satisfacción con la Vida de 5 ítems (de 1 a 7), anualmente de 2008 a 2019 (excepto 2016): 11 olas. La satisfacción social se midió con un ítem único («¿Qué tan satisfecho está usted con sus contactos sociales?») en escala de 0 a 10: 12 olas. La satisfacción laboral se midió con 5 ítems (satisfacción con el salario, el horario, el tipo de trabajo, el ambiente entre colegas y el trabajo actual), también de 0 a 10 y en 12 olas.</p>
+        <p><strong>Análisis:</strong> tras verificar la invarianza de la medición a través del tiempo y la edad, se usaron modelos de curva de crecimiento latente bivariados para distinguir las correlaciones de nivel (interceptos), de cambio (pendientes) y específicas de ocasión. Para moderar las asociaciones por la edad sin categorizarla artificialmente se empleó el modelado de ecuaciones estructurales local (LSEM), que estima los modelos en cada punto de edad ponderando a los participantes según su distancia a la edad objetivo (función kernel gaussiana, ancho de banda <em>h</em> = 2), de los 20 a los 70 años en pasos de 2 (hasta 56 para la satisfacción laboral). El tamaño muestral ponderado promedio fue de aproximadamente 2080 (SV), 2039 (SS) y 1505 (SL). Los efectos de moderación se evaluaron con pruebas de permutación.</p>
+      </div>
+
+      <h2>Resultados</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Correlaciones de nivel y de cambio</h3>
+        <p>Dentro de cada ola, la satisfacción vital correlacionó en promedio 0,40 con la satisfacción social y 0,37 con la laboral; la satisfacción social y la laboral, 0,31 entre sí. Las correlaciones test-retest promedio entre olas consecutivas fueron 0,73 (SV), 0,65 (SS), 0,66 (SL) y 0,79 (rasgos de personalidad).</p>
+        <div class="tabla-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Correlación</th>
+                <th>Apertura</th>
+                <th>Escrupulosidad</th>
+                <th>Extraversión</th>
+                <th>Amabilidad</th>
+                <th>Estabilidad emocional</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Nivel — SV</td><td>0,08</td><td>0,23</td><td>0,24</td><td>0,13</td><td>0,51</td></tr>
+              <tr><td>Nivel — SS</td><td>0,06</td><td>0,19</td><td>0,34</td><td>0,29</td><td>0,39</td></tr>
+              <tr><td>Nivel — SL</td><td>0,06</td><td>0,21</td><td>0,09</td><td>0,12</td><td>0,32</td></tr>
+              <tr><td>Cambio — SV</td><td>0,21</td><td>0,29</td><td>0,23</td><td>0,09</td><td>0,52</td></tr>
+              <tr><td>Cambio — SS</td><td>0,18</td><td>0,23</td><td>0,27</td><td>0,28</td><td>0,37</td></tr>
+              <tr><td>Cambio — SL</td><td>0,20</td><td>0,19</td><td>0,11</td><td>0,08</td><td>0,24</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Entre los cinco grandes, la estabilidad emocional mostró las asociaciones más fuertes con los tres dominios (nivel promedio ρ = 0,41; cambio promedio ρ = 0,38). La extraversión y la amabilidad fueron las más asociadas con la satisfacción social, y para la satisfacción laboral, la escrupulosidad fue el correlato más fuerte tras la estabilidad emocional. Las correlaciones de nivel y de cambio fueron generalmente similares, con una excepción notable: la apertura tuvo las correlaciones de nivel más bajas (0,08 en promedio) pero un cambio correlacionado tan alto como el de los demás rasgos (0,20 en promedio): quienes aumentaron en apertura también aumentaron en satisfacción vital a lo largo de los 11 años. Las correlaciones específicas de ocasión fueron pequeñas o cercanas a cero, destacando únicamente la asociación entre estabilidad emocional y satisfacción vital (ρ = 0,21).</p>
+      </div>
+
+      <div class="tarjeta destacado">
+        <h3 style="margin-top:0;">Moderación por la edad: solo 6 de 45 correlaciones</h3>
+        <p>De las 45 correlaciones rasgo-satisfacción examinadas (incluidas las específicas de ocasión), solo seis fueron moderadas por la edad. La mayoría de estas moderaciones indicaron efectos acumulativos, especialmente para la satisfacción laboral:</p>
+        <div class="tabla-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Asociación</th>
+                <th>Evolución con la edad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Apertura — satisfacción vital (nivel)</td><td>Disminuye de 0,16 a 0,06 entre los 20 y los ~40 años (<em>p</em> = ,040)</td></tr>
+              <tr><td>Escrupulosidad — satisfacción social (nivel)</td><td>Aumenta de 0,13 a 0,24 entre los 20 y los ~56 años (<em>p</em> = ,005)</td></tr>
+              <tr><td>Estabilidad emocional — satisfacción laboral (nivel)</td><td>Aumenta de 0,18 a 0,35 (<em>p</em> = ,023)</td></tr>
+              <tr><td>Extraversión — satisfacción laboral (nivel)</td><td>Aumenta de 0,02 a 0,18 (<em>p</em> &lt; ,001)</td></tr>
+              <tr><td>Amabilidad — satisfacción laboral (nivel)</td><td>Aumenta de 0,01 a 0,17 (<em>p</em> = ,002)</td></tr>
+              <tr><td>Estabilidad emocional — satisfacción laboral (cambio)</td><td>Aumenta de 0,01 a 0,33 (<em>p</em> = ,031)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Lo más notable es que el ordenamiento jerárquico de las correlaciones fue altamente estable a través de la edad: la estabilidad emocional, seguida de la extraversión o la escrupulosidad, fue el correlato más fuerte de la satisfacción en todo el rango de edad. El aumento en las asociaciones con la satisfacción laboral fue continuo a lo largo de todo el rango de edad laboral para la extraversión y la amabilidad, y más fuerte para la estabilidad emocional en la adultez joven.</p>
+      </div>
+
+      <h2>Discusión</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Cambio correlacionado y satisfacción vital</h3>
+        <p>Uno de los hallazgos principales fue que los cambios en la personalidad correlacionaron con los cambios en la satisfacción vital, laboral y social a lo largo de la vida. El cambio correlacionado puede deberse a una tercera variable que afecta simultáneamente a ambos constructos —por ejemplo, la maduración biológica intrínseca de la adultez joven podría mejorar la regulación emocional— o a efectos recíprocos: unirse a un club social podría aumentar tanto la extraversión como la satisfacción social; experiencias laborales positivas podrían aumentar la escrupulosidad; sentirse insatisfecho en una relación romántica podría llevar a disminuciones en la estabilidad emocional.</p>
+        <p>Para la satisfacción vital, la asociación más fuerte fue con la estabilidad emocional (ρ = 0,51 en nivel), similar al metaanálisis, lo que respalda los procesos directos de percepción o evaluación impulsados por el rasgo. El cambio correlacionado relativamente fuerte entre apertura y satisfacción vital puede explicarse por procesos indirectos: según la teoría de ampliar y construir, las emociones positivas como la alegría fomentan la exploración y la ampliación del repertorio de pensamiento y acción, de modo que quienes aumentaron su satisfacción vital quizás también se involucraron más en conductas novedosas o soluciones creativas, elevando su apertura. Otra explicación sería una tercera variable común, como un evento vital importante (mudarse a una nueva ciudad, graduarse) que desencadenara cambios simultáneos en ambos.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Satisfacción social y laboral</h3>
+        <p><strong>Satisfacción social:</strong> se asoció más fuertemente con la estabilidad emocional (0,39), la extraversión (0,34) y la amabilidad (0,29), en línea con la literatura que vincula estos rasgos con la calidad de las amistades. La asociación con la escrupulosidad fue la única moderada por la edad, aumentando de 0,13 a 0,24. Esto podría deberse a que, si bien la escrupulosidad no parece afectar la formación de amistades o parejas, sí se asocia positivamente con la calidad percibida de las relaciones, menos conflictos y estilos de conflicto más adaptativos; las personas muy escrupulosas tienden a cumplir promesas y obligaciones sociales y a manejar mejor la ira y los conflictos. Como el mantenimiento de las relaciones sociales y románticas gana relevancia en la adultez media y mayor, ese rasgo se vuelve más importante para la satisfacción social con el paso de los años.</p>
+        <p><strong>Satisfacción laboral:</strong> se encontraron las correlaciones más fuertes con la estabilidad emocional (0,32) y la escrupulosidad (0,21), y también la mayor evidencia de moderación por la edad. El creciente vínculo entre personalidad y satisfacción laboral podría reflejar procesos indirectos más fuertes en el dominio laboral: las personas emocionalmente estables podrían tener más probabilidades de reemplazar empleos insatisfactorios solicitando trabajos que parecen más desafiantes o arriesgados pero con mejores salarios y roles más gratificantes; y quienes puntúan más alto en estabilidad emocional, extraversión o amabilidad podrían ser seleccionados en empleos con mayores responsabilidades profesionales o de personal. Estos efectos acumulativos se hacen especialmente visibles en la mediana edad, cuando hay que mantener el logro ocupacional y un desempeño satisfactorio. En contraste, la escrupulosidad pareció igualmente importante en todas las fases de la vida laboral, sin efecto de moderación por la edad.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Contra la hipótesis de la edad como «igualadora»</h3>
+        <p>En conjunto, las asociaciones entre los rasgos de personalidad y la satisfacción vital y social fueron notablemente estables a través de la edad, en contraste con la hipótesis de la edad como «igualadora», que asumiría que las correlaciones se estabilizan o debilitan con la edad. Los rasgos se mantuvieron igual de relevantes —o se volvieron aún más interconectados en el caso de la satisfacción laboral—. Esta estabilidad podría explicarse por un vínculo genético directo o, crecientemente, por ambientes estables a lo largo de la vida. El presente estudio no pudo distinguir entre influencias genéticas y ambientales, y se necesitará investigación longitudinal de genética conductual para estudiar cómo cambia esa proporción a lo largo de la vida.</p>
+        <p>Estos resultados contrastan también con estudios transversales previos que mostraban correlaciones más fuertes entre los cinco grandes y la satisfacción laboral en jóvenes que en mayores. Pero esos hallazgos se basaban en grupos de edad categóricos, muestras pequeñas y una sola medición por grupo. La combinación de un rico conjunto de datos longitudinales con la moderación continua de la edad mediante LSEM permitió detectar efectos acumulativos que esos enfoques podían pasar por alto.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Limitaciones</h3>
+        <p>Una primera limitación es el enfoque algo restringido a componentes meramente cognitivos del bienestar: no se capturaron otros aspectos del bienestar subjetivo, como el afecto positivo y negativo, y la satisfacción con la salud no formaba parte de las medidas anuales del panel LISS. Segunda: aunque la muestra incluía personas de 16 a 95 años, las consideraciones de potencia limitaron las estimaciones fiables a un rango más reducido (20 a 70 años en la primera medición); no se encontró indicio del debilitamiento hipotetizado en la adultez mayor, pero podría ocurrir en poblaciones de más de 70 años. Tercera: no se examinaron posibles efectos direccionales ni factores ambientales específicos; la investigación futura debería estudiar la importancia relativa de variables que cambian con la edad —ingresos, estado laboral, estado civil y salud—, por ejemplo examinando el momento exacto de los cambios durante transiciones laborales (primer empleo, ascensos).</p>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>Este estudio ofrece una visión exhaustiva de las asociaciones longitudinales entre los rasgos de personalidad y tres dominios de satisfacción, así como del papel moderador de la edad. Gracias a los métodos empleados, fue posible distinguir entre las correlaciones de los componentes estables, del cambio lineal y de las fluctuaciones específicas de cada medición. En línea con estudios previos, la estabilidad emocional fue el rasgo más fuertemente relacionado con todos los dominios de satisfacción, seguida de la extraversión y la amabilidad para la satisfacción social, y de la escrupulosidad para la satisfacción laboral. Las correlaciones de cambio fueron similares en fuerza a las de nivel, con la excepción de la apertura, que mostró un cambio correlacionado más fuerte. Las asociaciones entre la personalidad y los tres dominios de satisfacción son en su mayoría estables a lo largo de la vida adulta, con algunas excepciones en la satisfacción laboral. El gran tamaño muestral, las múltiples mediciones y el uso del LSEM como enfoque de moderación no paramétrico aportan una evidencia sólida de la relevancia consistente de los rasgos de personalidad para la satisfacción global y específica de dominio durante toda la vida adulta, a pesar de las diferencias en roles y demandas sociales entre las distintas fases vitales.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">The Link Between Personality, Global, and Domain-Specific Satisfaction Across the Adult Lifespan (PDF, 537 KB) — artículo original</a></li>
+      <li><a href="#">Journal of Personality and Social Psychology — revista de la APA</a></li>
+      <li><a href="#">Panel LISS — datos abiertos para investigación no comercial (lissdata.nl)</a></li>
+    </ul>
+
+    <footer>
+      <p>Fecha de creación: 20 de marzo de 2023 · Nota de prensa de la Asociación Americana de Psicología</p>
+      <p>Contacto de prensa: Katherine Novak · (202) 336-5675</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

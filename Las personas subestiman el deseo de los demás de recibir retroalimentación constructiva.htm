@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Las personas subestiman el deseo de los demás de recibir retroalimentación constructiva</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .cita {
+      border-left: 4px solid var(--borde);
+      margin: 1rem 0;
+      padding: .5rem 1rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    .cita strong {
+      color: var(--texto);
+      font-style: normal;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .estudio {
+      border-left: 4px solid var(--acento);
+    }
+
+    .estudio h3 {
+      margin-top: 0;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .ejemplo {
+      background: var(--acento-suave);
+      border: 1px dashed var(--acento);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      margin: .75rem 0;
+      font-size: .95rem;
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Nota de prensa · 24 de marzo de 2022</span>
+      <h1>Las personas subestiman el deseo de los demás de recibir retroalimentación constructiva</h1>
+      <p class="subtitulo">Simplemente hay que decírselo, sugiere la investigación</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Negocios e industria</span>
+      <span class="tema">Personalidad</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p>Washington — Las personas subestiman de manera consistente el deseo de los demás de recibir retroalimentación constructiva y, por tanto, no se la dan, incluso cuando podría mejorar el desempeño de otra persona en una tarea, según una investigación publicada por la Asociación Americana de Psicología.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>Las personas a menudo tienen oportunidades de dar a otros una retroalimentación constructiva que podría ser inmediatamente útil, ya sea avisar a alguien de una errata en su presentación antes de presentarla a un cliente, o decirle a un candidato a un empleo que tiene una camisa manchada antes de una entrevista</strong>», dijo la autora principal Nicole Abi-Esber, doctoranda en la Harvard Business School. «En general, nuestra investigación encontró que las personas subestiman de manera consistente el deseo de los demás de recibir retroalimentación, lo que puede tener resultados dañinos para los posibles receptores de esa retroalimentación».</p>
+        <p class="articulo-ref">La investigación fue publicada en el <em>Journal of Personality and Social Psychology</em> de la APA.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>La retroalimentación constructiva es instrumental para facilitar el aprendizaje y el desempeño, y la investigación ha mostrado que las personas comúnmente reportan querer este tipo de retroalimentación. Sin embargo, a pesar de querer recibirla, las personas a menudo evitan dársela a los demás. En un estudio piloto realizado por los investigadores, solo el 2,6 % de los participantes informó a la encuestadora de una mancha visible en su rostro (por ejemplo, chocolate, lápiz labial o rotulador rojo) durante una encuesta.</p>
+        <p>Investigaciones previas sugieren que las personas evitan dar retroalimentación por miedo a resultados negativos, como que la otra persona se avergüence o se moleste. Abi-Esber y sus colegas teorizaron que podría haber otra razón por la que las personas retienen la retroalimentación: simplemente no reconocen plenamente el potencial de su aportación para mejorar los resultados de los demás, lo que las lleva a subestimar el deseo de los otros de recibir esa retroalimentación.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Para poner a prueba su teoría, los investigadores realizaron una serie de cinco experimentos con 1984 participantes para medir cuánto subestiman las personas el deseo de los demás de recibir retroalimentación constructiva. En uno, se presentó a los participantes 10 situaciones sociales incómodas hipotéticas en el trabajo, donde podían dar o recibir retroalimentación. En otro, se pidió a los participantes recordar una situación en la que podrían haber dado o recibido retroalimentación. En el experimento final, se emparejó a los participantes, con uno practicando un discurso para una competición y el otro encargado de escuchar y dar retroalimentación.</p>
+        <p>En los cinco experimentos, las personas en posición de dar retroalimentación subestimaron de manera consistente el deseo de los posibles receptores de recibirla. Cuanto más trascendente era la retroalimentación (por ejemplo, decirle a alguien que necesita mejorar sus habilidades de presentación), más probable era que los participantes subestimaran la necesidad del otro de recibirla y menos probable que se la ofrecieran. La brecha era menor en escenarios más cotidianos y menos trascendentes, como cuando la otra persona tenía comida en la cara o un desgarro en los pantalones.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Los investigadores se sorprendieron al encontrar que la simple intervención de la toma de perspectiva podría aumentar la probabilidad de que alguien reconociera la necesidad de dar retroalimentación y la diera. Simplemente pedir a las personas que reflexionaran rápidamente: «si fueras esta persona, ¿querrías recibir retroalimentación?», ayudó a los participantes a reconocer el valor de la retroalimentación para la otra persona y ayudó a cerrar la brecha entre quien da y quien recibe.</p>
+        <p class="cita">«<strong>Incluso si te sientes indeciso a dar retroalimentación, te recomendamos que la des</strong>», dijo Abi-Esber. «Tómate un segundo e imagina que estás en el lugar de la otra persona y pregúntate si querrías recibirla si fueras tú. Lo más probable es que sí, y esta toma de conciencia puede ayudarte a darte valor para dársela».</p>
+        <p class="cita">«<strong>La retroalimentación es clave para el crecimiento y la mejora personal, y puede arreglar problemas que de otro modo serían costosos para el receptor</strong>», dijo la coautora Francesca Gino, PhD, también de la Harvard Business School. «La próxima vez que escuches a alguien pronunciar mal una palabra, veas una mancha en su camisa o notes una errata en su diapositiva, te urgimos a que se lo señales; probablemente quieren la retroalimentación más de lo que crees».</p>
+        <p class="articulo-ref"><strong>Artículo:</strong> «"Just Letting You Know...": Underestimating Others' Desire for Constructive Feedback» («"Solo para avisarte...": subestimando el deseo de los demás de recibir retroalimentación constructiva»), de Nicole Abi-Esber, MA, Jennifer Abel, BA, y Francesca Gino, PhD, Harvard Business School, y Juliana Schroeder, PhD, Universidad de California, Berkeley. <em>Journal of Personality and Social Psychology</em>, publicado en línea el 24 de marzo de 2022.</p>
+      </div>
+
+      <h2>El artículo científico</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Resumen</h3>
+        <p>Las personas a veces evitan dar retroalimentación a otros incluso cuando ayudaría a resolver los problemas de los demás. Por ejemplo, solo el 2,6 % de los individuos en un estudio piloto de campo dio retroalimentación a una administradora de encuestas que tenía comida o lápiz labial en la cara. Cinco experimentos (<em>N</em> = 1984) identifican una posible razón de la falta de retroalimentación: las personas subestiman cuánto quieren los demás recibir retroalimentación constructiva. Los experimentos iniciales demostraron esta subestimación del deseo de los otros de recibir retroalimentación en escenarios hipotéticos (Experimento 1), experiencias recordadas de retroalimentación (Experimento 2) y retroalimentación en tiempo real entre amigos (Experimento 3). Además, se examinó cómo las personas averiguan el deseo de los otros de recibir retroalimentación, probando cuánto consideran las consecuencias potenciales de la retroalimentación para sí mismas (por ejemplo, incomodidad al darla o daño a la relación) o para el receptor (por ejemplo, incomodidad al recibirla o valor de la retroalimentación). Si bien se encontró evidencia de que las personas consideran ambos tipos de consecuencias, las personas subestimaron particularmente cuánto valoran los receptores su retroalimentación, un mecanismo no extensamente probado en investigación previa. Específicamente, en el Experimento 4, dos intervenciones —hacer que quienes dan retroalimentación consideren la perspectiva de los receptores (aumentando la consideración de las consecuencias para los receptores) o imaginar que otra persona da la retroalimentación (reduciendo la consideración de las consecuencias para quienes la dan)— ambas mejoraron el reconocimiento del deseo de los otros de recibir retroalimentación en comparación con no hacer ninguna intervención, pero la intervención de toma de perspectiva fue la más eficaz. Finalmente, el Experimento 5 demuestra la subestimación durante un concurso de oratoria con incentivo financiero y muestra que dar menos retroalimentación constructiva resultó en menos mejora en el desempeño de los receptores. En general, las personas subestiman de manera consistente el deseo de los demás de recibir retroalimentación, con consecuencias potencialmente negativas para los resultados de los receptores.</p>
+        <p class="articulo-ref"><strong>Palabras clave:</strong> retroalimentación, ayuda, prosocial, relaciones, predicción errónea.</p>
+      </div>
+
+      <h2>La paradoja de la retroalimentación</h2>
+
+      <div class="tarjeta">
+        <p>La evidencia previa muestra un contraste sorprendente: por un lado, la retroalimentación constructiva —decir a alguien algo específico y accionable que podría cambiar para mejorar su bienestar— es instrumental para el aprendizaje y el desempeño. Una encuesta a 899 empleados a tiempo completo de todo el mundo encontró que el 72 % calificó «que los directivos den retroalimentación crítica» como lo más útil para su carrera, y algo que actualmente les falta. Por otro lado, en una encuesta de gestión del desempeño en 53 países, solo el 5 % de los empleados creía que sus directivos daban retroalimentación sincera y crítica sobre su desempeño.</p>
+        <p>¿Por qué las personas dudan en dar retroalimentación a pesar de la demanda aparente? La investigación existente ha explorado varias razones: el miedo a consecuencias negativas (herir al receptor, dañar la propia popularidad), el deseo de «salvar las apariencias» y evitar ser ofensivo, o la simple falta de motivación para esforzarse. Este artículo propone una razón novedosa adicional: las personas pueden no reconocer los beneficios que su retroalimentación podría aportar al posible receptor, y por tanto subestimar su deseo de recibirla. Esta hipótesis surge de la literatura más amplia sobre el sesgo egocéntrico: al predecir los estados mentales de otros, las personas se apoyan al menos en parte en su propia perspectiva, lo que les lleva a considerar las consecuencias negativas para sí mismas y a pasar por alto las positivas para los demás.</p>
+      </div>
+
+      <h2>Las cinco hipótesis</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Hipótesis</th>
+              <th>Enunciado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>H1</td><td>Las personas subestiman cuánto quieren los demás recibir retroalimentación constructiva.</td></tr>
+            <tr><td>H2</td><td>La incomodidad anticipada del dador al dar retroalimentación predice su estimación del deseo del receptor.</td></tr>
+            <tr><td>H3</td><td>La anticipación del daño a la relación predice la estimación del deseo del receptor de recibir retroalimentación.</td></tr>
+            <tr><td>H4</td><td>Los dadores esperan que su retroalimentación genere más incomodidad de la que esperan los receptores, y esta diferencia media su subestimación.</td></tr>
+            <tr><td>H5</td><td>Los dadores esperan que su retroalimentación sea menos valiosa de lo que creen los receptores, y esta diferencia media su subestimación.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Los cinco experimentos y el estudio piloto</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Estudio</th>
+              <th>Diseño</th>
+              <th><em>N</em></th>
+              <th>Hallazgo clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Piloto</td><td>Estudio de campo (manchas faciales)</td><td>155</td><td>Solo el 2,6 % avisó de la mancha en el rostro de la investigadora</td></tr>
+            <tr><td>1</td><td>10 escenarios hipotéticos de trabajo</td><td>2.160+ respuestas</td><td>Subestimación en 8 de 10 escenarios (<em>d</em> medio = 0,55)</td></tr>
+            <tr><td>2</td><td>Recuerdo de experiencias reales</td><td>398</td><td>Quienes más subestimaban eran los que menos daban</td></tr>
+            <tr><td>3</td><td>Retroalimentación real entre amigos</td><td>100 (50 parejas)</td><td>Brecha mayor que en escenarios hipotéticos (<em>d</em> = −0,84)</td></tr>
+            <tr><td>4</td><td>Dos intervenciones</td><td>561</td><td>La toma de perspectiva fue la intervención más eficaz</td></tr>
+            <tr><td>5</td><td>Concurso de oratoria con premio</td><td>204</td><td>Menos retroalimentación constructiva → menos mejora real</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio piloto: las manchas en la cara</h3>
+        <p>Durante 3 días consecutivos, investigadoras se acercaron a posibles encuestados en el campus de una universidad durante la hora del almuerzo, cada una con una mancha visible y corregible en la cara (una línea de rotulador rojo en la nariz, una mancha de chocolate, o lápiz labial brillante rosa esparcido por la cara). El propósito real era registrar cuántas personas avisaban de la mancha. De los 217 reclutados, 155 completaron la encuesta tras confirmar que habían notado la mancha.</p>
+        <p>Solo cuatro personas (2,6 %) se lo dijeron. Al codificar las razones para no avisar, el 37 % de los comentarios aludía a consideraciones sobre las consecuencias para uno mismo («no quería que pensara que soy maleducado») y el 40 % a consideraciones sobre las consecuencias para el receptor («no quería avergonzarla llamando la atención»). Solo el 3 % de los comentarios mencionó la posibilidad de que la retroalimentación ayudara a la investigadora. Curiosamente, tras descubrir el propósito del estudio, los participantes predijeron que alguien con algo en la cara querría saberlo alrededor del punto medio de la escala, y un 27 % de la muestra afirmó haber «no notado» una mancha muy evidente, posiblemente para evitar tener que dar retroalimentación.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Experimento 1: Retroalimentación en el trabajo</h3>
+        <p>Se asignó a los participantes a imaginar que daban o recibían retroalimentación en 10 situaciones laborales hipotéticas (manchas de sudor en la camisa, pronunciar mal una palabra repetidamente, interrumpir colegas, ser maleducado en correos, etc.), variando la cercanía de la relación (desconocido, conocido, amigo cercano). A través de los 10 escenarios, los dadores creían que los receptores querían que se les avisara menos (<em>M</em> = 6,16) de lo que los receptores reportaban querer (<em>M</em> = 7,66; <em>d</em> = −0,49).</p>
+        <p>El resultado emergió individualmente en 8 de los 10 escenarios, con la excepción de las situaciones menos trascendentes de «comida en los dientes» y «pantalones rasgados». Cuanto más trascendente era el problema, mayor era la brecha (<em>d</em> = −0,75 en los trascendentes frente a −0,26 en los cotidianos). Los dadores también reportaron ser menos propensos a dar la retroalimentación de lo que los receptores querían recibirla, y la cercanía de la relación no moderó el efecto: la subestimación operaba igual con extraños, conocidos o amigos cercanos.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Experimento 2: Retroalimentación recordada</h3>
+        <p>Con 403 adultos de Prolific Academic, se pidió recordar una situación real en la que uno mismo hizo algo importante incorrectamente sin darse cuenta (receptores) o fue testigo de ello (dadores). El 99 % pudo recordar y descri vívidamente un incidente de retroalimentación que cumpliera los criterios, lo que subraya lo comunes que son estas situaciones en la vida cotidiana, con amigos, familiares, subordinados, jefes, pares y extraños.</p>
+        <p>De nuevo, los dadores subestimaron el deseo de los receptores (<em>M</em> = 5,43 frente a 7,28; <em>d</em> = −0,60). Y un hallazgo con consecuencias: los dadores que eligieron no dar retroalimentación subestimaron significativamente más el deseo de los receptores (<em>M</em> = 4,40) que los dadores que sí la dieron (<em>M</em> = 5,96), lo que sugiere que la subestimación predice la no acción. Los receptores quisieron la retroalimentación por igual tanto si la recibieron como si no.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Experimento 3: Retroalimentación real entre personas cercanas</h3>
+        <p>Cincuenta parejas de amigos, compañeros de cuarto o parejas románticas participaron en un experimento virtual por Zoom. A un miembro se le asignó generar retroalimentación constructiva real que quería compartir (por ejemplo, «quizá no te das cuenta de que a veces estás enviando mensajes a otras personas mientras estamos juntos, y eso hace sentir a los demás que no los priorizas») y hasta 10 minutos de conversación. Se encuestó a los participantes antes y después de la interacción.</p>
+        <p>Los dadores creían que los receptores querían recibir retroalimentación menos (<em>M</em> = 5,18) de lo que los receptores reportaban querer (<em>M</em> = 6,98; <em>d</em> = −0,84). El 86 % de los receptores eligió recibir retroalimentación si pudiera elegir, frente solo al 48 % de los dadores que eligió darla. Notablemente, la estimación de los receptores sobre su propia incomodidad y el valor de la retroalimentación no cambió de antes a después de la interacción, pero los dadores subestimaron el valor para los receptores tanto antes como después, sin corregir su error de predicción.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Experimento 4: Dos intervenciones</h3>
+        <p>Con 600 adultos (561 en el análisis), se probaron dos intervenciones frente a un control. En la intervención de <strong>toma de perspectiva</strong>, a los dadores se les pidió imaginar que ellos mismos estaban en la situación y completar «si yo estuviera en esta situación, me sentiría...», respondiendo cuánto habrían querido que se lo dijeran. En la de <strong>baja incomodidad</strong>, se pidió imaginar que otra persona (la «Persona B») daba la retroalimentación a la «Persona A», sacándose a sí mismos de la ecuación.</p>
+        <p>Ambas intervenciones mejoraron la precisión frente al control: los dadores de toma de perspectiva estimaron un deseo de <em>M</em> = 5,75 y los de baja incomodidad <em>M</em> = 5,06, frente a <em>M</em> = 4,21 en el control (con receptores reales reportando <em>M</em> = 7,80). Aunque ambas mejoraron la precisión, la toma de perspectiva fue significativamente más eficaz que la de baja incomodidad, lo que sugiere que la inexactitud de los dadores se debe más a no prestar suficiente atención a la experiencia del receptor que a prestar demasiada atención a la propia.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Experimento 5: Concurso de oratoria con premio</h3>
+        <p>En un experimento de laboratorio con incentivo financiero, 204 estudiantes participaron en pares: uno daba un discurso de práctica de 3 minutos grabado en vídeo, el otro le daba retroalimentación siguiendo una guía (disfluencias verbales, contacto visual, gestos, porte y ritmo), y después el primero daba su discurso final. El mejor discurso final se premiaba con una tarjeta de regalo de 50 dólares. Se encuestó a los participantes en tres momentos: antes, justo antes de la retroalimentación y después.</p>
+        <p>De nuevo, los dadores subestimaron el deseo de los receptores (<em>M</em> = 5,24 frente a 7,25 en la primera encuesta previa; <em>d</em> = −0,90). Curiosamente, a medida que se acercaba el momento de recibir la retroalimentación, el deseo de los receptores aumentó, lo que sugiere que realmente la querían. Se codificaron más de 10 comentarios de retroalimentación por pareja: los dadores daban más retroalimentación positiva cuanto mejor era el discurso de práctica, y más constructiva cuanto peor era. Y un hallazgo con sustancia: la cantidad de retroalimentación constructiva recibida se asoció con mayor porcentaje de mejora entre el discurso de práctica y el final, consistente con la posibilidad de que la retroalimentación constructiva mejore el desempeño real.</p>
+      </article>
+
+      <h2>Discusión general</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Aportaciones teóricas</h3>
+        <p>La investigación amplía el estudio de por qué las personas retienen la retroalimentación, proponiendo una razón novedosa y previamente pasada por alto: subestiman hasta qué punto la otra persona quiere recibirla. Se exploraron dos procesos posibles: uno «motivado» (convencerse de que la retroalimentación no es deseada porque uno mismo no quiere darla) y otro «cognitivo» (pasar por alto las preferencias del otro al centrarse demasiado en las propias). La evidencia fue más fuerte para la explicación cognitiva.</p>
+        <p>El trabajo también contribuye a la investigación sobre las predicciones erróneas de sí mismo/otros en los gestos prosociales. La investigación reciente ha encontrado que las personas subestiman cuánto apreciarán otros gestos prosociales como los cumplidos, la gratitud y la honestidad. Pero la retroalimentación constructiva tiene peculiaridades: puede influir directamente en los resultados de desempeño de otra persona, y puede tener consecuencias negativas además de positivas (incomodidad, daño relacional). Los dadores no solo dejan de ver la apreciación de los demás por su buena intención, sino que pasan por alto las consecuencias tangibles y positivas de su retroalimentación para los resultados de los otros.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Limitaciones y direcciones futuras</h3>
+        <p>Aunque se identificaron algunos moderadores —la trascendencia de la retroalimentación y cuán negativa y útil es—, es probable que existan otros. Investigaciones futuras podrían explorar el estatus social del dador y del receptor: las personas de mayor estatus podrían ser más precisas por estar menos preocupadas por dañar la relación, o menos capaces de discernir cuándo otros quieren retroalimentación, dado que quienes tienen más estatus son peores tomando la perspectiva de otros.</p>
+        <p>La investigación futura también podría examinar formas de facilitar que los posibles dadores den retroalimentación. Integrar recordatorios de toma de perspectiva en las experiencias cotidianas podría aumentar la propensión a dar retroalimentación constructiva: por ejemplo, una organización podría añadir indicaciones a los formales formularios de evaluación del desempeño («¿querrías más retroalimentación si fueras este empleado?»). Y queda por entender mejor cómo la experiencia de incomodidad y vergüenza, tanto del dador como del receptor, influye en la dinámica de la retroalimentación, ya que los resultados sobre la precisión de las predicciones de incomodidad variaron entre estudios.</p>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>La retroalimentación es clave para el crecimiento y la mejora personal y puede arreglar problemas que de otro modo serían costosos para el receptor. A través de seis estudios se examinaron conductas y creencias sobre la retroalimentación en una variedad de situaciones, encontrando que las personas subestiman de manera consistente el deseo de los demás de recibir retroalimentación constructiva, especialmente porque subestiman el valor de su retroalimentación para la otra persona. No reconocer el deseo de los demás de recibir retroalimentación constructiva puede llevar a las personas a dar menos retroalimentación, dañando potencialmente los resultados de los otros. La próxima vez que escuches a alguien pronunciar mal una palabra, veas una mancha en su camisa o notes una errata en su diapositiva, te urgimos a que se lo señales: probablemente quieren la retroalimentación más de lo que crees.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">"Just Letting You Know..." (PDF, 458 KB) — artículo original</a></li>
+      <li><a href="#">Journal of Personality and Social Psychology — revista de la APA</a></li>
+      <li><a href="#">Crítica constructiva que funciona — recurso relacionado de la APA</a></li>
+    </ul>
+
+    <footer>
+      <p>Fecha de creación: 24 de marzo de 2022 · Nota de prensa de la Asociación Americana de Psicología</p>
+      <p>Contacto de prensa: Jim Sliwa · (202) 336-5707</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3, #contenido .ejemplo');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

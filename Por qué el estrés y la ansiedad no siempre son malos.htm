@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Por qué el estrés y la ansiedad no siempre son malos</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .cita {
+      border-left: 4px solid var(--borde);
+      margin: 1rem 0;
+      padding: .5rem 1rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    .cita strong {
+      color: var(--texto);
+      font-style: normal;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado {
+      border-left: 4px solid var(--acento);
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Convención anual de la APA · Chicago · 10 de agosto de 2019</span>
+      <h1>Por qué el estrés y la ansiedad no siempre son malos</h1>
+      <p class="subtitulo">Esperar sentirse siempre feliz y relajado es una receta para la decepción, dice una experta</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Ansiedad</span>
+      <span class="tema">Estrés</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p>Chicago — Las personas generalmente piensan en el estrés y la ansiedad como conceptos negativos, pero aunque ambos pueden alcanzar niveles malsanos, los psicólogos saben desde hace tiempo que ambos son inevitables —y que a menudo desempeñan un papel útil, no dañino, en nuestra vida diaria—, según una presentación en la convención anual de la Asociación Americana de Psicología.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>Muchos estadounidenses ahora se sienten estresados por estar estresados y ansiosos por estar ansiosos. Desafortunadamente, para cuando alguien acude a un profesional en busca de ayuda, el estrés y la ansiedad ya se han acumulado hasta niveles malsanos</strong>», dijo Lisa Damour, PhD, psicóloga de consulta privada que presentó en la reunión. Damour también escribe una columna regular para The New York Times y es autora del libro <em>Under Pressure: Confronting the Epidemic of Stress and Anxiety in Girls</em> («Bajo presión: enfrentando la epidemia de estrés y ansiedad en las chicas»).</p>
+      </div>
+
+      <h2>El estrés: estar al límite de las capacidades</h2>
+
+      <div class="tarjeta">
+        <p>El estrés suele ocurrir cuando las personas operan al límite de sus capacidades —cuando se exigen a sí mismas o las circunstancias las fuerzan a estirarse más allá de sus límites familiares—, según Damour. También es importante entender que el estrés puede resultar tanto de eventos malos como buenos. Por ejemplo, ser despedido es estresante, pero también lo es traer a un bebé a casa por primera vez.</p>
+        <p class="cita">«<strong>Es importante que los psicólogos compartamos nuestro conocimiento sobre el estrés con audiencias amplias: que el estrés es un dado en la vida diaria, que trabajar al límite de nuestras capacidades a menudo construye esas capacidades y que los niveles moderados de estrés pueden tener una función de inoculación, que conduce a una resiliencia superior a la media cuando enfrentamos nuevas dificultades</strong>», dijo.</p>
+      </div>
+
+      <h2>La ansiedad: un sistema de alarma interno</h2>
+
+      <div class="tarjeta">
+        <p>La ansiedad también recibe una mala reputación innecesaria, según Damour.</p>
+        <p class="cita">«<strong>Como todos los psicólogos sabemos, la ansiedad es un sistema de alarma interno, probablemente transmitido por la evolución, que nos alerta de amenazas tanto externas —como un conductor que se desvía en el carril cercano— como internas —como cuando hemos procrastinado demasiado y es hora de empezar a trabajar</strong>», dijo Damour.</p>
+        <p>Ver la ansiedad como a veces útil y protectora permite a las personas hacer buen uso de ella. Por ejemplo, Damour dijo que a menudo les dice a los adolescentes con los que trabaja en su consulta que presten atención si empiezan a sentirse ansiosos en una fiesta, porque sus nervios pueden estar alertándoles de un problema.</p>
+        <p>«De manera similar, si una clienta comparte que le preocupa un examen próximo para el que aún no ha estudiado, me apresuro a tranquilizarla de que está teniendo la reacción correcta y de que se sentirá mejor en cuanto se ponga con los libros», dijo.</p>
+      </div>
+
+      <h2>Cuándo se vuelven dañinos</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Estado</th>
+              <th>Función sana</th>
+              <th>Cuándo se vuelve malsano</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Estrés</strong></td>
+              <td>Construye capacidades al límite de lo que sabemos hacer; función de inoculación frente a dificultades futuras</td>
+              <td>Cuando es <strong>crónico</strong> (sin posibilidad de recuperación) o <strong>traumático</strong> (psicológicamente catastrófico); es decir, cuando excede cualquier nivel que una persona pueda razonablemente absorber o usar para construir fortaleza psicológica</td>
+            </tr>
+            <tr>
+              <td><strong>Ansiedad</strong></td>
+              <td>Sistema de alarma interno que alerta de amenazas externas e internas</td>
+              <td>Cuando su alarma <strong>no tiene sentido</strong>: ansiedad rutinaria sin razón alguna, o alarma totalmente desproporcionada a la amenaza, como un estudiante con un ataque de pánico por un examen menor</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tarjeta">
+        <p>El estrés y la ansiedad no tratados pueden causar miseria persistente pero también contribuir a una serie de síntomas psicológicos y médicos adicionales, como depresión o un mayor riesgo de enfermedad cardiovascular, según Damour.</p>
+      </div>
+
+      <h2>Recomendaciones</h2>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Para el estrés</h3>
+          <p>Cualquiera que se sienta abrumado por el estrés debería, si es posible, tomar medidas para reducirlo y/o buscar ayuda de un profesional formado para aprender estrategias de gestión del estrés.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Para la ansiedad</h3>
+          <p>Algunas personas encuentran alivio a través de cuadernos de trabajo que les ayudan a evaluar y desafiar sus propios pensamientos irracionales. Si ese enfoque no tiene éxito o no es del agrado, se debería consultar a un profesional formado.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Atención plena</h3>
+          <p>En los últimos años, las técnicas de mindfulness también han surgido como un enfoque eficaz para abordar tanto el estrés como la ansiedad.</p>
+        </div>
+      </div>
+
+      <h2>El mensaje contra la «industria de la felicidad»</h2>
+
+      <div class="tarjeta destacado">
+        <p>Damour también instó a los psicólogos a desempeñar un papel activo proporcionando contramensajes a lo que llamó «la industria de la felicidad»: esas empresas de bienestar que venden la idea de que las personas deberían sentirse calmadas y relajadas la mayor parte del tiempo.</p>
+        <p class="cita">«<strong>Los psicólogos somos buenos adoptando un enfoque más mesurado para pensar en la experiencia humana. Queremos apoyar el bienestar, pero no ponemos el listón en ser felices casi todo el tiempo. Esa es una idea peligrosa porque es innecesaria e inalcanzable</strong>», dijo. «Si tienes la impresión de que siempre deberías estar alegre, tu experiencia cotidiana puede acabar resultando bastante miserable».</p>
+      </div>
+
+      <h2>Ideas clave de la presentación</h2>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>El estrés como constructor</h3>
+          <p>Operar al límite de las capacidades no es solo una señal de exigencia: es el mecanismo por el que esas capacidades crecen. Y el estrés moderado funciona como una vacuna psicológica: la exposición controlada a la dificultad genera una resiliencia superior a la media ante las dificultades nuevas.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>El estrés no distingue entre bien y mal</h3>
+          <p>El cuerpo y la mente responden igual a un despido y a la llegada de un bebé a casa. El calendario de la vida está lleno de eventos «buenos» que estresan, lo que implica que no se trata de eliminar el estrés sino de gestionar su dosis y recuperación.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>La ansiedad como aliada</h3>
+          <p>Los nervios en una fiesta pueden estar detectando un problema real; la preocupación por un examen sin estudiar es la reacción correcta que empuja a la acción. La ansiedad sana se disuelve al atender lo que señala: se siente mejor en cuanto uno se pone a ello.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">4</span>El problema de la metapreocupación</h3>
+          <p>«Estresado por estar estresado, ansioso por estar ansioso»: el verdadero daño aparece cuando la reacción natural se convierte a su vez en objeto de alarma. Para cuando se busca ayuda profesional, el problema ya se ha amplificado en dos capas.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <p class="datos"><strong>Sesión 3194:</strong> «At Ease: Reframing Stress and Anxiety» («A gusto: replanteando el estrés y la ansiedad»), sábado 10 de agosto, 1 p. m. CDT, Sala W183a, Nivel Uno-Oeste, McCormick Place Convention Center, 2301 S. King Drive, Chicago.</p>
+        <p class="articulo-ref"><strong>Presentadora:</strong> Lisa Damour, PhD, psicóloga de consulta privada, columnista regular de The New York Times y autora de <em>Under Pressure: Confronting the Epidemic of Stress and Anxiety in Girls</em> («Bajo presión: enfrentando la epidemia de estrés y ansiedad en las chicas»).</p>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>El estrés y la ansiedad no son enemigos a exterminar sino señales a interpretar. El estrés marca que estamos creciendo más allá de nuestros límites conocidos —y con dosis moderadas nos vacuna contra las dificultades futuras—; la ansiedad es una alarma evolutiva que nos avisa de amenazas externas e internas y que, bien leída, empuja a la acción correcta. Se vuelven dañinos cuando el estrés no deja respiro o es catastrófico, o cuando la alarma de la ansiedad suena sin razón o desproporcionadamente. Pero la expectativa de estar calmado y relajado casi siempre —el producto que vende la industria de la felicidad— es innecesaria, inalcanzable y, en última instancia, la receta más segura para la miseria cotidiana.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Under Pressure: Confronting the Epidemic of Stress and Anxiety in Girls — libro de Lisa Damour</a></li>
+      <li><a href="#">Convención anual de la APA 2019 — Chicago</a></li>
+    </ul>
+
+    <footer>
+      <p>Fecha de creación: 10 de agosto de 2019 · Nota de prensa de la Asociación Americana de Psicología</p>
+      <p>Contacto de prensa: Jim Sliwa · (202) 336-5707</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

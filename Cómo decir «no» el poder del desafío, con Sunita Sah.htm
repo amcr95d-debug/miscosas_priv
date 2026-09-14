@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Speaking of Psychology: Cómo decir «no»: el poder del desafío, con Sunita Sah, PhD</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .episodio {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .expertos h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+      color: var(--acento);
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .turno {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-left: 4px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: border-color .15s;
+    }
+
+    .turno:hover {
+      border-left-color: var(--acento);
+    }
+
+    .turno.anfitriona {
+      border-left-color: var(--acento);
+      background: var(--acento-suave);
+    }
+
+    .hablante {
+      margin: 0 0 .5rem;
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--acento);
+    }
+
+    .turno p {
+      margin: 0 0 .75rem;
+    }
+
+    .turno p:last-child {
+      margin-bottom: 0;
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="episodio">Episodio 319</span>
+      <h1>Speaking of Psychology: Cómo decir «no»: el poder del desafío</h1>
+      <p class="subtitulo">Con Sunita Sah, PhD</p>
+    </header>
+
+    <div class="tarjeta">
+      <p>¿Con qué frecuencia «sigues la corriente para llevarte bien», o dices «sí» cuando realmente quieres decir «no»? La psicóloga organizacional Sunita Sah, PhD, autora de <em>Defy: The Power of No in a World That Demands Yes</em> («Desafía: el poder del no en un mundo que exige el sí»), habla de por qué puede ser tan difícil alzar la voz y de cómo puedes fortalecer tu determinación y tu capacidad de decir «no» cuando la situación lo requiere.</p>
+    </div>
+
+    <h2>Sobre la experta</h2>
+    <div class="tarjeta expertos">
+      <h3>Sunita Sah, PhD</h3>
+      <p>Es psicóloga organizacional y profesora asociada en el SC Johnson College of Business de la Universidad de Cornell. Su investigación se centra en la ética, la influencia y el consejo. Es autora de <em>Defy: The Power of No in a World That Demands Yes</em> («Desafía: el poder del no en un mundo que exige el sí»).</p>
+    </div>
+
+    <h2>Transcripción</h2>
+
+    <input type="search" id="buscador" class="buscador" placeholder="Buscar en la transcripción...">
+    <p class="contador" id="contador"></p>
+
+    <div id="transcripcion">
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Con qué frecuencia sigues la corriente para llevarte bien, o dices «sí» cuando en realidad quieres decir «no»? Todos lo hemos hecho: aceptamos un puesto de voluntariado para el que realmente no teníamos tiempo, nos callamos en la mesa de la cena navideña para evitar una pelea familiar, o guardamos silencio en el trabajo cuando hablar podría haber ayudado a un colega a evitar un error.</p>
+        <p>Hoy vamos a hablar de la psicología de alzar la voz y de decir «no». ¿Por qué es tan difícil hacerlo? ¿Qué significa desafiar, cumplir o consentir? ¿Y cómo puedes fortalecer tu determinación y tu capacidad de decir «no» cuando la situación lo requiere?</p>
+        <p>Bienvenidos a Speaking of Psychology, el podcast insignia de la Asociación Americana de Psicología, que examina los vínculos entre la ciencia psicológica y la vida cotidiana. Soy Kim Mills.</p>
+        <p>Mi invitada de hoy es la Dra. Sunita Sah. La Dra. Sah es profesora asociada en la SC Johnson School of Management de la Universidad de Cornell, donde estudia la ética, la autoridad, el cumplimiento y el desafío, incluidas preguntas como por qué seguimos consejos malos y cómo las políticas de divulgación pueden salir el tiro por la culata. Su investigación se ha publicado en numerosas revistas académicas y ha sido cubierta por medios como The New York Times, Harvard Business Review y Scientific American. Su nuevo libro se titula <em>Defy: The Power of No in a World That Demands Yes</em>.</p>
+        <p>Dra. Sah, gracias por acompañarme hoy.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>Es maravilloso estar aquí. Gracias, Kim.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>El Oxford English Dictionary define el desafío como «retar abierta y valientemente el poder de otra persona». Pero en tu libro ofreces una definición alternativa. ¿Puedes contarnos cuál es y por qué sentiste que el desafío necesitaba una nueva definición?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>Por supuesto. La palabra «desafiar» me ha fascinado durante muchísimo tiempo. De niña, era conocida por ser una hija y una estudiante obediente, y recuerdo que en cierto momento le pregunté a mi padre qué significaba mi nombre. Me dijo que en sánscrito, Sunita significa «buena». Y en su mayoría fui fiel a eso. Hacía lo que me decían. Hacía mis deberes como se esperaba, llegaba a tiempo a la escuela. Incluso me cortaba el pelo como mis padres insistían, y esos eran los mensajes que recibía: ser buena, lo que significa ser educada, obedecer, escuchar, no cuestionar a la autoridad. Y muchos de nosotros recibimos estos mensajes desde una edad temprana y empezamos a equiparar el cumplimiento con ser bueno y el desafío con ser malo.</p>
+        <p>Pero cuando lo investigué —y llevo muchísimo tiempo estudiando esto— vi que había problemas con ser tan cumplidores. Por ejemplo, una encuesta encontró que 9 de cada 10 profesionales sanitarios, en su mayoría enfermeros, no se sentían cómodos alzando la voz al ver a un colega cometer un error. Y es lo mismo en todas las industrias. En otra encuesta a más de 1700 miembros de tripulaciones de aerolíneas comerciales, cerca de la mitad se sentía incómoda al decir algo cuando veía un error. Esto puede tener consecuencias de vida o muerte. Queremos que estas personas hablen cuando ven un error.</p>
+        <p>Y eso me hizo preguntarme: ¿es a veces malo ser tan bueno? ¿Qué sacrificamos al ser tan cumplidores? Lo que descubrí, ahora que llevo años analizando esto, es que, aunque no se trate de situaciones de vida o muerte, cuando no hablamos al ver algo malo, eso puede resultar bastante desgastante y tener un efecto sobre nosotros.</p>
+        <p>Y yo a menudo sentía mucha tensión entre ese aspecto de hacer lo que se esperaba de mí y hacer lo que yo pensaba que era correcto. Y eso inspiró gran parte de mi investigación. Y lo que descubrí, que creo que es crucial y que realmente cambió mi forma de pensar, es que hemos malentendido lo que significa desafiar.</p>
+        <p>Así que no suelo estar en desacuerdo con el Oxford English Dictionary —al fin y al cabo, crecí en el Reino Unido—, pero creo que esa definición de desafío que has descrito es demasiado estrecha y no honra nuestra agencia. Mi definición del desafío es que desafiar significa actuar de acuerdo con tus valores cuando hay presión para actuar de otro modo. Esto convierte el desafío en una fuerza prosocial y positiva para la sociedad. Porque si lo piensas, Kim, todos nuestros actos individuales de consentimiento y disentimiento de cada día suman la sociedad en la que vivimos. Así que afecta a nuestras vidas, a nuestros lugares de trabajo, a nuestras comunidades, y por eso me apasiona tanto y creo que necesitamos entender lo que realmente significa el desafío y el poder que hay detrás.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Ya que hablamos de lenguaje, permíteme preguntarte la diferencia entre cumplimiento y consentimiento.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>Por supuesto. Bueno, los dos suelen confundirse, pero en realidad son bastante diferentes. Cumplir con algo simplemente significa ir con la corriente, y suele estar impulsado desde fuera. Alguien te pide que hagas algo, o hay expectativas en tu organización o en la sociedad, y tú simplemente las cumples.</p>
+        <p>El consentimiento no es el cumplimiento. El consentimiento es una autorización minuciosamente considerada que es una expresión activa de nuestros valores más arraigados. ¿Por qué digo eso? Bueno, trabajé como médica antes de convertirme en psicóloga organizacional, y lo que hago en mi investigación es tomar el consentimiento informado —la definición de consentimiento informado de la medicina— y aplicarlo a otras decisiones que tomamos en nuestras vidas.</p>
+        <p>Para el consentimiento informado necesitamos cinco elementos. El primero es la capacidad. Necesitamos tener la capacidad mental para tomar una decisión. Los médicos evalúan la capacidad de los pacientes: ¿está este paciente demasiado enfermo, bajo la influencia de algún fármaco o del alcohol? Así que, primero, esperemos que tengamos la capacidad de tomar una decisión. Luego necesitamos conocimiento. Necesitamos información sobre la decisión que estamos a punto de tomar, pero no es solo conocimiento; no se trata solo de recibir la información, sino de entenderla, que es el tercer elemento. ¿Cuáles son los riesgos? ¿Cuáles son los beneficios, cuáles son las alternativas? Y entenderlo realmente.</p>
+        <p>El cuarto elemento es esta libertad de decir «no», porque si no tenemos la libertad de decir «no», no es realmente consentimiento, es simplemente cumplimiento. Y si esos cuatro elementos están presentes, entonces puedes pasar al quinto elemento, que es tu autorización. Así que si quieres decir «sí» con todos esos elementos —tienes la capacidad, el conocimiento, la comprensión, la libertad de decir «no»—, ese es tu consentimiento informado. Si quieres decir «no», ese es tu rechazo informado.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Por qué a la mayoría de las personas les cuesta tanto decir «no» incluso cuando sabemos que deberíamos hacerlo, ya sea al aceptar una obligación que no queremos o al callarnos cuando vemos que alguien se comporta de manera poco ética? En esos momentos, ¿qué es lo que nos impide alzar la voz?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>He encontrado varias razones para esto, pero una razón clave es que sentimos esta enorme presión de ir con la corriente de los demás, esta presión social. Y lo he visto una y otra vez en mi investigación, experimento tras experimento. Déjame describirte el tipo de presión del que hablo, que puede ir desde situaciones de bajo riesgo hasta otras mucho mayores. Cuando trabajaba como médica junior, en mi primer trabajo, recibí una invitación para reunirme gratis con un asesor financiero. Recuerdo muy bien aquella reunión porque fue en la sala de reuniones elegante del trabajo. Tan elegante como se puede conseguir en el Servicio Nacional de Salud británico: era una sala cuya existencia ni siquiera conocía. Tenía alfombra, había un sofá. Pensé: ¿cómo es que nunca la había descubierto?</p>
+        <p>Entré después de una larga noche de guardia y me senté en el sofá. Dan, que era el asesor, cuando entró, era alto, guapo, con una gran sonrisa y un traje elegante; me saludó calurosamente y pasó una hora hablando conmigo. Me hizo muchas preguntas, en su mayoría sobre mis finanzas. Creó este rapport increíble y, después de una hora más o menos, me preguntó si podía escribir un informe, que lo enviaría en una semana, y me recomendó invertir en un par de fondos. Todo esto era gratis. Así que quedé impresionada y tuve que preguntarle: ¿y qué ganas tú con esto? Y me dijo: bueno, no hay nada gratis en esta vida; recibiría una comisión si invertía en los fondos que me estaba recomendando.</p>
+        <p>Así que reveló este conflicto de intereses, y lo que fue clave para mí es que esa revelación cambió la dinámica de la situación. Sí sentí menos confianza en el consejo, que es, podría decirse, el propósito previsto de esa revelación. Pero al mismo tiempo, ahora sentía más presión para seguir su consejo, porque no quería señalarle esa desconfianza. No quería que pensara que esa revelación había corrompido el agradable rapport que se había creado. Y empecé a sentirme realmente incómoda y solo quería firmar y decir: está bien, invierto en estos.</p>
+        <p>Lo que ocurre ahí es el proceso psicológico de la ansiedad de insinuación. Es un tipo distinto de ansiedad que surge cuando nos preocupa que nuestra falta de cumplimiento con los deseos de otra persona se interprete como una señal de desconfianza, e insinúa que esa persona no es quien aparenta ser o quien debería ser: que no es digna de confianza, ni competente, ni tiene integridad o benevolencia. Y es un estado emocional aversivo.</p>
+        <p>Nos preocupamos tanto por ofender a la otra persona que cumplimos con ella incluso en situaciones de un solo encuentro. He encontrado que con desconocidos tenemos una enorme cantidad de cumplimiento, porque no queremos insinuar que nuestros asesores, nuestros compañeros de trabajo o nuestros amigos no son dignos de confianza. Seguramente podemos imaginar una situación en la que un jefe te pide hacer algo, todos van con la corriente, pero tú no crees que sea correcto, y es demasiado difícil decirles que se equivocan. O que estamos en la peluquería, sentados ahí, y te van cortando, cortando, y estás pensando: no, esto no es lo que quería. Y es realmente difícil decirles: no, esto no está bien. Normalmente solo decimos: sí, gracias; damos propina, salimos y nos sentimos fatal.</p>
+        <p>Así sucede en esas interacciones cotidianas. Pero lo que mi investigación me ha mostrado es que también ocurre en situaciones de mayor riesgo. En escenarios médicos, por ejemplo, cuando tu médico revela un conflicto de intereses, las personas sienten más presión, más ansiedad de insinuación para aceptar el consejo. Aunque la confianza disminuye, la ansiedad de insinuación aumenta, y depende de qué fuerza sea mayor que acepten o no el consejo. Por eso es muy importante saber qué es ese sentimiento —esta ansiedad de insinuación— y ponerle nombre, porque una vez que lo nombramos, sabemos con qué estamos lidiando y podemos entenderlo.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Qué pasos puede tomar una persona para superar la presión de cumplir? ¿Hay cosas que se puedan hacer a corto y a largo plazo? ¿Y es este el tipo de músculo que puedes entrenar para que se fortalezca?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>Sí, creo absolutamente que sí. A corto plazo, te contaré lo que me pasó a mí. Cuando Dan me pidió invertir en esos fondos, cuando las cosas empezaban a ponerse un poquito demasiado incómodas y el silencio era un poco demasiado, por suerte me salvó el pitido de mi buscapersonas. No estaba planeado, pero logré salir de la sala, y él me dijo: no te preocupes, te envío todo según lo previsto. Pero cuando lo hizo, tuve tiempo de pensarlo, de pensar en mi extremadamente limitado ingreso disponible y en que, en realidad, no quería invertir en esos fondos en particular. Y fue mucho más fácil para mí tomar esa decisión lejos de Dan. Esto es lo que llamo el poder de la pausa. Si puedes simplemente hacer una pausa en lugar de aceptar en el momento o en el lugar, y especialmente si puedes tomar cierta distancia física, eso realmente ayuda a disminuir esa señal de desconfianza, porque si esto es presión social, lo que queremos es reducir esa interacción social tanto como podamos.</p>
+        <p>Si podemos tomar la decisión en privado, tenemos la oportunidad de cambiar de opinión. En todos mis experimentos demuestro que el cumplimiento disminuye enormemente, pero tomar la decisión delante de la otra persona es lo que nos lleva a cumplir gran parte del tiempo, y nos muestra que nuestro comportamiento público no está alineado con nuestras preferencias privadas. Así que realmente debemos ser conscientes de ello. Pero lo que es incluso mejor que pensar en el poder de la pausa en el momento es entrenarnos realmente para el desafío. Porque si eres como yo y tuviste una clase magistral de cumplimiento en tu crianza, en realidad no tienes los caminos neuronales para saber cómo desafiar, y necesitamos entrenarlos, porque sabemos que el entrenamiento tiene un gran efecto, ¿verdad? Nuestros cerebros tienen lo que llamamos neuroplasticidad, así que los caminos neuronales pueden cambiar. Si estamos cableados para cumplir, necesitamos cambiar ese cableado.</p>
+        <p>¿Y cómo podemos hacerlo? Bueno, podemos empezar anticipando situaciones que requieran desafío. La próxima vez que vea a un asesor financiero, por ejemplo, sabré que, si revela un conflicto de intereses —si cualquiera revela un conflicto de intereses—, tendré cierta familiaridad con eso. Encuentro que la sorpresa realmente desactiva el desafío. Nos paraliza. Pero si podemos anticipar algo, entonces podemos empezar a visualizarlo, a hacer juegos de rol o a guiones, y practicarlo. Y es esa práctica la que cambia los caminos neuronales. En cuanto a anticipar, siempre me preguntan: ¿cómo sabemos? ¿Cómo sabemos qué debemos desafiar? Bueno, muchas situaciones en las que se requiere desafío son en realidad bastante predecibles. Por ejemplo, sé que en cierta reunión de facultad siempre habrá un colega que dirá algo inapropiado. Simplemente sabes que eso va a suceder. Quizás tienes un trabajo y en ese trabajo en particular me pueden pedir que mire hacia otro lado. Me pueden pedir hacer algo poco ético y necesito estar preparada para eso. Esa anticipación es realmente importante. No podemos anticiparlo todo, pero podemos anticipar muchas cosas, conocemos las situaciones con las que hemos luchado en el pasado, y podemos pensar en ellas y practicar lo que nos habría gustado decir.</p>
+        <p>¿Y por qué es tan importante? Bueno, hay esta cita famosa que a menudo se atribuye a Bruce Lee, pero que en realidad es de un poeta griego, que creo que muestra realmente la importancia de la práctica y del entrenamiento. Y esa cita es: «Bajo presión, no ascendemos al nivel de nuestras expectativas, sino que caemos al nivel de nuestro entrenamiento». Y por eso es tan importante empezar a practicar el desafío y aprender la habilidad mucho antes del momento de crisis.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Tengo que preguntarte, sin embargo: ¿por qué seguimos igual a la luz de estudios psicológicos como el experimento de la prisión de Stanford y la investigación de Stanley Milgram, que todavía obedecemos a la autoridad? Ese trabajo tiene décadas de antigüedad, pero seguimos doblegándonos ante la autoridad cuando sabemos que no deberíamos. ¿Crees que tu libro y tu trabajo van a penetrar más profundamente que eso?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>Bueno, ciertamente lo espero. Esa es la idea, ¿verdad?: hacer que el desafío sea accesible para todos. El trabajo de Stanley Milgram fue definitivamente una inspiración cuando vi la cantidad de obediencia que tenemos. Pero lo que realmente me fascinó de ese trabajo fueron los participantes desafiantes: ¿qué les permitió desafiar? Y eso es en lo que realmente hago una inmersión profunda.</p>
+        <p>Es el tipo de libro que me habría gustado tener de joven: una estrategia paso a paso para aprender la voluntad y la habilidad de desafiar; exactamente cómo podemos hacerlo y cómo podemos practicarlo. Quiero hacer que el desafío sea accesible para todos, porque con el desafío a menudo pensamos que es ruidoso, agresivo o violento, y no es ninguna de esas cosas. Simplemente es vivir en alineación con nuestros valores, y es accesible para todos. No es una personalidad, es una práctica. Y ese es un punto clave de malentendido sobre lo que significa desafiar: pensamos que no tenemos la personalidad para ello. No necesitas tener una personalidad descomunal. Todos podemos desafiar de maneras que nos son propias. Solo se trata de aprender a hacerlo.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Cuáles son algunas buenas formas de decir «no» sin ofender a la otra persona ni hacer explotar la situación?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>He descubierto cinco etapas del desafío, y la primera es la tensión. Podemos verla en los experimentos de Milgram, los experimentos de obediencia a la autoridad, en los que el experimentador le pide a un participante dar lo que este cree que son descargas eléctricas dañinas a otra persona. Puedes ver a algunos participantes mostrando signos de tensión, una especie de risa nerviosa, vacilando. Y esos momentos son muy importantes para reconocerlos, porque a menudo, cuando nos sentimos incómodos en una situación, tenemos una señal de tensión que ya conocemos: esto es lo que siempre me pasa a mí. O sientes algo en el estómago, te sientes mareado, o se te seca la garganta. Es diferente para cada persona. Se manifiesta de diferentes maneras, pero tenemos que conectar con cuál es la tensión que tenemos.</p>
+        <p>Ahora bien, la segunda etapa es realmente reconocer esa tensión ante nosotros mismos, porque a menudo simplemente la descartamos. Pensamos que no vale la pena dudar. Pensamos que la otra persona sabe mejor, o que nadie más está diciendo nada y todo va a estar bien. Y la apartamos. Y eso es realmente una lástima, porque estamos ignorando un sistema de advertencia realmente fundamental que podría ser muy poderoso para indicarnos que quizás necesitemos desafiar.</p>
+        <p>Y ahora, yendo a tu pregunta de cómo podemos hacer esto sin ofender a la otra persona: esta es la etapa tres del desafío, y en realidad es una etapa crítica, porque si podemos llegar a la etapa tres, la investigación muestra que es más probable que llegues a la etapa final, la cinco, y al acto de desafío. En esta etapa tres, se trata simplemente de verbalizar tu incomodidad a otra persona. Solo es decir: no me siento cómodo con eso, o pedir una aclaración: ¿a qué te refieres con eso? ¿Has considerado esto? Y en esta etapa, todavía estás en una posición subordinada. Solo estás pidiendo una aclaración, como: ¿qué es lo que realmente está pasando en esta situación? Por eso lo llamo curiosidad, no confrontación. Hagamos preguntas y averigüemos qué está pasando. Porque, de nuevo, un mito del desafío es que es emocional, ruidoso y agresivo, y eso no es el desafío. Es simplemente actuar en alineación con tus valores y saber qué está pasando. No se trata de confrontar, se trata de vivir tu vida en alineación con la integridad.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Crees que las niñas siguen siendo socializadas para ser más cumplidoras que los niños? En tu investigación, ¿ves diferencias de género en la probabilidad de que hombres y mujeres sean desafiantes?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>He realizado bastantes estudios sobre si las personas cumplen con consejos malos, y en la mayoría de ellos no hubo diferencias de género. Milgram encontró lo mismo en sus estudios: la obediencia a la autoridad era la misma para las mujeres que para los hombres. Así que en ese aspecto no he visto diferencias de género. Esta reticencia a desafiar nos afecta a todos. Sin embargo, hubo un estudio en el que sí vi una diferencia de género, y es en el que llamo el estudio del ferry, donde abordamos a más de 250 pasajeros que iban de Long Island a Connecticut, y teníamos a un hombre blanco de mediana edad, bastante bien vestido, que se acercaba a los pasajeros como si fuera un empleado del ferry, para pedirles que rellenaran una encuesta breve. Y la encuesta tenía preguntas bastante inofensivas, como: ¿está limpio el ferry? ¿Salía a tiempo?</p>
+        <p>Era muy corta, y les prometió 5 dólares si terminaban la encuesta. Después de que terminaran la encuesta, les preguntó: bueno, puedo darles los 5 dólares prometidos, o puedo inscribirlos en esta lotería misteriosa que paga entre cero y 10 dólares, pero el pago promedio es inferior a 5 dólares. Así que, cuando solo planteaba eso, sin consejo sobre qué hacer, la mayoría de la gente eligió los 5 dólares en efectivo: deme mis 5 dólares, ¿verdad? ¿Por qué iba a entrar en una lotería donde el valor esperado es inferior a 5 dólares? El 92 % de las personas eligió el efectivo, mostrando que, por mucho, esta es la opción preferida.</p>
+        <p>En otra condición, además de presentar las dos opciones, también les aconsejó tomar la lotería; simplemente se lo recomendó: «creo que deberían quedarse con la lotería». Ahora, el 20 % tomó la lotería, o apenas un poco más. Y luego, cuando reveló un motivo oculto —que él también recibiría una bonificación si tomaban la lotería—, la cifra se más que duplicó hasta el 42 %. Y cuando les pregunté a los pasajeros después por qué, no era porque les gustara más el asesor; de hecho, les gustaba menos. Una vez que estaba la revelación, se sentían mucho más incómodos para rechazar la recomendación con revelación que sin ella. Igual que yo con Dan, el asesor financiero.</p>
+        <p>Aquí vimos una diferencia de género. No la estábamos esperando, pero cuando medimos la ansiedad de insinuación, era mucho más alta en las mujeres que en los hombres. Y eso podría deberse a que era un hombre quien daba el consejo, o a que los hombres no esperaban que este hombre les diera un consejo benevolente de ninguna manera, o a que se sentían más cómodos rechazando el consejo. Pero ese experimento me mostró que hay situaciones donde la insinuación es más poderosa para algunas personas que para otras, y necesitamos ser conscientes de ello.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Y las diferencias culturales? En Estados Unidos nos pensamos como una nación de individualistas. ¿Es correcta esa autoimagen o somos igual de propensos a cumplir que las personas de otros países?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>Mira, una replicación del experimento de Milgram se realizó 35 años después de que Milgram lo condujera a principios de los años sesenta. Y lo que se encontró fue que la obediencia no había cambiado en ese tiempo, a pesar de que en realidad había una percepción mayor de agencia y autonomía. Así que sí nos pensamos como poseedores de agencia, y sin embargo, con mis experimentos veo una tasa de cumplimiento extremadamente alta. En algunos de los experimentos de lotería que te describo, veo tasas de cumplimiento del 85 % o más, y esto es lo que los investigadores llaman un efecto techo, en el que es muy difícil conseguir un cumplimiento mayor. Así que cuando me preguntan si creo que veremos resultados diferentes en diferentes países, bueno, si estamos obteniendo un cumplimiento tan alto en Estados Unidos, no estoy segura de que vayamos a ver un cumplimiento mayor en otra parte. Y así que realmente creo que, en América, pensamos que somos más desafiantes de lo que en realidad somos, y que tenemos más agencia de la que realmente mostramos.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>A veces es peligroso ser desafiante, ya sea para tu carrera, tu salud, tu salud mental o tu seguridad física. Entonces, ¿cómo pueden las personas decidir cuándo es el momento adecuado para cumplir y cuándo es realmente necesario desafiar?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>Excelente pregunta. El desafío nunca es completamente gratis, y tiene costos. Las cosas que nos preocupan: que me va a costar una relación, que me puede costar el trabajo. En algunos momentos puede ser físicamente peligroso. Pero lo que a menudo olvidamos es que también hay costos en ser cumplidores y en entregar nuestra agencia: en inclinar la cabeza ante otros continuamente y hacer caso omiso de nuestros valores. Así que recomiendo evaluar la situación para el desafío de dos maneras, con dos preguntas clave. La primera es: ¿es seguro? Por supuesto, físicamente, pero también quizás financieramente, psicológicamente, emocionalmente; queremos hacernos esas preguntas. Y de nuevo, nunca podemos estar completamente seguros, así que la pregunta es realmente: ¿es lo suficientemente seguro? ¿Es lo suficientemente seguro?</p>
+        <p>Y la segunda pregunta es: ¿es efectivo? ¿Será efectivo? ¿Tendré algún impacto positivo? Y de nuevo, lo suficientemente efectivo, porque algunas personas realmente no piensan en el impacto positivo porque es más importante para ellas tomar una postura por lo que creen, independientemente de si tiene un impacto positivo o no. Si pensamos en algunos de los actos de desafío realmente famosos de la historia, como Rosa Parks, ella no estaba segura. Vivía bajo la segregación, bajo amenaza mortal en ocasiones. Hubo muchas consecuencias también por su desafío de las que la gente no habla. Realmente tuvo un enorme impacto en ella. Perdió su trabajo. Estuvo desempleada durante 10 años. Hubo muchas consecuencias, pero cuando le preguntaron 10 años después si lo haría de nuevo, dijo que por supuesto. Y en realidad había practicado para ese momento. No fue una decisión espontánea como algunas personas creen. Se había estado preparando para ese momento durante años. Y en ese punto particular, su cálculo del desafío —si era lo suficientemente seguro o efectivo— fue un sí para ella.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Ahora, esta es la pregunta para los padres y otros cuidadores. No quieres que tu niño pequeño sea desafiante cada vez que necesitas ponerlo en su silla de coche. Entonces, ¿cómo enseñas a los niños a respetar a los adultos y a otros niños, pero también a defenderse cuando sea necesario?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>Bueno, una de las cosas que creo que hacemos con la mayoría de los niños es entrenarlos en el cumplimiento. Los entrenamos mucho en cumplir. Y si malentendemos lo que realmente significa el desafío, que es actuar en alineación con tus valores, algunos de ellos, especialmente cuando se trata de adolescentes, hacen exactamente lo contrario de lo que les dices. Ahora mismo tengo un adolescente, así que algunos de estos escenarios están muy vivos en mi mente, como jugar a la Xbox, por ejemplo. Y me encantaría que hiciera sus deberes en su lugar. Así que le pregunto: ¿vas a hacer tus deberes? Y él me dice: pues iba a hacer mis deberes, pero ahora que me lo has pedido, no los voy a hacer. ¿Y qué nos muestra eso? ¿Eso es ser desafiante? Bueno, en realidad, en mi definición, no, porque lo que está haciendo es escuchar atentamente lo que digo y actuar en la dirección exactamente opuesta, lo que significa que es lo que yo llamo falso desafío.</p>
+        <p>Pero el desafío, como el consentimiento, viene de dentro. No proviene de una fuente externa. No depende de las expectativas de nadie más. Viene de dentro de ti. Así que eso no es realmente desafío. Y lo que tenemos que hacer es entrenar realmente a nuestros hijos para ser desafiantes. Si pensamos en el desafío como una fuerza buena y positiva, queremos darles entrenamiento en ello.</p>
+        <p>Una de las maneras en que esto me tocó de cerca fue cuando tenía unos 6 o 7 años, y volvía a casa con mi madre desde la tienda de comestibles. Mi madre empujaba el carrito de la compra, que era como un viejo carrito chirriante de dos ruedas, un poco como el equipaje con ruedas que llevamos a los aeropuertos, y llevaba nuestra compra dentro. Y era un camino bastante largo de vuelta a casa. Crecí en Yorkshire, en Inglaterra, y queríamos tomar un atajo a través de lo que allí llamamos un <em>snicket</em>. Un <em>snicket</em> es simplemente un callejón muy estrecho. Y decidimos pasar por ese callejón de camino a casa para reducir la longitud de nuestra caminata. En ese callejón, nos topamos con unos cinco o seis adolescentes, que nos bloquearon el camino, nos gritaron algunas cosas desagradables y nos dijeron que volviéramos a casa.</p>
+        <p>Mi madre es bastante pequeña. Mide 1,47 como mucho. Llevaba su sari azul. Tenía el pelo recogido en una trenza pulcra, una sola trenza. Y en la forma en que yo pensaba sobre mi madre —si pensamos en el cumplimiento y el desafío como binarios, cosa que me he dado cuenta de que no es, hay estas etapas del desafío—, pero si lo pensamos así, yo la había colocado muy ordenadamente en la casilla de cumplidora, porque ella servía las necesidades de todos. Hacía la cocina, la limpieza, la compra. Siempre estaba cuidando a los demás. No era ruidosa ni agresiva. Y hasta ese día, pensé que era completamente cumplidora.</p>
+        <p>Pero cuando esto sucedió y esos chicos nos detuvieron, mi reacción fue instantánea. Agarré el brazo de mi madre y desvié la mirada. No quería mirarlos, y solo quería maniobrar lo más rápido posible entre ellos para ir a casa. Y ella no. Se detuvo, los miró directamente a los ojos y dijo: ¿qué quieres decir con eso? Mi corazón empezó a acelerarse. Agarré su brazo aún más fuerte y le susurré: vamos, mamá. Y me sacudió. Dijo: no. Luego tomó el carrito de la compra, lo puso derecho, puso una mano en la cadera y miró de nuevo a los chicos, y dijo: ¿qué quieres decir con eso?</p>
+        <p>Y los chicos no dijeron nada. Se miraban entre ellos. Y ella dijo: ah, sí, ¿os creéis tan grandes y fuertes, chicos duros, verdad? Chicos listos. Y de nuevo, hubo un silencio completo de su parte. Y entonces uno de los chicos miró al otro y dijo: vámonos. Y simplemente se dispersaron. Y yo estaba asombrada, porque nunca esperé eso de mi madre ese día. Ella agarró el carrito de la compra y empezó a caminar de vuelta a casa muy rápido. Y yo me quedé como congelada un rato antes de correr tras ella.</p>
+        <p>Pero eso realmente me mostró un par de cosas. Una es que el desafío no es una personalidad. Es una práctica. Es un conjunto de habilidades que podemos elegir usar o no. Y me quedó claro que ella se había encontrado con esos chicos antes, pero ese día hizo algo diferente. Debe haber estado practicando para eso, o quizás yo estaba ahí en ese momento y ella quería enseñarme algo, y ese día hizo algo diferente. Así que, incluso si estamos condicionados a cumplir, como me pasó a mí y, estoy segura, como le pasó a mi madre también, el cumplimiento puede ser nuestro punto de partida, pero no es nuestro destino.</p>
+        <p>La segunda cosa que me mostró es que el desafío puede cambiarte. Las ocasiones en las que he podido desafiar han sido transformacionales. Nos sentimos más auténticos, más honestos. Es una vida más gozosa poder vivir en alineación con tus valores, pero también cambia a las personas que lo observan. El desafío de mi madre definitivamente tuvo un impacto en mí. Se quedó conmigo. Y es lo que llamo este efecto dominó del desafío: inspira a otras personas a seguir también sus valores en lugar de seguir a otras personas. Y por eso es realmente importante, porque si queremos entrenar a nuestros hijos para ser desafiantes, estos momentos son los que crean la sociedad. Y lo que realmente espero con mi libro, al hacer que el desafío sea accesible y cambiar nuestra comprensión, es que un día, uno de esos adolescentes habría alzado la voz y les habría dicho a sus amigos: dejen de hacer eso. Para que mi madre inmigrante no tuviera que hacerlo.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Para cerrar, permíteme preguntarte: ¿cuáles son las grandes preguntas que aún quieres responder? ¿Qué viene después para ti en la investigación?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>Bueno, estoy investigando lo que llamo la brecha de empatía de la voz. He entrevistado a más de 50 enfermeros y supervisores de enfermería, y lo que he descubierto es que, cuando preguntas a los enfermeros por qué no alzan la voz en una situación de trabajo cuando ven algunos errores, las razones que dan son muy diferentes de las razones por las que sus supervisores creen que no hablan. Hay esta brecha en cómo se ve: los enfermeros no creen que sea lo suficientemente seguro o efectivo. Y los supervisores creen que tiene que ver con las características de los enfermeros: que no asumen la responsabilidad de las cosas que salen mal, o que simplemente no tienen la capacidad, el conjunto de habilidades o la confianza para alzar la voz. Estoy investigando intervenciones para disminuir esa brecha. Porque si tenemos un entendimiento diferente sobre qué hace que las personas hablen, entonces tenemos una especie de statu quo donde el entorno y la cultura no cambian. Y eso es realmente importante gestionarlo si queremos crear los tipos correctos de cultura para que las personas hablen.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Bueno, Dra. Sah, quiero agradecerle por acompañarme hoy. Esto ha sido realmente interesante.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sunita Sah, PhD:</h3>
+        <p>Muchas gracias. Realmente disfruté la conversación.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Puedes encontrar episodios anteriores de Speaking of Psychology en nuestro sitio web, speakingofpsychology.org, o en Apple, Spotify, YouTube o donde sea que escuches tus podcasts. Y si te gustó lo que escuchaste, suscríbete y déjanos una reseña. Para quienes quieran saber más sobre la psicología y el trabajo de la APA, pueden unirse como simpatizantes. No hace falta ser psicólogo. Los beneficios incluyen una suscripción a nuestra galardonada revista, Monitor on Psychology, así como descuentos en nuestros libros y otras publicaciones. Así que si la psicología es tu pasión, o si solo quieres saber más sobre la ciencia, puedes convertirte en simpatizante visitando at.apa.org/speaking. Eso es at.apa.org/speaking. Si tienes comentarios o ideas para futuros episodios, puedes escribirnos a speakingofpsychology@apa.org. Speaking of Psychology es producido por Lea Winerman.</p>
+        <p>Gracias por escuchar. Por la Asociación Americana de Psicología, soy Kim Mills.</p>
+      </article>
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Sunita Sah, PhD</a></li>
+    </ul>
+
+    <h2>Sobre la serie</h2>
+    <div class="tarjeta">
+      <p>Esta serie de podcasts de audio destaca algunas de las investigaciones psicológicas más recientes, importantes y pertinentes que se realizan en la actualidad. Producidos por la Asociación Americana de Psicología, estos podcasts ayudan a los oyentes a aplicar la ciencia de la psicología a su vida cotidiana.</p>
+      <p><strong>Tu anfitriona: Kim I. Mills.</strong> Kim I. Mills creó Speaking of Psychology en 2013 y asumió el rol de anfitriona en 2020. Es exdirectora sénior de comunicaciones externas estratégicas y asuntos públicos de la Asociación Americana de Psicología, y trabajó 14 años como reportera y editora de The Associated Press. Mills también ha escrito para publicaciones como The Washington Post, Fast Company, American Journalism Review, Dallas Morning News y Harvard Business Review.</p>
+    </div>
+
+    <footer>
+      <p>Fecha de creación: febrero de 2025 · Speaking of Psychology</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#transcripcion p');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en la transcripción.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#transcripcion mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

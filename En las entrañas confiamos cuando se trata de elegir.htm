@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>En las entrañas confiamos cuando se trata de elegir</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .cita {
+      border-left: 4px solid var(--borde);
+      margin: 1rem 0;
+      padding: .5rem 1rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    .cita strong {
+      color: var(--texto);
+      font-style: normal;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .estudio {
+      border-left: 4px solid var(--acento);
+    }
+
+    .estudio h3 {
+      margin-top: 0;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado {
+      border-left: 4px solid var(--acento);
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Nota de prensa · 10 de septiembre de 2018</span>
+      <h1>En las entrañas confiamos cuando se trata de elegir</h1>
+      <p class="subtitulo">Las decisiones que reclutan sentimientos viscerales se ven como reflejo del verdadero yo y se sostienen con más convicción, según un estudio</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Emociones</span>
+      <span class="tema">Personalidad</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p>Washington — ¿Por qué algunas personas confían en sus corazonadas por encima de la lógica? Podría ser que ven esas decisiones instantáneas como un reflejo más preciso de su verdadero yo y, por tanto, son más propensas a sostenerlas con convicción, según una investigación publicada por la Asociación Americana de Psicología.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>Ofrecemos lo que creemos que es un enfoque novedoso y único a la pregunta de por qué las personas llegan a sostener ciertas actitudes</strong>», dijo el investigador principal Sam Maglio, PhD, profesor asociado de marketing en la Universidad de Toronto Scarborough. «Centrarse en los sentimientos en lugar de la lógica en el proceso de toma de decisiones llevó a los participantes a mantener actitudes más seguras hacia sus elecciones y a defenderlas con más fuerza».</p>
+        <p class="articulo-ref">La investigación fue publicada en la revista <em>Emotion</em>.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Maglio y su coautora Taly Reich, PhD, profesora asistente de marketing en la Universidad de Yale, realizaron una serie de cuatro experimentos con un total de más de 450 participantes, incluidos residentes locales, estudiantes universitarios y encuestados en línea. En cada experimento, los participantes tenían que elegir entre una selección de artículos similares, como reproductores de DVD, tazas, apartamentos o restaurantes. En cada caso, se pedía a los participantes que tomaran su decisión de manera deliberada y lógica, o de manera intuitiva y basada en las entrañas. Luego se les hacía una serie de preguntas sobre la elección.</p>
+        <p>Los participantes a quienes se instruyó tomar una decisión intuitiva, basada en las entrañas, tenían más probabilidades de reportar que esa decisión reflejaba su verdadero yo. Los investigadores también encontraron que quienes tomaron decisiones intuitivas estaban más seguros de sus decisiones y eran más propensos a defenderlas.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>En un experimento, se pidió a los participantes elegir entre dos restaurantes diferentes, de nuevo basándose en la intuición o la deliberación, y luego se les instruyó para publicitar su elección enviando su decisión por correo electrónico a sus amigos. Las personas que eligieron un restaurante intuitivamente compartieron su elección con más personas.</p>
+        <p class="cita">«<strong>Esto sugiere que centrarse en los sentimientos no solo cambia las actitudes, sino que también puede cambiar la conducta</strong>», dijo Maglio.</p>
+        <p>Una cosa que fue sorprendente, según Maglio, fue la disposición de las personas a tomar una decisión intuitiva cuando se les instruía para ello. «Tanto sabiduría popular dice que deberíamos evitar la intuición porque se cree que la deliberación cuidadosa es el camino más seguro hacia buenas elecciones, pero no podemos escapar de nuestros sentimientos viscerales», dijo.</p>
+        <p class="cita">«<strong>Al tomar decisiones, las personas deben decidir no solo qué elegir, sino cómo elegirlo</strong>», dijo Maglio. «Nuestra investigación sugiere que las personas que se centran en sus sentimientos al decidir llegan efectivamente a ver sus opciones elegidas como más coherentes con lo que es esencial, verdadero e inquebrantable en ellas mismas».</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Pero la seguridad que conlleva tomar una decisión basada en las entrañas en lugar de una lógica puede ser un arma de doble filo, dijo Maglio. Por ejemplo, si alguien elige un programa de ejercicio (por ejemplo, ciclismo) basándose en los sentimientos, es más probable que se mantenga fiel a él. Por otro lado, las decisiones tomadas por corazonada en el clima político polarizado de hoy pueden no ser conducentes a una democracia funcional.</p>
+        <p class="cita">«<strong>Cuando plantarnos en our sitio es algo bueno, como asegurarnos de subirnos a la bici cada día, hay poco inconveniente y mucho beneficio. Pero los talones plantados dan paso a la testarudez y al aislamiento en un abrir y cerrar de ojos</strong>», dijo Maglio. «Cuando nuestras actitudes políticas se forman intuitivamente y nos hacen estar seguros de que tenemos razón, nos cerramos a la posibilidad de que podríamos estar incluso un poquito equivocados. Por esta razón, quizá un poco de la apertura que facilita la deliberación no sea mala idea después de todo».</p>
+        <p class="articulo-ref"><strong>Artículo:</strong> «Feeling Certain: Gut Choice, the True Self, and Attitude Certainty» («Sintiéndose seguro: elección visceral, el verdadero yo y la certeza actitudinal»), de Sam Maglio, PhD, Universidad de Toronto Scarborough, y Taly Reich, PhD, Universidad de Yale. <em>Emotion</em>, publicado en línea el 10 de septiembre de 2018.</p>
+      </div>
+
+      <h2>El artículo científico</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Resumen</h3>
+        <p>Las decisiones no siempre tienen que ser deliberadas. En cambio, las personas que enfrentan elecciones pueden reclutar sus sentimientos viscerales, procesando la información sobre las opciones de acuerdo con lo que sienten sobre ellas en lugar de lo que piensan. Apoyarse en los sentimientos puede cambiar lo que la gente elige, pero ¿podría esta estrategia de decisión también impactar cómo evalúan las opciones elegidas? La presente investigación aborda esta pregunta integrando ideas de las literaturas separadas sobre el verdadero yo y la certeza actitudinal. Cuatro estudios apoyan un modelo de proceso mediante el cual centrarse en los sentimientos (frente a la deliberación) al elegir hace que las personas vean su verdadero yo reflejado en esas elecciones (estudios 1 y 2), lo que conduce a una mayor certeza actitudinal (estudio 3) y a la defensa de esa actitud (estudio 4), ofreciendo comprobaciones de robustez y teniendo en cuenta explicaciones alternativas a lo largo del trabajo.</p>
+        <p class="articulo-ref"><strong>Palabras clave:</strong> sentimientos, actitudes, estrategia de decisión, elección, verdadero yo.</p>
+      </div>
+
+      <h2>Los tres pilares del modelo</h2>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Sentimientos y elección</h3>
+          <p>Contra el supuesto dominante de que la deliberación cuidadosa es la vía óptima, décadas de investigación han defendido el valor de las decisiones basadas en sentimientos para lograr elecciones más precisas y satisfactorias. Bajo la lente de la <strong>heurística del afecto</strong>, los decisores etiquetan las opciones según el grado de sentimientos positivos o negativos que estas evocan: no consultan lo que piensan o saben, sino cómo se sienten ante la información.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>El verdadero yo</h3>
+          <p>El verdadero yo se concibe en el imaginario popular como una esencia interior, profunda, fundamental e inquebrantable en su carácter y valores, en contraste con el yo actual, que piensa y actúa de manera cambiante según las situaciones. La gente cree que todo el mundo posee un verdadero yo inherentemente virtuoso, que se manifiesta de forma automática y no consciente, y adherirse a sus prescripciones se asocia con decisiones mejores, más satisfactorias y con una vida más significativa.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Certeza actitudinal</h3>
+          <p>Las personas no solo forman evaluaciones, sino que evalúan esas evaluaciones: las actitudes varían en la certeza con que se sostienen, un marcador de su fuerza. La certeza proviene de información precisa, completa, relevante y de la experiencia subjetiva. El verdadero yo cumple las cuatro condiciones: es relevante en todas las situaciones, inquebrantable y goza de gran confianza («la brújula que siempre apunta en la misma dirección correcta»).</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <p>La lógica del modelo: los sentimientos, confinados dentro del yo y vistos como una propiedad automática, estable e innata («confiamos en nuestras reacciones, creemos que son verdaderas», escribió Zajonc), evocan el verdadero yo en la elección. Y como el verdadero yo no vacila con el contexto, lo que de él deriva debería sentirse igual de firme en cualquier circunstancia: «el verdadero yo solo come orgánico... aunque hoy esté comiendo Taco Bell». De ahí que elegir «desde las entrañas» debería generar actitudes más seguras, que a su vez predicen conductas de defensa de la elección.</p>
+        <p class="datos"><strong>Diseño cuidadoso:</strong> en todos los estudios, las opciones se construyeron de modo que ninguna fuera favorecida, y no se diseñaron atributos que apelaran distintivamente a la intuición o la deliberación. Así, cualquier diferencia en las actitudes posteriores a la elección no puede atribuirse a la precisión o al ajuste entre estrategia y atributos: lo que se pone a prueba es el efecto de la <em>estrategia</em> en sí, no del resultado elegido.</p>
+      </div>
+
+      <h2>Los cuatro estudios</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Estudio</th>
+              <th>Elección</th>
+              <th><em>N</em></th>
+              <th>Hallazgo clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Reproductores de DVD</td><td>90</td><td>Elegir por sentimientos evoca más el verdadero yo (<em>M</em> = 4,63 vs. 3,57; <em>d</em> = 0,70)</td></tr>
+            <tr><td>2</td><td>Tazas de viaje</td><td>88</td><td>Presentación en color (vs. b/n) y atributos experienciales (vs. materiales) aumentan el reflejo del verdadero yo</td></tr>
+            <tr><td>3</td><td>Alquileres de apartamentos</td><td>215</td><td>El verdadero yo media: con atribución elevada, la certeza se iguala entre estrategias</td></tr>
+            <tr><td>4</td><td>Restaurantes (diseño con incentivo)</td><td>60</td><td>Quienes eligen intuitivamente comparten su elección con más contactos (<em>M</em> = 1,93 vs. 0,83; <em>d</em> = 0,58)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 1: Los sentimientos evocan el verdadero yo</h3>
+        <p>Noventa participantes reclutados en Toronto imaginarían comprar un reproductor de DVD entre dos opciones igualmente atractivas (un Sony de 69,99 dólares y un Philips de 64,99, con dos atributos idénticos y uno no alineable en cada uno). Se asignaron aleatoriamente a decidir con su «análisis racional deliberativo», con su «sentimiento visceral intuitivo», o sin instrucción alguna.</p>
+        <p>La elección concreta no varió según la estrategia, pero sí el reflejo del verdadero yo (<em>F</em>(1, 87) = 4,11; <em>p</em> = ,020): centrarse en los sentimientos evocó el verdadero yo significativamente más (<em>M</em> = 4,63) que decidir deliberativamente (<em>M</em> = 3,57; <em>d</em> = 0,70) o sin instrucciones (<em>M</em> = 3,70; <em>d</em> = 0,64), sin diferencias entre estas dos últimas condiciones. Que el control no difiriera de la deliberación sugiere que el efecto no lo impulsa la deliberación en sí ni posibles confusiones asociadas (por ejemplo, que la instrucción de análisis racional vuelva más críticos a los participantes).</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 2: Elecciones materiales frente a experienciales</h3>
+        <p>Este estudio avanzó en tres frentes: una manipulación más sutil de la estrategia (presentar las opciones en color para inducir sentimientos frente a blanco y negro para inducir deliberación, basándose en la riqueza sensorial que facilita el procesamiento afectivo), un dominio nuevo (tazas de viaje, con atributos descritos en términos materiales —volumen, aislamiento— o experienciales —facilidad de limpieza, comodidad—), y controles adicionales (tiempo de decisión registrado encubiertamente y agrado por la taza elegida).</p>
+        <p>Ochenta y ocho participantes vieron tres tazas definidas por cinco atributos. Contra lo esperado, no hubo interacción entre presentación y atributos, sino dos efectos principales aditivos: los participantes vieron su verdadero yo reflejado más en las tazas presentadas en color (<em>M</em> = 3,91) que en blanco y negro (<em>M</em> = 2,85; <em>d</em> = 0,55), y en las descritas con atributos experienciales (<em>M</em> = 3,77) frente a materiales (<em>M</em> = 3,02; <em>d</em> = 0,38). Al controlar el agrado, el efecto de la presentación se mantuvo, mientras que el de los atributos desapareció, sugiriendo vías distintas: la estrategia de decisión actuaría directamente y los atributos a través del agrado. No hubo diferencias en tiempo de decisión, descartando el esfuerzo o la dificultad como explicaciones alternativas, y la manipulación sutil precluye efectos de demanda o procesamiento superficial.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 3: Manipulación de la atribución</h3>
+        <p>Para poner a prueba el papel mediador del verdadero yo entre estrategia y certeza actitudinal, se empleó un diseño de moderación del proceso: 215 participantes de Mechanical Turk eligieron entre cuatro alquileres de apartamentos (definidos por seis atributos en una cuadrícula), decidiendo por deliberación o sentimientos, y luego se asignaron aleatoriamente a una condición de <em>verdadero yo elevado</em> («donde la gente elige vivir dice mucho sobre su verdadero yo, quien realmente es por dentro») o de control (solo las gracias). Después se midió su certeza sobre la opinión acerca del apartamento elegido.</p>
+        <p>El resultado fue una interacción significativa (<em>F</em>(1, 211) = 4,04; <em>p</em> = ,046): en la condición de control, quienes decidieron por sentimientos estaban más seguros (<em>M</em> = 5,85) que quienes decidieron deliberadamente (<em>M</em> = 5,31; <em>d</em> = 0,47); pero entre quienes fueron llevados a ver cualquier elección de vivienda como reflejo del verdadero yo, la certeza fue igualmente alta en ambas estrategias (<em>M</em> = 5,76 vs. 5,87; <em>F</em> &lt; 1). Este patrón de moderación del proceso respalda la explicación basada en la evocación del verdadero yo, independiente del esfuerzo o la dificultad de la elección.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 4: De la certeza a la defensa</h3>
+        <p>Sesenta estudiantes participaron en un diseño consecuente e incentivado: eligieron entre cuatro restaurantes supuestamente reales y luego pudieron compartir su elección con contactos de su red social. El señuelo: una colaboración fingida con una web de cupones según la cual, por cada tres contactos que compraran la oferta (10 dólares por un certificado de 25), el participante recibiría un certificado gratuito para el restaurante elegido. Así, compartir la elección tenía un beneficio real ligado a ella. Los restaurantes se presentaron en cuadrícula con 12 datos por opción, mostrados en serie a razón de 10 segundos por columna.</p>
+        <p>La elección no varió según la estrategia, pero sí la conducta de compartir (<em>F</em>(1, 58) = 4,97; <em>p</em> = ,030): quienes eligieron por sentimientos compartieron la oferta con más direcciones de correo (<em>M</em> = 1,93) que quienes decidieron deliberativamente (<em>M</em> = 0,83; <em>d</em> = 0,58). Dado que el 57 % de todos los participantes no compartió ninguna dirección, se examinó también la mera propensión a compartir algo. El sondeo posterior confirmó que todos creyeron real el montaje. Este estudio conecta la certeza actitudinal derivada de los sentimientos con una consecuencia conductual tangible: la defensa pública de la propia elección.</p>
+      </article>
+
+      <h2>Discusión</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Qué aporta esta investigación</h3>
+        <p>El modelo de proceso integra tres literaturas separadas —decisiones basadas en sentimientos, el verdadero yo y la certeza actitudinal— para trazar una cadena completa: centrarse en los sentimientos al elegir hace que las personas vean sus opciones como más alineadas con su verdadero yo (estudios 1 y 2), lo que explica la certeza de su actitud hacia lo elegido (estudio 3), la cual a su vez predice conducta real derivada de esa actitud (estudio 4). A lo largo del camino se ofrecen comprobaciones de robustez y se descartan explicaciones alternativas: que elijan cosas distintas, el esfuerzo o dificultad de la elección, el mero agrado, los efectos de demanda o el procesamiento superficial de la información.</p>
+        <p>Un matiz conceptual interesante: aunque los estudios previos sobre el verdadero yo se centraban en cómo los observadores diagnostican el verdadero yo de <em>otros</em>, esta investigación examina cómo las personas ven sus <em>propias</em> elecciones como reflejo de su verdadero yo, manteniendo constante el contenido de los consejos de pensamientos y sentimientos para aislar el efecto de la estrategia de decisión en sí.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">La espada de doble filo</h3>
+        <p>La seguridad derivada de las decisiones intuitivas no es intrínsecamente buena ni mala. Cuando plantarse en el propio sitio conviene —como comprometerse con un programa de ejercicio elegido de corazón—, la convicción firme es un activo que favorece la constancia. Pero el mismo mecanismo que nos ancla a la bicicleta diaria puede anclarnos a posiciones políticas: si nuestras actitudes se forman intuitivamente y nos hacen ciertos de nuestra razón, nos cerramos a la posibilidad de estar equivocados. En el clima político polarizado actual, quizá algo de la apertura que facilita la deliberación no sea mala idea después de todo.</p>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>Al tomar decisiones, las personas deben decidir no solo <em>qué</em> elegir, sino <em>cómo</em> elegirlo. Esta investigación muestra que esa segunda elección —entre deliberación y sentimiento— no es neutral: elegir «desde las entrañas» hace que las opciones se perciban como más esenciales, verdaderas e inquebrantables respecto a uno mismo, genera actitudes más seguras y convierte a quienes eligen en defensores más activos de sus decisiones. La sabiduría popular que manda desconfiar de la intuición encuentra aquí un matiz: no podemos escapar de nuestros sentimientos viscerales, y cuando los consultamos, no solo decidimos distinto, sino que creemos más firmemente en lo que hemos decidido.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Feeling Certain (PDF, 215 KB) — artículo original</a></li>
+      <li><a href="#">Emotion — revista de la APA</a></li>
+    </ul>
+
+    <footer>
+      <p>Fecha de creación: 10 de septiembre de 2018 · Nota de prensa de la Asociación Americana de Psicología</p>
+      <p>Contacto de prensa: Jim Sliwa · (202) 336-5707</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

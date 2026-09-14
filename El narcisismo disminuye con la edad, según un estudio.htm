@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El narcisismo disminuye con la edad, según un estudio</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .cita {
+      border-left: 4px solid var(--borde);
+      margin: 1rem 0;
+      padding: .5rem 1rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    .cita strong {
+      color: var(--texto);
+      font-style: normal;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Nota de prensa · 11 de julio de 2024</span>
+      <h1>El narcisismo disminuye con la edad, según un estudio</h1>
+      <p class="subtitulo">Pero las personas que son más narcisistas en la infancia tienden a seguir siéndolo de adultas</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Personalidad</span>
+      <span class="tema">Adultos mayores y envejecimiento</span>
+      <span class="tema">Investigación</span>
+      <span class="tema">Trastornos de la personalidad</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p>Las personas tienden a volverse menos narcisistas a medida que envejecen, desde la infancia hasta la adultez mayor, según un estudio publicado por la Asociación Americana de Psicología. Sin embargo, el estudio halló que las diferencias entre individuos permanecen estables a lo largo del tiempo: las personas que son más narcisistas que sus pares en la infancia tienden a seguir siéndolo de adultas.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta">
+        <p class="cita"><strong>«</strong>Estos hallazgos tienen implicaciones importantes dado que los niveles altos de narcisismo influyen en la vida de las personas de muchas maneras, tanto en las vidas de los propios individuos narcisistas como, quizás incluso más, en las vidas de sus familias y amigos<strong>»</strong>, dijo el autor principal Ulrich Orth, PhD, de la Universidad de Berna, en Suiza.</p>
+        <p class="articulo-ref">La investigación fue publicada en la revista <em>Psychological Bulletin</em>.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Orth y sus colegas analizaron datos de 51 estudios longitudinales, todos los cuales medían cómo cambiaban los niveles de narcisismo de los participantes a lo largo del tiempo. Los estudios comprendieron 37.247 participantes (52 % mujeres y 48 % hombres) con edades comprendidas entre los 8 y los 77 años. Algunos de los estudios siguieron a los participantes durante décadas. La mayoría se realizaron en Estados Unidos, Canadá y Europa occidental, con uno en China y otro en Nueva Zelanda.</p>
+        <p>Los investigadores codificaron si cada estudio medía uno o más de tres tipos diferentes de narcisismo: <strong>agéntico</strong>, <strong>antagónico</strong> y <strong>neurótico</strong>. El narcisismo agéntico incluye sentimientos de grandiosidad o superioridad y una fuerte necesidad de admiración; el narcisismo antagónico incluye arrogancia, sentimiento de derecho propio (<em>entitlement</em>), insensibilidad y baja empatía; y el narcisismo neurótico implica desregulación emocional e hipersensibilidad.</p>
+        <p>En general, los investigadores encontraron que los tres tipos de narcisismo disminuyeron desde la infancia hasta la vejez, con una pequeña disminución para el narcisismo agéntico y una disminución moderada para el narcisismo antagónico y el neurótico.</p>
+        <p>Sin embargo, los investigadores también encontraron que el narcisismo de las personas en relación con el de sus pares no cambió significativamente a lo largo del tiempo. En otras palabras, las personas que eran más narcisistas que el promedio en la infancia seguían siendo más narcisistas que el promedio de adultas.</p>
+        <p class="cita">«Esto fue cierto incluso a lo largo de períodos de tiempo muy largos, lo que sugiere que el narcisismo es un rasgo de personalidad estable», dijo Orth.</p>
+        <p>La mayoría de los datos analizados en el estudio provenían de Estados Unidos y Europa occidental, por lo que las investigaciones futuras deberían examinar el narcisismo en una gama más amplia de países y culturas, dijo Orth.</p>
+        <p>Las investigaciones futuras también deberían apuntar a explorar las razones por las que el narcisismo disminuye con la edad, según Orth. «Una teoría sugiere que los roles sociales que asumimos en la adultez —por ejemplo, como pareja, padre, empleado, etcétera— conducen al desarrollo de características de personalidad más maduras, incluidos niveles más bajos de narcisismo», dijo.</p>
+        <p class="articulo-ref"><strong>Artículo:</strong> «Development of Narcissism Across the Life Span: A Meta-Analytic Review of Longitudinal Studies» («Desarrollo del narcisismo a lo largo de la vida: una revisión metaanalítica de estudios longitudinales»), de Ulrich Orth, PhD, y Samantha Krauss, PhD, Universidad de Berna; y Mitja D. Back, PhD, Universidad de Münster. <em>Psychological Bulletin</em>, publicado en línea el 11 de julio de 2024.</p>
+      </div>
+
+      <h2>El artículo científico</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Resumen</h3>
+        <p>Esta revisión metaanalítica investigó el desarrollo del narcisismo a lo largo de la vida, sintetizando los datos longitudinales disponibles sobre el cambio de nivel medio y la estabilidad del orden de rangos. Se examinaron tres factores del narcisismo: el narcisismo agéntico, el antagónico y el neurótico. Los análisis se basaron en datos de 51 muestras, que incluyeron 37.247 participantes. Como medidas del tamaño del efecto se utilizaron el cambio medio estandarizado <em>d</em> por año y las correlaciones test-retest corregidas por atenuación debida al error de medición. Los resultados sugirieron que el narcisismo típicamente disminuye de los 8 a los 77 años (es decir, el rango de edad observado), con cambios agregados de <em>d</em> = −0,28 para el narcisismo agéntico, <em>d</em> = −0,41 para el narcisismo antagónico y <em>d</em> = −0,55 para el narcisismo neurótico.</p>
+        <p>La estabilidad del orden de rangos del narcisismo fue alta, con valores promedio de 0,73 (agéntico), 0,68 (antagónico) y 0,60 (neurótico), sobre la base de un intervalo de tiempo promedio de 11,42 años. La estabilidad del orden de rangos no varió en función de la edad. Sin embargo, disminuyó en función del intervalo entre mediciones, acercándose asintóticamente a valores de 0,62 (agéntico), 0,52 (antagónico) y 0,33 (neurótico) en intervalos largos. Los análisis de moderadores indicaron que los hallazgos sobre el cambio de nivel medio y la estabilidad del orden de rangos se mantuvieron a través del sexo y de la cohorte de nacimiento. El conjunto de datos metaanalíticos incluyó principalmente muestras occidentales y blancas/europeas, lo que apunta a la necesidad de realizar más investigación con muestras no occidentales y étnicamente diversas. En suma, los hallazgos sugieren que el narcisismo agéntico, antagónico y neurótico muestran declives normativos a lo largo de la vida, y que las diferencias individuales en estos factores son moderadamente (neurótico) a altamente (agéntico, antagónico) estables con el tiempo.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Declaración de significancia pública</h3>
+        <p>Esta revisión metaanalítica sugiere que el nivel de narcisismo de las personas típicamente disminuye a lo largo del curso de la vida. Los cambios agregados de la infancia a la vejez fueron de tamaño pequeño a mediano. Los resultados también indicaron que la estabilidad del orden de rangos del narcisismo es alta, incluso a lo largo de períodos largos, lo que respalda la conclusión de que el narcisismo debe considerarse un rasgo de la personalidad. Los hallazgos tienen implicaciones importantes dado que los niveles altos de narcisismo influyen en la vida de las personas de muchas maneras, tanto en las vidas de los propios individuos narcisistas como, quizás incluso más, en las vidas de las personas con las que se encuentran.</p>
+      </div>
+
+      <h2>Los tres factores del narcisismo</h2>
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3>Narcisismo agéntico</h3>
+          <p>Se caracteriza por la necesidad de admiración, sentimientos de grandiosidad y superioridad, asertividad, liderazgo y motivación de aproximación. Genera menos problemas interpersonales en comparación con los otros factores.</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Narcisismo antagónico</h3>
+          <p>Incluye aspectos como arrogancia, explotación, engaño, sentimiento de derecho propio, insensibilidad y baja empatía. Este factor capta las facetas antipáticas y antisociales del narcisismo.</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Narcisismo neurótico</h3>
+          <p>Se caracteriza por la desregulación emocional, la hipersensibilidad y la propensión a la vergüenza.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <p>El modelo de tres factores también ayuda a comprender mejor las similitudes y diferencias entre los conceptos de narcisismo grandioso y vulnerable. Mientras que el narcisismo grandioso comprende los factores agéntico y antagónico, el narcisismo vulnerable combina los factores neurótico y antagónico. Así, ambos convergen en el componente antagónico, pero difieren en si el componente agéntico o el neurótico moldea los atributos narcisistas del individuo.</p>
+        <p>Además, el modelo ayuda a entender la relación entre el narcisismo y la autoestima: mientras que el narcisismo agéntico muestra una correlación positiva mediana con la autoestima (alrededor de 0,30), el narcisismo antagónico muestra una correlación negativa pequeña (alrededor de −0,10 a −0,20) y el narcisismo neurótico muestra una correlación negativa grande (alrededor de −0,60).</p>
+      </div>
+
+      <h2>Perspectivas teóricas sobre el declive del narcisismo</h2>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Modelo de inversión social</h3>
+          <p>Los individuos invierten en los roles sociales que asumen (en las relaciones, en el trabajo y en la sociedad) y su personalidad se desarrolla hacia características que les ayudan a funcionar bien en esos roles. Estos procesos conducen a un aumento de rasgos maduros —amabilidad, escrupulosidad y estabilidad emocional—, lo que se ha resumido como el <em>principio de madurez</em> del desarrollo de la personalidad. Dado que el narcisismo se considera antitético a la madurez, el modelo sugiere que debería disminuir a lo largo de la vida.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Teoría de la selectividad socioemocional</h3>
+          <p>A medida que las personas se hacen mayores, cambian su enfoque de la adquisición de nuevos recursos personales y la disposición a afrontar desafíos emocionales hacia la protección de la estabilidad emocional y de las relaciones personales cercanas. Como el núcleo motivacional del narcisismo es la búsqueda de estatus social, cabría esperar que esta búsqueda se debilite con la edad y que el narcisismo tienda a declinar.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Cambios en la inadaptación</h3>
+          <p>Las tendencias narcisistas podrían ser relativamente adaptativas en la adolescencia y la adultez emergente, períodos caracterizados por una mayor atención centrada en uno mismo y la búsqueda de identidad. Los adolescentes tienden a experimentar ilusiones de omnipotencia y de unicidad personal. Más tarde, al transitar hacia roles adultos con responsabilidades importantes, se supone que el narcisismo se vuelve más inadaptativo.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">4</span>Modelo del principio de realidad</h3>
+          <p>La probabilidad de fracasos aumenta a medida que los individuos avanzan por la infancia, la adolescencia y la adultez joven: muchas personas experimentan fracasos y rechazos en las relaciones románticas, el acceso a instituciones educativas y la selección para los trabajos deseados. La acumulación de experiencias de fracaso relacionada con la edad explicaría los niveles decrecientes de narcisismo.</p>
+        </div>
+      </div>
+
+      <h2>Resultados principales</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Cambio de nivel medio</h3>
+        <p>El cambio medio ponderado por año fue negativo para los tres factores (es decir, un declive). Ninguna estimación difirió significativamente de cero en el conjunto completo de muestras, pero las conclusiones se basaron en las muestras no clínicas, más representativas de la población general.</p>
+        <div class="tabla-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th><em>k</em></th>
+                <th><em>N</em></th>
+                <th>Cambio medio (<em>d</em>/año)</th>
+                <th>IC del 95 %</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Agéntico</td>
+                <td>80</td>
+                <td>34.119</td>
+                <td>−0,004</td>
+                <td>[−0,028, 0,021]</td>
+              </tr>
+              <tr>
+                <td>Antagónico</td>
+                <td>27</td>
+                <td>5.850</td>
+                <td>−0,006</td>
+                <td>[−0,028, 0,017]</td>
+              </tr>
+              <tr>
+                <td>Neurótico</td>
+                <td>17</td>
+                <td>2.802</td>
+                <td>−0,008</td>
+                <td>[−0,041, 0,024]</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>De los 8 a los 77 años, el narcisismo agéntico disminuyó en <em>d</em> = −0,28, el antagónico en <em>d</em> = −0,41 y el neurótico en <em>d</em> = −0,55. A modo de comparación, otros cambios agregados a lo largo de la vida son mayores: alrededor de <em>d</em> = 1,25 para la estabilidad emocional, <em>d</em> = 1,25 para la autoestima, <em>d</em> = 1,00 para la apertura y <em>d</em> = 0,70 para la extraversión.</p>
+        <p>El estado clínico de la muestra sí fue un moderador significativo: las muestras clínicas mostraron declives mucho mayores, probablemente por sesgo de selección y regresión a la media. El sexo y la cohorte de nacimiento no moderaron los resultados, de modo que los datos <strong>no respaldan</strong> la hipótesis de que las cohortes llamadas «Generación Yo» (nacidas entre los años setenta y noventa) sigan trayectorias de narcisismo más problemáticas que las generaciones anteriores.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Estabilidad del orden de rangos</h3>
+        <p>La estabilidad del orden de rangos —es decir, el grado en que se mantienen las diferencias individuales a lo largo del tiempo— fue alta: valores promedio de 0,73 (agéntico), 0,68 (antagónico) y 0,60 (neurótico) con un intervalo promedio de 11,42 años. A diferencia de otros rasgos de personalidad, no aumentó con la edad ni alcanzó un plateau en la mediana edad.</p>
+        <p>Al modelar una función de decaimiento exponencial, la asíntota de la estabilidad a largo plazo fue de 0,62 para el narcisismo agéntico, 0,52 para el antagónico y 0,33 para el neurótico. Esto significa que la estabilidad no se aproxima a cero con el paso de los años, sino a una asíntota distinta de cero que captura el componente perdurable de las diferencias individuales.</p>
+        <p>La investigación genética sugiere que los factores genéticos explican alrededor de la mitad de la varianza en las características narcisistas, pero también que factores ambientales como la crianza influyen en el nivel de narcisismo de los niños.</p>
+      </div>
+
+      <h2>Implicaciones y limitaciones</h2>
+
+      <div class="tarjeta">
+        <p>Aunque el declive normativo se refiere a los niveles promedio de la población, las trayectorias individuales pueden mostrar una varianza significativa en torno a esa trayectoria normativa. Cuánto se desvían las trayectorias individuales es actualmente desconocido y queda pendiente para investigaciones futuras.</p>
+        <p>Los hallazgos tienen posibles implicaciones clínicas: sugieren que los niveles clínicamente elevados de narcisismo deberían volverse menos probables a lo largo de la vida. De hecho, la investigación sugiere que la prevalencia de los trastornos de la personalidad, como el trastorno narcisista de la personalidad, disminuye con la edad.</p>
+        <p>Comparado con los cinco grandes rasgos de personalidad, el narcisismo agéntico se correlaciona fuertemente con la extraversión, el antagónico con la baja amabilidad y el neurótico con el neuroticismo. La trayectoria del narcisismo agéntico difiere sustancialmente de la de la autoestima (que aumenta hasta picar alrededor de los 60-70 años), lo que apoya que es esencial distinguir entre estos constructos.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Limitaciones</h3>
+        <p>Casi todas las muestras provenían de contextos culturales occidentales (la única excepción fue una muestra de China), por lo que no fue posible probar si el patrón de hallazgos se mantiene en muestras de países asiáticos, africanos, sudamericanos y centroamericanos. Además, la mayoría de las muestras eran predominantemente blancas/europeas (57 % de las muestras con información disponible), y el número de datos provenientes de la vejez fue relativamente bajo, por lo que los hallazgos sobre esa etapa deben interpretarse con mayor cautela.</p>
+        <p>Como la investigación incluyó muestras desde los 8 años, cabe señalar que el modelo de tres factores del narcisismo no ha sido evaluado por completo en muestras infantiles, aunque la evidencia disponible sugiere que los factores agéntico y antagónico sí pueden distinguirse en niños. Por último, el enfoque metaanalítico examina datos a nivel de muestra, no a nivel individual, por lo que no aporta información sobre las diferencias individuales en las trayectorias.</p>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>Basándose en datos longitudinales de 51 muestras, esta revisión metaanalítica sugirió que todos los factores del narcisismo —agéntico, antagónico y neurótico— muestran un declive normativo a lo largo de la vida, en línea con el modelo de inversión social y la teoría de la selectividad socioemocional. Los cambios agregados de la infancia a la vejez fueron de tamaño pequeño a mediano, de modo que los niveles medios de narcisismo son más estables que los de muchos otros constructos de personalidad. La estabilidad del orden de rangos fue alta y disminuyó en función del intervalo entre mediciones, acercándose a asíntotas distintas de cero. Estos resultados respaldan la conclusión de que el narcisismo agéntico, antagónico y neurótico deben considerarse rasgos de personalidad. En suma, estos hallazgos sobre estabilidad y cambio tienen implicaciones importantes, dado que los niveles altos de narcisismo influyen en la vida de las personas de muchas maneras, tanto en las de los propios individuos narcisistas como, quizás incluso más, en las de las personas con las que se encuentran.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Development of Narcissism Across the Life Span (PDF, 776 KB) — artículo original</a></li>
+      <li><a href="#">Psychological Bulletin — revista de la APA</a></li>
+    </ul>
+
+    <footer>
+      <p>Fecha de creación: 11 de julio de 2024 · Nota de prensa de la Asociación Americana de Psicología</p>
+      <p>Contacto de prensa: Lea Winerman · (202) 336-5700</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

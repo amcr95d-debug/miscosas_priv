@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hacia un modelo jerárquico de la cognición social: metaanálisis de neuroimagen y revisión integradora de la empatía y la Teoría de la Mente</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor { max-width: 860px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    header { margin-bottom: 1.5rem; }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 { font-size: clamp(1.4rem, 4vw, 2rem); margin: 0 0 .5rem; line-height: 1.25; }
+    .subtitulo { color: var(--texto-suave); margin: 0; }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 { font-size: 1.05rem; margin: 1.5rem 0 .5rem; color: var(--acento); }
+
+    .temas { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 1.5rem; }
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .tarjeta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+    .tarjeta p { margin: 0 0 .75rem; }
+    .tarjeta p:last-child { margin-bottom: 0; }
+
+    .entradilla { border-left: 4px solid var(--acento); font-size: 1.05rem; }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+    .buscador:focus { border-color: var(--acento); box-shadow: 0 0 0 3px rgba(37, 99, 235, .15); }
+
+    .contador { font-size: .85rem; color: var(--texto-suave); min-height: 1.3em; margin: 0 0 1rem; }
+
+    .tabla-scroll { overflow-x: auto; margin: 1rem 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+    th, td { border: 1px solid var(--borde); padding: .5rem .75rem; text-align: left; vertical-align: top; }
+    th { background: var(--acento-suave); color: var(--acento); font-weight: 600; }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+    .pilares h3 { margin: 0 0 .5rem; font-size: 1rem; }
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .cluster { border-left: 4px solid var(--acento); }
+    .cluster h3 { margin-top: 0; }
+
+    .cognitivo { border-left: 4px solid #2563eb; }
+    .intermedio { border-left: 4px solid #10b981; }
+    .afectivo { border-left: 4px solid #ef4444; }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado { border-left: 4px solid var(--acento); }
+    .articulo-ref { font-size: .92rem; color: var(--texto-suave); }
+
+    mark { background: var(--marca); border-radius: 3px; padding: 0 2px; }
+
+    .relacionados { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+    .relacionados a:hover { color: var(--acento); border-color: #c7d2fe; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+    footer p { margin: .25rem 0; }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Metaanálisis y revisión · Psychological Bulletin · 2021</span>
+      <h1>Hacia un modelo jerárquico de la cognición social: metaanálisis de neuroimagen y revisión integradora de la empatía y la Teoría de la Mente</h1>
+      <p class="subtitulo">Schurz, Radua, Tholen, Maliske, Margulies, Mars, Sallet &amp; Kanske</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Empatía</span>
+      <span class="tema">Teoría de la Mente</span>
+      <span class="tema">Mentalización</span>
+      <span class="tema">Neuronas espejo</span>
+      <span class="tema">Toma de perspectiva</span>
+      <span class="tema">Cognición social</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p><strong>Resumen.</strong> Junto con el creciente interés y volumen de la investigación sobre cognición social, ha habido mayor conciencia de la falta de acuerdo sobre los conceptos y la taxonomía usados para estudiar los procesos sociales. Dos conceptos centrales del campo, la empatía y la Teoría de la Mente (ToM), han sido identificados como términos paraguas solapados para diferentes procesos de convergencia limitada. Aquí revisamos e integramos evidencia de activación cerebral, organización cerebral y conducta en un modelo coherente de procesos sociocognitivos. Comenzamos con una agrupación metaanalítica de datos de neuroimagen a través de diferentes tareas sociocognitivas. Los resultados muestran que entender los estados mentales de otros puede describirse mediante un <strong>modelo multinivel de estructura jerárquica</strong>, similar a los modelos de la investigación sobre inteligencia y personalidad. Un nivel superior describe clases de funcionamiento más amplias y abstractas, mientras que un nivel inferior explica cómo las funciones se aplican a contextos concretos dados por estímulos y formatos de tarea particulares. Específicamente, el nivel superior sugiere 3 grupos de procesos neurocognitivos: (a) procesos predominantemente <strong>cognitivos</strong>, que se activan cuando la mentalización requiere cognición autogenerada desacoplada del mundo físico; (b) procesos más <strong>afectivos</strong>, que se activan cuando presenciamos emociones en otros basándonos en representaciones emocionales, motoras y somatosensoriales compartidas; y (c) procesos <strong>combinados</strong>, que activan funciones cognitivas y afectivas en paralelo. Discutimos cómo estos procesos se explican por un gradiente principal subyacente de organización estructural del cerebro. Finalmente, validamos el modelo mediante una revisión de las interrelaciones entre tareas de empatía y ToM halladas en estudios conductuales.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta destacado">
+        <p><strong>Declaración de significancia pública:</strong> la empatía y la Teoría de la Mente son capacidades humanas importantes para entender a los demás. Aquí presentamos un metaanálisis de datos de neuroimagen de <strong>4.207 participantes</strong> que muestra que estas habilidades pueden deconstruirse en subprocesos neurocognitivos específicos y parcialmente compartidos. Nuestros hallazgos proporcionan apoyo sistemático y a gran escala para la hipótesis de que entender los estados mentales de otros puede describirse mediante un modelo multinivel de estructura jerárquica, similar a los modelos en la investigación sobre inteligencia y personalidad.</p>
+      </div>
+
+      <h2>El problema: dos términos paraguas en desacuerdo</h2>
+
+      <div class="tarjeta">
+        <p>La interacción social exitosa requiere representar no solo la conducta manifiesta de las personas sino también sus fuerzas subyacentes, como pensamientos y emociones. En las últimas dos décadas, la investigación conductual y de neuroimagen ha generado abundante evidencia sobre cómo logramos inferir los estados mentales inobservables de otros. Pero al mismo tiempo ha crecido la conciencia de la falta de acuerdo sobre los conceptos y la taxonomía: distintos términos se usan para describir procesos similares y, a veces, términos similares para procesos distintos.</p>
+        <p>En particular, dos términos han sido de importancia central: la <strong>empatía</strong>, que generalmente se refiere a una ruta afectiva para entender a otros, y la <strong>Teoría de la Mente (ToM)</strong> o <em>mentalización</em>, que se refiere a representaciones cognitivas de los estados mentales ajenos. En el plano conceptual, ambos se usan como términos paraguas para estudiar una variedad de procesos de convergencia limitada. A esto se suma que empatía y ToM se piensan ambas como compuestas por subformas afectivas y cognitivas, complicando aún más la distinción: las definiciones de ToM incluyen inferencias no solo sobre estados cognitivos (creencias, pensamientos) sino también sobre deseos y emociones (la llamada «ToM afectiva»); y las definiciones de empatía contienen procesos emocionales como compartir los sentimientos ajenos junto con procesos cognitivos como razonar sobre estados afectivos ajenos (la «empatía cognitiva»). Conceptualizaciones aún más amplias añaden la preocupación empática o compasión. Estos modelos variables de empatía y ToM desafían la integración de hallazgos entre campos y laboratorios distintos.</p>
+        <p>Un paso importante para clarificar las teorías actuales es determinar cómo se relacionan los diferentes conceptos entre sí y explorar cómo agruparlos mejor según procesos subyacentes comunes. Este enfoque también avanza una «deconstrucción» de los procesos sociales: el mapeo de términos amplios como ToM y empatía a un conjunto de procesos subyacentes que a su vez se vinculan a tareas experimentales concretas, en línea con la estrategia del marco RDoC (Research Domain Criteria) del NIMH para el estudio de los trastornos mentales.</p>
+      </div>
+
+      <h2>Método: 188 estudios, 11 grupos de tareas</h2>
+
+      <div class="tarjeta">
+        <p>Se revisó la literatura de neuroimagen sobre ToM y empatía (hasta noviembre de 2019, mediante PubMed e ISI Web of Science), clasificando los estudios con estímulos e instrucciones similares en <strong>grupos de tareas</strong>. Se incluyeron 103 estudios de la literatura de ToM divididos en seis grupos, y 85 de la literatura de empatía divididos en cinco, con coordenadas en espacio estándar (MNI o TAL) provenientes de análisis de cerebro completo y excluyendo muestras clínicas.</p>
+        <p>Para cada grupo se realizó un metaanálisis basado en tamaños del efecto con el método <strong>Signed Differential Mapping (SDM)</strong>, que incorpora los tamaños del efecto de las activaciones reportadas (valores g de Hedges) y pondera cada estudio por el inverso de su varianza más una estimación de heterogeneidad entre estudios. La significación se evaluó con pruebas de permutación (umbral <em>p</em> &lt; ,005 no corregido a nivel vóxel, 10 vóxeles de extensión mínima de clúster).</p>
+        <p>El paso central fue la <strong>agrupación jerárquica aglomerativa</strong> de los mapas metaanalíticos: primera agrupación de este tipo aplicada a mapas SDM de tamaño del efecto. Se transformaron los mapas no umbralizados en vectores de características (11 grupos × 902.629 vóxeles), se calcularon las correlaciones de Pearson por pares derivando una matriz de disimilitud (1 − r), y se aplicó clustering jerárquico en MATLAB con enlace promedio y distancia euclidiana. Para seleccionar la solución óptima se emplearon dos métricas: la <strong>distancia cofenética</strong> (la disimilitud entre subclústeres; una diferencia alta al pasar de un modelo de orden menor a mayor indica que introducir nuevos subclústeres produce patrones de actividad cerebral sustancialmente distintos) y la <strong>densidad de separación de tareas</strong> (una densidad baja indica divisiones equilibradas en número de grupos de tareas). La estabilidad se verificó con un análisis de sensibilidad jackknife de <em>dejar uno fuera</em> con 5.000 repeticiones: la consistencia de asignación fue buena (acuerdo &gt; 90 %) para la mayoría de los grupos de tareas, con excepción de las Acciones Racionales.</p>
+      </div>
+
+      <h2>Los 11 grupos de tareas</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Grupo</th>
+              <th>Descripción</th>
+              <th>Estudios</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>ToM: Creencias falsas</strong></td><td>Historias con estructura lógica: una persona tiene una creencia verdadera sobre un estado de cosas que luego cambia sin que ella lo sepa, volviéndose falsa su creencia. Control con condiciones de falsa fotografía de forma similar</td><td>25</td></tr>
+            <tr><td><strong>ToM: Juicios de rasgos</strong></td><td>Material escrito sobre los rasgos de otra persona (adjetivos, opiniones o episodios personales); inspirado en el descubrimiento de áreas cerebrales especializadas para conocimiento conceptual de categorías no animadas</td><td>19</td></tr>
+            <tr><td><strong>ToM: Juegos estratégicos</strong></td><td>Juegos con otro jugador (competición o cooperación, p. ej., el dilema del prisionero) con retroalimentación de sus decisiones pero sin verlo: la retroalimentación de un compañero social puede desencadenar mentalización espontánea (la «postura intencional»)</td><td>13</td></tr>
+            <tr><td><strong>ToM: Animaciones sociales</strong></td><td>Animaciones de formas geométricas simples con movimientos que remiten a interacciones intencionales (basadas en la tarea clásica de los triángulos de Heider y Simmel, 1944), como alternativa de bajo nivel al material verbal, para desencadenar ToM con entrada mínima; control con movimientos aleatorios o puramente mecánicos</td><td>20</td></tr>
+            <tr><td><strong>ToM: Lectura de la mente en los ojos</strong></td><td>Fotografía de la región ocular de un rostro; indicar qué adjetivo describe mejor el estado mental de la persona; creado para disociar habilidades sociales de la inteligencia general, con déficits en autismo de alto funcionamiento y en padres de niños con autismo</td><td>15</td></tr>
+            <tr><td><strong>ToM: Acciones racionales</strong></td><td>Cómics cortos: predecir una acción futura probable basada en las intenciones de un personaje; introducidos como alternativa no verbal a la mentalización basada en historias, en parte para estudiar cognición social en esquizofrenia con desorganización del habla</td><td>11</td></tr>
+            <tr><td><strong>Empatía: Observar dolor</strong></td><td>Vídeos o imágenes de manos bajo estimulación dolorosa (aguja) frente a no dolorosa (torunda de algodón), sin instrucción explícita de empatizar</td><td>21</td></tr>
+            <tr><td><strong>Empatía: Observar emociones</strong></td><td>Rostros con expresiones emocionales (ira, miedo) frente a neutras, juzgando por ejemplo el género de la persona</td><td>25</td></tr>
+            <tr><td><strong>Empatía: Compartir emociones o dolor</strong></td><td>Estímulos similares a los anteriores pero con instrucción explícita de compartir el estado emocional del objetivo («sentir dentro»); sonda formas más voluntarias y explícitas de empatía, posiblemente ligadas a procesos reguladores descendentes</td><td>12</td></tr>
+            <tr><td><strong>Empatía: Evaluar emociones situadas</strong></td><td>Contexto situacional añadido: juzgar la emoción de una persona según la situación que vive (narrada por ella misma o en texto), forma más naturalista de empatía distinta de los estímulos simplificados previos</td><td>15</td></tr>
+            <tr><td><strong>Empatía: Razonar sobre emociones</strong></td><td>Combinación de razonamiento sobre estados mentales y juicios emocionales (conceptos como empatía cognitiva, ToM afectiva, mentalización sobre la emoción, toma de perspectiva emocional); inferir una acción racional desencadenada por una emoción, o una emoción desencadenada por una creencia o revisión de creencias</td><td>12</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tarjeta">
+        <p class="datos"><strong>Nota metodológica:</strong> la asignación <em>a priori</em> de un grupo de tareas a la literatura de empatía o de ToM no afecta al clustering, que está dirigido puramente por las características de los mapas metaanalíticos de activación cerebral, con independencia de la terminología.</p>
+      </div>
+
+      <h2>Resultados: la solución de tres clústeres</h2>
+
+      <div class="tarjeta">
+        <p>Entre todas las agrupaciones posibles, la <strong>solución de tres clústeres mostró el mejor rendimiento</strong> según ambas métricas. La solución de dos clústeres ya retraza grandes partes de la distinción clásica ToM frente a empatía de la literatura —de los seis grupos de ToM, cinco acabaron en un clúster común, y tres de los cinco grupos de empatía se agruparon juntos—, pero la de tres explica varianza adicional sustancial. También hubo picos de rendimiento en los órdenes 8 y 11 (la solución de 11 asigna a cada grupo de tareas su propio clúster, señal de que la variabilidad tarea a tarea es grande). Esta estructura jerárquica permite adoptar una perspectiva multinivel, consistente con conceptualizaciones previas de la cognición social como fenómeno multicapa —como el «modelo de las muñecas rusas» de De Waal, que propone que las funciones nucleares de la mímica motora y el contagio emocional están embebidas en capas de procesos más complejos, hasta la toma de perspectiva—. Además, la naturaleza multinivel evade preocupaciones de sesgo de publicación: un sesgo típico (preferir resultados que confirman los hallazgos estándar de cada campo) podría inflar la evidencia de la solución de dos clústeres (empatía vs. ToM), pero no puede explicar las soluciones de tres y once, que cubren resultados a través de ambos campos.</p>
+      </div>
+
+      <div class="pilares">
+        <div class="tarjeta cluster cognitivo">
+          <h3>Clúster 1: Cognitivo</h3>
+          <p><strong>Red:</strong> activación principalmente en la línea media cortical y áreas temporoparietales: corteza cingulada anterior y corteza prefrontal medial (máxima activación), extendiéndose al precúneo y partes de la corteza cingulada media; áreas temporoparietales bilaterales (giro temporal superior posterior derecho, giro supramarginal derecho, giro temporal medio posterior izquierdo, lóbulo parietal inferior); cortezas temporales anteriores bilaterales y un clúster subcortical menor (caudado).</p>
+          <p><strong>Redes de reposo:</strong> mayor solapamiento con la <strong>red neuronal por defecto (DMN)</strong> (56 % de los vóxeles), seguida de la red frontoparietal (9 %) y la red de atención ventral/salencia (9 %).</p>
+          <p><strong>Decodificación Neurosynth:</strong> términos sociales más fuertes: <em>teoría de la mente, mentalización</em>; términos no sociales: <em>por defecto, autorreferencial, autobiográfico</em>.</p>
+          <p><strong>Interpretación:</strong> la cognición autogenerada <strong>desacoplada del mundo físico</strong>, mediada por la DMN, es relevante para la ToM porque no tenemos acceso perceptual inmediato a los estados mentales ajenos. La hipótesis de la autoproyección sostiene que la DMN usa experiencias pasadas de manera adaptativa para imaginar perspectivas y eventos más allá del entorno inmediato. Teorías afines vinculan la ToM a un mecanismo de desacoplamiento que separa las creencias de la realidad, a la metarrepresentación de estados mentales como actitudes proposicionales, o al procesamiento de estados mentales encubiertos (inobservables). El clúster contenía un subconjunto específico de tareas: creencias falsas, juicios de rasgos y juegos estratégicos —todas implicables por el desacoplamiento (los juegos estratégicos requieren seguir la posible decepción, y por tanto creencias)—. Los rasgos de personalidad pueden verse como estados mentales abstraídos a través de instancias concretas, a veces desacoplados de la conducta observable; se ha hipotetizado que los estados mentales transitorios (creencias) y estables (rasgos) se procesan conjuntamente en una representación multinivel, donde el conocimiento de los rasgos de una persona guía las expectativas sobre sus estados transitorios (una persona particularmente desconfiada será más difícil de engañar y menos propensa a tener creencias falsas).</p>
+        </div>
+        <div class="tarjeta cluster afectivo">
+          <h3>Clúster 3: Afectivo</h3>
+          <p><strong>Red:</strong> activación a través de la corteza frontal derecha, con pico en el giro frontal inferior, extendiéndose a la ínsula derecha y polo temporal, giros pre y postcentral, y giro supramarginal; también giro frontal inferior izquierdo, ínsula, áreas temporales y supramarginal; gran área en el área motora suplementaria, giro frontal medial adyacente y corteza cingulada media; áreas menores en el giro occipital inferior izquierdo y cerebelo izquierdo.</p>
+          <p><strong>Redes de reposo:</strong> red de atención ventral (26 %), red somatosensorial (16 %) y DMN (14 %).</p>
+          <p><strong>Decodificación Neurosynth:</strong> términos sociales: <em>dolor, miedo, afectivo, rostro</em> (y el término clínico TEA — trastorno del espectro autista); no sociales: cargas altas en términos de lenguaje (<em>palabra, fonológico, lenguaje, semántico</em>).</p>
+          <p><strong>Interpretación:</strong> activación fuerte en la ínsula izquierda, descrita como parte de una <strong>red nuclear que se activa siempre que presenciamos el sufrimiento de otros</strong> (empatía por el dolor y emociones negativas: ínsula anterior y corteza cingulada anterior consistentemente activas). Los patrones de activación en estas áreas predicen los estados afectivos del otro observado a través de modalidades distintas (dolor, asco, injusticia), sugiriendo que codifican rasgos <em>afectivos</em> más que sensoriales de los estímulos. Estas áreas se activan tanto al observar emociones como al experimentarlas en primera persona: la evidencia de las <strong>redes compartidas</strong>, embebida en el marco general de las neuronas espejo y compatible con teorías de codificación común acción-percepción y modelos percepción-acción: ver una expresión emocional activa automáticamente las representaciones motoras y somatosensoriales correspondientes en el observador (representación corporizada), lo que facilita la decodificación de esos estados emocionales. La mitad de los grupos de tareas de este clúster no instruía explícitamente a empatizar: al menos parte del proceso de compartir el afecto <strong>no necesita iniciarse volitivamente</strong>.</p>
+        </div>
+        <div class="tarjeta cluster intermedio">
+          <h3>Clúster 2: Intermedio (el hallazgo central)</h3>
+          <p><strong>Red:</strong> grandes partes de los lóbulos temporales bilaterales, desde los giros temporales superiores posteriores a los lóbulos temporales anteriores; solapamientos con partes del clúster cognitivo (corteza temporoparietal bilateral y precúneo) y del afectivo (ínsula izquierda y giro frontal inferior).</p>
+          <p><strong>Redes de reposo:</strong> DMN (43 %), red de atención ventral (18 %), red frontoparietal (10 %).</p>
+          <p><strong>Decodificación:</strong> combinación de términos de ambos clústeres, con términos de lenguaje con mayores cargas que en ambos (<em>oraciones, habla, escucha, comprensión</em>).</p>
+          <p><strong>Interpretación:</strong> mientras los clústeres cognitivo y afectivo reflejan dos procesos en gran medida independientes —la matriz de disimilitud los muestra como polos opuestos (correlación entre sus mapas no umbralizados: <em>r</em> = ,46)—, el intermedio guarda similitud con ambos polos (<em>r</em> = ,80 con el cognitivo; <em>r</em> = ,76 con el afectivo). Los contrastes metaanalíticos confirmaron activación específica común con el clúster cognitivo en el precúneo, la corteza prefrontal medial dorsal-posterior, áreas temporoparietales y temporales anteriores bilaterales; y con el afectivo en la ínsula izquierda, los giros frontales inferiores bilaterales, el precentral izquierdo, el temporal superior izquierdo y el área motora suplementaria. Este proceso común podría dar cuenta de los conceptos de <strong>ToM afectiva</strong>, <strong>empatía cognitiva</strong> y <strong>toma de perspectiva emocional</strong>. Por definición, los grupos Razonar sobre emociones, Animaciones sociales y Acciones racionales implican razonamiento sobre estados mentales (metas, intenciones o creencias), y las narrativas de Evaluación de emociones situadas dan información rica para inferir no solo sentimientos sino también pensamientos y deseos; a la vez, la mayoría de estas tareas piden procesamiento afectivo (las animaciones sociales muestran escenarios afectivos como burlarse, engañar o halagar, y elicitan respuestas emocionales subjetivas). <strong>El grado en que contenidos afectivos e inferencia de estados mentales ocurren juntos determina si las redes cognitiva y afectiva trabajan en concierto.</strong></p>
+        </div>
+      </div>
+
+      <h2>Posición sobre el gradiente principal de organización cortical</h2>
+
+      <div class="tarjeta">
+        <p>Para caracterizar mejor las relaciones funcionales, los mapas de activación se proyectaron sobre el <strong>gradiente principal de organización cortical macroscale</strong>, que describe un espectro funcional de cambios continuos en patrones de conectividad: la mayor distancia (en conectividad) de las áreas sensoriales y motoras primarias refleja procesamiento cada vez más abstracto y multimodal, desde representaciones unimodales sensoriomotoras en un extremo hasta representaciones abstractas multimodales en el otro (que corresponden en gran parte a la red por defecto).</p>
+        <p>Se razonó que si el clúster intermedio representa la participación paralela de procesos cognitivos y afectivos, su posición debería coextenderse con las de ambos; si representa un proceso único e independiente, su posición debería ser distinta. El resultado: el clúster intermedio tendió a solaparse con las ubicaciones de ambos clústeres antes que con otras posiciones. El <strong>clúster cognitivo se situó cerca del extremo transmodal del gradiente (percentiles 85-95)</strong>, apoyando su interpretación en términos de pensamiento abstracto e independiente del estímulo. El <strong>clúster afectivo se ubicó hacia la mitad del gradiente (percentiles 35-55)</strong>, lo que indica un procesamiento más sensorial y unimodal.</p>
+        <p>Estos hallazgos son notables porque durante el reposo pasivo las fluctuaciones espontáneas de las redes correspondientes (atención ventral y DMN) resultaron no relacionadas e incluso a veces anticorrelacionadas, y durante tareas de atención externa se encontró una relación inhibitoria entre ambas redes, interpretada como la atención ventral regulando a la baja la DMN para reducir interferencias. Aunque estas áreas parecen funcionalmente segregadas en muchos contextos, el metaanálisis identificó un conjunto de tareas (el intermedio) donde los procesos cognitivos y afectivos operan conjuntamente.</p>
+      </div>
+
+      <h2>El papel posible de los procesos de lenguaje</h2>
+
+      <div class="tarjeta">
+        <p>Un hallazgo notable de la decodificación fue que tanto el clúster intermedio como el afectivo mostraron altas cargas en términos de lenguaje. En el campo de la empatía se han propuesto dos visiones alternativas: la primera, basada en el espejeo, observa que las áreas con propiedades espejo (como el área de Broca, BA 44/45) se solapan con las áreas vinculadas tradicionalmente a la producción del habla, hipotetizando que el sistema motor representa un precursor evolutivo de las funciones del lenguaje (por lo que la decodificación podría reflejar no el lenguaje en sí, sino procesos motores/espejo en las mismas regiones); la segunda sugiere un papel más directo del lenguaje en el procesamiento y categorización de la emoción, con cuentas construccionistas psicológicas que proponen que los conceptos disponibles como palabras (ira, asco, miedo) moldean cómo las personas entienden sus experiencias como emociones específicas, combinando procesamiento conceptual soportado por lenguaje con experiencias básicas de afecto. En los relatos de ToM se ha discutido el papel del conocimiento semántico: metaanálisis previos muestran amplio solapamiento entre la red por defecto y procesos de lenguaje, se ha hipotetizado que la ToM implica conceptos de estados mentales que aprendemos (de niños) comunicándonos con lectores expertos de mentes, y algunas formas de mentalización se han vinculado a la recuperación de guiones semánticos sociales. Curiosamente, mientras la decodificación mostró cargas más débiles en el clúster cognitivo —que contiene tareas verbales clásicas de ToM—, las relaciones más fuertes con el lenguaje se encontraron en los clústeres afectivo e intermedio.</p>
+      </div>
+
+      <h2>Validación conductual: ¿se corresponde el clustering neural con el conductual?</h2>
+
+      <div class="tarjeta">
+        <p>Si los tres clústeres reflejan procesos neurocognitivos distintos de la cognición social, los estudios conductuales con tareas similares deberían encontrar el patrón correspondiente de intercorrelaciones. Dos predicciones se follow-up:</p>
+        <p><strong>Primera predicción — independencia cognitivo-afectiva: confirmada.</strong> Kanske et al. probaron razonamiento de creencias (cognitivo) y evaluación de emociones (afectivo) en una gran muestra de adultos no afectados con la tarea combinada EmpaToM: el rendimiento en ambas medidas <strong>no estuvo correlacionado</strong>. Tampoco hubo asociación con compuestos derivados de datos de varias tareas de ToM y empatía, ni entre la Lectura de la mente en los ojos (afectivo) y las Historias extrañas (cognitivo), tanto en niños de 7 a 12 años como en adultos. Además, se han encontrado <strong>doble disociaciones</strong> en el rendimiento cognitivo frente al afectivo en pacientes con lesiones en diferentes áreas cerebrales.</p>
+        <p><strong>Segunda predicción — correlaciones del intermedio con ambos polos: apoyada con matices.</strong> Se encontró correlación positiva entre la precisión de las valoraciones de animaciones sociales (intermedio) y los juicios de la reacción afectiva propia a rostros emocionales (afectivo); también entre la percepción de movimiento biológico (afectivo/intermedio) y la Lectura de la mente en los ojos (afectivo), en adultos y niños. Otra tarea vinculada al intermedio es el test del Faux Pas (meter la pata): entender una metedura de pata requiere procesar tanto estados tipo creencia (la ignorancia de alguien) como sus consecuencias afectivas (el arrepentimiento o vergüenza posterior por herir accidentalmente los sentimientos de otro); en consecuencia, se halló asociación de rendimiento entre el Faux Pas y la Lectura de la mente en los ojos. Las correlaciones entre tareas de los clústeres cognitivo e intermedio son más mixtas: no se encontró correlación entre animaciones sociales e Historias extrañas en adultos no afectados (posiblemente por restricción de rango, con efectos techo), pero sí al agrupar adultos no afectados con adultos con trastorno del espectro autista, y en niños entre percepción de movimiento biológico e Historias extrañas.</p>
+        <p class="datos"><strong>Implicación práctica para la medición:</strong> dado que las tareas del clúster intermedio (como el Faux Pas o las animaciones sociales) suelen mostrar buena discriminación clínica —para el espectro autista, la demencia frontotemporal y la esquizofrenia—, pero contienen procesos tanto cognitivos como afectivos, sus diferencias interindividuales podrían reflejar fuentes distintas (cognitivas, afectivas o ambas). Se sugiere seleccionar tareas según la solución de tres clústeres y presentar idealmente una combinación de ellas (cognitiva, afectiva e intermedia), lo que puede aumentar la capacidad de evaluar procesos sociales separados y conjuntos.</p>
+      </div>
+
+      <h2>Clustering de bajo nivel: el formato de estímulo importa, pero no todo lo explica</h2>
+
+      <div class="tarjeta">
+        <p>Las métricas apuntaron también a soluciones de bajo nivel con 8 y 11 clústeres, señal de que la activación cerebral contiene variabilidad adicional más allá de la capturada en el nivel alto. Para ilustrarlo, se mapearon dos distinciones populares: estímulos verbales frente a no verbales, y tareas instruidas frente a no instruidas. Consistente con la idea de encontrar clases de funcionamiento más abstractas en niveles superiores, <strong>ningún clúster de la solución de orden 3 contiene tareas de una sola categoría</strong> (por ejemplo, solo verbales). A niveles inferiores, partes de las subdivisiones van acompañadas de separaciones por formato de tarea o estímulo: por ejemplo, creencias falsas, juicios de rasgos y juegos estratégicos se agrupan en el nivel alto (tres clústeres), pero los juegos estratégicos —no verbales, de decisión estratégica— se separan en el de ocho. Sin embargo, el formato no proporciona una explicación completa: la Lectura de la mente en los ojos cae en las mismas categorías que los juicios de rasgos (verbal e instruida, y ambos de la literatura de ToM), pero ambas tareas acaban en posiciones opuestas del clustering, con mapas de activación de relativamente baja similitud. Se concluye que aunque el formato de estímulo y tarea impulsa parte de la variabilidad, no la explica por completo: esto apoya el modelo multinivel, donde la solución de tres clústeres (nivel superior) refleja clases de funcionamiento más abstractas y amplias, y las soluciones de ocho y once (nivel inferior) capturan variabilidad adicional que posiblemente describe cómo los procesos centrales se aplican en contextos concretos de tareas particulares.</p>
+      </div>
+
+      <h2>Relación con otros metaanálisis de cognición social</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Tema (metaanálisis relacionado)</th>
+              <th>Solapamiento principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Percepción de movimiento biológico (caminar, bailar)</td><td>Clúster intermedio (máximo), con solapamientos también en ambos polos</td></tr>
+            <tr><td>Observación de acción / espejeo (todo tipo, brazos, rostros)</td><td>Clúster afectivo (máximo), y en menor medida el intermedio</td></tr>
+            <tr><td>Inhibición de la imitación</td><td>Clústeres afectivo e intermedio de preferente</td></tr>
+            <tr><td>Emparejamiento de emociones (igualar expresiones de rostros)</td><td>Claramente el clúster afectivo</td></tr>
+            <tr><td>Etiquetado de emociones (facial, vocal, corporal)</td><td>Considerable en afectivo e intermedio</td></tr>
+            <tr><td>Procesamiento de recompensa vicaria (ver ganar dinero, recibir elogios o caricias)</td><td>Solapamientos limitados de igual tamaño en cognitivo y afectivo</td></tr>
+            <tr><td>Exclusión social (Cyberball, chat)</td><td>Principalmente clúster cognitivo, y en menor medida el afectivo</td></tr>
+            <tr><td>ToM espontánea (análisis multiestudio, sin instrucción)</td><td>Grados iguales de solapamiento con los tres clústeres, sin preferencia</td></tr>
+            <tr><td>Toma de perspectiva visual (qué puede ver otra persona)</td><td>Sin solapamiento prominente con ninguno de los tres</td></tr>
+            <tr><td>Modelado computacional de la ToM (teoría de juegos)</td><td>Ligera preferencia por el clúster cognitivo, con solapamiento adicional en el intermedio</td></tr>
+            <tr><td>Cognición moral (violaciones y dilemas morales)</td><td>Grandes solapamientos en cognitivo e intermedio, comparativamente poco en el afectivo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Conclusiones: una perspectiva jerárquica</h2>
+
+      <div class="tarjeta destacado">
+        <p>Más de dos décadas de investigación de neuroimagen y conductual han producido datos sustanciales y una rica variedad de teorías sobre los procesos neurocognitivos subyacentes a la capacidad humana de entender otras mentes. Este metaanálisis usó clustering jerárquico para ordenar y agrupar patrones neurales elicidados a través de una gama de tareas de empatía y ToM, y proporciona una respuesta guiada por los datos a la pregunta de <strong>cuántos factores o variables latentes son suficientes y apropiados para modelar la cognición social</strong>. La respuesta es doble: por un lado, el mejor rendimiento global se alcanzó con la división en tres clústeres, que proporciona una base sólida de evidencia para el supuesto de que empatía y ToM comparten ciertos procesos, y por tanto actividad cerebral, a través de diferentes tareas y estímulos. Pero la existencia concurrente de un nivel inferior adicional de clustering (esencialmente por tarea) resalta la pregunta sobre el nivel apropiado de concreción y detalle en las explicaciones neurocognitivas de la cognición social.</p>
+        <p>¿Será posible formular un mecanismo altamente específico aplicable a todas las tareas y contextos? Más bien se sugiere modelar la cognición social mediante teorías multinivel, similar a los modelos en otros campos como la investigación de la inteligencia, donde algunas explicaciones presentan un constructo central que refleja una variable latente que indica una función neurocognitiva más amplia y abstracta, y al pasar a tareas individuales se especifica cómo esa función se manifiesta en un contexto concreto y para un problema particular. Ilustración: se han descrito mecanismos dirigidos a explicar la comprensión de creencias falsas, supuesto sello de la cognición social humana; pero resulta difícil predecir si y cómo estos mecanismos se reclutan en otras tareas. ¿Cómo funcionaría un mecanismo de desacoplamiento de creencias del conocimiento de la realidad en el contexto de una tarea de juicios de rasgos? El enfoque de este metaanálisis aborda el problema situando los mecanismos más específicos de situación, como el desacoplamiento de creencias, en el nivel inferior del modelo jerárquico: desacoplar creencias representa una implementación específica de la función más amplia del pensamiento autogenerado y desacoplado en la cognición social (clúster cognitivo). La perspectiva multinivel acomoda el hecho de que (a) un mecanismo de desacoplamiento de creencias falsas no es perfectamente aplicable a otros contextos de tarea, pero (b) una clase funcional más amplia de pensamiento autogenerado en la cognición social forma la base del desacoplamiento de creencias (sin especificarla por completo).</p>
+        <p><strong>Sobre procesos sociales separados y combinados:</strong> el hallazgo novedoso central de la solución de tres clústeres es el clúster intermedio. Los resultados muestran que, más que ser una forma de procesamiento distinta, este clúster combina procesos de los clústeres cognitivo y afectivo. Mientras que etiquetas previas como ToM afectiva y empatía cognitiva reclaman este proceso para el dominio de la ToM o de la empatía respectivamente, se sugiere que referirse a esta función como <strong>ToM y empatía conjuntas</strong> proporciona un posicionamiento más imparcial en el paisaje terminológico. La coocurrencia de procesos cognitivos y afectivos se ha vinculado a formas más naturalistas de cognición social —por ejemplo, la precisión empática basada en narrativas de eventos va acompañada del coreclutamiento de áreas más afectivas (corteza premotora, lóbulo parietal inferior) y más cognitivas (corteza prefrontal medial, surco temporal superior)—, y también a las interacciones sociales cotidianas, esenciales para entender otras mentes, donde se ha observado activación conjunta en la línea media cortical y áreas motoras. Aunque tanto la cognición social naturalista como la interacción social podrían implicar procesos adicionales no cubiertos por los clústeres cognitivo y afectivo (como áreas relacionadas con la recompensa durante las interacciones sociales), otro grupo de tareas con coactivación de ambos procesos son las decisiones altruistas: el nivel de generosidad en donaciones a organizaciones benéficas fue predicho por patrones de actividad cerebral tanto en la unión temporoparietal derecha como en la ínsula anterior derecha.</p>
+        <p>En el nivel más alto del modelo, se propone capturar los procesos sociocognitivos en términos de <strong>dos redes generales que se combinan con flexibilidad</strong> y que se relacionan con representaciones de los estados mentales de otros más sensorio-afectivas frente a más abstractas y desacopladas.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Artículo original (Psychological Bulletin, DOI: 10.1037/bul0000303) — mapas y archivos disponibles en OSF (osf.io/pav27)</a></li>
+      <li><a href="#">Schurz et al. (2014) — metaanálisis previo de segmentación de la ToM</a></li>
+      <li><a href="#">Margulies et al. (2016) — gradiente principal de organización cortical</a></li>
+      <li><a href="#">Yeo et al. (2011) — parcelación de redes de estado de reposo</a></li>
+      <li><a href="#">Happé, Cook &amp; Bird (2017) — la estructura y el problema terminológico de la cognición social</a></li>
+    </ul>
+
+    <footer>
+      <p>Schurz, M., Radua, J., Tholen, M. G., Maliske, L., Margulies, D. S., Mars, R. B., Sallet, J., &amp; Kanske, P. (2021). Toward a Hierarchical Model of Social Cognition: A Neuroimaging Meta-Analysis and Integrative Review of Empathy and Theory of Mind. <em>Psychological Bulletin</em>, 147(3), 293-327 · © 2020 American Psychological Association</p>
+      <p>Traducción al español con fines de estudio · El original prevalece en caso de discrepancia</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

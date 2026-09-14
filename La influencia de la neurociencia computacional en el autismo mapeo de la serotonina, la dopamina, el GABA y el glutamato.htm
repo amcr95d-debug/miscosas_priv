@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La influencia de la neurociencia computacional en el autismo: mapeo de la serotonina, la dopamina, el GABA y el glutamato</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --acento: #2563eb;
+      --borde: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .volver {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      color: var(--acento);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .volver:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .categoria {
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--acento);
+      margin: 0 0 .4rem;
+    }
+
+    h1 {
+      font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+      margin: 0 0 .5rem;
+      line-height: 1.3;
+    }
+
+    .subtitulo {
+      color: #6b7280;
+      margin: 0 0 .4rem;
+      font-size: 1.05rem;
+    }
+
+    .meta {
+      color: #6b7280;
+      font-size: .9rem;
+      margin: .4rem 0 0;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin: 2.25rem 0 .75rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 1.75rem 0 .5rem;
+      color: #374151;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.25rem 1.4rem;
+      margin-bottom: .75rem;
+    }
+
+    .resumen .titulo-seccion {
+      font-weight: 600;
+      margin: 0 0 .5rem;
+    }
+
+    .palabras-clave {
+      font-size: .92rem;
+      color: #4b5563;
+    }
+
+    .articulo p {
+      margin: 0 0 1.1rem;
+    }
+
+    .tabla-contenedor {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .88rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .6rem .75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #eef2ff;
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+
+    td .neuro {
+      font-weight: 600;
+      color: var(--acento);
+    }
+
+    .pie {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: #6b7280;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <a class="volver" href="indice.htm">← Volver al índice</a>
+
+    <header>
+      <p class="categoria">Neurociencia computacional · Autismo · Neurotransmisión</p>
+      <h1>La influencia de la neurociencia computacional en el autismo: mapeo de la serotonina, la dopamina, el GABA y el glutamato</h1>
+      <p class="subtitulo">Investigación de la neurotransmisión en el trastorno del espectro autista mediante métodos computacionales</p>
+      <p class="meta">Por Victoria Bamicha, Pantelis Pergantis, Charalabos Skianis y Athanasios Drigas · <em>Biomedicines</em>, 2025, vol. 13, n.º 1420</p>
+    </header>
+
+    <div class="tarjeta resumen">
+      <p class="titulo-seccion">Resumen</p>
+      <p>El trastorno del espectro autista (TEA) es una condición neurobiológica compleja y diversa. Comprender los mecanismos y las causas del trastorno requiere un estudio y un modelado en profundidad de los sistemas inmunitario, mitocondrial y neurológico. La neurociencia computacional enriquece la ciencia psiquiátrica empleando técnicas de aprendizaje automático sobre redes neuronales, combinando datos sobre la actividad cerebral con las características patofisiológicas y biológicas de los trastornos psiquiátrico-neurobiológicos. La investigación explora la integración de la actividad de los neurotransmisores en los modelos computacionales y sus posibles papeles en el diagnóstico y el tratamiento del autismo mediante métodos computacionales. Esta investigación emplea una revisión narrativa centrada en cuatro sistemas de neurotransmisión directamente relacionados con la manifestación del autismo: la serotonina, la dopamina, el glutamato y el ácido gamma-aminobutírico (GABA). El estudio revela que la neurociencia computacional hace avanzar el diagnóstico y el tratamiento del autismo al identificar factores genéticos y mejorar la eficiencia del diagnóstico. Los neurotransmisores desempeñan un papel crucial en la función de las células cerebrales, al mejorar la conducción sináptica y la transmisión de señales. Sin embargo, la interacción de los compuestos químicos con los factores genéticos y las alteraciones de las redes influye en la patofisiología del autismo. Este estudio integra la investigación de enfoques computacionales en cuatro sistemas de neurotransmisión asociados con el TEA, mejora nuestra comprensión del trastorno y aporta ideas que podrían estimular nuevas investigaciones, contribuyendo así al desarrollo de tratamientos eficaces.</p>
+      <p class="palabras-clave"><strong>Palabras clave:</strong> neurociencia computacional; psiquiatría computacional; trastorno del espectro autista; función de los neurotransmisores; sistema serotoninérgico; sistema dopaminérgico; sistema glutamatérgico; sistema GABAérgico; modelado computacional; aprendizaje automático.</p>
+    </div>
+
+    <div class="articulo">
+      <h2>1. Introducción</h2>
+
+      <p>En los años ochenta, la ciencia cognitiva avanzó con arquitecturas cognitivas simbólicas y redes neuronales basadas en datos del comportamiento humano. Sin embargo, el hardware informático y el aprendizaje automático no eran lo bastante avanzados para simular procesos mentales complejos. Surgió entonces la neurociencia cognitiva, que mapeó los módulos de procesamiento de información de la psicología cognitiva al cerebro, pero sin rigor computacional.</p>
+
+      <p>Entender cómo funciona el cerebro es un desafío para diversos campos científicos: los comportamientos más simples emergen de las interacciones complejas entre numerosas neuronas de distintas regiones cerebrales. Las innovaciones en hardware y software han permitido modelar la mente y el cerebro, destacando el potencial transformador de la inteligencia artificial (IA) y permitiendo que la ciencia cognitiva, la neurociencia computacional y la IA expliquen la cognición humana mediante modelos neurobiológicos computacionales.</p>
+
+      <p>La neurociencia computacional usa modelos cuantitativos para describir neuronas, circuitos y regiones cerebrales, con fundamentos biofísicos como el balance de corrientes y la conductancia iónica. Dos descubrimientos del siglo pasado fueron decisivos para el modelado neuronal: la creación del potencial de acción por Hodgkin y Huxley (relacionado con la transmisión de información de célula a célula) y la «teoría del cable» de Wilfrid Rall (que describe la transmisión de señales a lo largo de las neuritas).</p>
+
+      <p>Los modelos computacionales son cruciales para estudiar el sistema nervioso. Los modelos descriptivos relacionan de forma concisa los datos experimentales; los mecanísticos se centran en la función del sistema a partir de la anatomía y la fisiología; los interpretativos usan principios computacionales y matemáticos para explorar la función del sistema nervioso; y los ajustados requieren relaciones matemáticas explícitas para explicar las observaciones. Todos se apoyan en hipótesis experimentales para predecir los posibles mecanismos subyacentes a las enfermedades neuronales humanas.</p>
+
+      <p>La prevalencia del TEA ha aumentado significativamente en la última década, probablemente por los avances en la investigación genética, el reconocimiento temprano de rasgos autistas y los nuevos criterios diagnósticos. Las modificaciones epigenéticas, la exposición prenatal, las disfunciones inmunitarias y las alteraciones del microbioma intestinal contribuyen de manera importante al inicio y la progresión del trastorno. La biología del autismo es desafiante por sus múltiples etiologías, lo que complica su modelado: los distintos subgrupos no se identifican solo por sus características conductuales.</p>
+
+      <p>Varios trastornos psiquiátricos, neurológicos y neurodegenerativos derivan de alteraciones en las sinapsis de la red neuronal cerebral que afectan la transmisión de mensajes en áreas corticales y subcorticales. Las disfunciones de los neurotransmisores están implicadas en la patofisiología del TEA, ya que desempeñan un papel crucial en el desarrollo cerebral, la sinaptogénesis, la memoria, la conducta y las funciones gastrointestinales.</p>
+
+      <p>El papel esencial de la neurotransmisión en la patofisiología del autismo motivó este estudio, que explora la posibilidad de incorporar datos sobre la función de los neurotransmisores en modelos computacionales, con el objetivo de aportar pistas sobre la acción química del cerebro y nuevas claves biológicas para el diagnóstico y el tratamiento del autismo. La investigación examina los enfoques computacionales aplicados a los cuatro sistemas de neurotransmisión cuyas deficiencias se asocian con el TEA: serotoninérgico, dopaminérgico, glutamatérgico y GABAérgico. Se trata de una revisión narrativa, que permite combinar estudios previos e interpretar y criticar los datos desde una perspectiva multifacética.</p>
+
+      <h2>2. Conocimientos teóricos</h2>
+
+      <h3>2.1. Neurociencia computacional</h3>
+
+      <p>La neurociencia computacional crea un modelo mecanístico del cerebro, capturando el comportamiento humano mediante modelos de aprendizaje por refuerzo y teoría de juegos. Se centra en modelar los procesos cerebrales para entender el procesamiento de información, descubrir nuevos fenómenos y simular experimentos, con el fin de estudiar e interpretar las señales eléctricas y químicas del cerebro.</p>
+
+      <p>Los modelos computacionales y matemáticos se usan de tres maneras: en el <em>nivel computacional</em> se explora el «qué» y el «porqué» de las computaciones cerebrales; en el <em>nivel algorítmico</em> se determina «qué» procedimientos algorítmicos pueden representar eficazmente esas computaciones físicas; y en el <em>nivel físico</em> se examina «cómo» se aplican en la práctica. Además, distingue entre modelos basados en datos (que simulan la actividad cerebral) y modelos basados en tareas (que predicen el comportamiento).</p>
+
+      <p>La neurociencia computacional utiliza una amplia variedad de modelos: redes neuronales, redes neuronales profundas, redes neuronales de impulsos (SNN), redes neuronales convolucionales (CNN), redes recurrentes, modelos de aprendizaje por refuerzo, modelos biofísicos detallados, modelos bayesianos y modelos conexionistas o de procesamiento distribuido en paralelo (PDP). Las redes profundas buscan la relevancia conductual y la selectividad neuronal; las SNN ofrecen eficiencia energética; las CNN están inspiradas en la corriente visual ventral del cerebro; y los modelos biofísicos detallados permiten analizar numerosos aspectos de la excitabilidad neuronal.</p>
+
+      <h3>2.2. Neurotransmisores</h3>
+
+      <p>El sistema nervioso regula el comportamiento mediante neurotransmisores: sustancias químicas liberadas por las neuronas en las sinapsis, que comunican información mediante la transmisión sináptica, potenciando o inhibiendo la transmisión nerviosa. Vigilar los niveles de neurotransmisores es crucial para entender y tratar las enfermedades mentales. Además de los métodos convencionales (microdiálisis cerebral, cromatografía líquida de alta presión, espectrometría de masas, electroencefalografía o resonancia magnética), las nanopartículas y el análisis electroquímico permiten la detección en tiempo real de la dinámica de los neurotransmisores.</p>
+
+      <p>Existen tres categorías de neurotransmisores según su función: <em>excitatorios</em> (estimulan la acción en las células diana), <em>inhibitorios</em> (bloquean la acción de la neurona receptora) y <em>moduladores</em> (afectan la actividad de otros neurotransmisores enviando señales a muchas neuronas a la vez).</p>
+
+      <ul>
+        <li><strong>Serotonina (5-HT):</strong> producida en el sistema nervioso central por neuronas de los núcleos del rafe dorsal y medio. Sus efectos inhibitorios se asocian con la alimentación, la regulación del peso corporal, la agresividad, el trastorno obsesivo-compulsivo, el alcoholismo, la ansiedad, los trastornos emocionales, el sueño y los ritmos circadianos, entre otros. Desempeña además un papel crítico en el desarrollo neuronal, la plasticidad cortical y la morfogénesis del córtex somatosensorial. Sus múltiples receptores están implicados en mecanismos relacionados con el autismo: comportamiento estereotipado, ansiedad intensa, déficits en interacción social, memoria y aprendizaje. La 5-HT modula la transmisión mediada por glutamato y GABA.</li>
+        <li><strong>Dopamina (DA):</strong> neurotransmisor de la familia de las catecolaminas, con un papel significativo en la modificación de la conducta, los mecanismos de recompensa y la motivación social, cruciales para entender los déficits sociales en el TEA. Un sistema dopaminérgico hiperactivo en el circuito orbitofrontal-límbico puede provocar una mala regulación emocional (impulsividad y agresividad), mientras que las deficiencias de dopamina prefrontal causan deterioro cognitivo. El sistema dopaminérgico tiene cuatro vías principales (nigroestriatal, mesolímbica, mesocortical y tuberoinfundibular) cuya alteración se vincula con el párkinson y la disrupción de los sistemas emocional y de recompensa.</li>
+        <li><strong>Glutamato (Glu):</strong> aminoácido neurotransmisor excitatorio del sistema nervioso central, especialmente vinculado a la función de la memoria. Se sintetiza a partir de la glutamina y es el neurotransmisor excitatorio más abundante del cerebro, capaz de excitar casi todas las sinapsis.</li>
+        <li><strong>Ácido gamma-aminobutírico (GABA):</strong> principal neurotransmisor inhibitorio del cerebro, esencial para la proliferación, la migración, la maduración sináptica, la diferenciación y la muerte celular programada. Las alteraciones del sistema GABAérgico se han vinculado con conductas autistas, iluminando los desafíos del procesamiento de información y el delicado desarrollo de las habilidades sociales.</li>
+      </ul>
+
+      <p>El glutamato entra en los astrocitos, se convierte en glutamina y se transporta a las neuronas para la producción de glutamato y GABA, de modo que los cambios en uno de los neurotransmisores afectan al otro. El funcionamiento cerebral eficiente depende del equilibrio entre la neurotransmisión glutamatérgica y GABAérgica. Alteraciones como niveles altos de glutamato o bajos de GABA pueden contribuir a la patofisiología del TEA, con crisis convulsivas, hipersensibilidad, déficits sociales, conductas repetitivas, estrés oxidativo y trastornos de ansiedad.</p>
+
+      <h3>2.3. Autismo</h3>
+
+      <p>El trastorno del espectro autista es un trastorno del neurodesarrollo caracterizado por déficits en los dominios socioemocionales y cognitivos. Se diagnostica temprano en la vida (1 de cada 54 niños a los 8 años). Su base neurobiológica precisa se desconoce por el comportamiento heterogéneo y las características genéticas, transcripcionales y epigenómicas divergentes. Diferentes regiones cerebrales —córtex, amígdala, cerebelo y ganglios basales— contribuyen a distintos aspectos de la sintomatología.</p>
+
+      <p>Las posibles causas incluyen cambios en los sistemas de desintoxicación, acumulación de toxinas, disfunciones inmunitarias y gastrointestinales y daño cerebral, sin que la combinación de estos elementos confirme la causa. El estrés altera las rutas metabólicas y puede provocar disfunción intestinal, activación inmunitaria, disfunción mitocondrial y estrés oxidativo. La etiología también involucra la contaminación ambiental: la exposición temprana a metales (plomo, mercurio, cobre, cromo), pesticidas y contaminantes del aire es un factor de riesgo para los trastornos del neurodesarrollo, incluido el TEA.</p>
+
+      <p>Los síntomas del TEA aparecen durante los primeros tres años de vida, cuando ocurre la rápida formación y maduración de las sinapsis cerebrales. Los procesos de desarrollo cerebral (sinaptogénesis, arborización, migración, poda sináptica y plasticidad) tienen como objetivo crear un cerebro funcional, y los neurotransmisores y sus receptores desempeñan un papel crítico. Las interacciones sociales deterioradas y la percepción sensorial alterada son rasgos distintivos del autismo, y la estimulación multimodal temprana puede aliviar los déficits. Siendo el TEA una condición marcadamente heterogénea, los modelos computacionales resultan esenciales para comparar y categorizar los efectos del trastorno sobre la función sináptica, considerando factores ambientales y genéticos.</p>
+
+      <h2>3. El enfoque de la neurociencia computacional para entender la función de los neurotransmisores en el TEA</h2>
+
+      <p>La IA, influenciada por la neurociencia y la psicología cognitiva, mejora la decodificación de la actividad neuronal y permite comprender y predecir mejor el comportamiento humano, siendo una herramienta potente para neurólogos y clínicos tanto en el diagnóstico como en la terapia. La integración de redes neuronales que «aprenden a hacer inferencias» ayuda a interpretar cómo la mente humana ve y comprende el mundo.</p>
+
+      <p>Las simulaciones neuronales, que tienden un puente entre los niveles molecular y conductual, ayudan a elucidar las causas de la conducta en el TEA y conectan la dinámica de las redes con las propiedades moleculares y genéticas. Muchos genes de susceptibilidad coexpresados en el TEA están vinculados a la plasticidad sináptica y al desarrollo neuronal.</p>
+
+      <p>Krishnan y colegas emplearon un enfoque de aprendizaje automático para predecir genes relacionados con el autismo: un modelo estadístico capturó los patrones de conectividad de genes conocidos y, mediante un enfoque bayesiano, clasificó todos los genes del genoma humano según su posible implicación patogénica en el TEA, identificando cientos de genes nuevos en regiones como el cerebelo y el estriado. Años después, el mayor estudio de secuenciación del exoma en TEA identificó 102 genes asociados, revelando su enriquecimiento en neuronas excitatorias e inhibitorias en maduración del córtex humano en desarrollo. Otro estudio genético previo detectó variantes de un solo nucleótido más prevalentes de lo esperado en niños con TEA, abundantes en proteínas implicadas en la función cerebral y la regulación génica.</p>
+
+      <p>La neurociencia computacional persigue entender cómo el sistema nervioso procesa información para la función cognitiva y las conductas adaptativas, empleando modelos matemáticos que mapean la entrada sensorial a las respuestas neuronales. La simulación de alto nivel se apoya en software como NEURON o GENESIS, que estandarizan la metodología y permiten simular desde ecuaciones de cable y modelos de Hodgkin-Huxley hasta moléculas y grandes redes neuronales. El estudio de Vladusich sugiere que modificar modelos computacionales de la función cerebral sana podría ayudar a entender cómo los desequilibrios de neurotransmisores inducen los síntomas conductuales del autismo.</p>
+
+      <p>La potencia computacional del cerebro en memoria y aprendizaje se basa en la conversión de señales eléctricas en información química en las sinapsis. Robertson y Baron-Cohen destacan la «visión del microcircuito normal», que sugiere que los rasgos autistas en distintos niveles comparten mecanismos neurales comunes: los síntomas sensoriales son un rasgo clave de la neurobiología del autismo, se observan temprano en el desarrollo, predicen el estado diagnóstico posterior y reflejan el desequilibrio entre la señalización excitatoria e inhibitoria, con alteraciones del sistema GABAérgico que constituyen biomarcadores clave de la enfermedad.</p>
+
+      <p>Thomas y Johnson usaron un enfoque computacional para vincular el desequilibrio sináptico excitatorio-inhibitorio con déficits atencionales en el autismo: modelaron dos microcolumnas competidoras del córtex temporal inferior con neuronas de tipo Hodgkin-Huxley y hallaron que esos desequilibrios podrían ser responsables de parte de los déficits atencionales. Los estudios de modelado biofísico también permiten cuantificar la transmisión sináptica en enfermedades con cambios sinápticos: Freche y colegas investigaron el impacto de una mutación en la proteína SHANK3, revelando que reduce las corrientes sinápticas en neuronas maduras (el Shank3 se asocia con comportamiento estereotipado aumentado y sociabilidad reducida).</p>
+
+      <p>No obstante, los enfoques computacionales para la salud mental enfrentan numerosos retos: ruido, datos incompletos y dispersos, validación, tamaños de muestra pequeños, reproducibilidad, fiabilidad y validez, dinámica temporal y generalizabilidad.</p>
+
+      <h2>4. Sistema serotoninérgico en el TEA y el uso de métodos computacionales</h2>
+
+      <p>La serotonina es un neurotransmisor en el cerebro y una hormona en los tejidos periféricos, con un papel crucial en la regulación de la conducta, la interacción social, el comportamiento estereotipado, la ansiedad, el estrés, el aprendizaje y la memoria, que son los síntomas principales del TEA. La investigación neuroquímica ha aportado evidencia de su papel en alteraciones de la neurogénesis, el desarrollo cerebral, la percepción sensorial y el sueño, y su asociación con déficits sociales, agresividad e hiperactividad. Sus receptores (siete subfamilias) contribuyen decisivamente al crecimiento de neuritas, la morfología de las espinas dendríticas y la formación de circuitos neuronales, por lo que los moduladores de los receptores 5-HT se estudian como terapias para el TEA.</p>
+
+      <p>Entender la señalización serotoninérgica es difícil porque abarca cuatro niveles (genómico, bioquímico, electrofisiológico y conductual) que se influyen mutuamente. Los modelos matemáticos ayudan a estudiar los efectos simultáneos de los niveles en interacción. Best y colegas desarrollaron un modelo matemático que explica cómo se sintetiza, libera y reabsorbe la serotonina en una terminal neuronal, considerando autorreceptores, transporte de triptófano, metabolismo y dependencia de la frecuencia de disparo. Los hallazgos revelaron que el sistema serotoninérgico mantiene la homeostasis pese a las fluctuaciones biológicas, y que los autorreceptores reducen el impacto de los cambios en la frecuencia de disparo y de los polimorfismos de la 5-HT extracelular.</p>
+
+      <p>El TEA se asocia con problemas gastrointestinales, y la hiperserotoninemia (niveles elevados de serotonina en sangre) es un biomarcador presente en entre una cuarta parte y un tercio de las personas con TEA. Kareva introdujo un modelo matemático para estudiar las interacciones entre la serotonina intestinal y su efecto sobre el sistema nervioso entérico, identificando tres factores clave: la producción de serotonina, su aclaramiento y la función del factor de crecimiento. Las simulaciones que alteraban los tres factores revelaron su asociación con el desarrollo de síntomas del TEA.</p>
+
+      <p>Los cambios regionales en la densidad de fibras serotoninérgicas se han vinculado con varias enfermedades mentales, incluido el TEA. Un estudio con simulaciones en superordenador mostró que la autoorganización de la matriz cerebral de axones serotoninérgicos depende en gran medida de la geometría cerebral, influyendo en el desarrollo, la plasticidad y la evolución del cerebro.</p>
+
+      <p>En neuroimagen, las imágenes cerebrales suelen presentar bajo contraste, variabilidad tisular y difusidad. El algoritmo FCM (Fuzzy C-Means), basado en la teoría de la lógica difusa, aborda esa incertidumbre, permitiendo segmentar imágenes cerebrales, extraer información detallada y reducir el ruido. Por su parte, las sondas PET con buena penetración cerebral pueden proporcionar información sobre la función de la serotonina en el autismo. Los algoritmos de aprendizaje automático se usan cada vez más para analizar datos de resonancia magnética funcional (fMRI): Itahashi y colegas desarrollaron un clasificador para adultos con TEA a partir de un gran conjunto de datos de fMRI en reposo de 730 personas, identificando 141 conexiones funcionales relacionadas con dificultades en la interacción social y con los niveles de serotonina y dopamina, transferible a niños y adolescentes, y capaz de mapear también TDAH, esquizofrenia y depresión mayor.</p>
+
+      <h2>5. Sistema dopaminérgico en el TEA y el uso de métodos computacionales</h2>
+
+      <p>Los déficits sociales relacionados con el autismo y las conductas estereotipadas se atribuyen a una señalización dopaminérgica alterada en el mesencéfalo, y la neuroimagen con neuroreceptores aporta evidencia de la disfunción de la dopamina. La hipótesis dopaminérgica sugiere que la desregulación funcional de las vías de proyección de la DA podría contribuir a cambios conductuales como la reducción del valor de recompensa, el procesamiento sensorial anómalo y los movimientos repetitivos.</p>
+
+      <p>Los modelos de neurociencia computacional se centran en la modulación dopaminérgica, crucial para el control motor, la conducta dirigida, la motivación, el aprendizaje por refuerzo y funciones cognitivas como la memoria de trabajo, la planificación, la atención y la percepción del tiempo. Los modelos de aprendizaje por refuerzo (como el TDRL y el STDP con diferencia temporal) explican el papel de la modulación de la DA en tareas de aprendizaje, asignando valores a acciones concretas que cambian por errores de predicción de recompensa. Los modelos de redes neuronales permiten entender cómo las interacciones de circuitos y las acciones neuroquímicas de la dopamina sustentan procesos cognitivos como la selección de acciones, el aprendizaje y la memoria de trabajo, y la investigación sugiere que los ganglios basales desempeñan un papel crítico en el «gating» dopaminérgico, actualizando selectivamente las representaciones de metas en el córtex prefrontal.</p>
+
+      <p>El modelo de generalización entre tareas (XT) capta la segregación funcional del córtex prefrontal en el TEA. Kriete y Noelle informan de que ese modelo puede explicar el perfil de procesamiento ejecutivo de las personas con autismo, y revelan que la atenuación del efecto de la DA sobre las células piramidales del córtex prefrontal puede explicar el rendimiento autista. Los modelos pueden simular los efectos de la dopamina a distintos niveles de abstracción: los biofísicos (basados en conductancias de Hodgkin-Huxley) aplican los efectos directamente; los abstractos parten de supuestos sobre los efectos puros de la DA; ambos enfoques se complementan.</p>
+
+      <p>Cartier y colegas destacaron la importancia de la sintaxina 1 (STX1), una proteína presináptica que regula la fusión de vesículas sinápticas y la función del transportador de dopamina (DAT). Empleando modelos animales avanzados y métodos biofísicos, identificaron dos variantes asociadas con el autismo (en sintaxina y en el transportador de dopamina) que afectan el transporte inverso de dopamina, sugiriendo la desregulación de la neurotransmisión dopaminérgica como posible complicación del TEA.</p>
+
+      <p>Con fMRI, los investigadores aplican modelos computacionales de aprendizaje por refuerzo que generan errores de predicción ensayo a ensayo, identificando regiones con correlatos significativos de actividad dopaminérgica en el estriado y el córtex frontal. Estudios previos con SPECT y PET han reportado anomalías a nivel grupal en los transportadores de serotonina y dopamina: capacidad de unión reducida del transportador serotoninérgico en el córtex frontal medial, el mesencéfalo y el lóbulo temporal, y unión aumentada del transportador de dopamina en el córtex orbitofrontal del grupo autista.</p>
+
+      <h2>6. Sistemas glutamatérgico y GABAérgico en el TEA y el uso de métodos computacionales</h2>
+
+      <p>Una alteración del equilibrio entre neuronas excitatorias (glutamatérgicas) e inhibitorias (GABAérgicas) es un sello distintivo del TEA. El desequilibrio excitatorio/inhibitorio (E/I) puede deberse a un aumento de la actividad del glutamato, una disminución de la liberación de GABA o un número reducido de receptores GABA, lo que explicaría la frecuente comorbilidad con crisis convulsivas. La disrupción de la actividad sináptica entre GABA y glutamato puede además provocar neuroinflamación, una causa clave del TEA.</p>
+
+      <p>Vattikuti y Chow reportaron que las alteraciones en un modelo computacional de un circuito cortical local pueden explicar la hipometría y la dismetría de los movimientos sacádicos reportadas en estudios de TEA: la estimulación aumentada de las sinapsis frente a la inhibición sináptica produce mayor hipometría y dismetría, vinculando directamente la función cortical con las conductas del TEA. Deco y colegas destacaron que las regiones corticales exhiben diversidad en citoarquitectura, mielinarquitectura y quimioarquitectura, influyendo en el balance inhibición-excitación entre regiones. Otro equipo usó modelos de aprendizaje y modelos computacionales a gran escala para revelar que los cambios en las redes corticales del autismo se asocian con disfunción de la entrada subcortical a los microcircuitos corticales y con alteraciones E/I, arrojando luz sobre el vínculo entre la remodelación de microcircuitos y las conexiones subcortical-corticales.</p>
+
+      <p>El «modelo híbrido» de Schirner y colegas, un nuevo modelo de red cerebral, combina datos empíricos de electroencefalografía (EEG) con restricciones de conectividad de tractografía, permitiendo conectar datos estructurales y funcionales y explorar fenómenos emergentes como la dinámica libre de escala y el balance excitación-inhibición. Los modelos de masa neural (NMM) y de campo neural (NFM) proporcionan información sobre las interacciones sinápticas fundamentales y las bases bioquímicas (principalmente los receptores ionotrópicos del glutamato NMDA y AMPA, así como el GABA). La hiperfunción y la hipofunción del NMDA y la densidad reducida de receptores AMPA en el tejido cerebeloso se han vinculado con el fenotipo autista, y su activación aberrante puede contribuir a los trastornos convulsivos, que coexisten con frecuencia con el TEA.</p>
+
+      <p>El GABA reducido y el glutamato aumentado se vinculan con excitotoxicidad y estrés oxidativo, condiciones asociadas con el TEA. Mohammad y colegas crearon un marco computacional que contribuye a entender la disbiosis intestinal, predice el estrés oxidativo y explora las interacciones del GABA y el glutamato, capturando una imagen metabólica del TEA mediante análisis de reconstrucción y basado en restricciones. La microbiota intestinal inadecuada puede afectar la síntesis de neurotransmisores y, con ello, el desarrollo emocional y cognitivo.</p>
+
+      <p>Hollestein y colegas combinaron el análisis de datos genéticos, estructurales y fenotípicos, hallando que los genes del glutamato y del GABA se asocian con rasgos autistas y con el procesamiento sensorial, con diferencias considerables en las tomografías de adolescentes y adultos autistas respecto a los no autistas, lo que sugiere papeles distintos de los genes según el momento del desarrollo. En humanos, la evidencia empírica es limitada, pero la competencia binocular (dos imágenes presentadas a cada ojo, con dominancia perceptiva determinada por poblaciones neuronales selectivas) se relaciona con la dinámica inhibitoria y excitatoria de la corteza: los estudios computacionales sugieren que la inhibición reducida se asocia con los síntomas perceptivos autistas, pudiendo servir como marcador predictivo de la disrupción de la señalización inhibitoria GABAérgica.</p>
+
+      <p>Freche y colegas desarrollaron un modelo computacional biofísico para simular la transmisión sináptica excitatoria mediada por el receptor AMPA, usando modelado de cadenas de Markov. Hallaron que los sitios de liberación de vesículas presinápticas son el factor más sensible en el control de la corriente sináptica. Rosenberg y colegas utilizaron simulaciones de redes neuronales para revelar que la normalización divisiva (una técnica de análisis de relaciones) reduce la inhibición, explicando las consecuencias perceptivas del autismo. Chatterjee y colegas crearon el ASDint, un modelo computacional con hardware asimétrico para analizar múltiples mecanismos del TEA que afectan las sinapsis de las neuronas glutamatérgicas.</p>
+
+      <h2>7. Contribución de los enfoques computacionales a la identificación y gestión del TEA</h2>
+
+      <p>Los métodos diagnósticos tradicionales del TEA se basan en observaciones conductuales y evaluaciones subjetivas, por lo que no abarcan la extensión de la gravedad de los síntomas y requieren herramientas más precisas y objetivas. El progreso científico en el tratamiento del autismo enfatiza la interacción compleja entre las herramientas diagnósticas tradicionales y la IA.</p>
+
+      <p>La psiquiatría computacional, campo en expansión, emplea métodos matemáticos para investigar cuantitativamente las variables que interactúan en los sistemas bioconductuales en los trastornos psiquiátricos. El uso de grandes conjuntos de datos mejora los enfoques diagnósticos conductuales y biológicos, ayuda a subcategorizar la disfunción cerebral y conductual, y permite predecir resultados para personas con TEA describiendo trayectorias del desarrollo e identificando periodos críticos.</p>
+
+      <p>Los investigadores emplean métodos inteligentes de aprendizaje automático para mejorar el diagnóstico, el tiempo de procesamiento y la precisión del TEA: redes neuronales, máquinas de vectores de soporte, árboles de decisión y clasificadores basados en reglas. Moridian y colegas examinaron el diagnóstico del autismo mediante neuroimagen por resonancia magnética combinada con IA, aprendizaje automático y aprendizaje profundo. Sherkatghanad y colegas desarrollaron una red neuronal convolucional para identificar personas con TEA a partir de datos de fMRI en reposo del conjunto ABIDE, con menos parámetros y menor coste computacional. Gao y colegas introdujeron una red con mecanismos de atención y multitarea para predecir y diagnosticar el TEA, con mejor generalización.</p>
+
+      <p>En un estudio diagnóstico, Rajagopalan y colegas analizaron datos de la base SPARK (30.660 participantes con y sin TEA) con el modelo de aprendizaje automático AutMedAI, validado en conjuntos de datos independientes: rindió bien en la lactancia y la primera infancia usando información mínima, y ayudó a identificar factores predictivos como conductas fenotípicas. Song y colegas mostraron que la máquina de vectores de soporte, con datos sociodemográficos y de observación conductual, es eficaz para identificar la coexistencia de TEA con discapacidad intelectual.</p>
+
+      <p>En neuroimagen, técnicas como la fMRI, la resonancia estructural, la imagen por tensor de difusión y la PET ayudan a entender la base molecular del autismo. La PET combinada con tomografía computarizada (F-18 FDG PET/CT) puede ser una herramienta diagnóstica: la mayoría de los pacientes con autismo muestra una captación significativamente baja en el hipocampo, la amígdala, el lóbulo temporal medial y el cerebelo, y alta en los lóbulos frontales. En el terreno prenatal, la detección ecográfica de la translucencia nuchal puede predecir el riesgo de trastornos del neurodesarrollo, y Kasera y colegas usaron una red convolucional U-Net para detectar su engrosamiento mediante segmentación automatizada de imágenes.</p>
+
+      <p>El estudio del conectoma (el mapa completo de las conexiones neuronales) se apoya en la IA, usando fMRI e imagen de difusión para analizar la conectividad in vivo, con algoritmos de aprendizaje automático cruciales para el diagnóstico temprano. La bioinformática, junto con la neurociencia computacional, contribuye a entender los mecanismos moleculares y biofísicos de la función neuronal, con software como NEURON y GENESIS que permite modelar neuronas con morfologías precisas. No obstante, el modelado computacional es un método exploratorio que requiere verificación empírica y prueba continua contra los resultados experimentales.</p>
+
+      <p>El uso de herramientas de ciencia de datos (algoritmos de aprendizaje automático, procesamiento del lenguaje natural, análisis de redes y analítica predictiva) facilita el diagnóstico exhaustivo y los planes de tratamiento personalizados, pero enfrenta desafíos de accesibilidad, escalabilidad y generalización. Los estudios longitudinales limitados, las preocupaciones éticas (privacidad de datos, sesgos algorítmicos, posible interpretación errónea de los resultados) y la colaboración interdisciplinaria restringida obstaculizan el desarrollo de soluciones integrales centradas en el paciente. Para promover una atención justa e imparcial es necesario garantizar la diversidad en los conjuntos de datos de TEA.</p>
+
+      <div class="tabla-contenedor">
+        <p><strong>Tabla 1. Tipos, mecanismos y funciones de los neurotransmisores.</strong></p>
+        <table>
+          <tr>
+            <th>Neurotransmisor</th>
+            <th>Tipo</th>
+            <th>Funciones</th>
+            <th>Afecciones asociadas</th>
+            <th>Vías / mecanismos</th>
+          </tr>
+          <tr>
+            <td><span class="neuro">Serotonina (5-HT)</span></td>
+            <td>Inhibitorio, modulador</td>
+            <td>Regula la alimentación, el sueño, la agresividad, la emoción, el peso corporal, el ritmo circadiano, el procesamiento de recompensas y la plasticidad.</td>
+            <td>TOC, ansiedad, alcoholismo, trastornos emocionales, TEA, déficits de memoria y aprendizaje.</td>
+            <td>Producida en los núcleos del rafe; modula la transmisión de glutamato y GABA; actúa vía múltiples receptores; afecta la plasticidad sináptica cortical y la morfogénesis.</td>
+          </tr>
+          <tr>
+            <td><span class="neuro">Dopamina (DA)</span></td>
+            <td>Modulador, excitatorio</td>
+            <td>Influye en la conducta, el procesamiento de recompensas, la regulación emocional y la cognición.</td>
+            <td>TEA, párkinson, desregulación emocional, agresividad, desregulación de prolactina.</td>
+            <td>Cuatro vías: nigroestriatal, mesolímbica, mesocortical y tuberoinfundibular; la hiperactividad lleva a impulsividad y la hipoactividad a déficits cognitivos.</td>
+          </tr>
+          <tr>
+            <td><span class="neuro">Glutamato (Glu)</span></td>
+            <td>Excitatorio</td>
+            <td>Potencia la memoria y promueve la excitación sináptica en todo el cerebro.</td>
+            <td>TEA, crisis convulsivas, hipersensibilidad, estrés oxidativo, disfunciones sensoriales, de memoria y emocionales.</td>
+            <td>Sintetizado a partir de glutamina; convertido en los astrocitos; interactúa con el sistema GABA; neurotransmisión excitatoria en casi todas las sinapsis.</td>
+          </tr>
+          <tr>
+            <td><span class="neuro">GABA</span></td>
+            <td>Inhibitorio</td>
+            <td>Regula la proliferación, migración, maduración y muerte celular.</td>
+            <td>TEA, desafíos del procesamiento de información, déficits en el desarrollo de habilidades sociales, crisis, ansiedad, conductas repetitivas.</td>
+            <td>Principal neurotransmisor inhibitorio; interactúa con el glutamato; crítico para el neurodesarrollo y el equilibrio de la neurotransmisión.</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="tabla-contenedor">
+        <p><strong>Tabla 2. Disfunción de los neurotransmisores en el TEA y cómo se estudia mediante neurociencia computacional.</strong></p>
+        <table>
+          <tr>
+            <th>Neurotransmisor</th>
+            <th>Disfunción en el TEA</th>
+            <th>Métodos computacionales</th>
+          </tr>
+          <tr>
+            <td><span class="neuro">Serotonina (5-HT)</span></td>
+            <td>Señalización serotoninérgica alterada; hiperserotoninemia en el 25-33 % de los pacientes; vinculada a agresividad, hiperactividad, sueño y problemas sensoriales.</td>
+            <td>Modelos matemáticos de la homeostasis serotoninérgica; modelado del eje intestino-cerebro; datos PET sobre la función de la serotonina; clasificadores de fMRI.</td>
+          </tr>
+          <tr>
+            <td><span class="neuro">Dopamina (DA)</span></td>
+            <td>Señalización anómala que afecta el procesamiento de recompensas, la motivación, las conductas repetitivas y las funciones ejecutivas.</td>
+            <td>Aprendizaje por refuerzo (TDRL); modelos entre tareas (XT); modelos biofísicos; simulaciones genéticas del transporte de DA (DAT); fMRI y PET con modelos computacionales.</td>
+          </tr>
+          <tr>
+            <td><span class="neuro">Glutamato (Glu)</span></td>
+            <td>Desequilibrio excitatorio/inhibitorio; receptores NMDA/AMPA hiperactivos; asociado con crisis convulsivas y estrés oxidativo.</td>
+            <td>Modelos biofísicos de la actividad del receptor AMPA; modelos de parámetros de aprendizaje sináptico; modelos de campo neural; simulaciones estructurales de sinapsis.</td>
+          </tr>
+          <tr>
+            <td><span class="neuro">GABA</span></td>
+            <td>Actividad GABAérgica reducida; la inhibición disminuida genera desequilibrio E/I y anormalidades sensoriales/perceptivas.</td>
+            <td>Simulaciones de circuitos neuronales; modelado de la competencia binocular; modelos híbridos de EEG; modelado de la interacción con el microbioma intestinal.</td>
+          </tr>
+        </table>
+      </div>
+
+      <h2>8. Discusión</h2>
+
+      <p>La neurociencia computacional es una disciplina emergente que se centra en cómo el cerebro procesa información mediante métodos experimentales, analíticos y de modelado, diseñando marcos computacionales para examinar las propiedades de los sistemas neuronales y verificándolos experimentalmente. El resultado funcional de la activación cerebral (formación de memoria, pensamientos, emociones) es difícil de cuantificar por la complejidad de los datos y la dificultad de descubrir conexiones mecanísticas entre procesos neurales; la mayoría de las hipótesis causales son, en realidad, correlacionales.</p>
+
+      <p>Los modelos computacionales llenan esas carencias ayudando a entender fenómenos complejos explorando las rutas causales desde los cambios en variables hasta sus efectos, empleando distintos niveles de análisis que ilustran la interdependencia de las variables. El modelado del cerebro completo permite manipular metódicamente la estructura y función cerebrales, reduciendo la fragmentación del campo al conectar la dinámica de nivel de sistema con sustratos moleculares. Sin embargo, los modelos suelen estar limitados por la enorme cantidad de variables que influyen en el sistema nervioso.</p>
+
+      <p>El autismo es un trastorno neurológico marcado por una conectividad cerebral aumentada, déficits de migración neuronal, desequilibrio excitatorio/inhibitorio y desregulación sináptica. La heterogeneidad genética es patente. La resonancia magnética revela estructuras corticales alteradas y conectividad de sustancia blanca reducida; los modelos que utilizan IA y datos de neuroimagen mejoran el diagnóstico y la identificación de biomarcadores tempranos; y la neuroimagen genética examina eficazmente los efectos de variantes genéticas sobre la conectividad y función cerebrales.</p>
+
+      <p>Un trastorno neurobiológico prominente en el autismo es el desarrollo perturbado de múltiples sistemas de neurotransmisión, con énfasis en el glutamatérgico, el GABAérgico y el serotoninérgico. El papel de la señalización dopaminérgica emerge como esencial: los estudios computacionales reportan su capacidad de modificar corrientes iónicas y sinápticas y de potenciar la liberación de GABA en el córtex prefrontal. Los modelos computacionales pueden simular el papel de la DA en trastornos neuropsiquiátricos, mejorando potencialmente las técnicas de tratamiento al probar agonistas o antagonistas sin intervención humana. Las intensas interacciones entre sistemas de neurotransmisión suponen un desafío para identificar elementos compuestos en los datos observados; combinar modelos biofísicos con una perspectiva del procesamiento de información puede ayudar a resolver estos retos metodológicos.</p>
+
+      <p><strong>Limitaciones y sugerencias para futuras investigaciones.</strong> El estudio no incluyó características demográficas (género y edad), lo que motiva investigaciones adicionales. Una limitación significativa es la falta de referencia a métodos modernos que contribuyen a entender la función de los canales iónicos y la neurotransmisión. Entender la relación entre el desequilibrio E/I y las diferencias estructurales en el autismo es crucial para comprender sus mecanismos moleculares y genéticos. El uso de aprendizaje automático y macrodatos en muestras poblacionales grandes puede mejorar significativamente la investigación, el análisis y la comparación de factores biológicos, y ayudar a definir nuevos subgrupos con características compartidas, facilitando el desarrollo de métodos terapéuticos a medida.</p>
+
+      <h2>9. Conclusiones</h2>
+
+      <p>La neurociencia computacional aprovecha el poder de la ciencia cognitiva, la psiquiatría computacional, las matemáticas, la informática, la inteligencia artificial y otros campos para desentrañar las complejidades de la actividad cerebral y del sistema nervioso. Este enfoque innovador no solo mejora el diagnóstico y el tratamiento del autismo, sino que también puede descubrir factores genéticos asociados a esta condición.</p>
+
+      <p>Los neurotransmisores son mensajeros químicos que afectan la química cerebral y nuestra percepción del mundo, y su influencia en la estructura y el desarrollo del cerebro tiene implicaciones significativas para la manifestación de los síntomas del TEA. Los modelos avanzados, mediante análisis matemáticos y correlaciones algorítmicas, simulan los procesos complejos del cerebro y destacan el papel crítico de los neurotransmisores en la conducción sináptica y la transmisión de señales. Los genes relacionados con el metabolismo de los neurotransmisores influyen en su función y en la manifestación del autismo. Las correlaciones significativas de la actividad dopaminérgica en el estriado y el córtex prefrontal impactan el mecanismo ejecutivo, destacando el papel dominante de los ganglios basales en el «gating» dopaminérgico. El efecto de las interacciones sinápticas se asocia con las bases bioquímicas de los receptores de neurotransmisores y la disbiosis intestinal. Es también significativo que la alteración de la señalización excitatoria-inhibitoria involucre factores genéticos y alteraciones de las redes cerebrales que afectan la patofisiología del autismo.</p>
+
+      <p>Los enfoques computacionales están revolucionando el proceso diagnóstico al mejorar la eficiencia, optimizar la dimensionalidad de los datos y el tiempo de diagnóstico, y revelar conductas clave. Son eficaces para categorizar los trastornos del autismo, comparar estrategias de tratamiento y apoyar intervenciones personalizadas. Sin embargo, la eficacia del modelado computacional depende de factores clave como la fiabilidad, la validez, la validación y la generalizabilidad.</p>
+    </div>
+
+    <footer class="pie">
+      <p>Basado en «Computational Neuroscience's Influence on Autism: Neuro-Transmission Research: Mapping Serotonin, Dopamine, GABA, and Glutamate», de V. Bamicha, P. Pergantis, C. Skianis y A. Drigas (Net Media Lab & Mind-Brain R&D, Centro Nacional de Investigación Científica «Demokritos», Grecia, y Universidad del Egeo), <em>Biomedicines</em>, 2025, vol. 13, n.º 1420. DOI: 10.3390/biomedicines13061420.</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Un bajo sentido de control personal aumenta la afinidad por culturas más rígidas basadas en normas</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .cita {
+      border-left: 4px solid var(--borde);
+      margin: 1rem 0;
+      padding: .5rem 1rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    .cita strong {
+      color: var(--texto);
+      font-style: normal;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .estudio {
+      border-left: 4px solid var(--acento);
+    }
+
+    .estudio h3 {
+      margin-top: 0;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Nota de prensa · 31 de octubre de 2022</span>
+      <h1>Un bajo sentido de control personal aumenta la afinidad por culturas más rígidas basadas en normas</h1>
+      <p class="subtitulo">Las culturas más rígidas también se autoperpetúan al reducir el sentido de control personal de los individuos en favor del control colectivo, según un estudio</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Personalidad</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p>Washington — Las personas que sienten falta de control personal en sus vidas tienen más probabilidades de preferir una cultura que impone orden, según una investigación publicada por la Asociación Americana de Psicología. Estas culturas «más rígidas», a su vez, perpetúan su existencia al reducir el sentido de control personal de los individuos y aumentar su sentido de control colectivo.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>Las fuertes normas sociales, un rasgo central de las culturas rígidas, ayudan a las personas a ver el mundo como algo simple y coherente. Como las normas fuertes guían los comportamientos de las personas y les permiten predecir los comportamientos de los demás, pueden proporcionar una fuente significativa de orden y previsibilidad en la vida social cotidiana</strong>», dijo la autora principal Anyi Ma, PhD, de la Universidad de Tulane. «Así que, cuando las personas carecen de control y desean estructura, pueden llegar a preferir culturas más rígidas».</p>
+        <p class="articulo-ref">La investigación fue publicada en la revista <em>Journal of Personality and Social Psychology</em>.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Los investigadores analizaron datos de encuestas y realizaron una serie de experimentos para entender mejor cómo el sentido de control personal puede afectar la preferencia por la rigidez cultural, y cómo la rigidez cultural puede afectar el sentido de control personal de las personas.</p>
+        <p>En primer lugar, los investigadores examinaron datos de más de 5700 participantes de la encuesta Midlife in the United States (MIDUS), un estudio longitudinal nacionalmente representativo sobre salud y bienestar. Los datos se recolectaron en dos olas: 2004-2006 y 2013-2014.</p>
+        <p>Como parte de la encuesta, se pidió a los participantes que respondieran a una serie de preguntas diseñadas para evaluar su nivel percibido de control personal. A los participantes de ambas olas también se les preguntó: «Pensando en todos los lugares donde has vivido a lo largo de tu vida, incluido donde vives ahora, ¿en qué estado te gustaría más vivir durante los próximos 10 años si pudieras mudarte allí fácilmente ahora?».</p>
+        <p>Los investigadores utilizaron las puntuaciones de rigidez y flexibilidad de los estados individuales calculadas por investigadores de la Universidad de Maryland en 2014. Las puntuaciones de cada estado se derivaron de una medida establecida que incluía criterios como la fuerza del castigo (por ejemplo, la legalidad del castigo corporal, la severidad de las leyes), la latitud o permisividad (el acceso al alcohol), la diversidad (medida por el porcentaje de población extranjera) y la prevalencia y fuerza de las instituciones (por ejemplo, cuán religiosa es la población).</p>
+        <p>Las personas que reportaron niveles más bajos de control personal percibido fueron significativamente más propensas a expresar una preferencia por los estados con puntuaciones más altas en rigidez social. Estos hallazgos se mantuvieron, e incluso se fortalecieron, después de controlar el sexo, la edad, los ingresos y la educación de los participantes.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Los investigadores también realizaron una encuesta a 225 empleados de un gran minorista de ropa del sur de China. Como parte de un estudio más amplio, se pidió a los participantes que respondieran en una escala de siete puntos (1 = totalmente en desacuerdo, 7 = totalmente de acuerdo) a una serie de afirmaciones sobre su nivel percibido de control (por ejemplo, «tengo el control de mi vida»), su necesidad de estructura (por ejemplo, «odio cambiar mis planes a última hora») y su preferencia por una cultura organizacional más rígida (por ejemplo, «mi empresa debería tener más normas sociales que las personas deban cumplir»).</p>
+        <p>De manera similar a los hallazgos de la encuesta MIDUS, los participantes que expresaron niveles más bajos de control personal fueron más propensos a expresar una preferencia por una estructura organizacional más rígida. Además, los empleados que reportaron niveles más bajos de control personal fueron más propensos a expresar una mayor necesidad de estructura, y quienes tenían una mayor necesidad de estructura fueron más propensos a expresar una preferencia por una cultura organizacional más rígida.</p>
+        <p>En otro experimento, los investigadores encontraron que los participantes que expresaron niveles bajos de control personal eran más propensos a recompensar el comportamiento prosocial o castigar el comportamiento egoísta de un individuo anónimo dentro de un juego de computadora simulado.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Los investigadores también comprobaron si estar en una cultura rígida reduce las percepciones de control personal de las personas. Un total de 98 participantes, reclutados en línea, fueron asignados aleatoriamente a leer una descripción de una empresa que tenía una cultura organizacional rígida o flexible, y se les pidió que imaginaran que habían aceptado un trabajo allí. Los participantes a quienes se pidió imaginar que trabajaban para una empresa con una cultura rígida percibieron un control personal significativamente menor que quienes imaginaron trabajar para una empresa con una cultura flexible.</p>
+        <p>Un experimento separado pero similar, con 96 participantes en línea, también pidió a las personas imaginar que trabajaban para empresas con culturas organizacionales rígidas o flexibles, pero en lugar de preguntar por el control personal, se les pidió responder a una serie de afirmaciones diseñadas para medir su sentido de control colectivo (por ejemplo, «sentiría que los empleados de la empresa pueden trabajar juntos para controlar el destino de la empresa»).</p>
+        <p>Los resultados de estos experimentos aportan evidencia de la idea de que las culturas rígidas reducen los sentimientos de control personal de las personas pero aumentan su sentido de control colectivo, según Ma.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>Los académicos han argumentado que las culturas rígidas evolucionaron como una forma de que las personas mitigaran colectivamente las amenazas sociales. Apoyamos esta idea al mostrar que estar en una cultura rígida aumenta las percepciones de control colectivo de las personas, lo que les hace sentirse más seguras de superar las amenazas externas como grupo</strong>», dijo. «El aumento del control colectivo que ofrecen las culturas rígidas podría ser especialmente importante en la actual pandemia de covid-19, en la que una respuesta colectiva coordinada es vital para la supervivencia».</p>
+        <p>Aunque gran parte de los hallazgos no fueron sorprendentes debido a una base sólida de teoría e investigación que los respalda, Ma dijo que todavía le resulta asombroso que los sentimientos de control personal de un individuo puedan tener un efecto tan abrumador en la sociedad en su conjunto.</p>
+        <p class="cita">«<strong>Antes de hacer esta investigación, solía pensar que somos productos de la cultura en la que vivimos</strong>», dijo. «La idea de que somos seres individuales capaces de dar forma a las culturas en las que vivimos me parece absolutamente fascinante».</p>
+        <p class="articulo-ref"><strong>Artículo:</strong> «The Mutual Constitution of Culture and Psyche: The Bidirectional Relationship between Individuals' Perceived Control and Cultural Tightness-Looseness» («La constitución mutua de la cultura y la psique: la relación bidireccional entre el control percibido de los individuos y la rigidez–flexibilidad cultural»), de Anyi Ma, PhD, Universidad de Tulane; Krishna Savani, PhD, Universidad Politécnica de Hong Kong; Fangzhou Liu, PhD, Universidad de Ciencia y Tecnología de Huazhong; Kenneth Tai, PhD, Universidad de Gestión de Singapur; y Aaron Kay, PhD, Universidad de Duke. <em>Journal of Personality and Social Psychology</em>, publicado el 31 de octubre de 2022.</p>
+      </div>
+
+      <h2>El artículo científico</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Resumen</h3>
+        <p>Según la teoría de la constitución mutua de la cultura y la psique, así como la cultura moldea a las personas, los estados psicológicos de los individuos pueden influir en la cultura. Partiendo de la teoría del control compensatorio, que sugiere que un bajo control personal puede llevar a las personas a preferir sistemas sociales que imponen orden, examinamos la constitución mutua del control personal y la rigidez cultural. Específicamente, pusimos a prueba si la falta de control personal de los individuos aumenta su preferencia por culturas más rígidas como medio de restablecer el orden y la previsibilidad, y si las culturas más rígidas, a su vez, reducen los sentimientos de control personal de las personas. Siete estudios (cinco con preregistro) con participantes de Estados Unidos, Singapur y China examinaron este ciclo de constitución mutua. Al documentar el vínculo correlacional entre persona y cultura, encontramos que los estadounidenses con menor control personal preferían vivir en estados más rígidos (Estudio 1). Los empleados chinos con menor control personal también deseaban más estructura y preferían una cultura organizacional más rígida (Estudio 2). Empleando un diseño de cadena causal experimental, los estudios 3-5 proporcionaron evidencia causal de nuestra afirmación de que la falta de control aumenta el deseo de culturas más rígidas a través de la necesidad de estructura. Finalmente, trazando el vínculo de vuelta de la cultura a la persona, los estudios 6a y 6b encontraron que, mientras las culturas más rígidas disminuían las percepciones de control personal individual, aumentaban el sentido de control colectivo de las personas. En conjunto, los hallazgos documentan el proceso de constitución mutua de la cultura y la psique: la falta de control personal lleva a las personas a buscar culturas más estructuradas y rígidas, y esas culturas más rígidas, a su vez, disminuyen el sentido de control personal pero aumentan el sentido de control colectivo.</p>
+        <p class="articulo-ref"><strong>Palabras clave:</strong> control percibido, rigidez–flexibilidad, necesidad de estructura, constitución mutua, cultura.</p>
+      </div>
+
+      <h2>Marco teórico</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">«La cultura y la psique se construyen mutuamente»</h3>
+        <p>La teoría de la constitución mutua sostiene que, mientras la cultura moldea la cognición, la emoción, la motivación y la conducta de los individuos, los estados psicológicos de los individuos también pueden moldear los patrones y características culturales. Aunque se ha investigado extensamente la primera mitad de esta proposición, se ha investigado empíricamente mucho menos la influencia de los estados psicológicos individuales sobre los patrones culturales más amplios y, hasta donde sabemos, prácticamente ninguna investigación ha examinado el ciclo completo de la constitución mutua en un mismo artículo.</p>
+        <p>Una de las dimensiones a lo largo de las cuales varían las culturas que ha atraído mucha atención reciente es la <strong>rigidez–flexibilidad</strong> cultural. Mientras que las sociedades rígidas (por ejemplo, Pakistán, Singapur) tienen normas fuertes y una baja tolerancia a la desviación de la norma, las sociedades flexibles (por ejemplo, Ucrania, Estados Unidos) tienen normas débiles y son más propensas a tolerar conductas que violan las normas.</p>
+        <p>Se teoriza que las diferencias de rigidez–flexibilidad cultural son causadas por la presencia de amenazas externas (guerra, desastres naturales, carga de patógenos; procesos «descendentes») y reforzadas por la variación en las tendencias psicológicas dentro de las culturas (procesos «ascendentes»). Sin embargo, aunque el papel de estos procesos ascendentes ha sido teorizado, aún no se había examinado empíricamente.</p>
+      </div>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>El concepto de cultura rígida</h3>
+          <p>El concepto se desarrolló en los años sesenta en un estudio de sociedades tradicionales (Pelto, 1968): algunas, como los azande de África Central, poseían normas fuertes e imponían castigos severos a quienes se desviaban; otras, como los kung bushman de Sudáfrica, tenían normas débiles. Se sugiere que las culturas más rígidas evolucionaron para permitir a las personas superar eficazmente las amenazas sociales: las naciones más rígidas tienden a tener mayor densidad de población, recursos naturales escasos y sufren más desastres naturales (Gelfand et al., 2011).</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Teoría del control compensatorio</h3>
+          <p>Concebida en parte para explicar las variaciones de control personal dentro y entre culturas, esta teoría sugiere que la búsqueda de estructura no epistémica —interpretaciones de los entornos sociales y físicos como simples, claras y consistentes— resulta atractiva cuando las personas carecen de control. La falta de control personal aumenta la preferencia por formas de estructura como la jerarquía social, y lleva a percibir conexiones entre eventos no relacionados.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Control personal frente a control colectivo</h3>
+          <p>El control personal se define como la percepción de tener control sobre los medios necesarios para lograr metas valoradas; el control colectivo es la creencia de que se pueden lograr metas compartidas mediante la acción colectiva (también denominado maestría comunal o eficacia colectiva). Según el modelo de control basado en el grupo, los grupos son una fuente importante de control porque pueden «perseguir las metas y defender los valores que comparten con sus miembros».</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <p>Los autores proponen un ciclo completo de constitución mutua: las diferencias sociales en rigidez–flexibilidad y las percepciones individuales de control personal y colectivo pueden reforzarse mutuamente. Un episodio iniciador de menor control personal (por ejemplo, la pandemia de covid-19) puede aumentar el deseo de estructura y, en consecuencia, la preferencia por una cultura más rígida. Estar en una cultura más rígida reduce entonces el sentido de control personal pero aumenta el sentido de control colectivo a lo largo del tiempo. El modelo sugiere así un equilibrio inestable en el que las personas en culturas más rígidas perciben con el tiempo menos control individual y más control colectivo.</p>
+      </div>
+
+      <h2>Las seis hipótesis</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Hipótesis</th>
+              <th>Enunciado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>H1</td><td>Las personas que perciben un bajo control personal prefieren culturas más rígidas.</td></tr>
+            <tr><td>H2</td><td>Las personas que perciben un bajo control personal tienen una mayor necesidad de estructura.</td></tr>
+            <tr><td>H3</td><td>Las personas con mayor necesidad de estructura prefieren culturas más rígidas.</td></tr>
+            <tr><td>H4</td><td>La relación entre control personal percibido y preferencia por culturas más rígidas está mediada por la necesidad de estructura.</td></tr>
+            <tr><td>H5</td><td>Las personas en culturas más rígidas perciben menor control personal.</td></tr>
+            <tr><td>H6</td><td>Las personas en culturas más rígidas perciben mayor control colectivo.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Los siete estudios</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Estudio</th>
+              <th>País</th>
+              <th><em>N</em></th>
+              <th>Hallazgo clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>EE. UU. (encuesta MIDUS)</td><td>5700+</td><td>Menor control personal → preferencia por estados más rígidos</td></tr>
+            <tr><td>2</td><td>China (longitudinal, 2 olas)</td><td>225</td><td>Menor control → mayor necesidad de estructura → preferencia por cultura organizacional rígida</td></tr>
+            <tr><td>3</td><td>Singapur (experimento)</td><td>126</td><td>Bajo control inducido → más recompensas/castigos para hacer cumplir la norma de cooperación</td></tr>
+            <tr><td>4</td><td>EE. UU. (experimento)</td><td>193</td><td>Recuerdo de bajo control → mayor necesidad de estructura (<em>d</em> = 0,64)</td></tr>
+            <tr><td>5</td><td>EE. UU. (experimento)</td><td>200</td><td>Necesidad de estructura inducida → más conductas percibidas como inapropiadas (cultura más rígida)</td></tr>
+            <tr><td>6a</td><td>EE. UU. (experimento)</td><td>98</td><td>Imaginar cultura rígida → menor control personal (<em>d</em> = 1,19)</td></tr>
+            <tr><td>6b</td><td>EE. UU. (experimento)</td><td>96</td><td>Imaginar cultura rígida → mayor control colectivo (<em>d</em> = 0,88)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 1: Preferencia por estados estadounidenses más rígidos o flexibles</h3>
+        <p>Se analizaron los datos de las olas 2 y 3 de la encuesta longitudinal MIDUS. El control personal percibido se midió con una escala establecida de 12 ítems, y la preferencia por culturas rígidas se evaluó indirectamente a través del estado al que los participantes desearían mudarse durante los próximos 10 años, usando las puntuaciones de rigidez estatal de Harrington y Gelfand (2014), derivadas de indicadores como la fuerza del castigo, la permisividad (acceso al alcohol), la diversidad y la fuerza de las instituciones.</p>
+        <p>Un menor control personal percibido se asoció con una mayor preferencia por estados más rígidos, un resultado que persistió e incluso se fortaleció tras controlar sexo, edad, ingresos, educación, orientación política estatal, individualismo–colectivismo estatal y producto interior bruto estatal. Una limitación importante: la encuesta no registraba el estado de residencia actual, por lo que no se podía descartar que los participantes simplemente hubieran indicado su estado de origen. Esto motivó las pruebas causales posteriores.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 2: Evidencia longitudinal de dos olas en China</h3>
+        <p>Con la ayuda del departamento de recursos humanos, se invitó a participar a todos los empleados de un minorista de ropa del sur de China; 225 de los 323 invitados completaron las dos olas (tasa de respuesta del 70 %). Se midieron control percibido («tengo el control de mi vida»), necesidad de estructura («odio cambiar mis planes a última hora») y preferencia por una organización más rígida («mi empresa debería tener más normas sociales que las personas deban cumplir»).</p>
+        <p>El menor control personal en el tiempo 1 se asoció con mayor preferencia por una organización rígida y mayor necesidad de estructura en ambos tiempos; la mayor necesidad de estructura se asoció con la preferencia por mayor rigidez. Un modelo longitudinal de mediación en dos olas confirmó que la necesidad de estructura mediaba el vínculo entre control percibido y preferencia por culturas rígidas, sin mediación inversa, y la mediación se mantuvo tras controlar sexo, edad y educación.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 3: Bajo control → hacer cumplir las normas en un juego económico</h3>
+        <p>Con 126 estudiantes de una universidad de Singapur se empleó un diseño de cadena causal experimental. Primero, una tarea de identificación de conceptos: en la condición de bajo control, la retroalimentación era aleatoria y no contingente con las respuestas, lo que reduce el sentido de control. Luego, un juego estratégico de tres personas con roles de Decisor, Receptor y Juez: los participantes (todos asignados como Jueces, sin saberlo) podían renunciar a 5 de sus puntos para castigar a Decisores egoístas (que perdían 10) o recompensar a Decisores altruistas (que ganaban 10 adicionales), con bonificaciones monetarias reales.</p>
+        <p>Los participantes de bajo control defendieron más la norma de cooperación (<em>M</em> = 8,83) que los de alto control (<em>M</em> = 6,73), recompensando más la conducta cooperativa y castigando más la egoísta. El efecto se mantuvo tras controlar el sentido de poder percibido, descartando esta variable como explicación alternativa (de hecho, el poder varió en dirección opuesta a la esperada y no correlacionó con el cumplimiento de normas).</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 4: Bajo control → necesidad de estructura</h3>
+        <p>Con 193 residentes estadounidenses reclutados en Mechanical Turk (con preregistro), se pidió a los participantes recordar y escribir durante 2 minutos una experiencia pasada de control completo o de total falta de control. Después se midió la necesidad de estructura situacional (por ejemplo, «ahora mismo, no me gustaría estar en situaciones donde las reglas no están claras»), además del afecto positivo y negativo (PANAS) y el sentido de poder.</p>
+        <p>Los participantes de la condición de bajo control reportaron una necesidad de estructura significativamente mayor (<em>M</em> = 5,43) que los de alto control (<em>M</em> = 4,64; <em>d</em> = 0,64). El efecto de la condición se mantuvo significativo tras controlar sentido de poder, afecto positivo y negativo, quedando descartados estos como explicaciones alternativas.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 5: Necesidad de estructura → rigidez cultural</h3>
+        <p>Con 200 empleados estadounidenses a jornada completa, se manipuló la necesidad de estructura mediante textos que defendían que el éxito laboral requiere espontaneidad (condición de baja estructura) o hábitos y rutinas organizadas (condición de alta estructura), seguidos de la escritura de tres razones. Después se pidió valorar la idoneidad de 12 conductas en el propio lugar de trabajo (por ejemplo, discutir, reír, besarse), de modo que más conductas percibidas como inapropiadas indican una cultura más rígida.</p>
+        <p>Los participantes de la condición de alta necesidad de estructura consideraron las conductas menos apropiadas (<em>M</em> = 4,38) que los de baja estructura (<em>M</em> = 4,14; <em>d</em> = 0,34), efecto que se mantuvo tras controlar poder percibido y afecto. Dado que la rigidez objetiva de las organizaciones debía estar distribuida aleatoriamente entre condiciones, los resultados son consistentes con la hipótesis de que la necesidad de estructura aumenta la preferencia por culturas más rígidas.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudios 6a y 6b: De la cultura a la persona</h3>
+        <p>En ambos experimentos (con preregistro), los participantes leían la descripción de una empresa con cultura rígida o flexible, resumían sus creencias y aportaban ejemplos de sus vidas coherentes con ellas. En el 6a (98 participantes), tras imaginar que aceptaban un empleo en la empresa, se midió el control personal. En el 6b (96 participantes), se midió el control colectivo (por ejemplo, «sentiría que los empleados de la empresa pueden trabajar juntos para controlar el destino de la empresa»).</p>
+        <p>En el 6a, quienes imaginaron trabajar en la empresa de cultura rígida percibieron un control personal significativamente menor (<em>M</em> = 4,43) que quienes imaginaron la cultura flexible (<em>M</em> = 5,83; <em>d</em> = 1,19). En el 6b, quienes imaginaron la empresa rígida percibieron mayor control colectivo (<em>M</em> = 5,84) que los de la empresa flexible (<em>M</em> = 4,99; <em>d</em> = 0,88). Juntos, ambos estudios aportaron evidencia causal de que las culturas rígidas reducen el control personal pero aumentan el colectivo.</p>
+      </article>
+
+      <h2>Discusión general</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Implicaciones teóricas</h3>
+        <p>Esta investigación contribuye a la psicología cultural al demostrar la constitución mutua de la psique y la cultura, documentando una vía motivacional individual que podría conducir al cambio cultural. También supone un avance teórico para la teoría del control compensatorio al aclarar una ruta en la que la búsqueda de estructura motivada por el control podría ser mutuamente autorreforzante: experimentar bajo control personal puede llevar a preferir la estructura de las culturas rígidas, y poseer esa estructura puede reducir después el control personal individual. Además, al mostrar que el deseo de control también puede satisfacerse mediante el aumento del control colectivo que ofrecen las culturas rígidas, se ofrece una vía por la que la disminución gradual del control personal en culturas rígidas puede desplegarse de manera adaptativa: con el tiempo, las personas en culturas más rígidas se apoyan menos en la agencia personal y más en el control colectivo como medio de percibir un mundo ordenado y controlable.</p>
+        <p>El trabajo también aporta evidencia causal —hasta entonces ausente por el carácter correlacional de los datos previos— para supuestos clave de la teoría de rigidez–flexibilidad, cubriendo tanto la vía ascendente (los estados psicológicos influyen en la preferencia por culturas rígidas) como la descendente (estar en culturas rígidas influye en el control personal). Estos hallazgos respaldan además la idea de que las culturas rígidas evolucionaron para mitigar colectivamente las amenazas sociales: en línea con ello, Gelfand et al. (2021) encontraron recientemente menos muertes por covid-19 en culturas más rígidas.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Fortalezas, limitaciones y direcciones futuras</h3>
+        <p><strong>Fortalezas:</strong> las hipótesis se pusieron a prueba en contextos culturalmente diversos que también varían en rigidez–flexibilidad (Estados Unidos, China y Singapur), con métodos convergentes que incluyen experimentos y diseños longitudinales.</p>
+        <p><strong>Limitaciones:</strong> primero, el proceso de constitución mutua se desarrolla a lo largo de un intervalo largo de tiempo, y los estudios lo examinan de manera estática y fragmentaria, lo que puede simplificar en exceso su naturaleza dinámica. Segundo, al demostrar el efecto del control personal sobre la rigidez cultural se evaluó la preferencia por culturas más rígidas o la tendencia a castigar/recompensar, no cambios objetivos en la rigidez cultural; una vía para abordarlo serían experimentos de campo en los que se rastrearan las preferencias y la rigidez real de grupos asignados aleatoriamente a alto o bajo control personal. Tercero, la medida de poder empleada capta el sentido subjetivo de poder, no el poder estructural (estatus socioeconómico, ocupación, ingresos, sexo, etnia): es posible, por ejemplo, que personas con menor poder crónico prefieran normas más fuertes (por ejemplo, contra el acoso sexual) y quienes tienen más poder prefieran culturas más flexibles para no verse atados por reglas.</p>
+        <p><strong>Direcciones futuras:</strong> las características culturales están determinadas múltiplemente, y otras dimensiones culturales como el individualismo–colectivismo podrían moldear la relación bidireccional: mientras que las personas en culturas individualistas podrían afrontar las amenazas al control reforzando directamente su control personal, las de culturas colectivistas podrían optar por recuperarlo mediante procesos compensatorios como preferir culturas más rígidas. El colectivismo podría también fortalecer el efecto de las culturas rígidas sobre los sentimientos de control personal y colectivo, dada la mayor receptividad a las normas sociales.</p>
+      </div>
+
+      <h2>Conclusión</h2>
+
+      <div class="tarjeta entradilla">
+        <p>La rigidez–flexibilidad es una dimensión significativa a lo largo de la cual varían las culturas. Al documentar una relación bidireccional entre el control personal y la rigidez cultural, esta investigación demuestra que la cultura y la psique pueden efectivamente «construirse mutuamente» (Shweder, 1991), y que el deseo humano básico de control puede tener implicaciones sociales profundas.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">The Mutual Constitution of Culture and Psyche (PDF, 353 KB) — artículo original</a></li>
+      <li><a href="#">Journal of Personality and Social Psychology — revista de la APA</a></li>
+      <li><a href="#">Encuesta Midlife in the United States (MIDUS)</a></li>
+    </ul>
+
+    <footer>
+      <p>Fecha de creación: 31 de octubre de 2022 · Nota de prensa de la Asociación Americana de Psicología</p>
+      <p>Contacto de prensa: Jim Sliwa · (202) 336-5707</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

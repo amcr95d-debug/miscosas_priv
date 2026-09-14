@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Una perspectiva neurobiológica sobre la influencia social: serotonina y adaptación social</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: left;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .seccion {
+      border-left: 4px solid var(--acento);
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado {
+      border-left: 4px solid var(--acento);
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Artículo de revisión · Journal of Neurochemistry · 2022</span>
+      <h1>Una perspectiva neurobiológica sobre la influencia social: serotonina y adaptación social</h1>
+      <p class="subtitulo">Patricia Duerler · Franz X. Vollenweider · Katrin H. Preller — Universidad Hospital Psiquiátrico de Zúrich</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Influencia social</span>
+      <span class="tema">Serotonina (5-HT)</span>
+      <span class="tema">Psicodélicos</span>
+      <span class="tema">Psiquiatría</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p><strong>Resumen.</strong> Los seres humanos son inherentemente sociales. Ser sugestionables ante las expectativas de los demás habilita habilidades prosociales cruciales para el aprendizaje social y la adaptación. A pesar de su alta relevancia para la psiquiatría, los mecanismos neurobiológicos que subyacen a la adaptación social aún no se comprenden bien. Esta revisión proporciona un marco conceptual que cubre diversos mecanismos diferenciados subyacentes a la adaptación social y explora la neurofarmacología —en particular el papel del sistema de serotonina (5-HT)— en la modulación de estos mecanismos. Se revisan resultados empíricos sobre el procesamiento de la influencia social y se reconcilian con hallazgos recientes de la investigación psicodélica sobre el procesamiento social. Destaca el papel crítico de la 5-HT en estos procesos, sugiriendo que puede facilitar el aprendizaje social y representar un objetivo importante para tratar trastornos psiquiátricos caracterizados por déficits en el funcionamiento social, con implicaciones para la terapia asistida con psicodélicos.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <h2>Abreviaturas</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr><th>Sigla</th><th>Término completo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>DA</td><td>Dopamina</td></tr>
+            <tr><td>dmPFC</td><td>Corteza prefrontal dorsomedial</td></tr>
+            <tr><td>dACC</td><td>Corteza cingulada anterior dorsal</td></tr>
+            <tr><td>LSD</td><td>Dietilamida del ácido lisérgico</td></tr>
+            <tr><td>mPFC</td><td>Corteza prefrontal medial</td></tr>
+            <tr><td>NAcc</td><td>Núcleo accumbens</td></tr>
+            <tr><td>PE</td><td>Error de predicción</td></tr>
+            <tr><td>Psi</td><td>Psilocibina</td></tr>
+            <tr><td>5-HT</td><td>5-hidroxitriptamina (serotonina)</td></tr>
+            <tr><td>RN</td><td>Núcleos del rafe</td></tr>
+            <tr><td>RPE</td><td>Error de predicción de recompensa</td></tr>
+            <tr><td>ISRS</td><td>Inhibidor selectivo de la recaptación de serotonina</td></tr>
+            <tr><td>vmPFC</td><td>Corteza prefrontal ventromedial</td></tr>
+            <tr><td>VS</td><td>Estriado ventral</td></tr>
+            <tr><td>VTA</td><td>Área tegmental ventral</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Introducción</h2>
+
+      <div class="tarjeta">
+        <p>No solo aprendemos de experiencias sociales directas u observaciones: además, nuestra conducta es altamente susceptible a las expectativas de los demás, es decir, a las <strong>normas sociales</strong>. Dado el extenso impacto de la influencia social sobre nuestro comportamiento, los procesos de adaptación social interesan a campos que van de la psicología y la medicina a la sociología, la ciencia política y el marketing.</p>
+        <p>Los mecanismos neurobiológicos del procesamiento de la influencia social están enraizados en nuestro sistema de valor y recompensa, y representan impulsores fundamentales de nuestra motivación y conducta. El procesamiento de la influencia social implica la interacción de nuestros sistemas motivacional, afectivo y cognitivo. Cualquier perturbación en uno de estos sistemas puede afectar el funcionamiento social: los déficits en cognición social son una de las características más prominentes y discapacitantes de diversos trastornos psiquiátricos. Y la calidad y cantidad de las relaciones interpersonales no solo impacta la salud mental sino el bienestar físico, estando directamente vinculada a la morbilidad y mortalidad.</p>
+        <p>Mientras ciertos neurotransmisores y neuropéptidos como la dopamina y la oxitocina han demostrado modular la adaptación social, el <strong>sistema de 5-HT está fuertemente implicado en la cognición social, pero su papel en el procesamiento de la influencia social no se comprende bien</strong>. Los psicodélicos serotoninérgicos como el LSD o la psilocibina ejercen sus efectos psicológicos principalmente mediante la activación del receptor 5-HT2A y modulan mecanismos implicados en la emoción y el procesamiento de la autorrelevancia, ofreciendo una oportunidad única para investigar los mecanismos neurofarmacológicos de la adaptación social.</p>
+      </div>
+
+      <h2>Mecanismos de adaptación y aprendizaje social</h2>
+
+      <div class="tarjeta">
+        <p>Desde una perspectiva evolutiva, la capacidad de adaptación es central para la supervivencia de todas las especies y se logra mediante el aprendizaje. En los humanos en particular, la capacidad de aprender unos de otros a través de interacciones sociales facilitó las habilidades de adaptación y formó la plasticidad del cerebro social humano. Ser influenciable es el fundamento del aprendizaje social, crucial para la supervivencia, las interacciones sociales exitosas y la toma de decisiones adaptativa basada en el valor.</p>
+      </div>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Alineamiento social</h3>
+          <p>La motivación intrínseca a estar conectados socialmente y conformarnos está embebida en el concepto de <em>alineamiento social</em>: es crítico para comunicarnos y aprender unos de otros, y conduce a sentimientos de pertenencia. Sus mecanismos habilitan la conexión social al proporcionar una realidad compartida y reducir la incertidumbre de los entornos sociales.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Conformidad social</h3>
+          <p>Es una forma de alineamiento cognitivo con un grupo: cambiar actitudes, creencias o conductas para igualar normas sociales compartidas. Dos motores motivacionales la dirigen: <strong>aproximarse a recompensas</strong> (recibir recompensas sociales) y <strong>evitar castigos</strong> (sanciones sociales). Los humanos tenemos una necesidad profunda de conexión y de no ser rechazados; incluso existe una conformidad <em>inconsecuente</em>, sin ganancia explícita: discrepar de los demás resulta incómodo. Compartir información aumenta la actividad en regiones de valoración positiva y procesamiento autorrelacionado: estar en línea con los demás se siente gratificante y afecta directamente el sistema neuronal de valor.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Perspectiva corporizada</h3>
+          <p>El punto de partida del aprendizaje social es la <strong>comparación multisensorial del yo con los otros</strong>. Los sistemas biológicos que promueven la mímica y la sincronización permiten entender experiencias, pensamientos y emociones ajenos. Al hallar semejanzas y diferencias mediante esta comparación, se habilitan los límites yo/otro y el sentido de identidad. Una <em>autorrepresentación estable</em> sirve como punto de referencia: el alineamiento social exige equilibrio entre plasticidad (asimilar cambios y actualizar la autorrepresentación) y continuidad del autoconcepto en el tiempo.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">4</span>Normas sociales</h3>
+          <p>Expectativas sobre la conducta: reglas no escritas, socialmente negociadas y aplicadas, que contienen información sobre estándares aceptados y sobre qué conducta es apropiada en cada entorno social. Cumplirlas mantiene el orden colectivo y habilita la coordinación social. No son fijas sino dinámicamente formadas, y ofrecen una heurística conveniente para nuestras decisiones cotidianas.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">El cerebro social predictivo</h3>
+        <p>La integración de la información social se impulsa por 1) entradas sensoriales ascendentes (<em>bottom-up</em>) y 2) influencias cognitivas descendentes (<em>top-down</em>): conocimiento social, expectativas, estados emocionales, experiencias pasadas y factores contextuales. Desde la perspectiva del <strong>codificación predictiva</strong>, el cerebro genera constantemente predicciones basadas en información previa para anticipar la información sensorial. Cuando hay un desfase entre lo predicho y lo real, surge una <strong>señal de error de predicción (PE)</strong>. El cerebro minimiza los errores para hacer la actividad neural metabólicamente eficiente, actualizando su modelo interno. Los entornos impredecibles elevan los costes metabólicos, y en entornos sociales esos costes pueden reducirse conformándonos a las expectativas de los demás. Aunque conformarse y actualizar autorrepresentaciones conllevan inicialmente costes, pueden conceptualizarse como una <em>inversión</em> para reducir costes e incertidumbre futuros. Conformarse no solo ayuda a ser adaptativos: regula la previsibilidad del entorno haciéndonos predecibles unos a otros, y contribuye a una realidad social compartida que crea las condiciones de la sociedad misma.</p>
+        <p class="datos"><strong>Formas maladaptativas:</strong> las formas negativas de influencia social suelen implicar obediencia a una doctrina ideológica o autoridad, y se caracterizan por procesos que no cumplen la función adaptativa de las normas surgidas del aprendizaje social. Las normas maladaptativas carecen de «sabiduría colectiva»: contienen un dogma rígido, predeterminado e inamovible, forzado y no moldeado dinámicamente. Esta misma sugestionabilidad —fundamental para el aprendizaje social e involucrando nuestro sistema de recompensa— es también nuestro punto más vulnerable frente a intentos de persuasión o manipulación.</p>
+      </div>
+
+      <h2>Integración de información y toma de decisiones basada en el valor</h2>
+
+      <div class="tarjeta">
+        <p>La profundidad del procesamiento e integración de información social depende de su relevancia para el yo. La <strong>autorrelevancia</strong> influye directamente en la computación subjetiva del valor que señala recompensa o castigo esperado y guía la decisión conductual. Se sugiere que el sistema de recompensa del cerebro involucra tres procesos disociables: <strong>agrado</strong> (<em>liking</em>: impacto hedónico de los estímulos gratificantes), <strong>deseo</strong> (<em>wanting</em>: saliencia incentivante o aproximación a estímulos relacionados con la recompensa) y <strong>aprendizaje</strong>.</p>
+        <div class="pilares">
+          <div class="tarjeta">
+            <h3><span class="num">1</span>Procesamiento de autorrelevancia</h3>
+            <p>Al procesar información, primero evaluamos la relevancia personal del estímulo. Está influida por el autoconcepto y los esquemas en la memoria a largo plazo basados en experiencias previas. Una mayor autorrelevancia se asocia con mayor precisión al inferir estados mentales de otros. Asignar valor personal al contenido autorrelacionado es esencial para formar y estabilizar autorrepresentaciones coherentes.</p>
+          </div>
+          <div class="tarjeta">
+            <h3><span class="num">2</span>Valor subjetivo («agrado»)</h3>
+            <p>Proceso afectivo o cognitivo que asigna valor personal subjetivo a un objetivo, basado en la ponderación coste-beneficio de su valencia según muchas variables de decisión (riesgo, incertidumbre, demora temporal, esfuerzo) e influida por emoción, cognición y motivación. Las decisiones de conformidad implican valoración subjetiva, con dos entradas especialmente importantes: la <strong>autorrelevancia</strong> y la <strong>relevancia social</strong> (inferir estados mentales ajenos).</p>
+          </div>
+          <div class="tarjeta">
+            <h3><span class="num">3</span>Selección de acción («deseo»)</h3>
+            <p>El valor guía la elección de conducta: señala recompensa esperada cuando es positivo y castigo esperado cuando es negativo, e incorpora experiencias pasadas mediante el aprendizaje por refuerzo. La selección de acción describe la elección entre conducta de aproximación y de evitación; las señales de «agrado» y «deseo» interactúan determinando el momento de la acción y el gasto de esfuerzo.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Redes neuronales implicadas en la adaptación social</h2>
+
+      <div class="tarjeta">
+        <p>La <strong>corteza prefrontal medial (mPFC)</strong> es crítica para habilidades cognitivas humanas como el procesamiento complejo de información social, la introspección y la metacognición. Coordina la toma de decisiones hacia metas de alto nivel y es una región central para el procesamiento de la influencia social, modulada por entradas dopaminérgicas, serotoninérgicas y noradrenérgicas. Se sugiere que es un núcleo central de integración de información del yo, la recompensa y la mentalización durante el procesamiento de la retroalimentación social, y se vincula al cambio de conducta ante normas de grupo, supuestamente por su papel en la asignación de valor subjetivo al yo.</p>
+        <p><strong>Ante normas de grupo:</strong> la activación de áreas frontales mediales y la desactivación del estriado ventral (VS) durante la exposición a normas de grupo se han vinculado al cambio de conducta. La <strong>vmPFC</strong> regula la conformidad ligada a la estimación de valor y se sugiere que soporta decisiones sociales adaptativas mediante el procesamiento de autorrelevancia y la computación de valor de los estímulos sociales, integrando esta información multisensorial con estructuras del tronco encefálico y estructuras límbicas subcorticales. Otras regiones controladas por la vmPFC incluyen la amígdala, el núcleo accumbens y regiones con neuronas productoras de DA y 5-HT.</p>
+        <p><strong>Ante desajustes con las normas del grupo:</strong> se activan regiones asociadas a la detección de conflicto, el aprendizaje por refuerzo y la cognición social, a menudo la <strong>dmPFC y la corteza cingulada anterior dorsal (dACC)</strong>. Las personas con mayor tendencia a la conformidad muestran mayor activación en la corteza frontal medial posterior y la ínsula. Durante violaciones de expectativas, se encontró mayor actividad en la ínsula anterior tanto en contextos sociales como no sociales.</p>
+        <p><strong>Representación neural de las normas:</strong> la red vmPFC-hipocampo-corteza posterior se ha identificado en funciones relacionadas con esquemas. La memoria esquemática participa en la toma de decisiones basada en el valor para optimizar conductas guiadas por refuerzo en entornos dinámicos. Los esquemas organizan el conocimiento previo (expectativas) que puede promover —o sesgar— la toma de decisiones y la integración de información nueva.</p>
+        <p><strong>Recompensa social frente a no social:</strong> el aprendizaje y la toma de decisiones basada en el valor en contextos sociales y no sociales se apoyan en mecanismos computacionales neuronales similares; sin embargo, en situaciones sociales el cerebro puede reclutar procesos adicionales para gestionar el entorno, como inferir los estados mentales de otros.</p>
+      </div>
+
+      <h2>Serotonina y adaptación social</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Funciones generales del sistema serotoninérgico</h3>
+        <p>La 5-HT ejerce una amplia gama de influencias fisiológicas y conductuales mediante su acción sobre al menos <strong>17 receptores diferentes</strong> y tiene una función reguladora de la homeostasis en todo el cuerpo. Sirve a múltiples funciones de nivel bajo y alto: estado de ánimo, emoción, sueño, apetito, aprendizaje de recompensa y castigo, cooperación y toma de decisiones. La mayoría de las células serotoninérgicas se localiza en los <strong>núcleos del rafe (RN)</strong> del mesencéfalo, con fibras ascendentes que proyectan a la corteza frontal, el estriado, el tálamo, la amígdala y el hipotálamo. Evidencia reciente reveló dos subtipos de proyección principales: del rafe ventral a regiones corticales anteriores y del rafe dorsal a regiones subcorticales, ambos con efectos opuestos sobre los fenotipos de ansiedad y depresión.</p>
+        <p>La depleción o el aumento de los niveles de 5-HT —mediante ISRS o l-triptófano— induce alteraciones positivas y negativas en la percepción social. <strong>Aumentar la 5-HT disminuye la sensibilidad a la retroalimentación negativa, aumenta la sensibilidad a la recompensa, incrementa la flexibilidad cognitiva en la toma de decisiones y se sugiere que promueve la conducta adaptativa</strong>. Además, se ha mostrado que promueve la conducta prosocial, potencialmente mediante su impacto en la vmPFC. Cabe notar que las consecuencias neuroquímicas de la depleción de triptófano son complejas y aún no se comprenden del todo.</p>
+      </div>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Componente</th>
+              <th>Papel de la 5-HT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Toma de decisiones por valor</td><td>Interactúa con la DA durante la codificación de errores de predicción de recompensa (RPE); las señales serotoninérgicas del rafe a la corteza frontal codifican la <em>subjetividad</em> en las señales de valoración, asociadas principalmente con el «agrado»</td></tr>
+            <tr><td>«Agrado» y autorrelevancia</td><td>Modula la valoración subjetiva vía vmPFC; la autorrelevancia, moduladora clave de la valoración subjetiva, está a su vez vinculada al procesamiento y regulación emocional, que la 5-HT también modula</td></tr>
+            <tr><td>Selección de acción</td><td>Mayor actividad serotoninérgica del rafe → mayor disposición a esperar recompensas diferidas, elevando el control de reacciones impulsivas; la depleción → tendencia general hacia la conducta impulsiva (recompensas pequeñas e inmediatas)</td></tr>
+            <tr><td>Aprendizaje de resultados</td><td>Codifica la <em>magnitud</em> de los errores de predicción, sin diferenciar entre PE positivos y negativos</td></tr>
+            <tr><td>Integración de información (mPFC)</td><td>Función reguladora sobre la decisión por valor mediante la modulación de la integración de información, posiblemente mediada por la mPFC; la 5-HT potenciada facilita el aprendizaje flexible y la flexibilidad cognitiva; la depleción de triptófano altera el aprendizaje de reversión en humanos</td></tr>
+            <tr><td>Procesamiento afectivo</td><td>Los ISRS potencian el afecto positivo del valor subjetivo durante el aprendizaje novedoso y la reconsolidación; la depleción aumenta la responsividad al castigo y genera sesgos negativos en la integración de información social (los ISRS aumentan las reacciones a rostros positivos y reducen la reactividad a los negativos)</td></tr>
+            <tr><td>Autoregulación</td><td>Promueve esperar recompensas temporalmente diferidas si se esperan, haciendo el proceso de decisión más adaptativo al incluir más información sobre el valor autorrelevante</td></tr>
+            <tr><td>Recompensas sociales</td><td>La depleción de 5-HT altera las señales de predicción de recompensa social (ínsula, lóbulo temporal, PFC) e impide aprender de recompensas sociales; reduce la cooperación, mientras que los ISRS la aumentan —quizá al incrementar el valor de los beneficios a largo plazo asociados a cooperar</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Serotonina y dopamina: roles complementarios</h3>
+        <p>El equilibrio entre las señales de 5-HT y DA parece necesario para la flexibilidad cognitiva y, por tanto, la conducta adaptativa y la toma de decisiones óptima. Los desequilibrios se asocian con formas maladaptativas de decisión (por ejemplo, el trastorno por uso de sustancias) o con alteraciones en la regulación de los mecanismos de retroalimentación negativa, a menudo un elemento nuclear en muchos trastornos psiquiátricos como la depresión.</p>
+        <p>La evidencia de que la DA facilita la conformidad social deriva de un estudio con metilfenidato (agonista indirecto de DA y noradrenalina), que sugirió un papel mediador de los niveles extracelulares de DA en la conformidad social. Un estudio reciente demostró además que el gen del receptor de dopamina 3 se asocia con diferencias individuales en la conducta de conformidad. La depleción de DA embotó la sensibilidad a estímulos sociales como los rostros de confianza variable. Pese a algunas diferencias, <strong>la DA y la 5-HT no están aisladas sino que se influyen mutuamente durante el procesamiento de recompensa y la toma de decisiones</strong>.</p>
+        <p><strong>Otros neurotransmisores:</strong> la noradrenalina y el glutamato también modulan el aprendizaje social; la acetilcolina y la noradrenalina se han asociado a la señalización de la incertidumbre. La <strong>oxitocina</strong>, neuropéptido prototípicamente prosocial, promueve la confianza, potencia la empatía y aumenta el valor gratificante de las interacciones. Está vinculada al aprendizaje por retroalimentación social al reducir el valor de las evaluaciones sociales negativas (en individuos con puntuaciones altas en depresión, que tendían a devaluar la evaluación social positiva, esto se normalizó tras la administración de oxitocina). En roedores, la oxitocina actúa como señal de refuerzo social provocando la liberación de 5-HT y DA en el núcleo accumbens. Sus funciones diferenciales y sus interacciones en cascada son complejas y aún no están del todo claras.</p>
+      </div>
+
+      <h2>Psicodélicos serotoninérgicos y adaptación social</h2>
+
+      <div class="tarjeta">
+        <p>La complejidad del sistema de 5-HT, con sus varios subreceptores, dificulta identificar el papel de este sistema neurotransmisor en la adaptación social. El <strong>receptor 5-HT2A</strong> es de particular interés porque se ha asociado fuertemente con la neuroplasticidad mejorada importante para la adaptación. El LSD y la psilocibina ejercen sus efectos psicoactivos principalmente mediante la activación agonista del receptor 5-HT2A. Hallazgos en roedores revelaron que esta activación conduce a un aumento glutamato-dependiente de la actividad de las neuronas piramidales de la capa profunda (capa V) de la PFC. La administración del antagonista 5-HT2A ketanserina bloquea los efectos psicoactivos de la Psi y el LSD. Ambos compuestos también interactúan con otros receptores serotoninérgicos (5-HT1A, 5-HT5, 5-HT6, 5-HT7), y el LSD tiene actividad agonista adicional en receptores DA D2, D1 y alfa-adrenérgicos. Los antipsicóticos de segunda generación dirigidos a la antagonización del 5-HT2A siguen siendo prometedores para la esquizofrenia; primavanserina y roluperidona son los dos moduladores 5-HT2A más prometedores bajo investigación actual.</p>
+        <p>Una característica nuclear de los efectos psicoactivos de Psi y LSD es la <strong>alteración de la experiencia del yo</strong>, asociada a cambios en el procesamiento e interacción social: aflojamiento de los límites yo-otro, experiencia de unidad con el entorno, procesamiento de autorrelevancia y procesamiento emocional.</p>
+      </div>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Procesamiento del yo y cognición social</h3>
+          <p>El LSD modula el procesamiento yo-otro, disminuyendo específicamente la diferenciación entre uno mismo y los demás durante una tarea de interacción social, vía estimulación 5-HT2A y asociado a actividad en la mPFC. La Psi alteró el automonitoreo en una tarea EEG/ERP, con alteraciones correlacionadas con los sentimientos de unidad inducidos. La Psi redujo además las reacciones a la exclusión social y al dolor social, correlacionadas con alteraciones del procesamiento del yo. Y el LSD aumentó la atribución de significado personal a estímulos previamente insignificantes, dependiente de la activación 5-HT2A.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Procesamiento sensorial e integración</h3>
+          <p>Las alteraciones de la autorrelevancia se atribuyen a una disrupción de la actividad y conectividad en redes asociativas, incluida la red neuronal por defecto. El LSD y la Psi aumentan agudamente la conectividad funcional global en áreas sensoriales y la conectividad talámica, reduciendo la de las regiones asociativas. Se propone que los psicodélicos <em>relajan la ponderación de precisión de las creencias previas</em> mientras aumentan el flujo ascendente de información. La disolución del ego —el aflojamiento de los límites yo-otro— se relacionaría así con la disrupción de la integración de señales multisensoriales que normalmente habilitan la formación de un yo estable. Los psicodélicos producen por tanto formas novedosas de integración de información y pueden promover la readaptación de procesos maladaptativos mediante la reestructuración de representaciones.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Estado de ánimo en el procesamiento social</h3>
+          <p>La activación del 5-HT2A se ha relacionado con la regulación del ánimo y el reconocimiento emocional: los psicodélicos reducen repetidamente el procesamiento de estímulos emocionales negativos. La <strong>empatía emocional</strong>, crucial para las interacciones y el aprendizaje social, aumenta tras la administración de LSD y Psi. El LSD aumenta además los niveles de oxitocina vía 5-HT2A tras una dosis alta (200 μg). Efectos prosociales agudos: conducta altruista, apertura y sentimientos de conexión.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">4</span>Influencia social</h3>
+          <p>Solo tres estudios han investigado el efecto de los psicodélicos en la sugestionabilidad. El LSD (40-80 μg intravenosos) aumenta la sugestionabilidad en la escala de imaginación creativa; una dosis oral de 50 μg también la aumentó, sin correlación con el procesamiento de saliencia aberrante. Con 100 μg orales, el LSD aumentó la adaptación ante retroalimentación social, pero <em>solo cuando las opiniones no diferían demasiado de las propias</em>. Los cambios en la conducta de conformidad fueron modulados por la estimulación 5-HT2A y asociados con mayor actividad en la mPFC; la activación 5-HT2A se relacionó con la actividad durante el procesamiento de la retroalimentación social, no con la decisión posterior.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta destacado">
+        <p><strong>Interpretación integradora:</strong> se propone que las alteraciones del LSD en el procesamiento del yo afectan la computación del valor, que señala recompensa esperada dependiente de su autorrelevancia en el proceso de decisión por valor para la conducta posterior. Por tanto, la adaptación a opiniones similares puede potenciarse y resultar más autorrelevante debido al procesamiento alterado del yo: el aflojamiento de los límites yo-otro y los sentimientos de unidad ya mostrados como modificadores de la interacción y cognición social. Estos hallazgos apuntan al papel central del sistema de 5-HT —particularmente el receptor 5-HT2A— en el procesamiento e integración de información social mediante la modulación de la función de la mPFC: los psicodélicos actúan sobre la región clave para integrar información autorrelevante y, por tanto, sobre el proceso básico de formación de la autorrepresentación, crucial para el aprendizaje y la adaptación social.</p>
+      </div>
+
+      <h2>Horizontes futuros: implicaciones para la terapia asistida con psicodélicos</h2>
+
+      <div class="tarjeta">
+        <p>La experiencia subjetiva durante el estado psicodélico se sugiere como crucial para los efectos clínicos, además de la psicoterapia. Un sentimiento psicodélico de <strong>conexión</strong> se ha propuesto como componente clave que puede potenciar la eficacia terapéutica en ensayos de Psi para dejar de fumar, potencialmente al reinstaurar el procesamiento de recompensa social. Los aumentos autoinformados de cercanía interpersonal y efectos prosociales positivos en participantes sanos duraron hasta <strong>14 meses</strong> tras la administración de LSD.</p>
+        <p>La adaptación social, la señalización de 5-HT y el entorno social están altamente entrelazados: los niveles de 5-HT dependen de la estimulación mediante interacciones sociales externas, y niveles más altos promueven la conducta prosocial. Por tanto, <strong>un foco en entrenar habilidades de comunicación e interacciones sociales cotidianas podría tener un efecto reforzador positivo que apoye la eficacia a largo plazo del tratamiento</strong>. La relación terapeuta-paciente podría ser el punto de partida para regular de nuevo el procesamiento de información social: el LSD ha mostrado aumentar la sugestionabilidad ante opiniones similares, señalando la importancia de la calidad de la relación paciente-terapeuta para la eficacia clínica potencial.</p>
+        <p>Pero la mayor sugestionabilidad y sensibilidad a señales sociales externas puede tener consecuencias tanto positivas como negativas según el entorno terapéutico. La administración terapéutica de psicodélicos exige alta responsabilidad y profesionalidad, y conciencia de los riesgos potenciales: supervisión por terapeutas profesionalmente formados, con comprensión del estado psicodélico, de las expectativas de paciente y terapeutas, empatía y aceptación del paciente. Sin adherencia adecuada a estos estándares, la administración clínica de psicodélicos puede incluso tener efectos dañinos. En suma, <strong>la terapia asistida con psicodélicos consiste en una interacción entre mecanismos farmacológicos y no farmacológicos/sociales</strong>: con la creciente investigación y aplicación clínica, deben desarrollarse la conciencia sobre riesgos y las guías de formación para terapeutas.</p>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>Una creciente cantidad de investigación apunta hacia una neuroplasticidad mediada por la 5-HT que conduce a una mayor adaptación mediante la modulación de los procesos de integración de información —como el aumento de la sensibilidad a ciertas señales sociales— y la regulación de los sesgos afectivos y cognitivos de las representaciones del contexto. Los hallazgos de neuroimagen revelan que los procesos de adaptación implican regiones frontales y redes cerebrales relacionadas con la computación del valor, y los hallazgos de neurofarmacología e investigación psicodélica demuestran que el <strong>5-HT2A desempeña un papel clave en la integración de información social mediante la modulación de la mPFC</strong>. La 5-HT modula la integración de señales de aprendizaje dependientes del contexto alterando el procesamiento de autorrelevancia, que a su vez afecta la asignación de valor —valor que refleja recompensa esperada dependiente de la autorrelevancia durante la toma de decisiones por valor que guía el aprendizaje y la elección de conducta—. La 5-HT es, por tanto, crucial para el aprendizaje social y la toma de decisiones basada en el valor: la adaptación social.</p>
+        <p>Investigar el papel del receptor 5-HT2A mediante la administración de psicodélicos serotoninérgicos no solo reveló conocimientos valiosos para una comprensión más diferenciada del procesamiento de la influencia social, sino que además demostró cómo se interrelacionan procesos centrales de la adaptación social: la integración multisensorial de información con la formación de una experiencia coherente del yo y su asociación con la percepción del otro durante las interacciones sociales. Combinar sinérgicamente tratamientos farmacológicos y no farmacológicos, fomentando formas novedosas de integración de información, puede ayudar a reestructurar restricciones maladaptativas de las representaciones que obstaculizan el aprendizaje social y la toma de decisiones adaptativa. Y como la señalización de 5-HT está altamente entrelazada con el entorno social y nuestra necesidad de pertenencia, <strong>promover interacciones sociales en la vida real también debería incluirse en la terapia</strong>, como efecto reforzador adicional que potencie la eficacia del tratamiento. En el futuro, aprovechar los métodos modernos —cuentas computacionales, técnicas de neuroimagen, conducta social del mundo real más allá del laboratorio— e integrar hallazgos de diferentes campos permitirá avanzar: hasta ahora la investigación se ha centrado en mecanismos dentro de cerebros individuales, pero para entender mejor la influencia social y sus mecanismos subyacentes debería considerarse el análisis de interacciones naturales entre muchos cerebros, pues nuestro cerebro está embebido en un sistema complejo de estructuras sociales.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Artículo original (acceso abierto, Journal of Neurochemistry, DOI: 10.1111/jnc.15573)</a></li>
+      <li><a href="#">Número especial: «Psychedelics &amp; Neurochemistry» — International Society for Neurochemistry</a></li>
+      <li><a href="#">Laboratorio de Neuropsicofarmacología e Imagen Cerebral — Hospital Psiquiátrico Universitario de Zúrich</a></li>
+    </ul>
+
+    <footer>
+      <p>Duerler, Vollenweider &amp; Preller (2022) · Journal of Neurochemistry · © 2022 The Authors · Publicado por John Wiley &amp; Sons Ltd en nombre de la International Society for Neurochemistry · Licencia Creative Commons Attribution (CC-BY)</p>
+      <p>Financiación: Swiss Neuromatrix Foundation · Usona Institute · Heffter Research Institute</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

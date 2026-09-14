@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Speaking of Psychology: ¿Qué impulsa a las personas al extremismo?</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .episodio {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .expertos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: .75rem;
+    }
+
+    .expertos h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+      color: var(--acento);
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .turno {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-left: 4px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: border-color .15s;
+    }
+
+    .turno:hover {
+      border-left-color: var(--acento);
+    }
+
+    .turno.anfitriona {
+      border-left-color: var(--acento);
+      background: var(--acento-suave);
+    }
+
+    .hablante {
+      margin: 0 0 .5rem;
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--acento);
+    }
+
+    .turno p {
+      margin: 0 0 .75rem;
+    }
+
+    .turno p:last-child {
+      margin-bottom: 0;
+    }
+
+    .aparte {
+      font-style: italic;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="episodio">Episodio 330</span>
+      <h1>Speaking of Psychology: ¿Qué impulsa a las personas al extremismo?</h1>
+      <p class="subtitulo">Con Arie Kruglanski, PhD, y Sophia Moskalenko, PhD</p>
+    </header>
+
+    <div class="tarjeta">
+      <p>La palabra «extremista» puede evocar imágenes de violencia o terrorismo. Pero los comportamientos extremos están a nuestro alrededor y pueden ser una fuerza para el bien tanto como para la destrucción. Arie Kruglanski, PhD, y Sophia Moskalenko, PhD, hablan sobre qué impulsa a las personas a los comportamientos extremos, si existe una «personalidad extremista», cómo las redes sociales fomentan el extremismo y si el mundo se está volviendo más extremo.</p>
+    </div>
+
+    <h2>Sobre los expertos</h2>
+    <div class="expertos">
+      <div class="tarjeta">
+        <h3>Arie Kruglanski, PhD</h3>
+        <p>Es profesor distinguido de psicología en la Universidad de Maryland y cofundador, codirector y coinvestigador principal del NCSTART, el Centro Nacional para el Estudio del Terrorismo y la Respuesta al Terrorismo. Sus intereses de investigación incluyen el extremismo violento, el activismo político, la búsqueda de significancia y el pensamiento cerrado. Es ganador del Premio 2025 de la APA a las Contribuciones Científicas Distinguidas. Su libro más reciente, escrito junto con Sophia Moskalenko, PhD, es <em>The Psychology of the Extreme</em> («La psicología de lo extremo»).</p>
+      </div>
+      <div class="tarjeta">
+        <h3>Sophia Moskalenko, PhD</h3>
+        <p>Es investigadora en la Georgia State University y especialista en gestión de programas en el Centro de Ideas Conductuales de la Oficina de las Naciones Unidas contra el Terrorismo. Es psicóloga social y clínica que estudia el extremismo, el terrorismo y la radicalización, y fue anteriormente investigadora del NCSTART. Es coautora, junto con Arie Kruglanski, PhD, de <em>The Psychology of the Extreme</em> («La psicología de lo extremo»).</p>
+      </div>
+    </div>
+
+    <h2>Transcripción</h2>
+
+    <input type="search" id="buscador" class="buscador" placeholder="Buscar en la transcripción...">
+    <p class="contador" id="contador"></p>
+
+    <div id="transcripcion">
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Qué significa ser un extremista? La palabra puede evocar imágenes de violencia política o terrorismo, pero los comportamientos extremos están a nuestro alrededor y pueden ser una fuerza para el bien tanto como para la destrucción. La determinación y el enfoque extremos pueden impulsar a los científicos a realizar nuevos descubrimientos y a los artistas a crear grandes obras.</p>
+        <p>Hoy vamos a hablar con dos psicólogos sobre la psicología de lo extremo. ¿Qué impulsa a las personas a los comportamientos extremos, tanto constructivos como destructivos? ¿Existe una personalidad extremista? Y si es así, ¿es algo con lo que se nace? ¿Existe una conexión entre el extremismo y la enfermedad mental? ¿Cómo fomentan las redes sociales el extremismo? ¿Se está volviendo el mundo más extremo? ¿Y puede la investigación psicológica sobre el extremismo sugerir formas de llegar a las personas en riesgo de volverse violentas o de dañar a otros?</p>
+        <p>Bienvenidos a Speaking of Psychology, el podcast insignia de la Asociación Americana de Psicología, que examina los vínculos entre la ciencia psicológica y la vida cotidiana. Soy Kim Mills. Hoy cuento con dos invitados. El primero es el Dr. Arie Kruglanski, profesor distinguido de psicología en la Universidad de Maryland y cofundador, codirector y coinvestigador principal del NCSTART, el Centro Nacional para el Estudio del Terrorismo y la Respuesta al Terrorismo. Sus intereses de investigación incluyen el extremismo violento, el activismo político, la búsqueda de significancia y el pensamiento cerrado. El Dr. Kruglanski es autor de más de 400 artículos académicos, capítulos y libros. Ha recibido numerosos premios por su trabajo, entre ellos el Premio 2025 de la APA a las Contribuciones Científicas Distinguidas.</p>
+        <p>La siguiente invitada es la Dra. Sophia Moskalenko, investigadora en la Georgia State University y especialista en gestión de programas en el Centro de Ideas Conductuales de la Oficina de las Naciones Unidas contra el Terrorismo. Es psicóloga social y clínica que estudia el extremismo, el terrorismo y la radicalización, y fue anteriormente investigadora del NCSTART.</p>
+        <p>La Dra. Moskalenko y el Dr. Kruglanski son coautores de un nuevo libro titulado <em>The Psychology of the Extreme</em>, publicado en febrero. Gracias a ambos por acompañarme.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sophia Moskalenko, PhD:</h3>
+        <p>Encantada de estar aquí. Gracias por invitarnos.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Para ambos, gran parte de su trabajo se ha centrado en el extremismo político y la violencia, pero en su nuevo libro hablan del extremismo de manera más amplia. Así que permítanme preguntarles: ¿cómo definen el extremismo?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>El extremismo es un estado psicológico de desequilibrio motivacional que ocurre cuando una de nuestras necesidades básicas es tan dominante que desplaza a las demás. Cuando eso sucede, las restricciones que esas otras necesidades normalmente imponen al comportamiento se relajan, si no desaparecen por completo. Y entonces, cualquier cosa que sirva a la necesidad dominante queda legitimada. Está permitida, incluidas cosas que de otro modo estarían limitadas por consideraciones alternativas.</p>
+        <p>Tomemos, por ejemplo, el hambre. Cuando tenemos un hambre moderada, nuestro comportamiento alimentario está limitado por consideraciones de salud, de gusto, de normas sociales, de lo que las personas de nuestra sociedad consideran legítimo para el consumo. Pero cuando el hambre se vuelve extrema, todas esas restricciones se desvanecen y cualquier cosa queda legitimada para el consumo: la corteza de los árboles, tus mascotas, incluso los cuerpos de otros seres humanos. Como se demostró en aquel desafortunado y trágico suceso en los Andes, cuando el avión se estrelló y los sobrevivientes se vieron obligados a comer la carne de sus camaradas caídos. Así que este paradigma de eliminación de restricciones se aplica al extremismo en todos los casos. Por ejemplo, cuando la necesidad de significancia y de sentirse importante es la necesidad predominante, las consideraciones sobre la vida, la familia, la carrera o las normas sociales se desvanecen, y haces cualquier cosa: matarías y morirías para satisfacer esa necesidad. Y esa es la instancia paradigmática del extremismo: este desequilibrio motivacional, esta mente de un solo carril que legitima cualquier cosa que sirva a esa necesidad dominante.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Eso suena a que todos tenemos el potencial del extremismo, pero debe haber algunos factores psicológicos que nos impidan actuar así todo el tiempo. ¿Es correcto?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sophia Moskalenko, PhD:</h3>
+        <p>Como Arie ya indicó en su respuesta, creemos que el extremismo es un mecanismo incorporado biológicamente que los seres humanos desarrollamos para superar situaciones de crisis: situaciones de vida o muerte, cuando estás en el desierto y necesitas agua, o te persigue un depredador o unos enemigos. En esas situaciones, no puedes distraerte con otras cosas. Tienes que movilizar todo tu repertorio de recursos y habilidades para hacer frente a la crisis.</p>
+        <p>Así que, cuando pensamos en el extremismo fuera de nuestros entornos primordiales, a veces basta con meter a una persona en la mentalidad de que esto es vida o muerte, de que se trata de su necesidad existencial, y no es tan difícil de lograr. Somos bastante buenos creando narrativas convincentes en ese sentido. Y posiblemente, en el mundo actual, hay personas especialmente hábiles para hacerlo. Conocemos los noticieros nocturnos, que quieren mantenerte enganchado y te muestran cosas impactantes y horribles; pero también la exposición diaria a las noticias en línea prioriza lo impactante, lo inquietante, porque multiplica la participación de los usuarios, que es lo que persiguen muchas redes sociales. Así que esta mentalidad de supervivencia y crisis que engendra el extremismo ya no se limita a aquello para lo que fue diseñada originalmente. Ha sido cooptada y hoy se usa ampliamente para captar la atención de las personas y meterlas en esta mentalidad extremista, ya sea para comprar cosas en línea o para entrar en comunidades extremistas en internet relacionadas con comer de una determinada manera, o con matarse de hambre, o con el fisicoculturismo, o, efectivamente, con involucrarse en ideas y acciones políticas radicales.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Al principio del libro, dan ejemplos de dos personas que quizá no pensaríamos juntas, pero que tipifican el extremismo de maneras diferentes, y estoy pensando en Gandhi y Bin Laden. ¿Pueden contarnos al respecto? ¿Qué rasgos comparten estas personas tan disímiles?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Voy a hablar de ello brevemente, porque Sophia es experta en ambos. Pero creo que lo que tienen en común es la determinación de un solo propósito y su disposición a sacrificar cualquier cosa que quede fuera del dominio de esa necesidad particular. En ambos casos, la necesidad subyacente era la búsqueda de significancia para su nación, para su religión. Y eso justificó una variedad de prácticas que uno calificaría de extremas: el rechazo de todos los modos occidentales de hacer las cosas, en el caso de Gandhi; la movilización de personas, de creyentes, para luchar contra Occidente, para combatir y matar a los no creyentes, en el caso de Al-Qaeda. Esa determinación, esa disposición de mente unidireccional a sacrificarlo todo en el altar de esa necesidad fue lo común a ambos. Pero Sophia puede añadir más, porque estudió a Gandhi y a Osama extensamente.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sophia Moskalenko, PhD:</h3>
+        <p>También comparten algunos datos biográficos que quizá resulten extraños para quienes solo los conocemos como estos gigantes del panorama político e histórico. Ambos crecieron en familias bastante prominentes y acomodadas. Ambos eran muy tímidos de jóvenes; no eran conocidos como líderes entre sus pares en absoluto, más bien se mantenían al margen de la lucha por la significancia, al menos en ese momento. Sin embargo, en cierto punto de su adolescencia tardía, ambos se interesaron cada vez más por lo que era, en esencia, una lucha anticolonial, porque ambos crecieron en países dominados por una potencia colonial y sentían que aquello era injusto y debía enfrentarse. Y así, ambos comenzaron, primero, cambiando su dieta, algo que encontramos en muchos casos de extremismo y que puede ser lo primero que se nota en alguien.</p>
+        <p>Para Osama bin Laden, fue que había comenzado a ayunar 2 días a la semana como el profeta, lo cual, para un adolescente, es un compromiso enorme. Ayunar es no comer nada durante 2 días a la semana. Y empezó a hacerlo por sí mismo. Luego comenzó a presionar a su familia, a su madre, a su padrastro y a sus hermanastros para que lo siguieran por este camino.</p>
+        <p>Para Gandhi, fue su voto de permanecer vegetariano, aunque estuviera estudiando en Londres y, en el Londres de aquella época, era muy difícil ser vegetariano y aún así comer de una forma que le agradara. Es decir, autosacrificios realmente serios para mantener y cultivar lo que sentían que era importante para ellos, política y en cuanto a su identidad. Y luego esos sacrificios no hicieron más que crecer. Empezaron a renunciar a su imagen ante los demás y, como resultado, destacaban con su vestimenta. Gandhi renunció a la ropa occidental.</p>
+        <p>Osama bin Laden comenzó a vestir ropa musulmana tradicional y de algún modo sentía que quienes no lo hacían no actuaban correctamente. Amigos que se vestían con pantalones cortos, por ejemplo, para jugar al fútbol, estaban violando un límite moral. Y Osama bin Laden se lo hizo saber a sus amigos.</p>
+        <p>Así que este proceso dinámico de, por un lado, romper normas sociales para cultivar una creencia determinada y, por el otro, con ello romper o tensar las relaciones sociales —porque eso es lo que sucede cuando un extremista inicia ese viaje: otras personas perciben los cambios en él y, a veces, el extremista les expresa el deseo de que lo sigan o de que cambien sus propios comportamientos, lo que tensa las relaciones sociales—. De modo que lo que ocurrió tanto en la trayectoria de Osama bin Laden como en la de Gandhi para convertirse en quienes llegaron a ser, tal como los conocimos, fue un aislamiento serio.</p>
+        <p>Y para Gandhi, eso fue decisivo. Estaba en Sudáfrica, a punto de viajar en tren. Ya se sentía parte de una minoría discriminada por ser indio en Sudáfrica, y tenía un billete de primera clase, pero le negaron el acceso a primera clase por ser indio. Ante la elección entre pasar a segunda clase o bajar del tren, eligió lo segundo. Y acabó pasando una noche en el andén, completamente solo, tras esa grave injusticia. Y fue entonces cuando concibió la idea de la <em>satyagraha</em>, la idea de la resistencia pacífica no violenta que luego se convirtió en el sello de su vida y del movimiento que lo siguió. Para Bin Laden, el aislamiento fue el resultado de su creciente radicalización y de su creciente conflicto con los gobiernos, incluido el suyo propio, el gobierno saudí, y de convertirse en una <em>persona non grata</em>, alguien perseguido internacionalmente. Y el aislamiento y el secretismo que implicaba ese tipo de vida lo condujeron también al reclutamiento. Esa es otra característica del viaje del extremista: que en algún momento acaban bastante aislados. Y las únicas personas que pueden tolerar las exigencias de su extremismo son otros extremistas. Y eso, muy a menudo, como ocurrió con Gandhi, es el tipo de momento que los empuja hacia el estilo de vida definitivo, la elección que define su extremismo y a ellos mismos.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Quería añadir algo a eso: hay muchos más seguidores e imitadores de Osama bin Laden que de Gandhi. Y hay una buena razón, en el sentido de que la vía violenta de alcanzar significancia, a través de la agresión, del dominio, de la gloria de la militancia, es una forma muy primordial de alcanzar significancia, mientras que la resistencia más pasiva que defendía Gandhi es una afirmación mucho menos directa de tu poder, de tu dominio, de tu importancia. Creo que esa es una diferencia entre estos dos, que comparten muchas cosas. Y una característica común que Sophia no mencionó es que ambos fueron asesinados por su ideología.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Ustedes describen rasgos de personalidad que suenan mucho a fijaciones del tipo que podría verse en alguien con trastorno del espectro autista o trastorno obsesivo compulsivo. Y me pregunto si el extremismo está relacionado con este tipo de trastornos de salud mental.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sophia Moskalenko, PhD:</h3>
+        <p>No sé si lo plantearía así: la mayoría de las personas que exhiben tendencias extremistas no son diagnosticables con ningún tipo de problema de salud mental. De hecho, como decíamos, el extremismo está en el repertorio de todos y, bajo las condiciones adecuadas, probablemente cualquiera actuaría de manera extrema. En ese sentido, ser extremo es una posibilidad normativa. Sin embargo, la enfermedad mental a menudo se parece mucho al extremismo en la obsesión singular con algo. Para las personas con anorexia, es la obsesión por perder peso y restringir la ingesta de calorías. Para quienes tienen trastorno obsesivo compulsivo, sea cual sea el miedo —quizá el miedo a los gérmenes o el miedo a ser atropellado—, se convierte en la obsesión singular que acaba definiendo gran parte de su vida diaria y de sus comportamientos. Algunas formas de depresión tienen esta característica de la rumiación, en la que la persona pasa gran parte de su tiempo dando vueltas a todos los fracasos que ha experimentado, a todo lo que cree que está mal en ella, a los rechazos, etcétera. Y este bucle circular e interminable de pensamiento negativo acaba consumiéndola hasta el punto de convertirse en un problema de salud mental. Así que los trastornos mentales son formas desordenadas de pensar, de sentir y de comportarse que pueden parecerse mucho al extremismo, el cual, en cierto punto, puede ser muy normativo.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Sí, de nuevo, la manifestación tiene este elemento común de fijarse en una cosa excluyendo las demás. La etiología puede ser diferente. Por ejemplo, en el caso del autismo, no está claro si lo que sucede es una supresión de otras cosas o simplemente que esas otras cosas no están particularmente bien desarrolladas, como la sensibilidad social y la conciencia social. Puede parecerse en la superficie y, sin embargo, tener una etiología subyacente diferente. Es una posibilidad fascinante examinar las similitudes y hasta qué profundidad penetran en el proceso psicológico, y eso es algo que las futuras generaciones de investigadores, con suerte, explorarán.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Es solo mi impresión o el mundo se está volviendo más extremista? ¿Atravesamos ciclos en la historia, con épocas en las que las cosas son más extremas y épocas en las que lo son menos?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Creo que el mundo se está volviendo más extremo, en cierta medida impulsado por la tecnología de las redes sociales e internet. La competencia por la atención, la competencia por ser popular y aceptado impulsa esta idea de proyectar importancia, de ser alguien, hasta extremos enormes. Ayer mismo leí una historia en <em>The Washington Post</em> sobre un saltador de esquí que saltó hasta la muerte para alcanzar la gloria de hacer algo que hiciera viral su vídeo. Así que ese tipo de competencia por la atención, propagada por las redes sociales, está inculcando la propensión a ir a los extremos para destacar, para importar, para tener significancia, para tener la atención de los demás.</p>
+        <p class="aparte">Sophia, ¿quieres añadir algo?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sophia Moskalenko, PhD:</h3>
+        <p>Sí, a mí también me da la impresión de que el mundo se está volviendo más extremo. Creo que las redes sociales son un enorme problema en ese sentido, como decía Ari, porque uno de los mecanismos para cultivar el extremismo, como describimos en el libro, es lo que en psicología se conoce como mera exposición. Es un fenómeno psicológico muy bien conocido: una persona que sale a correr por la mañana, si ve a un observador mirándola casualmente, correrá más rápido. Gastará más energía, se volverá un poco más extrema en lo que sea que esté haciendo. Así que esta idea de que estás siendo juzgado por los demás es un ingrediente natural que ayuda a que el extremismo prospere. Si antes nos juzgaban nuestros amigos y vecinos, ahora parece que el mundo entero está mirando cuando publicamos, comentamos o damos «me gusta». Estamos sobre un escenario, y no de buena manera, y eso hace que el extremismo crezca.</p>
+        <p>Pero otra cosa relevante aquí es el COVID, que fue una crisis existencial, sobre todo al principio, cuando no sabíamos mucho del virus y parecía horrible. Y como ya dije, la crisis es justamente aquello para lo que el extremismo está diseñado. Así que, en todo el mundo, vimos enormes cambios políticos tras el COVID, incluidas las protestas. Aquí tuvimos las protestas de Black Lives Matter, luego las protestas del 6 de enero, y vimos llegar al poder a movimientos populistas en muchos países. Todos nos hemos vuelto un poco más extremos y, desde donde yo estoy, creo que todavía lo estamos atravesando.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Los extremistas políticos tienden a situarse en un lado del espectro o en el otro, o están distribuidos de manera uniforme?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Diría que pueden estar distribuidos de manera uniforme. Hemos tenido olas de extremismo de izquierda que culminaron en el comunismo, que tomó grandes partes del mundo, y, por supuesto, tuvimos el fascismo y los nazis, que también amenazaron la seguridad y la estabilidad del planeta. Ahora tenemos el nacionalismo de derecha en ascenso y el extremismo religioso en crecimiento. Así que las ideologías, las narrativas que pueden servir al extremismo pueden variar en contenido. Lo importante es que se presentan como algo que sirve a esta necesidad tan importante de importar, de ser significativo.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Quién crea estas narrativas? ¿El extremista líder es quien empieza a mover la pieza? Y suena a que hay un nivel de contagio, de contagio social, aquí. ¿Lo estoy entendiendo bien?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sophia Moskalenko, PhD:</h3>
+        <p>Es una pregunta interesante que me han hecho mucho con respecto a QAnon en particular, que estuvo en las portadas de los periódicos de este país durante unos años. Lo he estudiado algo, y mucha gente quería saber quién está detrás. De hecho, se hicieron un par de documentales de HBO y otros medios de prestigio, pero creo que es menos interesante quién lo crea. Una razón es que ninguna de estas narrativas es nueva. En el caso de QAnon, cada una de las teorías de la conspiración que abraza ha existido durante décadas, si no a veces siglos o milenios: ya sea el libelo de sangre, la gente bebiendo sangre de niños; ya sea la tierra plana; ya sea los híbridos de humano y lagarto que iban a conquistar el mundo. Todas esas las conocemos, han existido siempre. Es como si los virus estuvieran en el aire todo el tiempo, y solo cuando el sistema inmunológico está debilitado o comprometido nos volvemos susceptibles a estas historias virales y permitimos que coloniza y amenacen nuestra sociedad.</p>
+        <p>Y, de hecho, si repasas la historia en los momentos en que estas narrativas conspirativas se volvieron peligrosas y mortales y provocaron un número enorme de muertes —como hicieron, por ejemplo, las cacerías de brujas, o, por ejemplo, <em>Los protocolos de los sabios de Sion</em>—, cada uno de esos casos se tradujo en miles, si no decenas de miles, de personas asesinadas, torturadas o tratadas de manera horrible sin ninguna razón válida. En ambos casos, las narrativas existieron mucho antes de su emergencia como fenómeno principal. Y en ambos casos, se descubrió muy rápidamente que eran un fraude. En la época de las cacerías de brujas ya se sabía que el libro era un fraude. En la época de <em>Los protocolos de los sabios de Sion</em> ya se sabía que el libro era un fraude. Simplemente, en la época de QAnon ya se sabía que era una teoría conspirativa completamente desmentida, y eso no impide que se propague.</p>
+        <p>Y no impide que afecte a las personas, ni que se involucren en comportamientos extremos, como pasar días y noches en línea en estas madrigueras de teorías de la conspiración, descuidando a sus propias familias e, incluso, rompiendo relaciones con sus hermanos, con sus cónyuges, con sus hijos por estas creencias. Y en algunos casos realmente extremos, hay personas que matan a sus hijos. Han ocurrido incidentes en los que creían que los niños eran híbridos de humano y lagarto, o creían que los niños estaban destinados a la cábala, y que por eso era mejor que fueran asesinados a manos de su propia madre. Así que la ideología en sí es solo una especie de barniz sobre el problema real: que la gente siente que vive en una época de crisis y que su existencia está amenazada. Y que, a menos que hagan algo extremo, todo se perderá. Ese es el hilo común entre todos estos diferentes casos históricos.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Dicen que la psicología profesional está intentando desesperadamente alcanzar al sentido común, y hay un sentido en el que la gente conoce la psicología. Conocen las vulnerabilidades, conocen las amenazas. Saben cómo pulsar los botones de las personas y qué tipo de historia contarles para movilizarlas a acciones extremas: historias sobre niños asesinados, mujeres violadas, cosas que amenazan tu masculinidad y te movilizan a la acción. Estas cosas se conocen. Las conocemos por nuestra propia psicología, por la psicología de nuestros hijos, de nuestros amigos; y las personas que quieren llegar al poder o ejercer influencia las usan de maneras creativas, capitalizando historias y escenas que existen desde hace siglos para capturar el momento, el punto de vulnerabilidad, el poder y la influencia.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Para nuestros oyentes que puedan estar preocupados porque ellos mismos o alguien que conocen esté derivando hacia el extremismo: en primer lugar, ¿cómo se sabe que se está llegando a un punto de peligro? ¿Y qué se puede hacer para salir de ahí?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sophia Moskalenko, PhD:</h3>
+        <p>Una señal de alerta, que de hecho a menudo es descrita como tal por quienes trabajan en la prevención del crimen violento, es cuando la persona comienza a alejarse de sus círculos sociales: cuando de repente deja de ir a los encuentros con personas que solía ver con regularidad, cuando acaba pasando más y más tiempo sola o cambia por completo su círculo social. Esta desconexión social, como hemos comentado, es a menudo un sello del extremismo creciente, porque la persona ya ha hecho o dicho algo que alertó a la gente de su círculo, lo que llevó a que le hablaran o a que expresaran su desacuerdo con la posición extremista, causando una ruptura o una tensión en la relación. Así que, cuando está presente este aislamiento o este cambio de entorno social, es un sello del extremismo incipiente. Si tu ser querido está exhibiendo algo así, lo mejor que puedes hacer es tratar de quedarte cerca en lugar de discutir con él, que es lo que naturalmente uno hace. En lugar de tratar de convencerlo de lo que crees que son sus ideas erróneas, intenta estar ahí para él a un nivel simplemente humano, no a nivel de discutir sobre política o sobre el extremismo al que la persona se está inclinando, sino tratando de comprender sus sentimientos.</p>
+        <p>¿Qué es lo que le hace sentir que vive en una crisis? ¿Qué es lo que lo hace estar dispuesto a romper conexiones sociales, a sacrificar cosas? Y apóyalo de una manera genuina, amable y constante, que, según sabemos por la investigación, es la mejor apuesta para sacar a una persona de situaciones extremistas en el momento en que esté lista para hacerlo.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Quería añadir un par de comentarios. En primer lugar, debemos recordar que lo extremo no es necesariamente algo negativo. Algunas de las mayores contribuciones a la ciencia, al arte, a la filosofía política, a la paz mundial fueron hechas por personas extremistas. Martin Luther King solía referirse a sí mismo como el radical. Así que este compromiso enfocado con una causa puede estar al servicio de cosas buenas, de cosas prosociales, de cosas que construyen en lugar de destruir.</p>
+        <p>Sin embargo, también sabemos que el extremismo pasa factura a los extremistas. Recientemente, nuestro equipo llevó a cabo una investigación en 17 naciones y el hallazgo más sólido es que el extremismo se relaciona negativamente con el bienestar. El hecho de que suprimas tus necesidades, que suprimas tus necesidades sociales, tus conexiones familiares, tu vínculo con los demás, pasa factura. Y al final del día, los extremistas no son personas felices. Sufren mucho. Eso hay que tenerlo en consideración. Y creo que la tercera cosa es la alfabetización psicológica: comprenderse a uno mismo, comprender... leer nuestro libro, si puedo sugerirlo, y Sophia me apoya en esa recomendación...</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Sí.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Comprender tu propia psique, comprender cuándo demasiado es demasiado y qué estás haciendo realmente al excluir todo lo demás por este compromiso desmedido, puede hacerte reflexionar y permitirte navegar y regular tu vida de una manera más juiciosa y meditada.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Y cómo se interesaron cada uno de ustedes en estudiar este síndrome, esta situación?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Ambos venimos del estudio del terrorismo y, para mí, fue la época en que el término «terrorismo» fue reemplazado por el término «extremismo violento». Y Sophia conoce los antecedentes de ese cambio. Pensé que era corrección política, pero es más que eso. Y cuando reflexioné sobre el término «extremismo violento», me di cuenta de que quizá hay otros extremismos que no son violentos: dietas extremas, deportes extremos, enamoramientos extremos, todo tipo de adicciones conductuales y de sustancias. Todas son formas de extremismo. Y reflexioné sobre si podría haber un núcleo psicológico común a esos diversos extremismos. Y fue cuando empezamos a hablar de la posibilidad de este desequilibrio motivacional, cuando una necesidad se impone a todo lo demás.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sophia Moskalenko, PhD:</h3>
+        <p>Sí, ambos estudiamos el terrorismo, pero yo, aunque aún no lo pensaba en términos de extremismo, tenía muy claro que algunos de los más grandes visionarios en torno a los cuales se construyó nuestra civilización, incluido Jesús, son extremistas en aspectos fundamentales, incluso si rechazan la violencia, a diferencia de los terroristas. Comprender el compromiso total que tienen los terroristas me ayudó a comprender el autosacrificio de personas que han hecho cosas fantásticas por las que todos estamos agradecidos. Es decir, disfrutamos de derechos, libertades, tecnología y avances en la medicina logrados por personas que lo dieron todo. En los viejos tiempos, la gente probaba las vacunas en sí misma, y muchos médicos murieron o sufrieron consecuencias horribles por hacer este extremo autosacrificio en nombre de la medicina. O el extremo autosacrificio de Marie Curie en nombre de su ciencia.</p>
+        <p>Solo quiero dejar claro algo que aclaramos en el libro, y también para los oyentes: no creemos, y tenemos ejemplos en el libro que respaldan esta idea, que haga falta extremismo para lograr grandes cosas. No creemos que debas poner tu vida en el altar de la ciencia para hacerla avanzar, o que nada que valga la pena se haya hecho jamás sin un enorme sacrificio personal. Hay muchos ejemplos, incluidos Einstein y otros... Picasso..., que llevaron vidas bastante equilibradas, combinando su pasión profunda por el arte, la tecnología o la ciencia —lo que sea— con otros intereses: tocar el violín, viajar por el mundo, relacionarse con colegas, amigos y mujeres. Así que no es que el extremismo sea un componente necesario para que nuestro mundo prospere, para que nuestra ciencia avance o para que los derechos humanos florezcan. A veces ayuda, pero más a menudo daña, y daña particularmente a las personas que lo practican.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Última pregunta. Suelo hacérsela a la mayoría de las personas con las que hablo: ¿en qué están trabajando ahora? ¿Qué viene después? Ya sea en esta área o en otras áreas donde están realizando investigación.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Tenemos un contrato para un nuevo libro, que se titulará <em>To Matter to Marvel</em> («Importar y admirar»). Intenta yuxtaponer esta búsqueda humana de significancia e importancia con la psicología opuesta: la de admirar, la de empequeñecerse ante la naturaleza, ante fuerzas mayores, ante Dios, ante algunos grandes héroes. Y el equilibrio entre estas dos, que de nuevo representa para nosotros la forma más saludable de conducir la vida: no estar comprometido con la grandeza, con un esfuerzo excesivo, y no empequeñecerse hasta el punto de perder la agencia, de perder el sentido de uno mismo; sino poder ser pequeño y ser grande, ser y no ser, por así decirlo.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>O sea, pasar del extremismo a la moderación, ¿es lo que estás diciendo?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Hasta cierto punto, sí. ¿Quieres añadir algo, Sophia?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sophia Moskalenko, PhD:</h3>
+        <p>Creo que tenemos la necesidad —quizá no una necesidad extrema, pero todos la tenemos— de tener algo más grande que nosotros ante lo que inclinarnos en nuestra vida diaria. Puede ser la ciencia para los científicos, o Dios para las personas religiosas, o la naturaleza. Y también tenemos la necesidad de importar y de ser significativos. Y cuando hay un desequilibrio profundo entre ambas es cuando aparece el extremismo. Encontrar ese hilo fino, encontrar esa ecuanimidad, satisfacer ambas necesidades —la de ser grandes y la de ser pequeños— es lo que creemos que constituye una buena vida.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Bueno, quiero agradecerles a ambos por acompañarme. Ha sido una conversación fascinante.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Sophia Moskalenko, PhD:</h3>
+        <p>Gracias por invitarnos.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Gracias.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Arie Kruglanski, PhD:</h3>
+        <p>Gracias por invitarnos. Fue un placer.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Puedes encontrar episodios anteriores de Speaking of Psychology en nuestro sitio web, speakingofpsychology.org, o en Apple, Spotify, YouTube o donde sea que escuches tus podcasts. Y si te gustó lo que escuchaste, síguenos y deja una reseña. Si tienes comentarios o ideas para futuros episodios, puedes escribirnos a speakingofpsychology@apa.org. Speaking of Psychology es producido por Lea Winerman.</p>
+        <p>Gracias por escuchar. Por la Asociación Americana de Psicología, soy Kim Mills.</p>
+      </article>
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Arie Kruglanski, PhD</a></li>
+      <li><a href="#">Sophia Moskalenko, PhD</a></li>
+      <li><a href="#">The Psychology of the Extreme («La psicología de lo extremo»)</a></li>
+      <li><a href="#">«5 preguntas para Arie Kruglanski, PhD» (Monitor on Psychology, abril de 2019)</a></li>
+    </ul>
+
+    <h2>Sobre la serie</h2>
+    <div class="tarjeta">
+      <p>Esta serie de podcasts de audio destaca algunas de las investigaciones psicológicas más recientes, importantes y pertinentes que se realizan en la actualidad. Producidos por la Asociación Americana de Psicología, estos podcasts ayudan a los oyentes a aplicar la ciencia de la psicología a su vida cotidiana.</p>
+      <p><strong>Tu anfitriona: Kim I. Mills.</strong> Kim I. Mills creó Speaking of Psychology en 2013 y asumió el rol de anfitriona en 2020. Es exdirectora sénior de comunicaciones externas estratégicas y asuntos públicos de la Asociación Americana de Psicología, y trabajó 14 años como reportera y editora de The Associated Press. Mills también ha escrito para publicaciones como The Washington Post, Fast Company, American Journalism Review, Dallas Morning News y Harvard Business Review.</p>
+    </div>
+
+    <footer>
+      <p>Fecha de creación: abril de 2025 · Speaking of Psychology</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#transcripcion p');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en la transcripción.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#transcripcion mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

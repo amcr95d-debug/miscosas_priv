@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Investigación traslacional en aprendizaje del castigo</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor { max-width: 860px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    header { margin-bottom: 1.5rem; }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); margin: 0 0 .5rem; line-height: 1.25; }
+    .subtitulo { color: var(--texto-suave); margin: 0; }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 { font-size: 1.05rem; margin: 1.5rem 0 .5rem; color: var(--acento); }
+
+    .temas { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 1.5rem; }
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .tarjeta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+    .tarjeta p { margin: 0 0 .75rem; }
+    .tarjeta p:last-child { margin-bottom: 0; }
+
+    .entradilla { border-left: 4px solid var(--acento); font-size: 1.05rem; }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+    .buscador:focus { border-color: var(--acento); box-shadow: 0 0 0 3px rgba(37, 99, 235, .15); }
+
+    .contador { font-size: .85rem; color: var(--texto-suave); min-height: 1.3em; margin: 0 0 1rem; }
+
+    .tabla-scroll { overflow-x: auto; margin: 1rem 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+    th, td { border: 1px solid var(--borde); padding: .5rem .75rem; text-align: left; vertical-align: top; }
+    th { background: var(--acento-suave); color: var(--acento); font-weight: 600; }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+    .pilares h3 { margin: 0 0 .5rem; font-size: 1rem; }
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .mecanismo { border-left: 4px solid var(--acento); }
+
+    .ejemplo {
+      background: var(--acento-suave);
+      border: 1px dashed var(--acento);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      margin: .75rem 0;
+      font-size: .95rem;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado { border-left: 4px solid var(--acento); }
+    .articulo-ref { font-size: .92rem; color: var(--texto-suave); }
+
+    mark { background: var(--marca); border-radius: 3px; padding: 0 2px; }
+
+    .relacionados { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+    .relacionados a:hover { color: var(--acento); border-color: #c7d2fe; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+    footer p { margin: .25rem 0; }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Artículo de revisión · Behavioral Neuroscience · 2024 · Acceso abierto (CC BY)</span>
+      <h1>Investigación traslacional en aprendizaje del castigo</h1>
+      <p class="subtitulo">Philip Jean-Richard-dit-Bressel · Kelly Gaetani · Lilith Zeng · Gabrielle Weidemann · Gavan P. McNally — UNSW Sydney y Western Sydney University</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Castigo</span>
+      <span class="tema">Compulsividad</span>
+      <span class="tema">Adicción</span>
+      <span class="tema">Psicopatía</span>
+      <span class="tema">Trastornos</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p><strong>Resumen.</strong> El aprendizaje del castigo es el aprendizaje de la relación causal entre respuestas y sus consecuencias adversas o indeseables. Aquí revisamos nuestro enfoque traslacional para entender si, cuándo y cómo difieren los individuos en lo que aprenden durante el castigo, y cómo estas diferencias de aprendizaje pueden impulsar decisiones persistentemente pobres o maladaptativas. Mostramos que las diferencias individuales en la insensibilidad al castigo pueden emerger de diferencias entre individuos en <strong>lo que aprenden sobre el castigo (conocimiento de la contingencia instrumental)</strong>, más que de diferencias en valoración aversiva, valoración de recompensa, control conductual general (impulsividad) o específico (hábito). Estas diferencias en conocimiento de la contingencia instrumental se comparten con otros animales y pueden estudiarse en ellos. Nuestro enfoque tiene fuerte validez de constructo y predictiva, proporcionando una plataforma traslacional robusta para estudiar cómo el aprendizaje del castigo y la toma de decisiones pueden contribuir a los trastornos neuropsiquiátricos.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <h2>Introducción: el aprendizaje del castigo</h2>
+
+      <div class="tarjeta">
+        <p>El aprendizaje del castigo es el aprendizaje de la relación entre respuestas y sus consecuencias adversas o indeseables. Este conocimiento instrumental de respuesta-castigador puede suprimir directamente la conducta causando la retención de una respuesta, puede desincentivarla socavando el estado motivacional que de otro modo generaría esa conducta, o puede hacer ambas cosas. El aprendizaje del castigo es <strong>esencial para la toma de decisiones saludable</strong>: nos permite aprender de nuestros errores, reduciendo así conductas que pueden causarnos daño o ir en contra de nuestros mejores intereses.</p>
+        <p>El aprendizaje del castigo es también una herramienta clave para promover cambios de conducta en otros. Los padres usan tiempos muertos para reducir conductas no deseadas o problemáticas en sus hijos; las sociedades disuaden las conductas antisociales usando castigadores de severidad que va desde multas hasta encarcelamiento. Compartimos este uso del castigo para mantener la cooperación social con chimpancés y macacos rhesus, e incluso hay cierta evidencia de que la agresión intraespecie puede usarse como castigador por aves y anfibios.</p>
+        <p>Crucialmente, las diferencias entre individuos en su sensibilidad al castigo se han implicado en la etiología y el mantenimiento de una gama de trastornos neuropsiquiátricos: adicciones a drogas y conductuales, trastorno de conducta, sociopatía y psicopatía, depresión, y trastornos de la alimentación.</p>
+        <p>Dado el papel central del aprendizaje del castigo en la toma de decisiones individual saludable y en el mantenimiento de la cooperación y cohesión social, así como la evidencia de que las disrupciones del aprendizaje del castigo contribuyen a algunas condiciones neuropsiquiátricas, es sorprendente que sepamos mucho menos sobre los mecanismos psicológicos y cerebrales del aprendizaje del castigo que sobre otras formas de aprendizaje estrechamente relacionadas, como el aprendizaje instrumental de recompensa y el aprendizaje pavloviano aversivo (miedo).</p>
+      </div>
+
+      <h2>La problemática historia del estudio del aprendizaje del castigo</h2>
+
+      <div class="tarjeta">
+        <p>Hay al menos tres razones para nuestra actual carencia relativa de comprensión del aprendizaje del castigo comparado con otras formas de aprendizaje:</p>
+        <div class="pilares">
+          <div class="tarjeta">
+            <h3><span class="num">1</span>Desafío a su estatus como proceso de aprendizaje</h3>
+            <p>Basándose en parte en trabajo con Estes, Skinner argumentó que como los efectos conductuales del castigo eran temporales y en gran parte indistinguibles de los del miedo, el aprendizaje del castigo podía reducirse al <strong>aprendizaje pavloviano del miedo</strong>. Se argumentó que los animales, incluidos los humanos, no suprimen una respuesta porque sepan que les causará consecuencias adversas, sino porque los estímulos vinculados a esas consecuencias generan una respuesta emocional competidora de miedo y otras conductas incompatibles que desplazan la respuesta castigada. Este desafío impulsó un período de investigación muy productivo en los años sesenta que evaluó si, cuándo y cómo el castigo podía aislarse del miedo. Esta investigación mostró con éxito que el castigo podía distinguirse del miedo y bajo qué condiciones; pero este corpus hizo poco por avanzar una comprensión teórica más profunda del aprendizaje del castigo mismo.</p>
+          </div>
+          <div class="tarjeta">
+            <h3><span class="num">2</span>Confusión entre lo que se aprende y cómo cambia la conducta</h3>
+            <p>El <strong>Ley del Efecto</strong> de Thorndike afirmaba que el aprendizaje del castigo es opuesto al aprendizaje de recompensa: la recompensa «estampa» la conducta y el castigo la «borra». Aunque Thorndike finalmente rechazó la Ley del Efecto como explicación adecuada —afirmando que los castigadores «no actúan sobre el aprendizaje en general debilitando la conexión que siguen»—, hay un claro vínculo intelectual entre la Ley del Efecto y las visiones de Hull, Azrin, Klopf, Sutton y Barto, y el aprendizaje por refuerzo moderno. El castigo se trata como opuesto al aprendizaje de recompensa a nivel conductual (recompensa aumenta la tasa de respuesta, castigo la disminuye), computacional (recompensa = +δ, castigo = −δ) y neural (recompensa = ↑ liberación de dopamina y actividad/plasticidad de neuronas drd1; castigo = ↓ dopamina y ↑ actividad/plasticidad de neuronas drd2). Sin embargo, <strong>la oposición entre aprendizaje de recompensa y castigo en sus efectos sobre la conducta no requiere oposición en sus mecanismos asociativos subyacentes</strong>. De hecho, hay muchos más paralelismos entre estas formas de aprendizaje instrumental (sensibilidad a magnitud, demora, programa, contingencia y validez relativa del refuerzo) que diferencias. El castigo instrumental y la recompensa instrumental comparten los mismos mecanismos de aprendizaje asociativo, pero difieren en cómo este aprendizaje afecta la conducta.</p>
+          </div>
+          <div class="tarjeta">
+            <h3><span class="num">3</span>Las críticas de Sidman a la coerción</h3>
+            <p>En su muy influyente obra «Coerción y sus efectos colaterales», Sidman argumentó fuertemente contra el uso del castigo como herramienta de cambio de conducta, reviviendo y extendiendo las críticas de Skinner. Sidman razonó que incluso si el castigo era eficaz en suprimir específicamente conductas no deseadas, toda supresión era transitoria, estaba acompañada del efecto secundario «tóxico» del castigo condicionado a señales ambientales, y causaba la emergencia de otras conductas no deseadas (p. ej., agresión). Aunque Sidman fue después cuidadoso al distinguir entre el uso del castigo como herramienta de control conductual y la utilidad de la investigación fundamental sobre el aprendizaje del castigo mismo, estas críticas a la utilidad y apropiación del castigo sin duda retrasaron el progreso moderno en su comprensión.</p>
+          </div>
+        </div>
+        <p class="datos"><strong>Excepciones importantes:</strong> el castigo retuvo popularidad en psicofarmacología como herramienta de cribado conductual de ansiolíticos (Geller &amp; Seifter, 1960) y de conducta «adictiva» en animales de laboratorio. Solomon argumentó por un enfoque teóricamente dirigido sobre la naturaleza del aprendizaje del castigo. Bolles usó el castigo para probar formulaciones de una perspectiva moderna de respuesta-resultado sobre el aprendizaje instrumental. Más recientemente, Bouton y Shahan redirigieron la atención teórica hacia aspectos clave del aprendizaje del castigo. Aun así, estas treguas intelectuales para el estudio de laboratorio del aprendizaje del castigo han sido pocas y espaciadas. En muchos aspectos, la conclusión de Solomon de que nuestro «conocimiento de los efectos del castigo sobre la conducta instrumental y emocional es... demasiado rudimentario para hacer una elección inteligente entre ideas conflictivas sobre ello» sigue siendo aplicable hoy.</p>
+      </div>
+
+      <h2>Diferencias individuales en sensibilidad al castigo en animales no humanos</h2>
+
+      <div class="tarjeta">
+        <p>La capacidad de aprender sobre las consecuencias adversas de nuestras acciones parece obviamente adaptativa, porque nos permite evitar esas consecuencias reteniendo posteriormente esas acciones. Dado esto, un rasgo interesante del aprendizaje del castigo es que <strong>varía entre individuos</strong>. Sometidos a las mismas contingencias de castigo, algunas ratas o ratones suprimirán una respuesta que causa castigo mientras que otros no. Estos individuos <strong>insensibles al castigo</strong> persisten en conductas que les hacen merecedores de castigo. Esta insensibilidad parece contraintuitiva: ¿por qué una rata o un ratón persistiría en una conducta que le hace merecedor de una descarga en la pata?</p>
+        <p>No todas las diferencias individuales son informativas o interesantes, pero como muchos trastornos neuropsiquiátricos están acompañados de déficits en el aprendizaje y toma de decisiones relacionados con el castigo, la insensibilidad al castigo en ratas y ratones se ha convertido en un modelo líder en neurociencia conductual para estudiar y entender los déficits de toma de decisiones en estos trastornos.</p>
+        <p>Sin embargo, las causas reales de estas diferencias interindividuales en sensibilidad al castigo en animales no humanos a menudo se pasan por alto. <strong>Simplemente demostrar diferencias entre individuos en la supresión por castigo no es diagnóstico del mecanismo de esta diferencia.</strong> Hasta nuestro propio trabajo, se habían propuesto tres mecanismos psicológicos principales:</p>
+      </div>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Valoración aversiva</h3>
+          <p>Basado en la teoría de la sensibilidad al refuerzo de Gray: las diferencias individuales en aprendizaje del castigo se deben a diferencias temperamentales generales en valoración aversiva o sensibilidad aversiva. Una mayor sensibilidad a la aversividad de los castigadores debería suprimir las conductas que los producen más que en quienes les molestan menos estos castigadores.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Dominancia de la recompensa</h3>
+          <p>Los animales pueden persistir en su conducta castigada (mostrar insensibilidad al castigo) porque <strong>sobrevaloran la recompensa</strong> asociada a esa acción. Para tales individuos, la recompensa se piensa que domina la ecuación coste-beneficio, de modo que los costes pronunciados (castigo) no logran sesgar las elecciones. La conducta queda más determinada por el valor de las recompensas que ganan que por los castigos que incurren.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Déficits de control conductual</h3>
+          <p>No todos los individuos tienen el control necesario sobre su propia conducta para evitar el castigo. Los individuos impulsivos o con compulsiones pueden carecer de control general o específico, respectivamente, sobre conductas con consecuencias negativas, de modo que incluso si las consecuencias negativas se reconocen, o la «recompensa» ya no se desea, la conducta persiste, por ejemplo, por hábito.</p>
+        </div>
+      </div>
+
+      <h2>La tarea de castigo condicionado en roedores</h2>
+
+      <div class="tarjeta">
+        <p>La evaluación conductual mecanística de las diferencias en sensibilidad al castigo en animales no humanos no es sencilla. Quizá la manera más popular de distinguir estos mecanismos es evaluar directamente las respuestas nocifensivas —como retroceder o saltar— ante el evento aversivo. Sin embargo, <strong>la magnitud de la respuesta incondicionada a un estímulo no es especialmente informativa sobre lo que se aprende de ese estímulo</strong>. Nuestro enfoque fue usar una tarea en ratas que aísla y disocia diferentes formas de aprendizaje sobre eventos para revelar qué relaciones, si existen, hay entre ellas. Basada en el trabajo de Killcross et al. (1997):</p>
+        <div class="ejemplo">
+          <strong>Diseño de la tarea:</strong> se entrena a las ratas para responder en dos palancas por recompensa de comida. En la fase de castigo, ambas palancas están siempre disponibles y dan recompensa. Se introduce una contingencia de castigo condicionado sobre una palanca pero no sobre la otra. Por tanto: R1 → EC+ y R2 → EC− (donde + = descarga en la pata y − = sin descarga).<br><br>
+          En esta tarea, el aprendizaje del castigo puede medirse vía tasas de respuesta R1 (castigada) fuera de las presentaciones del EC relativas a R2 (no castigada) o a tasas precastigo. El aprendizaje pavloviano de miedo puede medirse vía tasas de R1 y R2 durante presentaciones del EC+ (miedo) frente al EC− (seguro). Finalmente, el aprendizaje de recompensa puede medirse vía tasas de respuesta R2 así como la respuesta previa al castigo.
+        </div>
+        <p><strong>Tres características de la tarea merecen comentario:</strong> primero, permite evaluar estas diferentes formas de aprendizaje (castigo instrumental, recompensa instrumental y miedo pavloviano) en los mismos individuos. Segundo, estas diferentes formas de aprendizaje se evalúan al mismo tiempo. Finalmente, la misma medida conductual se usa para cuantificar estas diferentes formas de aprendizaje. Por tanto, esta tarea es única al permitir la comparación justa de estas diferentes formas de aprendizaje y al permitir técnicas de análisis que evalúen y cuantifiquen las relaciones entre ellas.</p>
+        <div class="ejemplo">
+          <strong>Lógica predictiva:</strong> si las diferencias individuales en sensibilidad al castigo se debieran a diferencias en valoración aversiva, esto se reflejaría en otras formas de aprendizaje sobre el evento aversivo en los mismos individuos: los individuos deteriorados en aprendizaje del castigo deberían también estar deteriorados en condicionamiento pavloviano de miedo. Si las diferencias se debieran a dominancia de recompensa, las diferencias en aprendizaje del castigo deberían relacionarse con diferencias en búsqueda de recompensa instrumental. Si la insensibilidad al castigo fuera atribuible a déficits específicos del castigo, ninguna relación entre las tres formas de aprendizaje debería ser aparente.
+        </div>
+        <p><strong>Resultados:</strong> usando esta tarea, replicamos hallazgos previos de robustas diferencias individuales en aprendizaje del castigo: algunas ratas mostraron supresión robusta del castigo (R1 &lt; R2) mientras que otras no. Sin embargo, <strong>todas las ratas mostraron miedo pavloviano robusto al EC+ y no al EC−</strong>. Estas diferencias entre supresión pavloviana e instrumental son importantes pero no son en sí mismas diagnósticas de la extensión de varianza compartida entre las dos. Por tanto, usamos una variedad de estrategias analíticas de datos (clustering k-medias, escalamiento multidimensional, análisis de componentes principales y análisis factorial) para entender la relación entre diferencias individuales en aprendizaje instrumental de recompensa, aprendizaje instrumental de castigo y aprendizaje pavloviano de miedo.</p>
+        <p>Hubo varios hallazgos importantes, pero el más relevante aquí fue que <strong>castigo, miedo y recompensa eran notablemente independientes entre sí. Compartían poca varianza. La insensibilidad al castigo es un fenotipo específico sin relación con diferencias en aprendizaje instrumental de recompensa o aprendizaje pavloviano de miedo</strong>. Además, los animales insensibles al castigo suprimieron tanto R1 como R2 respecto a la línea precastigo, indicando una capacidad intacta de retener la conducta. Esto contradice una cuenta de control conductual (es decir, hábito) de las diferencias observadas.</p>
+        <p>En conjunto, nuestro trabajo en ratas indicó un mecanismo separado que impulsa las diferencias individuales en castigo. Este mecanismo emerge directamente del hecho de que el aprendizaje del castigo implica <strong>codificar la contingencia instrumental entre conducta y sus consecuencias adversas</strong> (es decir, la contingencia respuesta-resultado). Los individuos insensibles y sensibles al castigo codifican el castigador como igualmente aversivo pero difieren en su capacidad de detectar o codificar la contingencia entre su conducta y el castigador.</p>
+      </div>
+
+      <h2>Traduciendo del animal no humano al aprendizaje del castigo humano</h2>
+
+      <div class="tarjeta">
+        <p>Nuestros hallazgos de estudios de laboratorio animal plantearon la pregunta: ¿opera el mismo mecanismo en humanos para impulsar diferencias individuales en aprendizaje del castigo? Las medidas más populares de sensibilidad al castigo en humanos tienen limitaciones:</p>
+        <div class="pilares">
+          <div class="tarjeta">
+            <h3>La escala BIS (más de 9.000 citas)</h3>
+            <p>La <strong>Escala de Inhibición Conductual (BIS)</strong> se basa en la teoría de la sensibilidad al refuerzo de Gray. Requiere que los participantes califiquen con una escala Likert de 4 puntos ítems como «Me preocupo por cometer errores», «La crítica o el reproche me hieren bastante» y «Tengo muy pocos miedos comparado con mis amigos». Su validación requirió que los participantes completaran una serie de problemas sin solución correcta, con retroalimentación manipulada indicando que su desempeño era subóptimo y que serían expuestos a un estresor de agua helada. La variable clave fue el nivel autoinformado de «nerviosismo» en anticipación del estresor: las puntuaciones BIS predijeron modesta pero significativamente los cambios de nerviosismo, explicando el 9 % de la varianza. El punto importante: <strong>la BIS fue diseñada intencionalmente para evaluar la valoración aversiva</strong>, y no discrimina entre valoración aversiva basada en conocimiento pavloviano (miedo) e instrumental (castigo).</p>
+          </div>
+          <div class="tarjeta">
+            <h3>La Tarea de Juego de Iowa (más de 8.000 citas)</h3>
+            <p>Los participantes reciben fondos iniciales y deben maximizar ganancias seleccionando cartas de cuatro mazos con diferentes contingencias. Los mazos A y B rinden siempre $100 por elección pero con una contingencia de castigo que resulta en $1.250 en pérdidas a lo largo de 10 selecciones (neto de −$250). Los mazos C y D rinden $50 por elección pero solo incurren $250 en pérdidas en 10 selecciones (neto de +$250). A largo plazo, se pierde más dinero del que se gana eligiendo de A y B, y se gana más del que se pierde con C y D. La tarea identifica potentemente tendencias de toma de decisiones maladaptativas pero <strong>falla en proporcionar insight sobre los mecanismos psicológicos</strong> porque confunde diferencias en contingencias de recompensa y castigo entre mazos: los mazos ventajosos y desventajosos difieren en magnitud del castigador, magnitud de la recompensa y frecuencia del resultado, oscureciendo las contribuciones relativas del aprendizaje relacionado con castigo frente a recompensa, motivación, capacidad de detectar contingencias débiles y sensibilidad a la incertidumbre.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>La tarea «Planetas y Piratas»</h2>
+
+      <div class="tarjeta">
+        <p>Aprovechando la capacidad extra de insight del diseño de castigo condicionado, desarrollamos una variante digital «Planetas y Piratas» de la tarea de castigo condicionado de roedores para uso en humanos. En esta tarea, los participantes juegan un juego cuyo objetivo es acumular puntos. Pueden acumular puntos haciendo clic en dos planetas diferentes (R1 y R2). Luego, en la fase de castigo condicionado, las respuestas en el Planeta (R1) hacen que aparezca un barco (EC1), y este barco roba un porcentaje de los puntos acumulados de los participantes. Las respuestas en el otro planeta, el Planeta (R2), también hacen que aparezca un barco (EC2), pero este barco es un barco seguro que no roba ningún punto. La variable dependiente conductual es la tasa de clics. Las diversas probabilidades de estos eventos así como la magnitud del castigo están bajo control experimental.</p>
+        <p>Crucialmente, aunque los rasgos de superficie son diferentes a la tarea animal de laboratorio, Planetas y Piratas tienen la <strong>misma estructura asociativa</strong> que la tarea de castigo condicionado de roedores descrita antes: R1 → EC1+, R2 → EC2−. Además, similar a la tarea de roedores, la misma medida conductual (tasas de respuesta) se usa para cuantificar las diferentes formas de aprendizaje.</p>
+        <p>Usando esta tarea, pudimos identificar humanos sensibles e insensibles al castigo de maneras similares a como identificamos ratas sensibles e insensibles. Los individuos sensibles al castigo suprimieron selectivamente R1, la respuesta que causa castigo, y reasignaron su conducta a R2, la respuesta no castigada, mientras que los insensibles al castigo no lo hicieron. Similar a nuestro trabajo en ratas, estas diferencias en supresión humana del castigo <strong>no eran atribuibles a diferencias en aprendizaje pavloviano</strong>, mostrando que las diferencias en aprendizaje del castigo pueden divorciarse de diferencias en aprendizaje pavloviano de miedo en humanos.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Castigadores positivos vs. negativos</h3>
+        <p>Cabe notar que mientras la tarea de roedores usó una descarga breve y leve en la pata como castigador, nuestra tarea humana usa pérdida de puntos. Las diferencias, si las hay, entre estas dos formas de castigo (positivo y negativo) siguen siendo importantes de considerar. Por un lado, el castigo negativo produjo las mismas diferencias de aprendizaje en humanos que el castigo primario en roedores. Esto es consistente con evidencia a nivel conductual y neural de similitud entre eventos aversivos y omisión de recompensa, incluidas manipulaciones de neuronas de dopamina del mesencéfalo durante el aprendizaje instrumental. Además, la omisión de recompensa es sencilla de administrar y evade algunos, pero no todos, de los desafíos de Sidman al uso del castigo. No obstante, será esencial que el trabajo futuro pregunte si estos mismos resultados se observan usando castigo primario. De especial relevancia aquí está el trabajo de Schmauk (1970), quien usó descarga eléctrica, pérdida de dinero y castigo verbal. Schmauk mostró diferencias pronunciadas entre individuos en aprendizaje del castigo usando descarga o castigo verbal (y estas diferencias de aprendizaje se correspondían con diferencias de conciencia de contingencia) pero no usando pérdida de dinero como castigador. Por tanto, <strong>la identidad del castigador es una variable importante a considerar en el trabajo futuro</strong>.</p>
+      </div>
+
+      <div class="tarjeta destacado">
+        <h3 style="margin-top:0;">El hallazgo clave: modelos causales incorrectos</h3>
+        <p>La tarea de Planetas y Piratas también aprovechó la capacidad única de los participantes humanos de verbalizar sus creencias y valoración subjetiva de recompensa y castigo. Pudimos evaluar directamente las valoraciones subjetivas declaradas para mostrar que las diferencias en sensibilidad al castigo <strong>no se debían a diferencias en estas valoraciones subjetivas: todos los participantes expresaron que les gustaban las recompensas y que no les gustaba el castigo</strong>. También pudimos evaluar directamente el conocimiento de contingencias pidiendo a los participantes que calificaran sus estimaciones de probabilidad de los eventos específicos (R1 → EC1, R1 → EC2, R2 → EC1, R2 → EC2, R1 → pérdida de puntos, R2 → pérdida de puntos, etc.).</p>
+        <p>Mostramos que todos los participantes desarrollaron un modelo mental causal de la tarea y que estos modelos eran generalmente coherentes. Sin embargo, <strong>mientras que los individuos sensibles al castigo habían aprendido un modelo causal correcto (R1 → EC1+, R2 → EC2−), los insensibles al castigo no lo habían hecho</strong>. En cambio, los participantes insensibles al castigo habían aprendido modelos incorrectos (por ejemplo, R1 → EC1+, R2 → EC1+). Por tanto, la insensibilidad al castigo en humanos, como en otros animales, puede impulsarse por una falta de aprendizaje de la contingencia instrumental correcta entre conducta y castigo. Cabe notar que estas diferencias en aprendizaje del castigo no se explicaban por diferencias en impulsividad autoinformada ni BIS.</p>
+      </div>
+
+      <h2>¿Es un problema la falta de conciencia?</h2>
+
+      <div class="tarjeta">
+        <p>Aunque la falta de conciencia sobre las consecuencias de las acciones de uno puede causar insensibilidad al castigo, carecer de conciencia no es inherentemente problemático. De hecho, la falta de conciencia correcta de las contingencias de castigo puede ser bastante común, porque las contingencias de castigo varían en su visibilidad para el individuo. Las consecuencias adversas de nuestras acciones varían en severidad, a menudo están retrasadas respecto a, e imperfectamente correlacionadas con, las acciones que las hacen merecedoras. Además, los humanos aprendemos de diferentes maneras (experiencia personal, observación, instrucción) e integramos fácilmente conocimiento y evidencia de diferentes modalidades para mejorar nuestra comprensión. No necesitamos experimentar un accidente de tráfico para reducir nuestra velocidad de conducción en condiciones peligrosas, ni experimentar un envenenamiento para evitar el consumo de una toxina conocida. Por tanto, fallar en aprender correctamente sobre el castigo de una fuente (por ejemplo, la experiencia) <strong>no significa que la conducta sea fundamentalmente resistente al cambio</strong> ni que este fallo de aprendizaje sea teóricamente interesante o prácticamente importante. De hecho, cualquier cuenta de la sensibilidad humana al castigo que dependa solo de experimentar el castigo está fuera de contacto con muchos de los factores clave que gobiernan la toma de decisiones y conducta humanas.</p>
+      </div>
+
+      <div class="tarjeta destacado">
+        <h3 style="margin-top:0;">El experimento decisivo: la revelación de contingencia</h3>
+        <p>En experimentos de seguimiento, aprovechamos de nuevo la capacidad única de los participantes humanos para entender mejor las causas de la sensibilidad al castigo. Los participantes jugaron a Planetas y Piratas. Pero ahora, tras experimentar tres bloques de entrenamiento de castigo, <strong>proporcionamos información explícita a todos los participantes sobre las contingencias de castigo mediante una «revelación de contingencia»</strong>. Se dieron instrucciones escritas sobre las contingencias de castigo (R1 → EC1+, R2 → EC2−) y los participantes debían pasar un test de conocimiento indicando la comprensión correcta de estas contingencias antes de un bloque final de entrenamiento.</p>
+        <p>Antes de la revelación, cuando los participantes debían aprender el castigo solo de su experiencia, replicamos nuestro hallazgo previo de que algunas personas podían aprender correctamente estas contingencias y mostrar sensibilidad al castigo, mientras que otras aprendían incorrectamente estas contingencias y eran insensibles al castigo. Crucialmente, <strong>la información sobre las contingencias de castigo fue un medio potente de abordar esta falta de conciencia correcta, rescatando a la mayoría de los participantes insensibles y volviéndolos sensibles al castigo</strong>. Etiquetamos a estos individuos «inconscientes» porque su insensibilidad al castigo se corrigió mediante la provisión de información de contingencia.</p>
+        <p>Sin embargo, para algunos participantes, la provisión de información correcta de contingencia <strong>no cambió su conducta</strong>. Incluso cuando el castigo era severo, estos individuos persistían en hacerse merecedores de un castigo que no les gustaba. Etiquetamos a estos individuos «compulsivos» porque no aprendieron el castigo correctamente de la experiencia y no cambiaron su conducta cuando se les proporcionó información correcta de contingencia. Importante: el impacto de la información dependía de las experiencias previas de los participantes con el castigo. Cuando el castigo había sido raro, los participantes tenían menos probabilidad de beneficiarse de la instrucción explícita y menos probabilidad de cambiar su conducta (es decir, eran más propensos a ser compulsivos).</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Síntesis: «insensibilidad al castigo» no es un constructo unitario</h3>
+        <p>Nuestros hallazgos muestran que las personas «insensibles al castigo» pueden serlo porque carecen de conciencia correcta de cómo su conducta está causando resultados adversos (los «inconscientes»), o porque carecen tanto de conciencia correcta como de disposición o capacidad para cambiar estas conductas ante la evidencia (los «compulsivos»). Hemos llamado a esto una <strong>senda cognitiva a la insensibilidad al castigo</strong>. Esta senda emerge de diferencias entre individuos en lo que aprenden sobre el castigo (conocimiento de contingencia instrumental). Estas diferencias se comparten con otros animales y pueden estudiarse en ellos. Estas diferencias no son necesariamente problemáticas, pero pueden volverse problemáticas. Al menos una condición cuando esto es probable es <strong>cuando el castigo es raro. El castigo raro actúa como una «trampa»</strong>, inoculando las preferencias conductuales maladaptativas contra la actualización cognitiva (informacional) y conductual (experiencial). Una dirección importante de nuestro trabajo actual es caracterizar los fundamentos cognitivos y computacionales de estas trampas de castigo, así como determinar las intervenciones que pueden rescatar a los individuos de estas trampas.</p>
+      </div>
+
+      <h2>Lecciones de la traducción</h2>
+
+      <div class="tarjeta">
+        <p>Nuestro enfoque inter-especies para estudiar el aprendizaje del castigo ha disfrutado de cierto éxito. Nuestro trabajo muestra que la investigación fundamental sobre los fundamentos de las diferencias individuales en la evitación del castigo puede traducirse robustamente entre especies. Creemos que hay varias características de nuestro enfoque que han contribuido a este éxito:</p>
+      </div>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Más allá de la validez aparente</h3>
+          <p>Este paradigma inter-especies va más allá de la simple validez aparente —un criterio común pero insuficiente para la investigación traslacional— al evaluar empíricamente los fundamentos de la conducta para lograr validez de constructo y predictiva.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Tarea teóricamente dirigida y bien controlada</h3>
+          <p>Permite el aislamiento y evaluación de diferentes formas de aprendizaje —castigo instrumental, recompensa instrumental, miedo pavloviano— en los mismos individuos al mismo tiempo, para triangular lo que podría estar determinando la conducta de un individuo.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>La misma medida conductual</h3>
+          <p>La misma medida conductual se usa para cuantificar las diferentes formas de aprendizaje dentro del individuo. Esta técnica común de evaluación supera los problemas difíciles de comparar diferentes formas de aprendizaje usando diferentes medidas.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">4</span>Medida similar entre especies</h3>
+          <p>Se usa una medida conductual similar entre especies: presión de palanca en animales de laboratorio y clics de pantalla en humanos.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">5</span>Aprovechar el lenguaje</h3>
+          <p>Hemos aprovechado la capacidad única de los humanos de expresar su comprensión en lenguaje al evaluar directamente los modelos causales que forman mentalmente a partir de sus experiencias. Nuestro trabajo muestra que los humanos desarrollan y usan modelos específicos de respuesta-resultado durante el aprendizaje del castigo, y que hay una estrecha alineación entre el contenido de estos modelos y su conducta. Por tanto, <strong>la gente se involucra en conductas con consecuencias adversas porque ha formado modelos causales incorrectos de su entorno</strong>.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">6</span>Aprovechar la comunicación abstracta</h3>
+          <p>Hemos aprovechado la capacidad humana de comprender ideas abstractas a través del lenguaje para afectar la comprensión y expectativas de los participantes. Esta capacidad de comunicar ideas abstractas es fundamental para resolver de manera costo-efectiva los problemas creados por las diferencias individuales en aprendizaje del castigo: las campañas educativas y de medios se usan amplia y exitosamente para reducir conductas problemáticas a nivel comunitario, y a nivel individual la restructuración cognitiva es la base central de la intervención terapéutica psicológica eficaz. Cabe enfatizar que la falta de tales capacidades cognitivas en animales de laboratorio no reduce el significado o la importancia de la investigación de laboratorio: animales de laboratorio y humanos muestran las mismas diferencias de sensibilidad al castigo bajo las mismas condiciones. Pero la presencia de esta capacidad en humanos no debería ser ignorada. La capacidad de lenguaje es fundamental para cómo aprendemos, cómo hacemos evaluaciones de riesgo, y cómo recibimos ayuda o tratamiento para nuestras conductas que pueden estar causando daño. Ignorar esta capacidad única reduce la relevancia de la investigación en neurociencia conductual y su potencial de impactar a las partes interesadas clave, incluidos formuladores de políticas, clínicos y sufridores individuales de trastornos neuropsiquiátricos.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">7</span>Más vías traslacionales</h3>
+          <p>Hay más «vías traslacionales» que la de animales de laboratorio → grupo de pacientes. El estudio de procesos de aprendizaje en participantes humanos por lo demás sanos es un punto de paso crucial en el proceso de investigación traslacional: puede identificar procesos cognitivos que son difíciles de interrogar en animales no humanos y que pueden ser directamente relevantes para los trastornos neuropsiquiátricos.</p>
+        </div>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>El aprendizaje del castigo es esencial para la toma de decisiones saludable y para la cooperación social, y sus disrupciones contribuyen a trastornos neuropsiquiátricos que van de las adicciones a la psicopatía. Sin embargo, su estudio de laboratorio ha sufrido una historia problemática: desafíos a su estatus como proceso de aprendizaje diferenciado, confusiones entre lo que se aprende y cómo cambia la conducta, y las críticas de Sidman a la coerción. Nuestro enfoque traslacional —basado en la tarea de castigo condicionado aplicada tanto a roedores como a humanos mediante la tarea de Planetas y Piratas— muestra que la insensibilidad al castigo es un fenotipo específico, independiente del aprendizaje pavloviano de miedo, del aprendizaje instrumental de recompensa y del control conductual, que emerge de diferencias en el <strong>conocimiento de la contingencia instrumental</strong> entre conducta y castigador. En humanos, esta senda cognitiva puede tomar dos formas: individuos «inconscientes», cuya insensibilidad se corrige con información explícita de contingencia, e individuos «compulsivos», que no cambian su conducta ni siquiera ante la información correcta. El castigo raro actúa como una trampa que inocula las preferencias maladaptativas contra la actualización. Este marco ofrece una plataforma traslacional robusta para estudiar cómo el aprendizaje del castigo y la toma de decisiones contribuyen a los trastornos neuropsiquiátricos, y destaca el valor de las vías traslacionales que pasan por participantes humanos sanos antes de llegar a los grupos de pacientes.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Artículo original (Behavioral Neuroscience, DOI: 10.1037/bne0000587) — acceso abierto CC BY 4.0</a></li>
+      <li><a href="#">Killcross et al. (1997) — la tarea de castigo condicionado original en roedores</a></li>
+      <li><a href="#">Jean-Richard-dit-Bressel et al. (2021) — la tarea «Planetas y Piratas» en humanos</a></li>
+      <li><a href="#">Gray (1982) — teoría de la sensibilidad al refuerzo y la escala BIS</a></li>
+      <li><a href="#">Bechara et al. (1994) — la Tarea de Juego de Iowa</a></li>
+      <li><a href="#">Sidman (1989) — «Coerción y sus efectos colaterales»</a></li>
+    </ul>
+
+    <footer>
+      <p>Jean-Richard-dit-Bressel, P., Gaetani, K., Zeng, L., Weidemann, G., &amp; McNally, G. P. (2024). Translational Research in Punishment Learning. <em>Behavioral Neuroscience</em>, 138(3), 143-151 · © 2024 The Author(s) · Licencia Creative Commons Attribution 4.0 (CC BY 4.0)</p>
+      <p>Traducción al español con fines de estudio · El original prevalece en caso de discrepancia</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

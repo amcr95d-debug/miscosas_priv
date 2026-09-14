@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demasiado tiempo libre puede ser casi tan malo como demasiado poco</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .cita {
+      border-left: 4px solid var(--borde);
+      margin: 1rem 0;
+      padding: .5rem 1rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    .cita strong {
+      color: var(--texto);
+      font-style: normal;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .estudio {
+      border-left: 4px solid var(--acento);
+    }
+
+    .estudio h3 {
+      margin-top: 0;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado {
+      border-left: 4px solid var(--acento);
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Nota de prensa · 9 de septiembre de 2021</span>
+      <h1>Demasiado tiempo libre puede ser casi tan malo como demasiado poco</h1>
+      <p class="subtitulo">Usar el exceso de tiempo discrecional en actividades productivas puede ayudar a reforzar el bienestar, según un estudio</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Personalidad</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p>Washington — A medida que aumenta el tiempo libre de una persona, también lo hace su sensación de bienestar, pero solo hasta cierto punto. Demasiado tiempo libre también puede ser algo malo, según una investigación publicada por la Asociación Americana de Psicología.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>Las personas a menudo se quejan de estar demasiado ocupadas y expresan desear tener más tiempo. Pero ¿de verdad más tiempo se traduce en mayor felicidad? Encontramos que tener escasez de horas discrecionales en el día del uno resulta en mayor estrés y menor bienestar subjetivo</strong>», dijo Marissa Sharif, PhD, profesora asistente de marketing en The Wharton School y autora principal del artículo. «Sin embargo, aunque tener poco tiempo es malo, tener más tiempo no siempre es mejor».</p>
+        <p class="articulo-ref">La investigación fue publicada en el <em>Journal of Personality and Social Psychology</em>.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Los investigadores analizaron datos de 21.736 estadounidenses que participaron en la American Time Use Survey entre 2012 y 2013. Los participantes aportaron un relato detallado de lo que hicieron durante las 24 horas previas —indicando la hora del día y la duración de cada actividad— y reportaron su sensación de bienestar. Los investigadores encontraron que a medida que aumentaba el tiempo libre, también aumentaba el bienestar, pero este se estabilizaba en alrededor de dos horas y comenzaba a declinar después de las cinco. Las correlaciones en ambas direcciones fueron estadísticamente significativas.</p>
+        <p>Los investigadores también analizaron datos de 13.639 estadounidenses trabajadores que participaron en el National Study of the Changing Workforce entre 1992 y 2008. Entre las muchas preguntas de la encuesta, se preguntó a los participantes por su cantidad de tiempo discrecional (por ejemplo: «En promedio, en los días que trabajas, ¿cuántas horas [minutos] dedicas a tus propias actividades de tiempo libre?») y su bienestar subjetivo, medido como satisfacción vital. Una vez más, los investigadores encontraron que niveles más altos de tiempo libre se asociaban significativamente con niveles más altos de bienestar, pero solo hasta cierto punto. Después, el exceso de tiempo libre no se asociaba con mayor bienestar.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Para investigar más a fondo el fenómeno, los investigadores realizaron dos experimentos en línea con más de 6000 participantes. En el primero, se pidió a los participantes imaginar tener una cantidad determinada de tiempo discrecional cada día durante al menos seis meses. Se asignó aleatoriamente a los participantes un tiempo discrecional bajo (15 minutos al día), moderado (3,5 horas al día) o alto (7 horas al día), y se les pidió reportar en qué medida experimentarían disfrute, felicidad y satisfacción.</p>
+        <p>Los participantes tanto del grupo de poco tiempo como del de mucho reportaron menor bienestar que el grupo de tiempo moderado. Quienes tenían poco tiempo se sentían más estresados que quienes tenían una cantidad moderada, lo que contribuía a un menor bienestar; pero quienes tenían mucho tiempo libre se sentían menos productivos que el grupo moderado, lo que también les llevaba a tener menor bienestar.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>En el segundo experimento, los investigadores examinaron el papel potencial de la productividad. Se pidió a los participantes imaginar tener una cantidad moderada (3,5 horas) o alta (7 horas) de tiempo libre al día, pero también se les pidió imaginar que empleaban ese tiempo en actividades productivas (por ejemplo, hacer ejercicio, aficiones o correr) o improductivas (por ejemplo, ver la televisión o usar el ordenador). Los investigadores encontraron que los participantes con más tiempo libre reportaron niveles más bajos de bienestar al realizar actividades improductivas. Sin embargo, al realizar actividades productivas, quienes tenían más tiempo libre se sentían de manera similar a quienes tenían una cantidad moderada.</p>
+        <p class="cita">«<strong>Aunque nuestra investigación se centró en la relación entre la cantidad de tiempo discrecional y el bienestar subjetivo, nuestra exploración adicional sobre cómo las personas emplean su tiempo discrecional resultó reveladora</strong>», dijo Sharif. «Nuestros hallazgos sugieren que acabar con días enteros libres para llenar a discreción puede dejarnos igual de infelices. Las personas deberían aspirar en cambio a tener una cantidad moderada de tiempo libre para gastarlo como quieran. En los casos en que las personas se encuentran con cantidades excesivas de tiempo discrecional, como la jubilación o haber dejado un trabajo, nuestros resultados sugieren que estas personas se beneficiarían de emplear su tiempo recién encontrado con propósito».</p>
+        <p class="articulo-ref"><strong>Artículo:</strong> «Having Too Little or Too Much Time is Linked to Lower Subjective Well-Being» («Tener demasiado poco o demasiado tiempo se vincula a un menor bienestar subjetivo»), de Marissa Sharif, PhD, Wharton School de la Universidad de Pensilvania; Cassie Mogilner, PhD, y Hal Hershfield, PhD, Universidad de California, Los Ángeles. <em>Journal of Personality and Social Psychology</em>, publicado en línea el 9 de septiembre de 2021.</p>
+      </div>
+
+      <h2>El artículo científico</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Resumen</h3>
+        <p>Muchas personas que viven en la sociedad moderna sienten que no tienen suficiente tiempo y buscan constantemente más. Pero ¿es realmente perjudicial tener tiempo discrecional limitado? ¿Y puede haber desventajas en tener demasiado tiempo discrecional? En dos conjuntos de datos a gran escala que abarcan a 35.375 estadounidenses y dos experimentos, exploramos la relación entre la cantidad de tiempo discrecional que las personas tienen y su bienestar subjetivo. Encontramos y replicamos internamente una relación cuadrática negativa entre el tiempo discrecional y el bienestar subjetivo. Estos resultados muestran que, aunque tener demasiado poco tiempo está efectivamente vinculado a un menor bienestar subjetivo causado por el estrés, tener más tiempo no se traduce continuamente en mayor bienestar subjetivo. Tener una abundancia de tiempo discrecional se vincula a veces incluso a un menor bienestar subjetivo debido a una falta de sensación de productividad. En tales casos, el efecto negativo de tener demasiado tiempo discrecional puede atenuarse cuando las personas emplean este tiempo en actividades productivas.</p>
+        <p class="articulo-ref"><strong>Palabras clave:</strong> tiempo discrecional, felicidad, satisfacción vital, bienestar subjetivo, tiempo.</p>
+      </div>
+
+      <h2>¿Se puede tener demasiado tiempo?</h2>
+
+      <div class="tarjeta">
+        <p>La probable perjuicio de tener poco tiempo parece evidente: quienes trabajan más horas y tienen agendas más consumidas por obligaciones disponen de menos tiempo para hacer lo que quieren, y sentirse apremiados por el tiempo pasa factura. Quienes reportan mayor estrés temporal exhiben conductas menos saludables —comer mal, no hacer ejercicio— y se declaran menos felices, más deprimidos y más agotados emocionalmente. Esta «hambruna de tiempo» cruza el mundo y es especialmente aguda entre los estadounidenses: una encuesta nacional muestra que casi la mitad reporta no tener tiempo suficiente para hacer lo que quiere.</p>
+        <p>Pero ¿qué efecto tiene tener una abundancia de tiempo? Un tiempo amplio para actividades discrecionales puede tener un efecto decreciente sobre el disfrute de esas actividades: las personas son propensas a la <strong>adaptación hedónica</strong>, acostumbrándose no solo a los dolores de la vida sino también a sus placeres. Un acceso excesivo a actividades disfrutadas lleva a saborearlas menos. Más allá de un efecto positivo reducido, ¿podría existir un efecto negativo? El trabajo emergente sugiere que sí: las personas odian la ociosidad y se ha observado que son más felices cuando están ocupadas en una tarea; la agitada vida laboral se ha convertido en un símbolo de estatus que señala competencia y ambición; y con demasiado tiempo discrecional, las personas pueden inferir falta de productividad y de propósito, sintiéndose así menos felices y satisfechas con sus vidas.</p>
+        <p>Los autores hipotetizaron una <strong>relación cuadrática negativa</strong>: más allá de cierta cantidad, más tiempo discrecional ya no se asociaría con mayor bienestar subjetivo, y en algunos casos podría incluso asociarse con menor bienestar, dependiendo de cómo se empleara ese tiempo.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">¿Qué es el tiempo discrecional?</h3>
+        <p>El tiempo discrecional se define como el tiempo dedicado a actividades de ocio u otros esfuerzos cuya función principal es usar el tiempo para el placer u otro propósito intrínsecamente valioso. No es, por tanto, simplemente el tiempo que queda fuera del trabajo remunerado: no todo el mundo trabaja por sueldo (padres en casa, jubilados), entre quienes trabajan hay quien elige hacerlo mucho más de lo obligatorio, y parte del tiempo fuera del trabajo lo absorben otras obligaciones (tareas domésticas, ir al dentista, hacer colas). El tiempo discrecional se operacionaliza como las horas al día que una persona dedica a hacer lo que quiere.</p>
+      </div>
+
+      <h2>Los cuatro estudios</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Estudio</th>
+              <th>Diseño</th>
+              <th><em>N</em></th>
+              <th>Hallazgo clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Encuesta nacional NSCW (1992-2008)</td><td>13.639</td><td>Relación cuadrática negativa significativa entre tiempo discrecional y satisfacción vital</td></tr>
+            <tr><td>2</td><td>Encuesta nacional ATUS (2012-2013)</td><td>21.736</td><td>Pico de bienestar entre 2 y 5 horas; declive significativo por encima de ~5 horas</td></tr>
+            <tr><td>3</td><td>Experimento de simulación mental</td><td>2.565</td><td>Poco tiempo → más estrés; mucho tiempo → sensación reducida de productividad</td></tr>
+            <tr><td>4</td><td>Experimento 2×2 (cantidad × productividad)</td><td>4.046</td><td>El efecto negativo del exceso de tiempo se atenúa con uso productivo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 1: National Study of the Changing Workforce</h3>
+        <p>Se analizaron los datos de 13.639 estadounidenses trabajadores encuestados en cuatro olas (1992, 1997, 2002 y 2008). Los participantes reportaron su tiempo discrecional en días laborales (media de 1,80 horas al día; mediana de 1 hora) y su satisfacción vital. Una regresión OLS encontró la relación cuadrática negativa predicha (<em>B</em> = −0,003; <em>p</em> &lt; ,001), que se mantuvo al controlar sexo, edad, estado parental, estado civil, raza, ingresos, situación laboral y educación, y sobrevivió a análisis de robustez excluyendo valores atípicos y usando la distancia de Cook.</p>
+        <p>La prueba de forma de U invertida con el enfoque de las dos líneas de Simonsohn confirmó que para valores bajos de tiempo discrecional la relación era positiva y significativa (punto de quiebre en 2 horas), pero para valores altos la línea era negativa sin alcanzar la significación. La explicación llegaría después: si tener más de 5 horas cuenta como «demasiado», solo el 3,5 % de los participantes de este estudio tenía tanto tiempo (frente al 48,1 % del estudio 2), lo que quizá no dio potencia suficiente para detectar el efecto negativo.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 2: American Time Use Survey</h3>
+        <p>Este análisis avanzó en varias direcciones: incluyó a estadounidenses fuera de la fuerza laboral, y empleó una medida más objetiva y conservadora del tiempo discrecional. Como no existe una definición estándar de qué actividades cuentan como discrecionales, se realizó un estudio con crowdsourcing (500 participantes) para identificar las actividades consideradas discrecionales por al menos el 90 % de la muestra: relajación y ocio, socialización y comunicación, artes y entretenimiento, viajes relacionados con el ocio, actividades personales, eventos deportivos, deportes con niños y ejercicio o recreación. Con esa métrica se calculó el tiempo discrecional de cada encuestado sobre las 24 horas previas (media de 5,48 horas).</p>
+        <p>La relación cuadrática negativa se replicó (<em>B</em> = −0,004; <em>p</em> &lt; ,001) y se mantuvo con covariables y múltiples pruebas de robustez (exclusión de atípicos, umbral del 75 %, categoría alternativa de «socialización, relajación y ocio»). Esta vez, la prueba de U invertida sí encontró una pendiente negativa significativa en los valores altos (punto de quiebre: 3,42 horas). El histograma en franjas de 30 minutos mostró que el bienestar aumenta de 0 a 2 horas, alcanza su máximo entre las 2 y las 5 horas, y desciende por encima de las 5: menos de 2 horas sería «demasiado poco»; más de 5, «demasiado». El efecto se mantuvo tanto en quienes trabajaban como en quienes no, en días laborables y de fin de semana, y no fue impulsado por desempleados ni jubilados.</p>
+        <p class="destacado datos"><strong>Tipos de tiempo discrecional:</strong> el efecto negativo del exceso apareció en el tiempo discrecional <em>solo</em> (punto de quiebre: 2,53 horas) y en el <em>improductivo</em> (punto de quiebre: 3 horas), pero no en el <em>social</em> (que solo mostró un efecto lineal positivo: más es mejor) ni en el <em>productivo</em> (su efecto cuadrático fue significativamente menor y sin forma de U invertida). La manera de emplear el tiempo parece determinar en gran medida si se observa el efecto negativo del exceso.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 3: Experimento de tiempo discrecional</h3>
+        <p>Para descartar explicaciones alternativas (por ejemplo, que las personas con síntomas depresivos sean menos motivadas y tengan más tiempo libre), 2.565 adultos fueron asignados aleatoriamente a simular mentalmente tener una cantidad baja (15 minutos al día), moderada (3,5 horas) o alta (7 horas) de tiempo discrecional cada día durante al menos seis meses, describiendo vívidamente cómo lo emplearían y cómo se sentirían tras 1 día, 1 mes, 3 meses y 6 meses.</p>
+        <p>Quienes imaginaron poco tiempo reportaron menor bienestar que el grupo moderado (<em>M</em> = 5,52 frente a 6,00; <em>d</em> = 0,35), y quienes imaginaron mucho tiempo también reportaron menos (<em>M</em> = 5,88; significativo al controlar características del período imaginado). Los mecanismos propuestos obtuvieron apoyo: el <strong>estrés</strong> (estresante, apresurado, agotador) fue mayor en la condición de poco tiempo y medió parcialmente su efecto negativo; la <strong>falta de sensación de productividad</strong> (productivo, con propósito, «logré mucho») fue mayor en la condición de mucho tiempo y medió completamente su efecto negativo.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 4: Tiempo productivo frente a improductivo</h3>
+        <p>Con 5.001 adultos reclutados (4.046 en la muestra final tras exclusiones preregistradas), este experimento 2×2 asignó a los participantes a imaginar 3,5 o 7 horas de tiempo discrecional diario durante al menos seis meses, empleándolo en actividades productivas («no desperdiciado; útil, satisfactorio, con propósito») o improductivas («desperdiciado»).</p>
+        <p>La interacción cantidad × tipo fue significativa (<em>B</em> = 0,514; <em>p</em> &lt; ,001): cuando el tiempo se empleaba improductivamente, tener 7 horas producía menor bienestar que tener 3,5 (<em>M</em> = 4,90 frente a 5,30; <em>d</em> = 0,23). Pero cuando se empleaba productivamente, tener 7 horas producía marginalmente <em>más</em> bienestar (<em>M</em> = 6,20 frente a 6,08; <em>p</em> = ,068). Esto confirma experimentalmente que los usos productivos del tiempo atenúan el efecto negativo de tener demasiado tiempo discrecional.</p>
+      </article>
+
+      <h2>Discusión general</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Unir dos literaturas separadas</h3>
+        <p>Las literaturas previas habían examinado por separado los efectos negativos de estar demasiado ocupado y de no estarlo lo suficiente; esta investigación está entre las primeras en reunir ambas perspectivas. Al poner a prueba el rango completo de horas discrecionales diarias, los hallazgos clarifican el impacto emocional subóptimo de tener demasiado poco o demasiado tiempo. ¿Cómo es posible tener «demasiado» de algo tan deseable? En línea con la exhortación aristotélica contra el exceso y a favor de la moderación, y con la evidencia creciente de que puede haber «demasiado de [cualquier] cosa buena», un exceso de horas discrecionales puede socavar la sensación de productividad y propósito, dejando a las personas menos satisfechas en conjunto.</p>
+        <p>Estos resultados respaldan la afirmación de la <strong>teoría de la autodeterminación</strong> de que el bienestar requiere la satisfacción de tres necesidades psicológicas fundamentales: autonomía, relación con otros y competencia. Tener discreción sobre qué hacer contribuye a la autonomía; las actividades sociales, a la relación con otros; las actividades productivas, a la competencia. Así, tanto el número de horas disponibles como su asignación son críticos para el bienestar.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Implicaciones prácticas</h3>
+        <p>Para los muchos que se sienten infelices por el estrés de tener demasiado que hacer y poco tiempo para hacerlo, la respuesta no es abandonar todas las obligaciones: acabar con días enteros libres puede dejar igual de infeliz. Los datos sugieren que, más allá de las dos horas de tiempo discrecional al día, tener más tiempo no promete mayor felicidad, y que por encima de unas cinco horas, tener más se vincula a menos felicidad. Quienes padecen pobreza de tiempo no deberían renunciar a todo, sino aspirar a la cantidad razonablemente alcanzable de poco más de dos horas al día para gastar como quieran.</p>
+        <p>Conviene aclarar que estas cifras son inexactas y provienen de la inspección visual de un gráfico de un solo conjunto de datos; sin embargo, el patrón general de U invertida es robusto a través de las personas —jóvenes o mayores, trabajadores o desempleados, casados o solteros, con o sin hijos— y ofrece una orientación general útil. Y cuando las personas se encuentran con cantidades excesivas de tiempo (jubilación, dejar un trabajo), se beneficiarían de emplearlo con propósito, de forma productiva o conectando con otros, en línea con la investigación previa sobre jubilados, cuyo bienestar depende de su interacción social y participación en clubes o trabajo voluntario.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Limitaciones y direcciones futuras</h3>
+        <p>El efecto observado, aunque robusto, es pequeño, algo esperable dado el sinnúmero de variables que inciden en la valoración global de la satisfacción vital; pero se replicó entre conjuntos de datos y subconjuntos, y persistió con y sin covariables. El efecto negativo del exceso es particularmente pequeño, en parte por su sensibilidad al modo en que se emplea el tiempo.</p>
+        <p>Quedan abiertas varias preguntas: los hallazgos versan sobre días típicos, no atípicos como vacaciones; el efecto probablemente está determinado múltiplemente (el aburrimiento también podría contribuir, y factores como la variedad entre actividades o las pausas entre experiencias placenteras podrían informar la asignación óptima); la relación podría variar entre culturas, ya que la agenda apretada como símbolo de estatus es un fenómeno estadounidense que puede no extenderse a países que valoran más la relajación; y sería necesario manipular experimentalmente con más granularidad la cantidad óptima de tiempo, así como la asignación óptima entre relajación, socialización y uso productivo (por ejemplo, ¿una pequeña cantidad de tiempo libre se aprovecha mejor descansando frente al televisor o saliendo a correr?). Además, la evidencia causal se basó en simulaciones mentales hipotéticas, y la manipulación productivo/improductivo fue más bien contundente; el trabajo experimental futuro debería poner a prueba estos hallazgos en condiciones reales.</p>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>A pesar de que el efecto observado es pequeño, el impacto de la abundancia (o escasez) de tiempo para el bienestar subjetivo es importante. Estos hallazgos informan la investigación en curso sobre el papel de la abundancia como predictor significativo del bienestar subjetivo, pero extienden el foco desde el dinero —el recurso que ha dominado esa literatura— hasta el otro recurso principal de los seres humanos: el tiempo. Este trabajo contribuye así a la literatura floreciente sobre tiempo y bienestar subjetivo, y añade un matiz a la investigación que ha identificado formas particularmente felices de pasar el tiempo: llenar los días únicamente con esas actividades puede socavar los sentimientos de propósito y reducir la satisfacción con la vida.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Having Too Little or Too Much Time Is Linked to Lower Subjective Well-Being (PDF, 1 MB) — artículo original</a></li>
+      <li><a href="#">Journal of Personality and Social Psychology — revista de la APA</a></li>
+      <li><a href="#">American Time Use Survey (ATUS) — datos abiertos de la Oficina de Estadísticas Laborales de EE. UU.</a></li>
+    </ul>
+
+    <footer>
+      <p>Fecha de creación: 9 de septiembre de 2021 · Nota de prensa de la Asociación Americana de Psicología</p>
+      <p>Contacto de prensa: Jim Sliwa · (202) 336-5707</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elección sesgada y saliencia incentivante: implicaciones para la adicción</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor { max-width: 860px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    header { margin-bottom: 1.5rem; }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); margin: 0 0 .5rem; line-height: 1.25; }
+    .subtitulo { color: var(--texto-suave); margin: 0; }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 { font-size: 1.05rem; margin: 1.5rem 0 .5rem; color: var(--acento); }
+
+    .temas { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 1.5rem; }
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .tarjeta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+    .tarjeta p { margin: 0 0 .75rem; }
+    .tarjeta p:last-child { margin-bottom: 0; }
+
+    .entradilla { border-left: 4px solid var(--acento); font-size: 1.05rem; }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+    .buscador:focus { border-color: var(--acento); box-shadow: 0 0 0 3px rgba(37, 99, 235, .15); }
+
+    .contador { font-size: .85rem; color: var(--texto-suave); min-height: 1.3em; margin: 0 0 1rem; }
+
+    .tabla-scroll { overflow-x: auto; margin: 1rem 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+    th, td { border: 1px solid var(--borde); padding: .5rem .75rem; text-align: left; vertical-align: top; }
+    th { background: var(--acento-suave); color: var(--acento); font-weight: 600; }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+    .pilares h3 { margin: 0 0 .5rem; font-size: 1rem; }
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .ejemplo {
+      background: var(--acento-suave);
+      border: 1px dashed var(--acento);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      margin: .75rem 0;
+      font-size: .95rem;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado { border-left: 4px solid var(--acento); }
+    .articulo-ref { font-size: .92rem; color: var(--texto-suave); }
+
+    mark { background: var(--marca); border-radius: 3px; padding: 0 2px; }
+
+    .relacionados { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+    .relacionados a:hover { color: var(--acento); border-color: #c7d2fe; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+    footer p { margin: .25rem 0; }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Artículo de revisión · Behavioral Neuroscience · 2024 · Acceso abierto (CC BY)</span>
+      <h1>Elección sesgada y saliencia incentivante: implicaciones para la adicción</h1>
+      <p class="subtitulo">Mike E. Le Pelley · Poppy Watson · Reinout W. Wiers — UNSW Sydney, Universidad de Tecnología de Sídney, Universidad de Ámsterdam</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Atención</span>
+      <span class="tema">Aprendizaje de recompensa</span>
+      <span class="tema">Sign-tracking</span>
+      <span class="tema">Adicción</span>
+      <span class="tema">Hábitos</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p><strong>Resumen.</strong> Antes de poder hacer una elección, debemos reunir información del entorno sobre cuáles son nuestras opciones. Este proceso de recolección de información está mediado críticamente por la atención, y nuestra atención está, a su vez, moldeada por nuestras experiencias previas con —y aprendizajes sobre— estímulos y sus consecuencias. En esta revisión destacamos estudios que demuestran una influencia rápida y automática del aprendizaje de recompensa sobre la captura atencional, y argumentamos que estos hallazgos proporcionan un análogo humano del comportamiento de <em>sign-tracking</em> observado en animales no humanos —donde las señales de recompensa ganan saliencia incentivante y se convierten en objetivos atractivos para la atención (y la conducta manifiesta) por derecho propio—. Luego consideramos las implicaciones de esta idea para entender los impulsores de la conducta controlada por señales, con foco en la adicción como caso en el que las elecciones relativas a estímulos relacionados con recompensas pueden volverse lesivas para la salud. Argumentamos que la conducta motivada en general —y la adicción en particular— puede entenderse dentro de un marco de «competencia sesgada»: diferentes opciones y resultados compiten por prioridad atencional en función de metas de arriba abajo (<em>top-down</em>), saliencia de abajo arriba (<em>bottom-up</em>) y experiencia previa, y el ganador de esta competencia se convierte en el objetivo para la conducta dirigida al resultado y flexible posterior. Finalmente, esbozamos las implicaciones del marco de competencia sesgada para las intervenciones cognitivas, conductuales y socioeconómicas para la adicción.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <h2>La vida como una serie de elecciones</h2>
+
+      <div class="tarjeta">
+        <p>Nuestras vidas pueden pensarse como una serie de elecciones. Algunas tendrán consecuencias de largo alcance (¿debería mudarme a otro país?), otras son mundanas (¿pescado o pasta para cenar?). Algunas serán laboriosas, con una laboriosa ponderación de pros y contras, mientras que otras se harán en un destello. De hecho, mucha —y probablemente la mayor parte— de las veces, apenas consideramos las consecuencias de nuestras acciones antes de tomar una decisión, hasta el punto de que quizá ni siquiera nos demos cuenta de que hemos tomado una decisión. Por ejemplo, mientras conducimos por una ruta bien practicada, podemos dejar que la mente divague, incluso mientras nuestro cuerpo continúa girando en los lugares apropiados, acelerando y frenando para evitar obstáculos, y así hasta llegar a destino.</p>
+        <p>De hecho, podría argumentarse que casi todo lo que hacemos constituye una elección: por ejemplo, cada vez que movemos los ojos de un lugar a otro, hemos hecho una «elección» en el sentido de que podríamos haber mirado a otra parte. Además, nuestras elecciones rara vez (si es que alguna vez) están estrechamente circunscritas: en el supermercado nos enfrentamos a miles de posibles artículos que podríamos comprar —o podríamos apartar la opción de comprar y hacer otra cosa—. Dada la abundancia de posibles cursos de acción, y de objetivos de esos cursos, nos veríamos rápidamente desbordados si no fuera por la operación de mecanismos de procesamiento de información de la <strong>atención</strong> que actúan para filtrar, priorizar y seleccionar alternativas de elección que se pasan al sistema de toma de decisiones, y rechazar las que han de ser ignoradas. En consecuencia, si queremos entender y predecir la conducta, necesitamos entender los procesos de selección atencional que promueven acciones dirigidas a una opción sobre otra.</p>
+      </div>
+
+      <h2>Control de arriba abajo, de abajo arriba e historia de selección</h2>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Control de arriba abajo (top-down)</h3>
+          <p>Impulsado por las metas e intenciones del observador. Ejemplo: si Bob busca fresas en un supermercado desconocido, su control de arriba abajo priorizaría la selección de artículos rojos.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Control de abajo arriba (bottom-up)</h3>
+          <p>Impulsado por los rasgos físicos de los estímulos del entorno. El mismo Bob: su control de abajo arriba podría priorizar un cartel de detergentes brillante y parpadeante (incluso si no tiene ningún deseo de comprar detergente).</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Historia de selección (selection history)</h3>
+          <p>La categoría más reciente: sesgos atencionales persistentes que derivan de la <strong>experiencia con un estímulo</strong>, independientes de las metas del observador y de los rasgos físicos de ese estímulo. La atención de Bob podría ser capturada involuntariamente por el logo de su cerveza favorita —aunque no tenga relación con su meta actual y el logo no sea particularmente distintivo— como resultado de su experiencia previa de disfrutar esa bebida.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <p>Y como sabemos que mayor atención a una opción se traduce en mayor probabilidad de elegir activamente esa opción, la implicación es que este sesgo atencional por historia puede hacer que Bob compre cerveza aunque originalmente buscara un tentempié saludable. De los factores de historia de selección, el más estudiado —y el más relevante en el contexto de la adicción— es el hallazgo de que la priorización atencional es modulada por el <strong>aprendizaje de la relación entre estímulos y recompensas</strong>.</p>
+      </div>
+
+      <h2>Captura atencional modulada por el valor (VMAC)</h2>
+
+      <div class="tarjeta">
+        <p>Una creciente literatura ha usado varios procedimientos para demostrar que los estímulos establecidos (vía aprendizaje) como señales de recompensa relativamente grande se vuelven más propensos a capturar la atención que los estímulos que señalan recompensa menor (o nula), independientemente de las metas del observador y de los rasgos físicos de los estímulos: un hallazgo denominado <strong>captura atencional modulada por el valor (VMAC, value-modulated attentional capture)</strong>. La mayoría de los estudios de VMAC han examinado la atención espacial en el dominio visual, usando recompensas monetarias, aunque otras investigaciones han demostrado VMAC usando recompensas de comida o sociales, en atención temporal y en el dominio auditivo.</p>
+        <p>Para ilustrarlo, consideremos un procedimiento de VMAC «de una fase» (Le Pelley et al., 2015). Los participantes completan una tarea de búsqueda visual en la que, en cada ensayo, su meta es hacer un movimiento sacádico rápido del ojo hacia un objetivo con forma de rombo entre varios círculos (no objetivos), para ganar recompensa monetaria. Uno de los círculos de la pantalla —el <em>distractor</em>— está coloreado de azul o naranja (todas las demás formas son grises), y el color de este distractor señala si hay una recompensa alta (10 centavos) o baja (1 centavo) disponible por hacer una sacádica rápida al rombo objetivo. Sin embargo, <strong>a los participantes nunca se les pide que atiendan al distractor</strong>: reciben recompensa por mirar al rombo (que nunca está coloreado), y la tarea está dispuesta de modo que si alguna vez miran al distractor, la recompensa que habría estado disponible en ese ensayo se cancela. Así, la mejor estrategia en esta tarea —la que ganaría la mayor recompensa— es ignorar los colores por completo y simplemente mirar directamente al objetivo en cada ensayo.</p>
+        <div class="ejemplo"><strong>El hallazgo crítico:</strong> los participantes a menudo miran al distractor, y son <em>más propensos</em> a hacerlo cuando el distractor aparece en el color de recompensa alta frente al de recompensa baja, pese a que este patrón es particularmente contraproducente, ya que significa que pierden más recompensas de alto valor que de bajo valor. Así, el aprendizaje de la relación entre colores y recompensas vuelve al distractor de alta recompensa más propenso a capturar la atención en el futuro —un efecto que persiste (por un tiempo, al menos) incluso si las recompensas se retiran o los valores de los resultados cambian—.</div>
+        <p>Esta influencia del aprendizaje de recompensa sobre la priorización atencional <strong>no puede ser consecuencia del control de arriba abajo</strong> (pues la meta de los participantes es evitar mirar los distractores) <strong>ni del control de abajo arriba</strong> (pues el contrabalanceo de la asignación de colores a los roles de distractor de alta y baja recompensa garantiza que los rasgos físicos sean equivalentes entre participantes), sugiriendo que la prioridad atencional del distractor de alta recompensa se incrementa automáticamente vía historia de selección.</p>
+      </div>
+
+      <h2>Saliencia incentivante y sign-tracking</h2>
+
+      <div class="tarjeta">
+        <p>El procedimiento de VMAC de una fase es un caso interesante porque las relaciones críticas de recompensa son de naturaleza pavloviana: los colores del distractor señalan la recompensa disponible pero no son los estímulos instrumentales a los que los participantes deben responder para ganarla. A un nivel más amplio, este hallazgo es consistente con el concepto de <strong>salience incentivante</strong>: la idea de que las señales de resultados deseables se vuelven salientes (y por tanto captadoras de atención) por derecho propio: «imanes motivacionales» que pueden llegar a elicitar conducta de aproximación.</p>
+        <p>La idea de la saliencia incentivante está estrechamente ligada a las observaciones de conducta de <em>sign-tracking</em> (seguimiento de señales) en animales. Por ejemplo, si las ratas se exponen a una contingencia pavloviana en la que la inserción de una palanca en la cámara de condicionamiento se empareja repetidamente con la entrega de comida, desarrollan una respuesta condicionada —pero la forma de esta respuesta difiere entre individuos—. Cuando se inserta la palanca, algunas ratas —conocidas como <em>goal-trackers</em> (seguidoras de meta)— se aproximarán al comedero en anticipación de la comida. Por contraste, otras ratas —<em>sign-trackers</em>— se aproximarán a la palanca misma y la agarrarán, lamerán o roerán, como si, por virtud de su estatus de señal de comida, la palanca hubiera tomado algunas de las propiedades apetitivas de la comida y se hubiera vuelto atractiva por derecho propio: es decir, la palanca ha adquirido saliencia incentivante. Esta conducta se observa incluso bajo un programa de omisión en el que las interacciones con la palanca cancelan la entrega de comida.</p>
+        <p>Notablemente, se ha propuesto que la saliencia incentivante desempeña un papel importante en moldear la conducta motivada, vía su impacto en la atención: la saliencia incentivante de las señales asociadas a recompensa aumenta la probabilidad de que sean priorizadas por la atención, lo que a su vez resalta estas señales (y la recompensa asociada) como objetivos potenciales de la conducta. Volviendo a Bob en el supermercado: la saliencia incentivante adquirida por el logo de su cerveza favorita puede convertirlo en un imán motivacional que domine las demás opciones como objetivo potencial de elección. En efecto, la conducta se vuelve <strong>impulsiva</strong>: un nuevo objetivo potencial (la cerveza) se sugiere automáticamente, y las fresas pretendidas se olvidan rápidamente ahora que esta alternativa atractiva cobija. Por contraste, otra cliente, Alice, quizá rara vez beba cerveza, y el mismo logo sería mucho menos saliente para ella —y por tanto menos propenso a sugerirse como compra potencial—.</p>
+      </div>
+
+      <h2>Evidencia que vincula VMAC y adicción</h2>
+
+      <div class="tarjeta">
+        <p>La sugerencia de un vínculo entre saliencia incentivante y conducta motivada está respaldada por evidencia de la literatura animal que demuestra que las ratas clasificadas como sign-trackers (es decir, las más afectadas por la saliencia incentivante) son más propensas a mostrar evidencia de conducta «impulsiva» en medidas de descuento por demora, elección probabilística y capacidad de retener la respuesta para recibir recompensa. Las observaciones de sign-tracking están en línea con la idea de que los estímulos incentivos producen sesgos de atención que elicitan «ansia» (<em>craving</em>) y pueden por tanto vigorizar la conducta de búsqueda de recompensa, y esta idea ha sido de particular interés en el contexto de la adicción: muchas drogas adictivas producen potentes señales neurales de recompensa, y así las señales que se experimentan asociadas a estas drogas (envases, logos, lugares, olores, sonidos, etc.) pueden impregnarse de saliencia incentivante, convirtiéndose en imanes motivacionales por derecho propio que elicitan ansia y consecuentemente búsqueda de droga.</p>
+        <p>Hay paralelos claros entre VMAC y sign-tracking —los observadores se aproximan a un estímulo que señala recompensa, aunque hacerlo sea contraproducente (y pueda llevar a la omisión de recompensa)—, hasta el punto de que los patrones de priorización atencional en la tarea de VMAC descrita antes podrían verse como un <strong>análogo humano del sign-tracking</strong>. Además, estudios recientes han demostrado que estos patrones de atención condicionada por recompensa pueden influir en la conducta motivada manifiesta, moldeando las elecciones subsiguientes. Y consistente con la idea de una relación entre sign-tracking y las conductas implicadas en la adicción:</p>
+        <div class="tabla-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Hallazgo</th>
+                <th>Detalle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Tratamiento por opioides</td><td>VMAC elevado entre individuos en tratamiento por adicción a opioides</td></tr>
+              <tr><td>Uso problemático de alcohol</td><td>VMAC asociado a la severidad del uso problemático de alcohol en una muestra de usuarios que buscaban tratamiento</td></tr>
+              <tr><td>Uso de drogas ilegales</td><td>VMAC relacionado con el uso de drogas ilegales en muestras no clínicas</td></tr>
+              <tr><td>Consumo riesgoso de alcohol</td><td>VMAC relacionado con el consumo riesgoso de alcohol en muestras no clínicas</td></tr>
+              <tr><td>Desafío de abstinencia (N = 683)</td><td>La conducta en una tarea de VMAC al inicio predijo la probabilidad de éxito en un desafío posterior voluntario de abstinencia de alcohol de 1 mes: los participantes que mostraron mayor impacto de las señales de recompensa sobre su atención tuvieron menos probabilidad de éxito en mantener la abstinencia durante todo el mes</td></tr>
+              <tr><td>Síntomas transdiagnósticos</td><td>Asociaciones entre medidas de VMAC y síntomas autoinformados de adicción y compulsividad, transdiagnósticamente</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h2>Perspectivas sobre la conducta controlada por señales: ¿hábitos o competencia sesgada?</h2>
+
+      <div class="tarjeta">
+        <p>Hemos argumentado que una explicación completa de la conducta motivada debe incorporar el papel crítico que la atención selectiva desempeña al moldear las decisiones y elecciones que hacemos, influyendo en si y cómo codificamos y reunimos evidencia sobre los diversos estímulos que podrían constituir objetivos de la conducta. En particular, hemos considerado maneras en que el aprendizaje previo de recompensa puede modular la saliencia incentivante de los estímulos, convirtiéndolos en imanes motivacionales que pueden atraer la atención (y cambiar la conducta) independientemente de —e incluso en contra de— las metas e intenciones del observador. Esta idea tiene el potencial de ofrecer una perspectiva alternativa sobre los impulsores de la conducta controlada por señales a la que ha caracterizado mucho del trabajo existente en esta área, particularmente en el contexto de la adicción.</p>
+      </div>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3>La teoría clásica: hábitos y compulsión</h3>
+          <p>Una visión tradicional e influyente de la conducta instrumental distingue entre control <strong>dirigido a la meta</strong> y control <strong>habitual</strong>. Las conductas dirigidas a la meta son acciones voluntarias y propositivas dirigidas a alcanzar un resultado específico y deseado. Por contraste, las acciones repetidas una y otra vez pueden volverse habituales: patrones de conducta impulsados por estímulos que son elicidados automáticamente por la percepción de «estímulos desencadenantes» particulares, y que no están dirigidos a lograr metas (deseadas actualmente). Es decir, las conductas dirigidas a meta se mueven por el deseo de obtener un resultado, mientras que los hábitos no se realizan con el resultado en mente.</p>
+          <p>Ilustración del <em>deslizamiento de acción</em> (action slip): imagina que Bob se sube a la bici con la intención de ir a casa de un amigo, pero descubre que ha ido distraídamente por la ruta bien ensayada al trabajo. Estar en la bici elicita el patrón de conducta sobreentrenado (ir al trabajo), que se ejecuta automática y mente-en-blanco como hábito, aunque el resultado que logrará (estar en el trabajo) es incompatible con los deseos actuales (visitar al amigo).</p>
+        </div>
+        <div class="tarjeta">
+          <h3>La teoría del doble proceso aplicada a la adicción</h3>
+          <p>Se ha argumentado que la adicción puede entenderse dentro de este marco de «doble proceso» como un reflejo de la dominancia del hábito sobre la conducta dirigida a meta. En esta cuenta, la búsqueda y el uso de drogas se ven como conductas elicidadas por señales que ya no están bajo control dirigido a meta y por tanto independientes del deseo actual de la droga misma. Consideremos un fumador de largo plazo que intenta abstenerse y no profesa deseo actual de fumar: la visión basada en el hábito argumenta que, por virtud de una larga historia previa de refuerzo, las señales relacionadas con fumar pueden desencadenar automáticamente la respuesta: la vista de un cigarrillo elicita la respuesta automática y sin mente de encenderlo y fumar. La versión más fuerte de esta cuenta ve la búsqueda de droga como llegando finalmente a ser una <strong>compulsión</strong>, donde la asociación estímulo-respuesta que controla la conducta ya no puede ser modificada por la experiencia directa del reforzador de la droga.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta destacado">
+        <p><strong>Pero la teorización reciente ha desafiado esta visión en el contexto de la conducta humana.</strong> A nivel general, se ha cuestionado si los deslizamientos de acción dependen de conducta automática impulsada por estímulos, o pueden en cambio reflejar acción controlada de arriba abajo, dirigida hacia un resultado inapropiadamente elegido. Si Bob fuera detenido a mitad de ruta y le preguntaran adónde se dirigía, podría decir «a mi oficina», antes de darse cuenta de que ese es en realidad el destino equivocado. Así, es posible que la conducta inapropiada esté bajo control «dirigido a meta» en el sentido de que es controlada, flexible y dirigida a lograr un resultado particular: el problema es que se ha seleccionado el resultado equivocado (desencadenado por el contexto de andar en bici).</p>
+        <p>Incluso si hábitos inflexibles pudieran tener algún efecto limitado sobre conductas cotidianas inconsecuentes, parece improbable que los estímulos de droga pudieran desencadenar compulsivamente conducta de búsqueda de droga «sin mente», si las drogas no fueran deseadas. Revisiones recientes de las literaturas animal y humana han encontrado <strong>poco apoyo empírico para el modelo del hábito de la adicción</strong>. En cambio, se ha argumentado que el uso de drogas permanece dirigido a meta y de hecho puede reflejar <em>exceso</em> de elección dirigida a meta, con usuarios de largo plazo persistiendo en el uso porque le atribuyen mayor valor a la droga, que supera las consecuencias negativas —consistente con la observación de que el ansia emerge consistentemente como factor que lleva a la recaída, lo que sugiere que los usuarios se enfocan en su deseo del resultado al momento del uso—. En línea con esta idea, la evidencia de estudios animales que se ha tomado como consistente con la cuenta de la compulsividad proviene típicamente de procedimientos en los que las opciones disponibles están limitadas; cuando hay opciones alternativas disponibles, como recompensas sociales en ratas o vales monetarios de bajo valor en humanos, la elección de droga se reduce sustancialmente o se abandona. De hecho, la mayoría de las personas eventualmente abandonan las adicciones sin tratamiento, a menudo por preocupaciones legales, presiones económicas y preocupación por el respeto de los miembros de la familia: «los correlatos de dejar de consumir son los correlatos de la elección, no de la compulsión». La idea de que la búsqueda de droga permanece bajo control dirigido a meta quizá no deba sorprender: conseguir drogas ilícitas como la cocaína no es típicamente sencillo y puede requerir conducta flexible, novedosa e ingeniosa que no tiene historia de refuerzo.</p>
+      </div>
+
+      <h2>Elección sesgada, más que pérdida de elección</h2>
+
+      <div class="tarjeta">
+        <p>Como se describió, las teorías de doble proceso de la acción instrumental proponen que los hábitos reflejan una situación en la que el individuo ha <strong>perdido el control</strong> de su propia conducta, donde el control se ha cedido al ambiente de modo que las respuestas son elicidadas directamente por la percepción de los estímulos mismos. Por contraste, las ideas planteadas antes en este artículo sugieren un marco alternativo para entender la conducta motivada como el resultado de un proceso de <strong>competencia sesgada</strong>.</p>
+        <p>Antes notamos que la acción tomada en una situación dada estará críticamente moldeada por aquello a lo que el observador presta atención en esa situación —y aquello a lo que el observador presta atención estará a su vez influido por una gama de factores, incluyendo sus intenciones preexistentes (de arriba abajo), la saliencia de los estímulos del entorno (de abajo arriba), y sus experiencias previas con esos estímulos (historia de selección)—. Por tanto, podemos ver estos factores como modulando una <strong>competencia entre estímulos por ser seleccionados como objetivos de la conducta</strong>. Volviendo al ejemplo del supermercado: dependiendo de qué factor ejerza la mayor influencia en una ocasión dada, la priorización atencional puede finalmente favorecer las fresas (el artículo preintencionado), el detergente (físicamente saliente) o la cerveza (asociada a recompensa).</p>
+        <p>En esta cuenta, una vez que un objetivo gana la competencia por la selección, se convierte en la «meta» de la conducta dirigida a meta subsiguiente: el planeamiento flexible se despliega entonces para generar e implementar una secuencia de acción que logrará esa meta.</p>
+      </div>
+
+      <div class="tarjeta destacado">
+        <p class="datos"><strong>La contraposición central de los dos marcos:</strong></p>
+        <p>Según la teoría del hábito: el fumador de larga data enciende el cigarrillo porque la vista del cigarrillo elicita automática y «mente-en-blanco» la respuesta de fumar, sin deseo, sin meta, sin control.</p>
+        <p>Según la competencia sesgada: la vista del cigarrillo (un estímulo con enorme historia de recompensa) gana la competencia por la atención; al ganar, <em>se convierte en la meta</em> del comportamiento siguiente, y la conducta flexible, planificada y dirigida a meta se despliega entonces para obtenerlo. <strong>El problema no es la pérdida de control, sino el sesgo en aquello que llega a ser el objetivo del control.</strong></p>
+      </div>
+
+      <h2>Implicaciones de la competencia sesgada para la intervención</h2>
+
+      <div class="tarjeta">
+        <p>El marco de competencia sesgada tiene implicaciones directas para los tres tipos de intervención contra la adicción:</p>
+        <div class="pilares">
+          <div class="tarjeta">
+            <h3><span class="num">1</span>Intervenciones cognitivas</h3>
+            <p>Si el problema es el sesgo atencional hacia señales de recompensa, entrenar la atención para desviarla de esas señales (entrenamiento de sesgo atencional, o <em>attentional bias modification</em>) ataca el mecanismo que hace que el objetivo de droga gane la competencia en primer lugar. Si la señal deja de capturar la atención de manera fiable, es menos probable que llegue a proponerse como meta.</p>
+          </div>
+          <div class="tarjeta">
+            <h3><span class="num">2</span>Intervenciones conductuales</h3>
+            <p>Saber que la conducta posterior al ganador de la competencia es flexible y dirigida a meta significa que las estrategias de afrontamiento pueden funcionar: si el objetivo de droga se propone pero el individuo puede insertar deliberadamente alternativas (recompensas sociales, vales monetarios, distracciones), la competencia puede inclinarse de nuevo. Esto es consistente con el hallazgo de que la disponibilidad de recompensas alternativas reduce drásticamente la elección de droga.</p>
+          </div>
+          <div class="tarjeta">
+            <h3><span class="num">3</span>Intervenciones socioeconómicas</h3>
+            <p>Si los correlatos de dejar la adicción son «los correlatos de la elección, no de la compulsión» —preocupaciones legales, presiones económicas, respeto de la familia—, entonces las políticas que cambien la estructura de costes y recompensas del entorno (restricción de disponibilidad, alternativas gratificantes, apoyo social) modifican la competencia misma, no solo al individuo.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>La atención es el filtro que decide qué opciones llegan siquiera a ser consideradas. Y la atención no es neutral: está sesgada por nuestra historia de aprendizaje de recompensas, de modo que las señales de recompensa ganan saliencia incentivante y se convierten en imanes motivacionales que compiten por nuestro comportamiento de manera automática, rápida e independiente de nuestras metas. En la adicción, este marco de competencia sesgada sugiere que el problema no es que la persona haya perdido el control de su conducta —sino que el proceso de selección del objetivo de esa conducta está sesgado hacia las señales de droga, que ganan la competencia por la atención y por tanto se convierten en la meta de una conducta posterior plenamente flexible y dirigida a meta—. Esta visión, apoyada por la analogía humana del sign-tracking (la captura atencional modulada por el valor), abre nuevas vías para la intervención: entrenar la atención, ofrecer recompensas alternativas capaces de ganar la competencia, y cambiar la estructura del entorno que configura qué compite en primer lugar.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Artículo original (Behavioral Neuroscience, DOI: 10.1037/bne0000583) — acceso abierto CC BY 4.0</a></li>
+      <li><a href="#">Le Pelley et al. (2015) — el procedimiento de VMAC de una fase original</a></li>
+      <li><a href="#">Berridge &amp; Robinson — la teoría de la saliencia incentivante y el sign-tracking</a></li>
+      <li><a href="#">Hogarth (2020) — la crítica al modelo del hábito de la adicción</a></li>
+      <li><a href="#">Venniro et al. (2018) — recompensas sociales frente a droga en ratas</a></li>
+    </ul>
+
+    <footer>
+      <p>Le Pelley, M. E., Watson, P., &amp; Wiers, R. W. (2024). Biased Choice and Incentive Salience: Implications for Addiction. <em>Behavioral Neuroscience</em>, 138(4), 235-243 · © 2024 The Author(s) · Licencia Creative Commons Attribution 4.0 (CC BY 4.0)</p>
+      <p>Traducción al español con fines de estudio · El original prevalece en caso de discrepancia</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

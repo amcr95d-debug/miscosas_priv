@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Un mecanismo psicológico para el desarrollo de la ansiedad</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --acento: #2563eb;
+      --borde: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .volver {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      color: var(--acento);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .volver:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .categoria {
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--acento);
+      margin: 0 0 .4rem;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: #6b7280;
+      margin: 0 0 .4rem;
+      font-size: 1.05rem;
+    }
+
+    .meta {
+      color: #6b7280;
+      font-size: .9rem;
+      margin: .4rem 0 0;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin: 2.25rem 0 .75rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 1.75rem 0 .5rem;
+      color: #374151;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.25rem 1.4rem;
+      margin-bottom: .75rem;
+    }
+
+    .resumen .titulo-seccion {
+      font-weight: 600;
+      margin: 0 0 .5rem;
+    }
+
+    .palabras-clave {
+      font-size: .92rem;
+      color: #4b5563;
+    }
+
+    .articulo p {
+      margin: 0 0 1.1rem;
+    }
+
+    blockquote.cita {
+      margin: 1.5rem 0;
+      padding: .75rem 1.25rem;
+      background: #eef2ff;
+      border-left: 3px solid var(--acento);
+      border-radius: 0 .5rem .5rem 0;
+      color: #374151;
+      font-style: italic;
+    }
+
+    blockquote.cita .fuente {
+      display: block;
+      font-style: normal;
+      font-size: .85rem;
+      color: #6b7280;
+      margin-top: .35rem;
+    }
+
+    .figura {
+      font-size: .85rem;
+      color: #6b7280;
+      font-style: italic;
+      border-left: 3px solid var(--borde);
+      padding-left: 1rem;
+      margin: 0 0 1.25rem;
+    }
+
+    .pie {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: #6b7280;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <a class="volver" href="indice.htm">← Volver al índice</a>
+
+    <header>
+      <p class="categoria">Ansiedad · Aprendizaje asociativo · Neurociencia conductual</p>
+      <h1>Un mecanismo psicológico para el desarrollo de la ansiedad</h1>
+      <p class="subtitulo">La conducta de evitación, los errores de predicción y el modelo de Rescorla-Wagner</p>
+      <p class="meta">Por Gonzalo P. Urcelay · <em>Behavioral Neuroscience</em>, 2024, vol. 138, n.º 4, págs. 281–290</p>
+    </header>
+
+    <div class="tarjeta resumen">
+      <p class="titulo-seccion">Resumen</p>
+      <p>Aunque se han propuesto numerosos constructos conductuales para dar cuenta de los trastornos de ansiedad, ha sido difícil predecir cómo se desarrollan estos trastornos en un individuo. En esta perspectiva, reviso selectivamente evidencia clínica y experimental que sugiere que la conducta de evitación (es decir, de seguridad) aumenta las creencias de amenaza o miedo. La evidencia experimental ha sido replicada numerosas veces, con distintos parámetros, y muestra que cuando participantes humanos emiten respuestas de evitación en presencia de un estímulo neutro, más tarde muestran expectativas de amenaza intensificadas ante ese estímulo neutro. Interpreto estos hallazgos como resultado de errores de predicción, tal como los anticipa el modelo de Rescorla-Wagner, aunque otras teorías del aprendizaje animal también pueden predecir el fenómeno. Discuto algunas implicaciones y ofrezco varias predicciones novedosas. El análisis aquí presentado arroja luz sobre un fenómeno de relevancia teórica y clínica que es acomodado por la teoría básica del aprendizaje asociativo.</p>
+      <p class="palabras-clave"><strong>Palabras clave:</strong> ansiedad; evitación; conductas de seguridad; Rescorla-Wagner; extinción de la inhibición.</p>
+    </div>
+
+    <div class="articulo">
+      <blockquote class="cita">«Los ataques de pánico se convirtieron en una parte habitual de mi vida, aumentando en frecuencia de uno cada pocos meses a varios por semana.»<span class="fuente">— Tim Clare, <em>Coward: Why We Get Anxious and What We Can Do About It</em></span></blockquote>
+
+      <h2>Introducción</h2>
+
+      <p>En conjunto, los trastornos de ansiedad son los más prevalentes de todos los trastornos psiquiátricos. Aunque difieren entre sí, comparten un miedo desproporcionado en respuesta a objetos, situaciones o pensamientos, y una evitación activa (conductual o cognitiva) excesiva. En las últimas tres décadas, numerosos constructos psicológicos se han encontrado correlacionados con la ansiedad en poblaciones sanas o asociados con un diagnóstico clínico. Entre ellos: un <em>acondicionamiento del miedo potenciado</em> (en las personas con ansiedad, el condicionamiento aversivo avanza más rápido); un <em>déficit de extinción del miedo</em> (dificultad para aprender que un estímulo condicionado ya no va seguido del resultado aversivo); una <em>incapacidad general de inhibir el miedo</em> (déficit de aprendizaje de seguridad); la <em>sobregeneralización</em> (tendencia a responder a estímulos similares a los que predicen un evento aversivo); una <em>discriminación CS+/CS− más lenta</em>; y una <em>dificultad para afrontar la incertidumbre</em>.</p>
+
+      <p>Puesto que los trastornos de ansiedad se caracterizan tanto por miedo intensificado como por conducta de evitación, otras explicaciones —reconociendo un papel del miedo— han subrayado la conducta de evitación instrumental (una respuesta que provoca la ausencia del resultado aversivo). Por ejemplo, las personas con trastorno obsesivo-compulsivo desarrollan más rápido hábitos de evitación instrumental, y las tasas altas de evitación impiden que los participantes cambien sus creencias: cada vez que el individuo está cerca de encontrarse con el estímulo, lo evita, lo que a su vez le impide desconfirmar sus creencias sobre las amenazas potenciales (es decir, «la amenaza no ocurrió porque la evité»).</p>
+
+      <h2>¿Produce la evitación más miedo?</h2>
+
+      <p>Los constructos anteriores tienen atractivo intuitivo y respaldo empírico, pero todos tienen dificultades para explicar cómo se <em>desarrolla</em> el trastorno en un individuo. Zinbarg y colegas (2022) plantearon el siguiente ejemplo:</p>
+
+      <blockquote class="cita">«Emily y Marian tuvieron experiencias traumáticas con perros. Emily paseaba con su perro cuando otro perro la atacó y la mordió en la muñeca. Estaba aterrada; la herida se infectó gravemente y requirió tratamiento médico. Marian caminaba por el campo cuando tres perros grandes y gruñentes la persiguieron hasta una valla; uno empezó a desgarrarle los pantalones, pero su dueño intervino antes de que resultara herida. ¿Por qué Marian, y no Emily, desarrolló una fobia a los perros, si solo Emily fue realmente mordida?»</blockquote>
+
+      <p>Los constructos antes descritos intentan explicar la <em>preservación</em> de la ansiedad, más que su desarrollo. Aquí reviso evidencia empírica de la psicología experimental y la psicopatología que indica que las conductas de evitación (o «conductas de seguridad», como se las llama en la literatura clínica) pueden <em>aumentar</em> las creencias de amenaza.</p>
+
+      <p>En las últimas seis décadas, el espíritu de la terapia cognitivo-conductual y la extinción del miedo sugiere que el objetivo del clínico debe ser atenuar el miedo e impedir su recuperación: la suposición es que el miedo impulsa la evitación. Pese a ello, la noción de que la evitación impulsa la ansiedad ha recibido apoyo empírico. En un estudio descriptivo, Craske y colaboradores entrevistaron a pacientes con trastorno de pánico y los clasificaron según la evitación agorafóbica (baja vs. alta): aunque no diferían en trastornos de ansiedad adicionales antes del primer ataque de pánico, más participantes del grupo de alta evitación desarrollaron trastornos adicionales después del primer ataque. En otro estudio, Aderka y colaboradores evaluaron miedo, evitación y síntomas fisiológicos en personas con ansiedad social durante 14 semanas de terapia grupal: el modelamiento de ecuaciones estructurales reveló que, en las primeras 8 semanas, los niveles de evitación predecían el miedo posterior mejor que el miedo mismo, mientras que el miedo no predecía la evitación. Dos estudios longitudinales con supervivientes del terremoto turco reforzaron esta idea: los síntomas de evitación durante la primera encuesta fueron el mejor predictor del posterior diagnóstico de trastorno de estrés postraumático (TEPT), y un seguimiento a 10 años confirmó que los síntomas de evitación 1-3 meses después del terremoto fueron el mejor predictor del diagnóstico completo de TEPT una década más tarde. Así, la conducta de evitación parece ser un fuerte predictor del futuro estado clínico, aunque estos resultados podrían deberse a otras características no controladas de los participantes.</p>
+
+      <h2>Experimentos de laboratorio</h2>
+
+      <p>Los experimentos de laboratorio permiten evaluar mejor la contribución de la evitación a la atribución de peligro. Algunos estudios usaron guiones (o viñetas) que los participantes leían y valoraban: los investigadores manipulaban el peligro objetivo de las situaciones y la presencia o ausencia de conductas de seguridad. Gangemi y colaboradores (2012) reclutaron personas con ansiedad (TOC, trastorno de pánico y fobia social) más controles sanos: la presencia de conductas de evitación descritas aumentó las valoraciones de peligro, en particular en los diagnósticos clínicos. Interpretaron el hallazgo como «la conducta como información»: la tendencia a inferir peligro de la presencia de conductas de seguridad. Van Uijen y Toffolo (2015) usaron una manipulación más directa: durante una semana, el grupo experimental debía verificar cada ítem de una lista una vez más de lo habitual; el resultado fue un aumento selectivo en las cogniciones relacionadas con la comprobación (escala Checking Cognitions Scale). Y Spix y colaboradores (2023), con viñetas adaptadas a escenarios relacionados con la alimentación, observaron que todos los participantes —con o sin trorno de la conducta alimentaria— percibían como más amenazantes las situaciones con conductas de seguridad que las que no las tenían.</p>
+
+      <h2>La evitación aumenta las creencias de amenaza (AIBoT)</h2>
+
+      <p>La cuestión central de hasta qué punto la evitación o las conductas de seguridad aumentan las creencias de amenaza ha sido respondida mediante condicionamiento del miedo y conducta de evitación en condiciones controladas. Me referiré a este fenómeno como «AIBoT» (por las siglas en inglés de <em>Avoidance Increases Beliefs of Threat</em>, «la evitación aumenta las creencias de amenaza»). Engelhard y colaboradores (2015) expusieron a los participantes a un condicionamiento pavloviano en el que una señal visual (A) se emparejaba sistemáticamente con una descarga eléctrica, y otras dos señales (B y C) no. En una segunda etapa, los participantes aprendieron que podían evitar las descargas durante las presentaciones de A pulsando un botón. La manipulación crítica llegó en la tercera etapa: el grupo experimental AIBoT podía pulsar el botón de evitación durante las presentaciones de C (que jamás fue seguida de descarga), mientras que el grupo control experimentaba C sin oportunidad de evitación. El hallazgo crítico fue que, en una prueba posterior de valoraciones predictivas, los participantes del grupo experimental —que habían tenido la oportunidad de evitar durante la señal segura C— daban valoraciones más altas de expectativa de amenaza ante C que el grupo control, aunque C nunca se había emparejado con la descarga.</p>
+
+      <div class="figura">Figura 1 (referencia): diseño general de los experimentos AIBoT — condicionamiento pavloviano (A+, B−, C−), adquisición instrumental (A*−), manipulación de evitación (BC*− en el grupo AIBoT frente a BC− en el control) y prueba de expectativas. [El diagrama original puede consultarse en el artículo.]</div>
+
+      <p>El efecto AIBoT ha sido replicado en el mismo laboratorio con refuerzo parcial de A y menos presentaciones de B y C (van Dis et al., 2022). Van Uijen y colaboradores (2018) usaron un ruido fuerte como resultado aversivo y replicaron el efecto con una señal que primero había sido reforzada y luego extinguida: la evitación tras la extinción desencadenó un retorno de las creencias de amenaza. En otro laboratorio, Xia y colaboradores (2019) usaron descargas y fotografías de rostros, observando mayores expectativas de amenaza ante C solo en quienes habían evitado en su presencia, además de cierta generalización a B. Van Vliet y colaboradores (2018, 2021), usando calor doloroso, indujeron a creer (mediante instrucciones) al grupo de evitación que podía detener la estimulación con un botón; en realidad, las respuestas eran ineficaces y ambos grupos recibieron la misma intensidad de dolor. Aun así, el grupo de «evitación» aumentó sus valoraciones de miedo al dolor en la fase de prueba. Finalmente, dos estudios de Wong y colaboradores (2023, 2024) replicaron el efecto y añadireron un dato crucial: el <em>grado</em> de conductas de evitación hacia C durante la fase AIBoT predijo el aumento de las expectativas de amenaza, y el efecto se generalizó a otros ejemplares de la misma categoría de estímulos que C. Esto sugiere que no es la mera disponibilidad de la respuesta lo que impulsa el efecto, sino el número de respuestas de evitación emitidas.</p>
+
+      <p>En conjunto, la evidencia respalda firmemente la idea de que la conducta de evitación engendra más miedo —una afirmación presente en la literatura de ansiedad durante décadas— y va más allá de la mera conservación del miedo por la evitación: la evitación puede <em>aumentar</em> el miedo a estímulos presentes durante su ejecución que jamás se emparejaron con un resultado aversivo.</p>
+
+      <h2>Explicaciones del fenómeno AIBoT</h2>
+
+      <p>En los artículos empíricos se han propuesto dos explicaciones cognitivas. La primera apela a la <em>disonancia cognitiva</em> (Festinger, 1957): cuando dos creencias son inconsistentes, se genera un malestar aversivo y las personas tienden a cambiarlas para mantener la consistencia. Aplicado al fenómeno: la gente se da cuenta de que ha hecho una respuesta de evitación ante una señal neutra (segura) y, por tanto, infiere que debía de haber amenaza; los participantes alinean su expectativa con su conducta para reducir la inconsistencia. La segunda explicación, relacionada, es la de «la conducta como información» (Gangemi et al., 2012): los participantes, porque han respondido, infieren que debía de haber amenaza presente. Todas las publicaciones experimentales apelaron a una o ambas explicaciones cognitivas — y ninguna se refirió a mecanismos básicos de aprendizaje como el inherente al modelo de Rescorla-Wagner.</p>
+
+      <p>El modelo de Rescorla-Wagner (1972; en adelante, R-W) fue propuesto como reacción a hallazgos que sugerían que no todo lo que se empareja con un resultado biológicamente relevante se asocia con él. Desarrollado para explicar fenómenos como el efecto de bloqueo, ha tenido un éxito considerable en explicar fenómenos básicos de aprendizaje con extrema simplicidad. Según el modelo, el cambio en la fuerza asociativa V de un estímulo C viene dictado por la ecuación ΔV<sub>C</sub> = αβ(λ − ΣV), donde el término de error (λ − ΣV) indica la magnitud y la dirección del cambio: cuando el estímulo incondicionado está presente, λ = 1; cuando está ausente, λ = 0. Crucialmente, el término de error tiene en cuenta la suma de las fuerzas asociativas de <em>todas</em> las señales presentes en el ensayo, lo que captura la intuición de que, para que ocurra aprendizaje, los resultados deben ser sorprendentes.</p>
+
+      <p>Según el modelo R-W, tras suficiente entrenamiento de evitación, la respuesta de evitación (denotada con *) se convierte en un <em>inhibidor</em> del miedo: los ensayos A+ dotan a A de fuerza excitatoria, y intercalar ensayos A*(−) hace que * adquiera fuerza inhibitoria (con un error de (0 − 1) = −1, la fuerza inhibitoria de * tiende a −1). Konorski y Miller establecieron empíricamente que, durante el entrenamiento instrumental de evitación, la respuesta de evitación adquiere propiedades inhibitorias: en perros entrenados para flexionar la pata y evitar el ácido, las flexiones espontáneas inhibían la salivación condicionada al ruido.</p>
+
+      <p>Ahora bien, consideremos que la respuesta de evitación * ha sido entrenada hasta el asintoto (V = −1) y se emite en presencia de un estímulo neutro C (V = 0): la suma será ΣV = 0 + (−1) = −1 y, como el resultado no se presenta cuando se emite la respuesta, el término de error será (0 − (−1)) = +1. En consecuencia, habrá un cambio <em>positivo</em> en la fuerza asociativa tanto de C como de la respuesta de evitación, y —dado que C era asociativamente neutro— C se volverá excitatorio: una señal de miedo. Por esta «doble negación» del término de error, el modelo predice un cambio positivo en la fuerza asociativa de C. Dicho de otro modo: cuando la respuesta inhibitoria de evitación se emite en presencia de C, se produce la <em>extinción de la inhibición condicionada</em> (la V de la respuesta tiende a cero), resultando en un cambio positivo para C. Aunque el cambio es pequeño (β es menor cuando el resultado está ausente), más respuestas ante C escalarán linealmente con el cambio positivo — una predicción en línea con los datos de Wong et al. (2023, 2024): el efecto de la evitación es <em>dose-dependiente</em>. Y aunque la inhibición se extinga, las personas con ansiedad evitan a tasas altas en presencia de señales que predicen amenaza (como A), lo que devolvería la respuesta hacia −1: este balance —y el hecho de que la adquisición avanza más rápido que la extinción— puede mantener el estatus inhibitorio de la respuesta de evitación y, con ello, aumentar la fuerza predictiva de otras señales como C.</p>
+
+      <h2>Pruebas del modelo R-W</h2>
+
+      <p>Poco después de publicarse el modelo, Zimmer-Hart y Rescorla (1974) no encontraron evidencia de extinción de la inhibición condicionada — el mecanismo clave de la explicación. Ha habido replicaciones de esos hallazgos nulos, pero también informes en animales en que sí se observó la extinción de la inhibición. En participantes humanos, la extinción de la inhibición condicionada se ha documentado siempre que la escala de medición del resultado era <em>bidireccional</em> (la señal disminuye el nivel del resultado) y no unidireccional (la señal previene un aumento) — documentado por Melchers et al. (2006), replicado por Lotz y Lachnit (2009), y Baetu y Baker (2010) mostraron que la escala bidireccional ni siquiera era necesaria. Esto es consistente con que en varios estudios AIBoT el efecto no se observara en sistemas de respuesta unidireccionales como la conductancia de la piel o el reflejo de sobresalto, que nunca adoptan valores negativos, pero sí en las valoraciones de expectativa (bidireccionales).</p>
+
+      <p>Las pruebas directas con procedimientos pavlovianos son algo débiles, posiblemente porque, cuando una señal neutra C se presenta con un inhibitorio, se <em>configuran</em> y esto atenúa la sensibilidad al efecto (decrecimiento de generalización). Esto podría explicar por qué hay mucha más evidencia con respuestas instrumentales de evitación, menos propensas a configurarse con la señal objetivo. En conjunto, la predicción del modelo R-W de que la mera exposición a un inhibitorio condicionado produce la extinción de la inhibición y, simultáneamente, aumentos de fuerza asociativa en los estímulos que coocurren con esa exposición ha recibido apoyo en animales y apoyo concluyente en humanos, donde el uso de escalas bidireccionales facilita el fenómeno.</p>
+
+      <h2>Predicciones del modelo R-W</h2>
+
+      <p>Una de las ventajas de usar el modelo R-W para entender el efecto AIBoT es que permite predicciones contrastables. Primero, las ya confirmadas predicciones dependientes de la dosis: manipular la cantidad de entrenamiento de evitación debería resultar en distinta fuerza inhibitoria de la respuesta * y, por tanto, en cambios en la fuerza excitatoria (creencias de amenaza) de C. Si el entrenamiento de evitación se realiza con un programa de refuerzo parcial, la fuerza inhibitoria de * será menor y C adquirirá menos excitación. Los cambios en la saliencia de la señal de aviso también deberían repercutir en la fuerza que C acumula. E instruir a los participantes a evitar más o menos durante los ensayos AIBoT debería determinar el tamaño del efecto.</p>
+
+      <p>Segundo, si los emparejamientos de la respuesta * con C se <em>refuerzan</em> (+), debería producirse una <em>supercondicionación</em> de C: el término de error sería ((1) − (−1)) = 2, es decir, un aumento mucho mayor. Tercero, lo contrario también se espera: presentar una señal de seguridad generada por la respuesta (un estímulo inhibitorio) tras los emparejamientos de * con C debería atenuar el efecto, porque el término de error sería ((−1) − (−1)) = 0.</p>
+
+      <h2>Implicaciones y direcciones futuras</h2>
+
+      <p>Una cuestión pendiente es si el AIBoT da lugar a más respuestas de evitación hacia la señal C: hasta ahora, las demostraciones han usado expectativas (creencias de amenaza) como medida dependiente, sin detectarse en medidas fisiológicas. Evaluar si C, tras emparejarse con la respuesta de evitación, puede elicitar después más respuestas de evitación (o nuevas) ayudaría a determinar si el AIBoT puede dar cuenta del <em>crecimiento</em> de la ansiedad. Dada la relación bidireccional entre miedo y evitación que el AIBoT revela, nuevos estímulos y contextos en los que se ejecuta la evitación podrían reclutar fuerza asociativa y elicitar nuevas respuestas de evitación, en un «círculo vicioso».</p>
+
+      <p>Un área de investigación futura es el uso de conductas de evitación (o seguridad) durante el <em>tratamiento</em> de los trastornos de ansiedad. Aunque la visión presentada sugiere minimizar la evitación durante la terapia de exposición —siguiendo la idea de que impide la desconfirmación de creencias—, eliminarla por completo también puede ser perjudicial: la ausencia de evitación crea un cambio de contexto que, cuando la evitación vuelve a estar disponible, provoca recuperación de la extinción y recaída. Los clínicos han abogado por un enfoque equilibrado, y las revisiones y metaanálisis que han evaluado si eliminar las conductas de seguridad mejora el resultado de la exposición no han revelado diferencias. Los estudios de extinción instrumental revelan que esta resulta en el desarrollo de una asociación inhibitoria estímulo-respuesta; así, para atenuar la evitación, la respuesta debería estar disponible y ser suprimida durante la extinción, más que eliminada. Una implicación de este análisis es centrarse en la <em>disminución</em> de la conducta de evitación, por ejemplo mediante su extinción o como complemento de la terapia de exposición. Esto respalda la investigación clínica sobre el «desvanecimiento gradual de las conductas de seguridad» (safety-behavior fading), que intenta reducir directamente las conductas de seguridad además de reducir el miedo: podría disminuir las tasas de abandono del tratamiento y permitir que las personas con ansiedad desarrollen una mejor sensación de control sobre su entorno.</p>
+
+      <p>En resumen: muchos constructos conductuales se han propuesto para explicar la causa y la persistencia de la ansiedad, pero todos se quedan cortos a la hora de explicar por qué, o cómo, la ansiedad <em>crece</em> en ausencia de experiencias aversivas adicionales. El efecto AIBoT, plenamente capturado por el modelo R-W, sugiere que las creencias de amenaza pueden crecer con el tiempo, impulsadas por la cantidad de conducta de evitación. Las explicaciones propuestas (disonancia cognitiva y la conducta como información) son más complejas en supuestos e implementación computacional; el análisis basado en la teoría básica del aprendizaje es más simple, mecanicista y conduce a nuevas predicciones contrastables. El modelo R-W tiene sus limitaciones, pero anticipa con elegancia el fenómeno AIBoT. Otros modelos también pueden anticipar parte de estas predicciones (p. ej., el modelo atencional de Pearce y Hall predice que evitar ante un estímulo neutro aumenta la atención hacia él, en línea con los sesgos atencionales de la ansiedad). Este análisis además puede guiar una evaluación computacionalmente fundamentada de los correlatos cerebrales del mecanismo de error de predicción con resonancia magnética funcional, correlatos que podrían manipularse causalmente en animales con tecnología opto o quimiogenética, demostrando el estatus causal de los errores de predicción en el crecimiento del miedo impulsado por la evitación. En conjunto, el fenómeno AIBoT refuerza la noción de que la conducta de evitación misma puede ser un motor del miedo, y exige una conceptualización de la dinámica entre miedo y evitación en la que la relación entre ambos es bidireccional, tal como la instanciaría el término de error del modelo.</p>
+    </div>
+
+    <footer class="pie">
+      <p>Basado en «A Psychological Mechanism for the Development of Anxiety», de G. P. Urcelay (Facultad de Psicología, Universidad de Nottingham, Reino Unido), <em>Behavioral Neuroscience</em>, 2024, vol. 138, n.º 4, págs. 281-290. DOI: 10.1037/bne0000607. Artículo de acceso abierto bajo licencia Creative Commons Atribución 4.0 Internacional.</p>
+    </footer>
+  </div>
+</body>
+</html>

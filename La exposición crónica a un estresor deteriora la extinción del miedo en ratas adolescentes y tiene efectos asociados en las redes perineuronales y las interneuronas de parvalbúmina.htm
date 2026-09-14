@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La exposición crónica a un estresor deteriora la extinción del miedo en ratas adolescentes y tiene efectos asociados en las redes perineuronales y las interneuronas de parvalbúmina</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor { max-width: 860px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    header { margin-bottom: 1.5rem; }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 { font-size: clamp(1.4rem, 4vw, 2rem); margin: 0 0 .5rem; line-height: 1.25; }
+    .subtitulo { color: var(--texto-suave); margin: 0; }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 { font-size: 1.05rem; margin: 1.5rem 0 .5rem; color: var(--acento); }
+
+    .temas { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 1.5rem; }
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .tarjeta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+    .tarjeta p { margin: 0 0 .75rem; }
+    .tarjeta p:last-child { margin-bottom: 0; }
+
+    .entradilla { border-left: 4px solid var(--acento); font-size: 1.05rem; }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+    .buscador:focus { border-color: var(--acento); box-shadow: 0 0 0 3px rgba(37, 99, 235, .15); }
+
+    .contador { font-size: .85rem; color: var(--texto-suave); min-height: 1.3em; margin: 0 0 1rem; }
+
+    .tabla-scroll { overflow-x: auto; margin: 1rem 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .9rem;
+    }
+    th, td { border: 1px solid var(--borde); padding: .5rem .75rem; text-align: left; vertical-align: top; }
+    th { background: var(--acento-suave); color: var(--acento); font-weight: 600; }
+    td:not(:first-child), th:not(:first-child) { text-align: center; }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+    .pilares h3 { margin: 0 0 .5rem; font-size: 1rem; }
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .resultado { border-left: 4px solid var(--acento); }
+
+    .significativo { border-left: 4px solid #10b981; }
+    .nulos { border-left: 4px solid #94a3b8; }
+
+    .ejemplo {
+      background: var(--acento-suave);
+      border: 1px dashed var(--acento);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      margin: .75rem 0;
+      font-size: .95rem;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado { border-left: 4px solid var(--acento); }
+    .articulo-ref { font-size: .92rem; color: var(--texto-suave); }
+
+    mark { background: var(--marca); border-radius: 3px; padding: 0 2px; }
+
+    .relacionados { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+    .relacionados a:hover { color: var(--acento); border-color: #c7d2fe; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+    footer p { margin: .25rem 0; }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Artículo empírico · Behavioral Neuroscience · 2024 · Acceso abierto (CC BY)</span>
+      <h1>La exposición crónica a un estresor deteriora la extinción del miedo en ratas adolescentes y tiene efectos asociados en las redes perineuronales y las interneuronas de parvalbúmina</h1>
+      <p class="subtitulo">Elizabeth A. Virakorn · Rick Richardson · Kathryn D. Baker — UNSW Sydney y La Trobe University</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Adolescencia</span>
+      <span class="tema">Extinción del miedo</span>
+      <span class="tema">Parvalbúmina</span>
+      <span class="tema">Estrés</span>
+      <span class="tema">Redes perineuronales</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p><strong>Resumen.</strong> Los adolescentes, tanto humanos como no humanos, exhiben deterioros en la extinción del miedo aprendido, un efecto que se exacerba, al menos en roedores, por la exposición al estrés crónico. Sin embargo, tenemos poca comprensión de los mecanismos subyacentes a este efecto. Por tanto, aquí examinamos si la exposición a corticosterona, un modelo de estrés crónico, altera la expresión de neuronas inhibidoras que expresan parvalbúmina (PV) en la amígdala basolateral y la corteza prefrontal, dos regiones cerebrales que se han implicado en los recuerdos de extinción del miedo, en ratas adolescentes. También examinamos la expresión de redes perineuronales (PNN), estructuras de matriz extracelular que envuelven a las interneuronas inhibidoras, en estas dos regiones. Estas estructuras podrían volver los recuerdos de miedo resistentes a la extinción aplicando un «freno» estructural sobre la plasticidad de los recuerdos de miedo. Las ratas adolescentes expuestas a corticosterona exhibieron una mala retención de la extinción, como en trabajos previos, y también se encontró que tenían un <strong>porcentaje reducido de células PV positivas rodeadas por PNN en la amígdala basolateral</strong>. Las células PV y las PNN no resultaron afectadas por la exposición a corticosterona en la corteza prefrontal. Nuestros resultados sugieren que la función alterada de las interneuronas de la amígdala puede estar asociada con el deterioro del desempeño de extinción en ratas adolescentes expuestas al estrés.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <h2>Introducción</h2>
+
+      <div class="tarjeta">
+        <p>La adolescencia ha sido largamente descrita como un tiempo de «tormenta y estrés», y la evidencia muestra que muchas psicopatologías, incluidos los trastornos de ansiedad, emergen en la niñez tardía y/o la adolescencia temprana. Durante la adolescencia, varias vías neurales y sistemas hormonales, incluidos los implicados en las respuestas de estrés, experimentan un considerable remodelado y refinamiento. Esta plasticidad elevada puede hacer que estos sistemas en desarrollo sean particularmente vulnerables a los efectos adversos de altos niveles de estrés, lo que podría entonces contribuir a que los adolescentes sean más propensos a desarrollar respuestas de estrés maladaptativas y otros trastornos de salud mental a lo largo de la vida.</p>
+        <p>El sistema del miedo es uno de tales sistemas que experimenta una maduración significativa en la adolescencia, y los sistemas involucrados en regular las respuestas conductuales y neurales al miedo aprendido se sabe que son sensibles a alteraciones por estrés crónico. Durante esta etapa del desarrollo, <strong>las respuestas de miedo aprendidas son resistentes a la inhibición</strong>, un efecto visto tanto en humanos como en roedores. En estudios de extinción del miedo aprendido en ratas en desarrollo, los adolescentes varones (alrededor del día posnatal 35) típicamente tienen respuestas iniciales similares al aprender a inhibir las respuestas de miedo a señales de peligro durante el entrenamiento de extinción, pero tienen respuestas de miedo exageradas cuando se les evalúa la retención de la extinción al día siguiente, en relación con ratas juveniles (P24) y adultas (P70).</p>
+        <p>Dado que el proceso de extinción es un componente de las terapias basadas en exposición para los trastornos de ansiedad, los deterioros en la extinción podrían resultar en una eficacia terapéutica retrasada en los adolescentes a menos que se usen estrategias para optimizar la extinción. Afortunadamente, la retención de la extinción en adolescentes puede mejorarse cuando se da el doble de ensayos de extinción y a través de varios agentes farmacológicos, incluidos agonistas de receptores N-metil-D-aspartato y del receptor quinasa B trópico de tropomiosina. Importante: <strong>estos tres tratamientos no son eficaces para superar el déficit de retención de extinción en ratas adolescentes varones que han sido expuestas a estrés crónico</strong>, modelado exponiendo a las ratas adolescentes a niveles elevados de corticosterona, ya sea en su agua de bebida o vía pellets implantados de liberación lenta.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Redes perineuronales y células de parvalbúmina</h3>
+        <p>Aún no sabemos por qué la exposición crónica al estresor reduce los beneficios de estos tratamientos conductuales y farmacológicos para aliviar la extinción deteriorada del miedo aprendido en ratas adolescentes varones. Por tanto, en el presente estudio realizamos un examen preliminar de un potencial mecanismo neural que podría estar involucrado en los efectos adversos del estrés crónico sobre la retención de extinción: los cambios en las <strong>interneuronas inhibidoras GABAérgicas</strong>. Hay evidencia de que estas células desempeñan un papel en la expresión y extinción del miedo, al menos en adultos. Aunque hay varios subtipos de interneuronas inhibidoras, nos centramos en el subtipo más prevalente: las que contienen <strong>parvalbúmina (PV)</strong>. Estuvimos particularmente interesados en la expresión de células PV en la amígdala basolateral (BLA) y las regiones prelimbica (PL) e infralímbica (IL) de la corteza prefrontal medial (CPFm), dos regiones cerebrales que se han implicado en la extinción del miedo.</p>
+        <p>Además de medir el número de células marcadas con PV en la BLA y la CPFm, también medimos las <strong>redes perineuronales (PNN)</strong> en esas dos regiones del cerebro. Las PNN son estructuras densas de matriz extracelular que se encuentran alrededor del cuerpo celular y las dendritas de las células del cerebro y la médula espinal, especialmente de las interneuronas de disparo rápido que contienen PV. Aparecen durante el desarrollo de manera dependiente de la experiencia y tienen varias funciones, incluida la protección de las interneuronas PV contra el estrés oxidativo y actuar como un <strong>«freno» estructural sobre la plasticidad</strong> de las células que rodean. Las PNN, mediante su capacidad de limitar la formación de nuevas sinapsis y aumentar la estabilidad de las sinapsis existentes, se piensa que indican cuándo terminan los períodos críticos del desarrollo cortical. Es decir, el desarrollo de PNN alrededor de células PV positivas puede tomarse como una indicación de maduración. Dado que el número de PNN aumenta a lo largo del desarrollo en regiones cerebrales involucradas en la regulación del miedo, incluida la CPFm y la BLA, las alteraciones en este patrón típico de desarrollo, debidas al estrés crónico, pueden influir en la retención de la extinción en los adolescentes.</p>
+        <p>Hay alguna evidencia de que el estrés crónico afecta a las PNN y células marcadas con PV en estas regiones cerebrales. Por ejemplo, el estrés temprano en la adolescencia downregula el número y la actividad de células PV en la PL y la IL de la CPFm. Estas reducciones de células PV en la CPFm se han vinculado con déficits de memoria y conducta de ansiedad aumentada. El estrés crónico desde la adolescencia temprana (P28) durante 15 o 35 días también reduce las PNN en la cingulada anterior y la PL de la CPFm; la exposición al estrés por un período más corto (7 días) tiene el efecto opuesto (un aumento de PNN). También debe señalarse que la ablación temporal de PNN en la BLA ha demostrado afectar efectos de recaída tras la extinción en ratones adultos.</p>
+      </div>
+
+      <h2>Método</h2>
+
+      <div class="tarjeta">
+        <p><strong>Sujetos:</strong> se adquirieron 36 ratas Sprague-Dawley machos experimentalmente ingenuas de la colonia de cría de la UNSW. Los animales se destetaron entre los 21 y 24 días de edad y se alojaron en grupos de cuatro. No más de una rata de una camada dada se asignó a una condición experimental. Los animales comenzaron el tratamiento a los 27-29 días de edad y los procedimientos conductuales a los 33-35 días. Todos los procedimientos fueron aprobados por el Comité de Cuidado Animal y Ética de la UNSW.</p>
+        <p><strong>Administración de corticosterona:</strong> hubo tres tratamientos que comenzaron en la adolescencia temprana a los 27-29 días de edad. Los animales del grupo de corticosterona (CORT) recibieron 200 μg/ml de corticosterona disuelta en 2,5 % de etanol absoluto (vol/vol) mezclada en agua de grifo. Los animales del grupo Vehículo recibieron agua con 2,5 % de etanol absoluto. El grupo Agua recibió agua de grifo estándar únicamente. Las botellas de agua se verificaron y pesaron todos los días durante la semana de tratamiento. La dosis promedio de CORT consumida fue de 32,39 mg/kg/día (EEM = 0,83).</p>
+        <p><strong>Procedimiento conductual:</strong> tras el manejo y la preexposición, todas las fases se realizaron entre las 1200 y las 1600 cada día para tener en cuenta las fluctuaciones diarias de las hormonas de estrés endógenas, con intervalos de aproximadamente 24 horas entre fases:</p>
+        <div class="ejemplo">
+          <strong>1. Condicionamiento del miedo:</strong> tras un período basal de 2 min («pre-EC») en el Contexto A, las ratas recibieron tres emparejamientos del EC (ruido blanco de 10 s, 8 dB sobre el fondo) con un EI co terminante (descarga en la pata de 0,5 mA durante 1 s).<br><br>
+          <strong>2. Entrenamiento de extinción:</strong> tras un período pre-EC de 2 min, las ratas recibieron 30 presentaciones no reforzadas del EC en cada uno de 2 días de entrenamiento de extinción en el Contexto B.<br><br>
+          <strong>3. Test de retención de extinción:</strong> 24 horas después del segundo día de entrenamiento de extinción, se evaluó a las ratas en el Contexto B con una única presentación no reforzada del EC de 2 min.
+        </div>
+        <p><strong>Puntuación:</strong> se empleó un procedimiento de muestreo temporal para evaluar la presencia o ausencia de congelamiento cada 3 s. El congelamiento se definió como la ausencia de movimiento excluyendo los necesarios para respirar. Una muestra aleatoria de los datos del test (~30 %) fue puntuada de forma cruzada por un individuo ciego a la condición experimental para la fiabilidad interjuez (r = 0,91).</p>
+        <p><strong>Inmunofluorescencia:</strong> el tejido cerebral se analizó para la expresión de PNN y PV mediante procedimientos establecidos. Las secciones se incubaron con lectina aglutinina de <em>Wisteria floribunda</em> marcada con fluoresceína (WFA; 1:200) y anticuerpo anti-parvalbúmina de ratón (1:2000) para observar las estructuras etiquetadas como PNN. Las células PV, las PNN alrededor de neuronas PV y las PNN alrededor de neuronas no PV se contaron manualmente por un experimentador ciego a la condición experimental de los animales.</p>
+      </div>
+
+      <h2>Resultados</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Medida</th>
+              <th>Resultado</th>
+              <th>Estadística clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Peso corporal</td><td>Sin diferencias pretratamiento; el grupo CORT pesó menos al final del tratamiento y en el día del test</td><td><em>t</em>(33) = 3,78, <em>p</em> &lt; ,001, <em>d</em> = 1,38 (pos-tratamiento)</td></tr>
+            <tr><td>Peso de glándula suprarrenal (% del peso corporal)</td><td>Significativamente menor en los expuestos a CORT</td><td><em>t</em>(22) = 6,29, <em>p</em> &lt; ,001, <em>d</em> = 2,72</td></tr>
+            <tr><td>CORT sérica</td><td><strong>Menor en el grupo CORT 5 días después de cesar el tratamiento</strong></td><td><em>t</em>(28,92) = 2,25, <em>p</em> = ,033, <em>d</em> = 0,58</td></tr>
+            <tr><td>Condicionamiento</td><td>El congelamiento elicidado por el EC aumentó a través de los ensayos; los animales CORT tuvieron niveles más altos a través de los ensayos, con tasa de adquisición comparable</td><td>Efecto de grupo: <em>F</em>(1, 33) = 5,03, <em>p</em> = ,032</td></tr>
+            <tr><td>Extinción día 1</td><td>Ambos grupos mostraron el patrón típico de extinción intra-sesión</td><td>Efecto de grupo n. s.: <em>p</em> = ,076</td></tr>
+            <tr><td>Extinción día 2</td><td>Recuperación parcial del miedo y declive subsecuente; el grupo CORT tuvo congelamiento medio ligeramente más alto</td><td>Efecto de grupo: <em>F</em>(1, 33) = 4,15, <em>p</em> = ,050</td></tr>
+            <tr><td><strong>Test de retención de extinción</strong></td><td><strong>Los animales expuestos a CORT exhibieron mayor congelamiento elicitado por el EC: retención de extinción deteriorada</strong></td><td><em>t</em>(33) = 3,64, <em>p</em> &lt; ,001, <em>d</em> = 1,33</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tarjeta">
+        <p><strong>Control del nivel basal de miedo:</strong> los animales expuestos a CORT exhibieron niveles ligeramente, pero estadísticamente significativamente, más altos de congelamiento elicidado por el EC durante el condicionamiento. Por tanto, los niveles más altos de congelamiento en el test de retención podrían reflejar un aumento general del congelamiento más que un deterioro de la retención. Para evaluar esta posibilidad, se realizó un análisis de covarianza usando el nivel promedio de congelamiento durante el condicionamiento como covariable: <strong>el efecto de grupo siguió siendo significativo, F(1, 32) = 8,79, p = ,006, η²p = ,22, mostrando que la exposición a CORT deterioró la retención de la extinción por encima de cualquier efecto que tuviera sobre el congelamiento durante el condicionamiento</strong>.</p>
+      </div>
+
+      <div class="tarjeta significativo">
+        <h3 style="margin-top:0;">PNN y células PV en la amígdala basolateral (BLA)</h3>
+        <p>Hubo un marcado <strong>aumento en el número de células PV en el grupo CORT relativo a los controles</strong>, t(16) = 2,56, p = ,021, d = 1,28. Sin embargo, el área de la BLA que se midió para el grupo CORT fue significativamente mayor que la de los controles, t(16) = 2,62, p = ,019, d = 1,31. Teniendo en cuenta esta diferencia de área, no resultaron diferencias grupales en densidad de PV (p = ,204, d = ,66). Pero, curiosamente, <strong>los controles tuvieron un mayor porcentaje de interneuronas PV rodeadas por PNN en comparación con el grupo CORT</strong>, t(16) = 2,74, p = ,025, d = 1,23. Todas las demás medidas —número y densidad total de PNN, número de PNN no alrededor de células PV, número y densidad de PNN y células PV colocalizadas, y la intensidad de la tinción de PV en la BLA— no difirieron significativamente entre grupos.</p>
+      </div>
+
+      <div class="tarjeta nulos">
+        <h3 style="margin-top:0;">PNN y células PV en la corteza prefrontal medial (CPFm)</h3>
+        <p><strong>Ninguna de las medidas de PNN y células PV en la CPFm difirió entre grupos</strong>, ni en la PL (mayor t(16) = 0,45, p = ,66, d = ,23) ni en la IL (mayor t(16) = 1,28, p = ,22, d = ,64). La falta de efectos sobre las PNN está en línea con un reporte de que el estrés crónico en la adolescencia (entre P28 y P42) no cambió las PNN en ninguna región de la CPFm en ratones machos o hembras, pero contrasta con otros reportes de reducciones de PNN en la CPFm con exposición crónica al estresor que dura más de una quincena.</p>
+      </div>
+
+      <h2>Discusión</h2>
+
+      <div class="tarjeta">
+        <p><strong>Replicaciones y extensión:</strong> trabajos previos habían mostrado que las ratas adolescentes expuestas a estrés crónico exhiben un deterioro en la retención de la extinción comparadas con controles no estresados: los animales expuestos al estrés no muestran los mismos beneficios de duplicar la cantidad de entrenamiento de extinción que los controles. Aquí replicamos esos resultados, así como los hallazgos de que los animales tratados con CORT tienen glándulas suprarrenales significativamente menores y pesan menos que los controles. También replicamos que las ratas adolescentes varones expuestas a CORT crónica tienen menores niveles de CORT circulante en suero —extendiendo ese trabajo al mostrar que este efecto persiste al menos 5 días después de que la exposición al estrés hubiera terminado (el trabajo previo había evaluado a los animales en el último día de estrés, no tras un período de lavado de 5 días)—. Esta disminución del CORT sérico puede deberse en parte a un bucle de retroalimentación negativa que suprime la producción hormonal, pero sea cual sea el mecanismo, nuestros hallazgos de que los adolescentes crónicamente «estresados» continúan teniendo menores niveles de CORT sérico circulante 5 días después del tratamiento resalta el <strong>efecto persistente y deletéreo del estrés sobre los adolescentes</strong>. Sería interesante determinar (a) cuánto dura este efecto en los adolescentes y (b) si los adultos expuestos a estrés exhiben un efecto similar de larga duración, o si exhiben recuperación tras un período de lavado.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">El papel de las neuronas PV en la BLA</h3>
+        <p>Un posible mecanismo subyacente al déficit de retención de la extinción en adolescentes crónicamente estresados son las diferencias en el número de neuronas PV en la BLA y sus impactos funcionales resultantes. Las neuronas PV comprenden aproximadamente el 40-50 % del pool total de interneuronas en la BLA y tienen diversas funciones a través de variados tipos de contactos sinápticos: aunque una gran proporción de estas neuronas PV contactan neuronas principales excitatorias, algunas contactan los segmentos axonales iniciales de las neuronas principales, y otras inervan otras interneuronas PV o de somatostatina (SST).</p>
+        <p>Las neuronas PV se reclutan durante el aprendizaje del miedo: primero mediante la inhibición de células SST positivas durante el EC para desinhibir efectivamente a las neuronas principales. Las neuronas PV de la BLA de rata están fuertemente excitadas por presentaciones inesperadas del EI, y estas respuestas disminuyen a medida que el EI se vuelve esperado, sugiriendo que estas neuronas <strong>restringen el aprendizaje del miedo</strong>. Por tanto, las alteraciones de la función de la interneurona PV podrían llevar a un aprendizaje del miedo menos restringido. De hecho, las ratas expuestas a corticosterona tuvieron significativamente más miedo durante el condicionamiento y más neuronas PV en la BLA, replicando observaciones de aumento del número de células PV en la BLA tras estrés de restricción crónico en la adultez. Se desconoce si las neuronas PV adicionales en adolescentes crónicamente estresados son funcionalmente normales o no, y si los tipos de células PV (por ejemplo, cesta, candelabro, o inervadora de interneuronas) se afectan selectiva o indiscriminadamente por el estrés crónico; estas preguntas requieren más estudio.</p>
+        <p>Las neuronas PV que inhiben directamente a las neuronas principales de la BLA parecen tener roles distintos regulando el miedo antes frente a después del entrenamiento de extinción. Inicialmente, las neuronas PV pueden facilitar la evocación del miedo condicionado: en respuesta a la activación de Gq por transmisores neuromoduladores como la noradrenalina y la serotonina, las neuronas PV de la BLA transicionan de un patrón de disparo tónico de alta frecuencia a un patrón de explosiones fásicas lentas, que desincroniza las oscilaciones γ y realza la evocación del recuerdo de miedo condicionado. En contraste, las neuronas PV pueden suprimir la expresión del miedo tras el entrenamiento de extinción, permitiendo así la recuperación de la extinción, al limitar la activación de proyecciones excitatorias de la BLA a la CPFm. Claramente, la función de las neuronas PV de la BLA en el aprendizaje y la extinción del miedo es muy compleja, y estudios futuros podrían evaluar si alguno de estos roles se relaciona con cómo el estrés crónico en la adolescencia deteriora la recuperación de la extinción.</p>
+        <p>Sobre el tamaño de la BLA: el tamaño de la BLA de la que se tomaron los conteos fue mayor en los animales expuestos a CORT, y cuando se tuvieron en cuenta las ajustes por esta diferencia de tamaño, los dos grupos ya no diferían en términos de densidad de células PV positivas. Además, las medidas de intensidad de la tinción de PV no cambiaron con la exposición a CORT, sugiriendo que los aumentados niveles de expresión de PV dentro de las células no fueron responsables de que más células inmunorreactivas se volvieran detectables en los animales estresados. Aunque no es relevante para las preguntas que exploramos en este estudio, sería interesante determinar si el aumento del tamaño de la BLA en el adolescente estresado es un efecto fiable. Notablemente, otros han reportado que ratas adultas expuestas a un tipo diferente de estrés crónico exhiben ansiedad aumentada e hipertrofia de la arborización dendrítica de la BLA, incluso cuando se evaluó 21 días después de la terminación del estrés.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Sobre las PNN alrededor de células PV</h3>
+        <p>Aunque no observamos diferencias grupales en la expresión de PNN en la BLA, <strong>el porcentaje de células PV positivas rodeadas por PNN fue mayor en los controles que en los animales expuestos a CORT</strong>. Dado que mayores porcentajes de PNN rodeando células PV indican función inhibidora madura, y que la degradación de las PNN limita el mantenimiento de frecuencias altas de disparo de las neuronas PV, <strong>menos células PV con PNN podrían indicar que el estrés crónico compromete la función inhibidora en la amígdala</strong>. Además, los estudios de aprendizaje espacial tras la eliminación de PNN han encontrado que la ausencia de PNN afecta la fuerza de la memoria e induce interferencia entre recuerdos, sugiriendo que las PNN facilitan la especificidad de la memoria. Si estas células PV-PNN colabeladas tienen un papel en la extinción del miedo, posiblemente en el mantenimiento de recuerdos de miedo y extinción distintos, entonces esa podría ser una razón posible para la retención de extinción deteriorada en los adolescentes estresados. Sin embargo, tal sugerencia es enteramente especulativa en este punto, y probarla implicaría estudios futuros que identifiquen y midan o manipulen los patrones de disparo en neuronas PV con una PNN y observen cambios en la inhibición del miedo.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Otros posibles mecanismos para investigar</h3>
+        <p><strong>El factor neurotrófico derivado del cerebro (BDNF):</strong> una proteína ampliamente distribuida en el cerebro que tiene un papel crítico en la maduración de los sistemas inhibidores y la modulación de la plasticidad sináptica a lo largo del desarrollo. No es de sorprender que el sistema BDNF se haya implicado en la extinción del miedo aprendido: en ratas adultas, los niveles de BDNF en la BLA se upregulan 2 horas postextinción respecto a los controles sin extinción, sugiriendo que la señalización aumentada de BDNF se asocia con la extinción del miedo. Sin embargo, se ha mostrado que la exposición a estrés crónico en la adultez disminuye el BDNF hipocampal. Los adolescentes expuestos a CORT crónica podrían experimentar una reducción similar, o incluso más pronunciada, de la expresión de BDNF, contribuyendo así al deterioro de extinción observado.</p>
+        <p><strong>Otros subtipos de interneuronas inhibidoras:</strong> aquí nos centramos en el subtipo más prevalente (las que contienen PV); sin embargo, hay varios subtipos. Por ejemplo, otro subtipo prominente contiene SST, que madura antes que las células con PV y exhibe cambios de plasticidad en el condicionamiento del miedo que no se observan en células PV positivas. Sería interesante determinar qué efectos tiene la exposición al estrés crónico sobre las células SST positivas de los adolescentes tanto en la PFC como en la BLA. De hecho, un estudio previo examinó los efectos del estrés crónico en ratones BDNF<sup>Val66Met</sup> y reportó que la exposición al estresor crónico durante la adolescencia deterioró la extinción en hembras adultas, pero no machos, BDNF<sup>Met-Met</sup>; no hubo efectos aparentes del estrés crónico o el genotipo sobre la densidad de células PV positivas en varias regiones de la amígdala, pero sí un efecto del genotipo —no del estrés crónico— sobre la densidad de células SST positivas en el núcleo central de la amígdala; y un efecto principal de la exposición a CORT, independientemente del genotipo, sobre la densidad de interneuronas calretinina-positivas en la BLA, con mayor densidad celular en los animales estresados.</p>
+      </div>
+
+      <h2>Limitaciones</h2>
+
+      <div class="tarjeta">
+        <p>Como se señaló, hubo un mayor porcentaje de células PV con PNN como porcentaje del total de células PV en la BLA en los controles, y esta diferencia podría subyacer al déficit de retención de extinción en la adolescencia tras una exposición crónica al estresor. Sin embargo, los hallazgos del presente estudio están limitados ya que <strong>no hubo manipulación directa de ninguna medida neural</strong>. Los estudios futuros deberían, por tanto, usar una manipulación directa para hacer inferencias causales sobre si la cantidad, la función, o la distribución regional (rostral a caudal) de las PNN e interneuronas PV en la BLA contribuye al déficit observado de retención de extinción adolescente tras la exposición crónica al estresor. Por ejemplo, herramientas biológicamente precisas como la opto- o quimio-genética podrían usarse para silenciar o activar selectivamente células PV en la BLA durante la extinción o en un test de retención de extinción e identificar sus objetivos celulares y su efecto sobre la actividad celular de la BLA.</p>
+        <p><strong>Solo se examinaron machos.</strong> Como es el caso con gran parte del trabajo sobre la extinción del miedo aprendido, los machos se han usado predominantemente en la investigación de la extinción del miedo aprendido en adolescentes. Una excepción es un estudio reciente que comparó directamente la extinción del miedo aprendido en ratones adolescentes y adultos de ambos sexos, reportando extinción deteriorada en los adolescentes varones pero no las hembras. En otro estudio, se comparó la extinción en ratas adolescentes machos y hembras: se reportó que las hembras a las que se dio entrenamiento de extinción durante etapas del estro donde los niveles de estrógeno son altos exhibieron extinción deteriorada comparadas con los adolescentes varones. Este es el patrón opuesto a lo que se ha reportado en hembras adultas (tanto rata como humana), donde dar entrenamiento de extinción cuando los niveles de estrógeno son altos lleva a extinción realzada. En cualquier caso, los efectos de la exposición a estrés crónico sobre el desempeño de extinción y/o los circuitos neurales subyacentes a tal desempeño en ratas hembras no están claros y requieren más estudio.</p>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>Los resultados de este estudio ilustran una vez más cómo el estrés crónico exacerba la extinción del miedo ya deteriorada en la adolescencia (al menos en machos). Este efecto del estrés crónico puede estar relacionado con alteraciones de las interneuronas que contienen PV, con una proporción reducida rodeada por PNN en la BLA pero no en la CPFm. Determinar el o los mecanismos que contribuyen a este efecto del estrés crónico puede permitirnos mejorar los resultados del tratamiento para este grupo de individuos en riesgo (es decir, los adolescentes estresados). El hallazgo específico —que el estrés crónico durante la adolescencia reduce la proporción de interneuronas PV maduras (envueltas en PNN) en la amígdala basolateral, estructura clave para la inhibición del miedo, mientras deja intacta la corteza prefrontal— abre una ventana mecanística específica: si las PNN actúan como freno estructural de la plasticidad y facilitan la especificidad de los recuerdos, su reducción relativa en la BLA podría estar impidiendo que los recuerdos de extinción se mantengan como recuerdos independientes y estables del recuerdo original de miedo.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Artículo original (Behavioral Neuroscience, DOI: 10.1037/bne0000592) — acceso abierto CC BY 4.0, materiales suplementarios disponibles</a></li>
+      <li><a href="#">McCallum et al. (2010) — el déficit de retención de extinción adolescente original</a></li>
+      <li><a href="#">Den et al. (2014), Stylianakis et al. (2019, 2022) — el modelo de corticosterona en agua de bebida</a></li>
+      <li><a href="#">Gogolla et al. (2009) — PNN en la BLA y la recaída tras la extinción</a></li>
+      <li><a href="#">Fu et al. (2022) — los patrones de disparo de las neuronas PV y la evocación del miedo</a></li>
+      <li><a href="#">Milad &amp; Quirk (2012) — la revisión clásica de la extinción del miedo y la CPFm</a></li>
+    </ul>
+
+    <footer>
+      <p>Virakorn, E. A., Richardson, R., &amp; Baker, K. D. (2024). Chronic Stressor Exposure Impairs Extinction of Fear in Adolescent Rats and Has Associated Effects on Perineuronal Nets and Parvalbumin Interneurons. <em>Behavioral Neuroscience</em>, 138(6), 383-396 · © 2024 The Author(s) · Licencia Creative Commons Attribution 4.0 (CC BY 4.0)</p>
+      <p>Traducción al español con fines de estudio · El original prevalece en caso de discrepancia</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

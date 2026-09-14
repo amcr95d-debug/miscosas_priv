@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Las mentiras que «podrían» llegar a ser verdad parecen menos antieticas</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .cita {
+      border-left: 4px solid var(--borde);
+      margin: 1rem 0;
+      padding: .5rem 1rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    .cita strong {
+      color: var(--texto);
+      font-style: normal;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .ejemplo {
+      background: var(--acento-suave);
+      border: 1px dashed var(--acento);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      margin: .75rem 0;
+      font-size: .95rem;
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Nota de prensa · 14 de abril de 2022</span>
+      <h1>Las mentiras que «podrían» llegar a ser verdad parecen menos antieticas</h1>
+      <p class="subtitulo">Las personas podrían estar dispuestas a perdonar y difundir desinformación que creen que podría volverse verdad en el futuro, según un estudio</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Personalidad</span>
+      <span class="tema">Ética</span>
+      <span class="tema">Desinformación y bulos</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p>Washington — Las personas podrían estar dispuestas a tolerar afirmaciones que saben falsas e incluso a difundir desinformación en las redes sociales si creen que esas afirmaciones podrían volverse verdad en el futuro, según una investigación publicada por la Asociación Americana de Psicología.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta">
+        <p>Tanto si la situación implica a un político haciendo una declaración polémica, a una empresa estirando la verdad en un anuncio o a un demandante de empleo mintiendo sobre sus habilidades profesionales en un currículum, las personas que consideran cómo una mentira podría volverse verdad piensan posteriormente que es menos antietico decirla, porque juzgan el mensaje más amplio de la mentira (o su «esencia») como más verdadero. El estudio fue publicado en el <em>Journal of Personality and Social Psychology</em> de la APA.</p>
+        <p class="cita">«<strong>El aumento de la desinformación es un problema social apremiante que aviva la polarización política y erosiona la confianza en los negocios y la política. La desinformación persiste en parte porque algunas personas creen en ella. Pero esa es solo parte de la historia</strong>», dijo la autora principal Beth Anne Helgason, doctoranda en la London Business School. «La desinformación también persiste porque a veces las personas saben que es falsa pero aun así están dispuestas a excusarla».</p>
+      </div>
+
+      <h2>Origen del estudio</h2>
+
+      <div class="tarjeta">
+        <p>Este estudio se originó por casos en los que líderes del mundo empresarial y político han utilizado afirmaciones de que «podría llegar a ser verdad en el futuro» para justificar declaraciones verificablemente falsas en el presente.</p>
+        <p>Para explorar por qué las personas podrían estar dispuestas a tolerar esta desinformación, los investigadores realizaron seis experimentos con más de 3600 participantes. En cada estudio, se mostraba a los participantes una variedad de afirmaciones, claramente identificadas como falsas, y luego se pedía a algunos de ellos que reflexionaran sobre predicciones de cómo esas afirmaciones podrían volverse verdad en el futuro.</p>
+      </div>
+
+      <h2>Los experimentos</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Experimento destacado</th>
+              <th><em>N</em></th>
+              <th>Escenario</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Currículums inflados</td>
+              <td>447</td>
+              <td>Estudiantes de MBA de 59 países imaginarían que un amigo miente sobre sus habilidades profesionales</td>
+            </tr>
+            <tr>
+              <td>Afirmaciones políticas falsas</td>
+              <td>599</td>
+              <td>Participantes estadounidenses juzgaron seis afirmaciones políticas marcadamente falsas, verificadas por comprobadores de hechos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="tarjeta">
+        <h3 style="margin-top:0;">La mentira en el currículum</h3>
+        <p>En un experimento, se pidió a 447 estudiantes de MBA de 59 países diferentes que cursaban una asignatura en una escuela de negocios británica que imaginaran que un amigo había mentido en su currículum, por ejemplo, incluyendo la modelización financiera como una habilidad a pesar de no tener experiencia previa.</p>
+        <p>Luego se pidió a algunos participantes que consideraran la posibilidad de que la mentira se volviera verdad:</p>
+        <div class="ejemplo">«Considera que si ese mismo amigo se inscribe en un curso de modelización financiera que la escuela ofrece en verano, podría adquirir experiencia en modelización financiera».</div>
+        <p>Los investigadores encontraron que los estudiantes consideraban menos antietico que un amigo mintiera cuando imaginaban si su amigo podría desarrollar esta habilidad en el futuro.</p>
+      </article>
+
+      <article class="tarjeta">
+        <h3 style="margin-top:0;">Las afirmaciones políticas falsas</h3>
+        <p>En otro experimento, 599 participantes estadounidenses vieron seis afirmaciones políticas marcadamente falsas, diseñadas para apelar tanto a conservadores como a progresistas, entre ellas:</p>
+        <div class="ejemplo">«Millones de personas votaron ilegalmente en las últimas elecciones presidenciales» y «El CEO promedio gana 500 veces más que el trabajador promedio».</div>
+        <p>Cada afirmación estaba claramente etiquetada como falsa por comprobadores de hechos independientes y sin afiliación partidista. Luego se pedía a los participantes que generaran sus propias predicciones sobre cómo cada afirmación podría volverse verdad en el futuro. Por ejemplo, se les decía que «es un hecho probado que el CEO promedio gana actualmente 265 veces más dinero que el trabajador estadounidense promedio», y se les pedía responder a la pregunta abierta:</p>
+        <div class="ejemplo">«El CEO promedio pronto ganará 500 veces más dinero que el trabajador estadounidense promedio si...»</div>
+        <p>Los investigadores encontraron que los participantes de ambos lados del espectro político que imaginaban cómo las afirmaciones falsas podrían eventualmente volverse verdad tenían menos probabilidades de calificar la afirmación como antietica que quienes no lo hacían, porque era más probable que creyeran que su significado más amplio era verdadero. Esto fue especialmente cierto cuando la afirmación falsa encajaba con sus puntos de vista políticos. Es importante destacar que los participantes sabían que estas afirmaciones eran falsas, y aun así imaginar cómo podrían volverse verdad hacía que las encontraran más excusables.</p>
+      </article>
+
+      <div class="tarjeta">
+        <p>Incluso incitar a los participantes a pensar cuidadosamente antes de juzgar las falsedades no cambió cuán antieticos consideraban las afirmaciones, dijo el coautor del estudio Daniel Effron, PhD, profesor de comportamiento organizacional en la London Business School.</p>
+        <p class="cita">«<strong>Nuestros hallazgos son preocupantes, particularmente dado que encontramos que animar a las personas a pensar cuidadosamente sobre la eticidad de las afirmaciones fue insuficiente para reducir los efectos de imaginar un futuro donde podrían ser verdad</strong>», dijo Effron. «Esto resalta las consecuencias negativas de dar espacio mediático a líderes del mundo empresarial y político que escupen falsedades».</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Los investigadores también encontraron que los participantes estaban más inclinados a compartir la desinformación en las redes sociales cuando imaginaban cómo podría volverse verdad, pero solo si encajaba con sus puntos de vista políticos. Esto sugiere que, cuando la desinformación apoya las posturas políticas de una persona, puede estar dispuesta a difundirla porque cree que la afirmación es esencialmente, si no literalmente, verdadera, según Helgason.</p>
+        <p class="cita">«<strong>Nuestros hallazgos revelan cómo nuestra capacidad de imaginación afecta al desacuerdo político y a nuestra disposición a excusar la desinformación</strong>», dijo Helgason. «A diferencia de las afirmaciones sobre lo que es verdad, las proposiciones sobre lo que podría llegar a ser verdad son imposibles de verificar mediante comprobación de hechos. Así que los partidarios que están seguros de que una mentira eventualmente se volverá verdad pueden ser difíciles de convencer de lo contrario».</p>
+        <p class="articulo-ref"><strong>Artículo:</strong> «It Might Become True: How Prefactual Thinking Licenses Dishonesty» («Podría llegar a ser verdad: cómo el pensamiento prefactual autoriza la deshonradez»), de Beth Anne Helgason y Daniel Effron, PhD, London Business School. <em>Journal of Personality and Social Psychology</em>, publicado en línea el 14 de abril de 2022.</p>
+      </div>
+
+      <h2>Conceptos clave del estudio</h2>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Pensamiento prefactual</h3>
+          <p>Es la imaginación de futuros alternativos: reflexionar sobre cómo algo <em>podría</em> llegar a suceder («si...', «podría...»). A diferencia de las afirmaciones sobre el presente, verificables mediante comprobación de hechos, las predicciones sobre el futuro escapan a esa verificación, lo que crea un espacio en el que las falsedades pueden quedar exoneradas moralmente.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>La «esencia» del mensaje</h3>
+          <p>Al imaginar un futuro donde la afirmación se cumple, las personas juzgan el mensaje más amplio de la mentira (su <em>gist</em>) como «más verdadero» en un sentido esencial, aunque sepan que es literalmente falsa en el presente. Esa verdad esencial percibida es la que reduce la condena ética.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>El efecto partidista</h3>
+          <p>La justificación mediante el futuro es más potente cuando la mentira encaja con las convicciones políticas propias: en ese caso no solo se perdona, sino que además aumenta la disposición a compartirla en redes sociales. La polarización actúa como amplificador del efecto.</p>
+        </div>
+      </div>
+
+      <h2>Por qué es relevante</h2>
+
+      <div class="tarjeta">
+        <p>Los hallazgos iluminan un mecanismo poco estudiado de la persistencia de la desinformación: no se trata solo de personas que creen falsedades, sino de personas que <strong>saben</strong> que son falsas y aun así las excusan y las difunden porque imaginan que «acabarán teniendo razón». Este mecanismo tiene implicaciones directas para tres escenarios descritos en la nota:</p>
+        <p><strong>Política:</strong> líderes que justifican declaraciones verificablemente falsas invocando que «podrían volverse verdad en el futuro» encuentran en el público una disposición a perdonar, especialmente entre sus propios simpatizantes, y darles espacio mediático amplifica el problema.</p>
+        <p><strong>Negocios:</strong> empresas que estiran la verdad en la publicidad pueden verse beneficiadas si los consumidores imaginan escenarios futuros donde la exageración se cumple.</p>
+        <p><strong>Empleo:</strong> mentir sobre habilidades en el currículum se percibe como menos grave cuando se imagina que el demandante podría adquirir esas habilidades más adelante.</p>
+        <p>Y quizá lo más inquietante: los intentos intuitivos de mitigar el problema —pedir a las personas que piensen con cuidado antes de juzgar la eticidad de una afirmación— resultaron insuficientes frente al poder de la imaginación prefactual.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">It Might Become True (PDF, 623 KB) — artículo original</a></li>
+      <li><a href="#">Journal of Personality and Social Psychology — revista de la APA</a></li>
+    </ul>
+
+    <footer>
+      <p>Fecha de creación: 14 de abril de 2022 · Nota de prensa de la Asociación Americana de Psicología</p>
+      <p>Contacto de prensa: Katherine Novak · (202) 336-5675</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3, #contenido .ejemplo');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

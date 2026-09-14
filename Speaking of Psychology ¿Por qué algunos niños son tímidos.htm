@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Speaking of Psychology: ¿Por qué algunos niños son tímidos? Con Koraly Pérez-Edgar, PhD</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .episodio {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .expertos h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+      color: var(--acento);
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .turno {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-left: 4px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: border-color .15s;
+    }
+
+    .turno:hover {
+      border-left-color: var(--acento);
+    }
+
+    .turno.anfitriona {
+      border-left-color: var(--acento);
+      background: var(--acento-suave);
+    }
+
+    .hablante {
+      margin: 0 0 .5rem;
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--acento);
+    }
+
+    .turno p {
+      margin: 0 0 .75rem;
+    }
+
+    .turno p:last-child {
+      margin-bottom: 0;
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="episodio">Episodio 309</span>
+      <h1>Speaking of Psychology: ¿Por qué algunos niños son tímidos?</h1>
+      <p class="subtitulo">Con Koraly Pérez-Edgar, PhD</p>
+    </header>
+
+    <div class="tarjeta">
+      <p>Nuestra cultura tiende a valorar ser audaz y extrovertido, lo que hace que el mundo sea más difícil de navegar para los niños tímidos. Koraly Pérez-Edgar, PhD, habla sobre el temperamento en los niños pequeños, cómo se desarrolla la timidez desde la primera infancia, la diferencia entre timidez e introversión, cómo los padres y otros cuidadores pueden apoyar mejor a los niños tímidos, y el reconocimiento de las ventajas de un temperamento tímido.</p>
+    </div>
+
+    <h2>Sobre la experta</h2>
+    <div class="tarjeta expertos">
+      <h3>Koraly Pérez-Edgar, PhD</h3>
+      <p>Es profesora McCourtney de Estudios Infantiles y profesora de psicología en la Penn State University, donde dirige el Laboratorio CAT (Cognición, Afecto y Temperamento). Su investigación se centra en las maneras en que la emoción y la atención interactúan para moldear cómo los individuos navegan por su mundo social. También es editora de la revista Developmental Psychology de la APA.</p>
+    </div>
+
+    <h2>Transcripción</h2>
+
+    <input type="search" id="buscador" class="buscador" placeholder="Buscar en la transcripción...">
+    <p class="contador" id="contador"></p>
+
+    <div id="transcripcion">
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Algunos niños son el alma de todas las fiestas y la estrella de todas las obras escolares, mientras que otros son callados en clase y se mantienen en un pequeño círculo de amigos. Como nuestra cultura tiende a valorar ser audaz y extrovertido, los padres a menudo se preocupan por los niños que parecen demasiado tímidos. Pero la timidez como rasgo no es inherentemente buena ni mala. Hoy vamos a hablar con una psicóloga que estudia el temperamento en niños pequeños sobre por qué algunos niños son más tímidos que otros, cómo se desarrolla la timidez desde la primera infancia y cómo los padres y otros cuidadores pueden apoyar mejor a los niños tímidos.</p>
+        <p>¿Cómo definen los investigadores la timidez? ¿Cómo interactúan los genes y el ambiente para moldear el temperamento y la personalidad individuales de los niños? ¿Los niños tímidos tienden a convertirse en adultos tímidos, o nuestro temperamento puede cambiar a lo largo de la vida? ¿Cuál es la diferencia entre timidez e introversión? ¿Cuál es la relación entre la timidez y la ansiedad social? ¿Y cómo pueden los padres ayudar a sus hijos tímidos a reconocer y aprovechar las fortalezas de su propio temperamento?</p>
+        <p>Bienvenidos a Speaking of Psychology, el podcast insignia de la Asociación Americana de Psicología, que examina los vínculos entre la ciencia psicológica y la vida cotidiana. Soy Kim Mills. Mi invitada de hoy es la Dra. Koraly Pérez-Edgar, profesora McCourtney de Estudios Infantiles y profesora de psicología en la Penn State University. Su investigación se centra en el temperamento de los niños pequeños, especialmente la timidez, y en los vínculos entre el temperamento y los trastornos de ansiedad. Es autora de cientos de publicaciones académicas y ha recibido numerosos premios por su investigación y docencia, incluido el Premio de Docencia del Profesorado de Posgrado de Penn State y el Premio a la Mentoría de la División 7 de la APA. También es editora jefe de la revista Developmental Psychology de la APA.</p>
+        <p>Dra. Pérez-Edgar, gracias por acompañarme hoy.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Gracias por invitarme.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>En la introducción mencioné que estudias el temperamento. ¿Cómo definen los investigadores el temperamento y cuál es la relación entre el temperamento y un rasgo de personalidad como la timidez?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Hay tres pilares principales para considerar que algo es un temperamento. El primero es que aparece temprano. El segundo es que tiene una base biológica. El tercero es que es relativamente estable a lo largo del tiempo. Que aparezca temprano significa que, para muchos temperamentos, puedes ver diferencias individuales entre los bebés en los primeros meses de vida. Que tenga una base biológica significa que —no está determinado por la biología, no está determinado por la genética— pero puedes ver relaciones con cómo el cuerpo y el cerebro responden a diferentes aspectos de nuestro entorno. Y relativamente estable significa que, a través de contextos y a lo largo del tiempo, vemos patrones similares de comportamiento en un individuo. Esas tres cosas juntas convertirían un perfil conductual particular en un temperamento.</p>
+        <p>Ahora bien, los temperamentos pueden verse como la base de la personalidad. La personalidad tiende a surgir a partir de los eventos que ocurren en tu vida, tu respuesta a esos eventos y luego cómo las personas responden a ti. Tu temperamento tiende a moldear cómo transcurren esas tres cosas con el tiempo. Así que a menudo algunas personas dirán que el temperamento es la base biológica de la personalidad.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Cuáles son los diversos temperamentos? ¿Son lo mismo que, digamos, las cinco grandes características de la personalidad, o esas no son temperamentos?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Esas no son temperamentos. Pueden convertirse uno en otro. Varios investigadores han hecho estudios sobre cómo el temperamento temprano se compara con, o predice, los cinco grandes. Y esos dos constructos provienen de tradiciones científicas muy diferentes. Los cinco grandes surgieron de usar el vocabulario y diferentes comprensiones de cómo eran las personas para generar, hasta ahora, cinco áreas diferentes de personalidad que las personas muestran en combinación.</p>
+        <p>La literatura sobre temperamento comienza en la infancia, observando el comportamiento y la biología subyacente. Así que lo que ese tipo de investigación intenta hacer es decir: ¿cómo se corresponde un temperamento con base biológica con las personalidades que solemos ver en nuestra sociedad? Hay algunas similitudes. Un temperamento que vemos es la reactividad negativa, la sensibilidad a los eventos del entorno. Si eso se combina con ansiedad temprana, rigidez temprana, es similar a —o predice— el neuroticismo entre los cinco grandes. Los niños que muestran afecto positivo o niveles altos de emoción positiva tienden a tener más de esa personalidad abierta de adultos. Así que no es una correspondencia de uno a uno, pero uno puede predecir el otro.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Entonces, si yo fuera una mamá, el temperamento de mi hijo... podría notar poco después del nacimiento que tengo un niño tranquilo que duerme, o que tengo lo que yo llamaría un niño malhumorado que no quiere dormir o es quisquilloso, ¿verdad? Eso es el temperamento.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Eso es el temperamento, sí. Y luego algunos temperamentos surgirán un poco más tarde. Cuando pensamos en el temperamento, hay dos grandes componentes: reactividad y regulación. La reactividad es, en el momento, tu respuesta refleja a algo que sucede en tu entorno: un ruido fuerte, un sonido. ¿Respondes con enojo? ¿Con una emoción positiva? ¿Tiendes a acercarte? ¿Tiendes a retirarte? Eso es la reactividad. La regulación es un esfuerzo. Es tu capacidad de decir: okay, esta es mi respuesta inicial, este es mi movimiento predeterminado; déjame ver, en este momento, ¿debería cambiar esa respuesta? ¿Debería moderarla? Y la regulación tiende a surgir más tarde en la vida, ¿verdad? Porque necesitas esas habilidades para detenerse, evaluar y, si es necesario, cambiar con esfuerzo. Así que la reactividad surge temprano en la vida, con muchas variedades diferentes. La regulación emerge un poco más tarde con la ayuda y el andamiaje de las familias, los pares y los maestros. Pero ambos son rasgos temperamentales: ambos aparecen temprano, ambos tienen base biológica y ambos son relativamente estables a lo largo del tiempo.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Ahora, tú trabajas con niños muy pequeños e incluso bebés en tu investigación. ¿Cómo evalúas el temperamento de un bebé? ¿Qué técnicas usas?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Generalmente comenzamos los estudios de laboratorio del temperamento alrededor de los cuatro meses de edad. Nuestra comprensión y nuestra suposición es que mucho de lo que sucede en esos primeros cuatro meses está regulado por funciones corporales y cerebrales de bajo nivel, ¿verdad? Dormir, comer, hacer sus necesidades. Ese es el ciclo de los primeros tres o cuatro meses. Y puedes tener muchos bebés con cólicos, por ejemplo. No es hasta aproximadamente los cuatro meses de edad que emergen diferencias individuales estables. Así que, por ejemplo, para un tipo de temperamento, la reactividad positiva frente a la negativa, literalmente colocamos a un bebé en una sillita de coche y les damos una serie de estimulación sensorial. Los hacemos escuchar una grabación de voces que se vuelven cada vez más complejas y superpuestas. Les mostramos una serie de móviles, muy simples, algo que encontrarías en una tienda, pequeños animales suaves de peluche, y les mostramos uno, luego tres, luego cinco y luego siete.</p>
+        <p>En algunos estudios, les dan cosas que oler en una bola de algodón. Y lo que encuentras es que, para algunos bebés, esto es realmente interesante: escuchan los sonidos, miran el móvil, huelen la bola de algodón y están como: okay, este es un lugar interesante, simplemente voy a ver qué pasa. Y para algunos bebés, esos mismos estímulos los desbordan: lloran, se quejan, intentan autoconsolarse. Algunos bebés intentarán voltearse en la sillita solo para intentar escapar. Y es realmente interesante porque es un móvil simple, algo que un padre podría haber comprado de todos modos para el niño, y simplemente es demasiado. Es una sobrecarga sensorial. Ahí es donde separamos a los bebés reactivos positivos de los reactivos negativos. ¿Cómo responden a los estímulos sociales novedosos en su entorno? ¿Quieren acercarse, emoción positiva? ¿Quieren retirarse, emoción negativa?</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Quiero hablar más sobre el temperamento, pero creo que hoy estamos aquí para hablar mucho sobre la timidez. Así que lo pongo sobre la mesa: ¿cuándo comienza a aparecer la timidez en los niños?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Aquí es donde es realmente interesante, porque mi directora cuando estaba en el posgrado nos decía que mucha de la confusión que tenemos como científicos se debe a que tendemos a tener un vocabulario limitado. O usamos la misma palabra para múltiples constructos diferentes, o tomamos el mismo constructo y usamos muchas palabras elegantes para hacer ver como si hubiéramos descubierto algo nuevo. Así que, en su mayor parte, la timidez es un comportamiento típico o normativo en los niños pequeños. Para la gran mayoría de los niños, si los llevas a un lugar nuevo —el preescolar, clases de baile—, la mayoría de los niños se quedan atrás un poco. Pueden aferrarse a su mamá, y luego, después de un rato, cuando se dan cuenta de que las cosas son bastante divertidas, se involucran, ¿verdad? Eso no es, en sí mismo, timidez. Es la reticencia normal que verías en un niño pequeño.</p>
+        <p>Los niños más exuberantes son los que no muestran eso: literalmente podrías dejarlos en medio de unos grandes almacenes y estarían como: oh, mira todo esto, esto es fantástico, déjame ir a hablar con la gente. ¿Verdad? Ese no es el niño típico. Así que cuando decimos que la mayoría de los niños pequeños son tímidos, eso es lo que queremos decir. Cuando pensamos en la timidez como un rasgo, como algo que realmente define a alguien, es ir más allá de ese típico aferrarse a mi padre cuando conozco a alguien nuevo. Es que incluso a medida que crecen, a los 3, 4, 5, 6 años de edad, siguen quedándose atrás, siguen aferrándose, siguen siendo reticentes a involucrarse en comportamientos nuevos y conocer gente nueva. Ahí es donde generalmente pensamos: okay, eso es a nivel de rasgo, eso es timidez.</p>
+        <p>Es alguien que considera estar en una situación social y eso lo hace sentirse incómodo antes de estar en esa situación. Está aprensivo y se siente incómodo cuando está en esa situación. Así que podemos etiquetar eso como timidez. Parte de esa timidez tiene base temperamental. Así, la reactividad negativa puede predecir la inhibición conductual, que en la niñez temprana es la parálisis y la incapacidad de involucrarse con estímulos sociales. Y esa inhibición conductual puede llevar a la timidez. Así que algunos niños tímidos son temperamentualmente tímidos. Algunos niños tímidos son culturalmente tímidos. Y con eso quiero decir que los padres, según la cultura, inculcan comportamientos típicos de la timidez porque eso es valorado. Y luego algunos niños se vuelven superficialmente tímidos debido a experiencias negativas, cosas malas que les han sucedido. Así que su respuesta a eso es quedarse atrás. Así que comportamientos similares pueden tener antecedentes muy diferentes, y parte de lo que hacemos como psicólogos del desarrollo es intentar separarlos. ¿Podemos distinguir la diferencia entre la timidez temperamental, la timidez cultural y luego la timidez que es un reflejo de eventos difíciles previos?</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Y según lo que dijiste antes sobre el temperamento, parecería que la timidez temperamental sería la más innata y no cambiable.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Es menos cambiable. Creo que una de las cosas que intentamos decir sobre el temperamento es que es como la arcilla, y la arcilla es moldeable, y puedes dar forma a algo a partir de la arcilla según la cultura, según la crianza, según las relaciones con los pares. Así que no siempre se verá igual. Sin embargo, la arcilla tiene su propia forma. Tiene sus límites, ¿verdad? No puedes convertir la arcilla en vidrio; no puedes convertir al bebé inhibido conductualmente, negativamente reactivo, en el alma de la fiesta, en el chico popular del campus, sin hacerle mucho a ese niño. Así que es moldeable. No es infinito.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Si eres un padre y notas que tu bebé o tu niño pequeño parece ser tímido, ¿deberías preocuparte? ¿Y hay algo que deberías hacer?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Creo que si el niño es capaz de hacer las cosas típicas para su edad, no, no hay de qué preocuparse. Creo que el problema es que a veces nuestras expectativas de lo que creemos que es típico no son típicas. Por ejemplo, si llevas a tu hijo —usemos de nuevo el ejemplo de una clase de baile— y llegas y ves al niño que simplemente suelta la mano de su padre, entra feliz y se involucra de inmediato. Valoramos ese tipo de exuberancia, confianza y positividad, y lo confundimos con lo típico. Eso no es típico. La mayoría de los niños tardan en entrar en calor. La mayoría de los niños necesitará un poco de tiempo para integrarse. Es el niño muy tímido quien dice: no quiero ir en absoluto. Y no es que no me guste el baile: no quiero hacer ninguna actividad. No quiero hacer fútbol, no quiero hacer natación. Cuando eso inhibe su capacidad de navegar y negociar sus vidas —porque los niños tienen vidas—, ahí es cuando te preocupas. Pero queremos asegurarnos de no asumir que el niño gregario e independiente es el niño típico. Ese no es el niño típico; ese es el niño valorado en nuestra cultura occidental, pero no es lo mismo.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Ahora, ¿cuál es la diferencia entre timidez e introversión?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>La introversión es más bien un rasgo de personalidad. A menudo se estudia más a medida que se envejece, en la adolescencia, la adultez joven. Lo que pasa con la introversión es que a menudo examina la manera en que tú, como individuo, obtienes energía. Algunos de nosotros obtenemos energía estando en un entorno social, participando en actividades con otros; eso recarga nuestras baterías, nos llenamos de combustible. Esos son los extrovertidos en nuestras vidas. Los introvertidos tienden a agotar su batería cuando están en esos entornos sociales grandes y ruidosos, y van a casa, se sientan en silencio con una taza de té y un libro; eso les recarga la batería. Lo hacen porque lo disfrutan. Estar en casa, en silencio o con uno o dos amigos cercanos los recarga; es algo que desean hacer y que les beneficia. Ese lado introvertido de ellos los hace sentir bien.</p>
+        <p>El individuo tímido, el individuo retraído, se aleja del mundo por miedo, por ansiedad, por aprensión. Se quedan adentro porque tienen miedo de estar afuera. Y esa es la diferencia. ¿Te estás quedando adentro porque te recarga, o te quedas adentro porque tienes miedo de involucrarte? Y ahí es donde esas dos cosas —creo que la ansiedad y la timidez— pueden interferir con tu vida. La introversión te ayuda a dar forma a tu vida.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Los niños tímidos tienen más probabilidades de convertirse en adolescentes o adultos con ansiedad social?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>¿Los niños temperamentualmente tímidos? Sí. Lo que podemos decir es que, dependiendo de cómo mires los datos —y por supuesto que los datos son siempre tan hermosos porque son maleables—, si pensamos en el niño que estaba inhibido conductualmente como niño pequeño, tiene hasta seis veces más probabilidades de ser socialmente ansioso como adolescente o como adulto joven. Y eso parece una cifra enorme: seis veces más probable que el individuo promedio. Si volteas un poco los datos, es un 50/50. Así que alrededor del 40-60 % de los niños inhibidos conductualmente, temperamentualmente tímidos, llegan a ser socialmente ansiosos. Dependiendo de cómo te sientas esa mañana, puedes ser muy pesimista —seis veces más probable— o bastante optimista: es un lanzamiento de moneda. Nosotros, como psicólogos del desarrollo, estudiemos y descubramos por qué la moneda cae en cara o en cruz. Y si la cruz es la ansiedad, ¿qué podemos hacer para prevenir eso y aumentar la probabilidad de cara? Y así vemos que podemos rastrearlo desde los primeros meses de vida. Y ahí es donde volvemos a mirar la biología, a mirar la cultura, a mirar la crianza, para, de nuevo, cambiar esas probabilidades, aunque sea mínimamente.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Mucho de tu trabajo se centra en el papel de la atención en el temperamento y en rasgos como la timidez. ¿Puedes contarnos cómo están conectados la atención y el temperamento?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>La atención es muy importante. Es fundamental para el desarrollo. Nos permite elegir selectivamente qué aspectos de nuestro entorno procesamos, interpretamos y sobre los que actuamos. Y —recuerda, si no prestas atención a algo, es muy difícil hacer esas cosas— necesitamos tener atención selectiva. Hay demasiado sucediendo en nuestro mundo en cualquier momento como para tomarlo todo. Si lo intentáramos, nos quedaríamos paralizados. Sería demasiado abrumador.</p>
+        <p>Así que la manera en que atendemos selectivamente a qué aspectos de nuestro entorno moldea lo que llamamos el entorno experimentado. Tomemos el ejemplo de un aula. Están en el salón, dos niños sentados en el mismo lugar. Pasan el día con la maestra y sus compañeros. Puedes preguntarle a un niño: ¿cómo te fue hoy en la escuela? Y te dice: ¡fantástico! Tuvimos tiempo de lectura. Hicimos manualidades. Todos pensaron que fue tan divertido que fue realmente difícil. ¿Y qué? Nos veíamos muy tontos, pero ¿no es genial? Y nos reímos muchísimo de eso. ¿Y no fue divertido? Al segundo niño: ¿cómo te fue hoy en la escuela? Fue horrible. Tuvimos tiempo de lectura, así que tuve que sentarme ahí con todos. Y luego tuvimos que hacer manualidades y fue tan difícil. Y todo lo que hice se veía tan tonto y todos se rieron y todos se rieron de mí y eso pude notarlo.</p>
+        <p>Así que están tomando los mismos eventos, están atendiendo a diferentes aspectos de ese evento y lo están interpretando de manera muy diferente. Así que para un niño, la escuela es un apoyo, es divertida, es un lugar al que quiero volver. Para el otro niño, es amenazante, es francamente cruel. ¿Y por qué querría someterme a eso otra vez?</p>
+        <p>Están atendiendo a cosas diferentes, lo interpretan de manera diferente, subjetivamente, y responden en consecuencia. Si piensas que algo es bueno para ti, te acercas. Si piensas que algo es amenazante, te retiras. Ambos niños están siendo muy lógicos. Simplemente están interpretando el mundo de manera muy diferente. Así que si tienes un niño que interpreta el mundo como aterrador, amenazante, impredecible, y mi temperamento quiere previsibilidad, y mi temperamento es sensible a la amenaza, bueno, voy a reaccionar en consecuencia y voy a evitar ese entorno. Así que la atención moldea nuestro mundo porque moldea nuestra visión del mundo. No vivimos las mismas vidas incluso si estamos sentados uno al lado del otro, porque lo filtramos de manera muy diferente.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Cómo maneja eso el padre del niño que se siente tan negativo acerca de la escuela? ¿Cómo ayudas al niño a atender de manera diferente?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Lentamente y paso a paso. Una de las cosas que creo que es realmente útil, y que muchas escuelas hacen simplemente como algo abierto para todos los niños: si lo piensas y te pones de nuevo en la mente del niño de cinco años que entra al jardín de infancia, para nosotros como adultos es muy estándar. Tenemos en nuestro cerebro el esquema de cómo se ve un aula, cómo se ve la escuela, cómo son las actividades diarias. Nos parece normal. Ese niño de 5 años que quizás no ha estado en el preescolar antes o que va a una escuela nueva, no tiene nada en su mente a lo que aferrarse: ¿cómo se verá mi clase? ¿Dónde me sentaré? ¿Qué me pedirán hacer? ¿Cómo funciona el recreo? Bueno, ¿qué es el recreo, verdad? Y el niño inhibido, el niño tímido, quiere información, quiere entender qué sucederá, no le gusta la imprevisibilidad.</p>
+        <p>Así que conocer a la maestra antes de que comience la escuela, entrar al aula, tocar físicamente: aquí es donde me sentaré, visualizando ese entorno. No eliminará toda la ansiedad o la aprensión, pero da concreción. Y los niños, especialmente los niños tímidos, necesitan esa concreción para luego construir sobre ella, aclimatándolos lentamente a las cosas nuevas que les asustan. Y creo que —este es el peor consejo, y yo habría odiado este consejo cuando mis hijos eran pequeños; los míos tienen 19 y 23 ahora— es: no hagas demasiado y no hagas muy poco. Es el «justo en el punto medio» de Ricitos de Oro. La analogía que uso es sentarse al borde de la piscina. Este niño necesita aprender a nadar. Si por desgracia cayera a la piscina, se ahogaría. Así que depende de ti enseñarle a nadar.</p>
+        <p>No necesariamente quieres levantarlo y lanzarlo a la parte profunda y esperar lo mejor. No necesariamente quieres decir: oh, esta piscina da miedo, así que solo vamos a sentarnos aquí a mojarnos los pies y nunca pasar de las rodillas. Lo primero probablemente asustará al niño, y dirá: nunca más me meto en una piscina. Lo segundo no lo equipará con las habilidades que necesita. Necesitamos meterlos lentamente al agua, lentamente hacer que remen y lentamente soltar. Y en muchos sentidos, nuestra sociedad requiere ciertas habilidades para sobrevivir, y depende de los padres darles a sus hijos esas habilidades. Pero no simplemente los echamos de la casa y decimos buena suerte, ni los acompañamos a todas partes tomándoles de la mano. Les ponemos andamiaje al principio y luego soltamos. Sí, te llevaremos al preescolar el primer día. Quizás nos quedemos un poco el segundo día, pero luego, lentamente, un día simplemente te dejamos y nos vamos, porque el niño necesita aprender esa habilidad. Y si el niño no aprende esa habilidad de forma natural, entonces traemos ayuda.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Es más difícil para los padres tímidos hacer esto?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Sí, muchísimo. Creo que hay diferentes maneras en que el temperamento de los padres y el temperamento del niño interactúan y que pueden facilitar o dificultar las cosas. Hay investigadoras, por ejemplo, Andrea Chronis-Tuscano en la Universidad de Maryland, que estudia a niños con TDAH que tienden a ser ruidosos, bulliciosos, exuberantes y no muy bien regulados o estructurados. Y lo que ella encontró es que muchas veces su padre tiene TDAH. Así que poner en sintonía al padre y al niño es necesario.</p>
+        <p>Si eres un padre tímido y no te entusiasma mucho salir y conocer gente nueva, puedes tener la tendencia a decir: oh, okay, está bien, no tenemos que hacer la cita de juego. Tú tampoco quieres ir a la cita de juego, ¿verdad? Yo siempre intentaba elegir citas de juego con personas que conocía para sentirme cómoda, ¿verdad? Creo que si hay cosas con las que tú tienes dificultad, eso puede hacer más difícil que luego puedas sentir empatía por tu hijo. Si eres un padre exuberante, puede resultarte completamente incomprensible que este niño prefiera sentarse en las gradas a leer un libro, porque ese no eras tú.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Qué te interesó en estudiar la timidez y el temperamento? ¿Eres una persona tímida, puedo preguntar?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Creo que fundamentalmente lo soy, pero mi director de posgrado, Jerome Kagan, fue uno de los primeros en describir la timidez temperamental, la inhibición conductual. Y una de las cosas muy notables sobre los niños con inhibición conductual es que tardan en hablar y no hablan mucho. Pero lo que él encontró es que, en la adolescencia, algunos de estos niños se convirtieron en loros. Creo que lo que notó es que estaban hablando como una forma de protección. Sabían que eran tímidos, sabían que tenían dificultad para interactuar con otros, así que simplemente iban a inundar la zona. Simplemente lo iban a inundar todo.</p>
+        <p>Así que sí creo que soy fundamentalmente tímida. He trabajado para sobrecompensar intentando empujarme a mí misma a estas situaciones, estar socialmente comprometida, estar dispuesta a hablar y ser parte del diálogo, y luego ir a casa y colapsar y simplemente hundir la cabeza en la almohada, a diferencia de las personas que realmente se recargan con estas interacciones sociales.</p>
+        <p>Creo que mucha gente es así. La imagen que muestran a los demás no es su reactividad natural. Es la regulación. Lo que la gente ha encontrado al hacer investigación a largo plazo en Estados Unidos y en Nueva Zelanda —por ejemplo, el estudio de Dunedin en Nueva Zelanda inscribió prácticamente a todos los niños nacidos en Dunedin de 1971 a 1973 y los siguieron a lo largo del tiempo— es que la personalidad temprana, el temperamento temprano, moldea —no determina, pero moldea— los tipos de carreras que tienen. Así que la persona ligeramente tímida, ligeramente torpe, ligeramente introvertida, puede ser más propensa a ser contable, más propensa a ser científica en el laboratorio. La persona gregaria, abierta, que ama las interacciones sociales, puede ser vendedora a comisión. Ambas son igual de inteligentes. Ambas son igual de buenas personas. Pero si les hicieras intercambiar roles, sería un desastre. Y es un punto tan importante encontrar tu nicho y permitir que los individuos lo hagan. Así que, para mí, mi nicho es trabajar en el laboratorio, trabajar con niños, escribir mucho en silencio y, cuando lo necesito, ser más social.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Hay ventajas en una personalidad más tímida?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Creo que puede haberlas. Creo que, de la misma manera en que en los países occidentales industrializados tendemos a intentar hacer a los niños más extrovertidos, sacarlos un poco, hay muchos padres intentando que sus hijos se detengan, contemplen, piensen las cosas, y luego actúen. El niño muy exuberante, muy impulsivo, a menudo tiene dificultad para regular el vamos, vamos, vamos. Creo que una de las cosas que el niño tímido, inhibido, tiene como ventaja es que tiene el tiempo para mirar, observar, detectar patrones, construir un conocimiento del mundo. Eso puede ser un poco más profundo que si no te permites ese tiempo reflexivo.</p>
+        <p>Si miras la literatura animal, puedes ver el temperamento en los animales, ¿verdad? A menudo se llama neofobia. La rata neofóbica, por ejemplo, le tiene miedo a las cosas nuevas. La rata neofílica se acerca, ¿verdad? Lo mismo con los primates no humanos. Los macacos. Hay un componente de supervivencia en no correr hacia este entorno nuevo y terminar siendo comido: lento, seguro y constante. Ahora bien, si todos en tu tribu o en tu manada fueran lentos, seguros y constantes, podrías morirte de hambre porque no estarías dispuesto a cruzar la montaña para encontrar la nueva fuente de alimento. Así que la mayoría de las comunidades tienen una mezcla de osados y apocados, y es esa mezcla a lo largo de los siglos lo que permite que esa especie sobreviva. Los humanos osados y los apocados permiten que nuestra sociedad sobreviva. Necesitamos ambos.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Para terminar, una pregunta que me gusta hacer al final: ¿en qué estás trabajando ahora? ¿Cuáles son las grandes preguntas que intentas responder?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Una de las cosas que sabemos sobre la biología del temperamento se basa en tareas y situaciones que ideamos en el laboratorio. Por ejemplo, para el niño pequeño, el bebé, podemos sacar la caja de juguete con sorpresa y hay algunos niños que simplemente se entusiasman con ella. Algunos están aterrados por los títeres, ¿verdad? Burbujas, subir escaleras, caminar por un túnel, cosas que hacemos en el laboratorio para crear riesgo y recompensa, y que solo nos cuentan hasta cierto punto lo que sucede cuando el niño sale del laboratorio y va a la escuela o al parque de juegos o negocia la vida diaria en el hogar con los padres y los hermanos. Así que una de las cosas que estamos intentando hacer es impulsarnos tecnológica y conceptualmente. ¿Podemos ver el mundo desde el punto de vista de los niños y adolescentes en su ámbito real de existencia?</p>
+        <p>¿Podemos medir sus latidos y su frecuencia cardíaca mientras participan en actividad social para observar la actividad simpática y parasimpática? ¿Podemos tener rastreadores oculares móviles que literalmente te dejen ver el mundo desde el punto de vista de este niño? ¿Podemos tener EEG móvil o fNIRS para observar la actividad cerebral en el mundo social? Ahora, el problema con algunas de estas cosas es que se ven realmente raras. Nadie va a reaccionar ante ti con normalidad si estás caminando con un gorro de EEG en la cabeza. Pero, en la medida de nuestras posibilidades, ¿podemos hacer nuestro trabajo fuera de los confines de nuestro laboratorio? En la literatura científica, hablamos de validez ecológica. ¿Pueden las cosas que hacemos en nuestro laboratorio decirnos algo sobre la ecología, o predecir lo que realmente está sucediendo en el mundo real de este niño? Así que, lenta pero seguramente, estamos ganando más validez ecológica. Creo que esa es la próxima frontera para nosotros.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Bueno, Dra. Pérez-Edgar, quiero agradecerle por acompañarme hoy. Esto ha sido muy interesante.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Koraly Pérez-Edgar, PhD:</h3>
+        <p>Gracias de nuevo. Ha sido una gran conversación.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Puedes encontrar episodios anteriores de Speaking of Psychology en nuestro sitio web, www.speakingofpsychology.org, o en Apple, Spotify, YouTube o donde sea que escuches tus podcasts. Y si te gustó lo que escuchaste, déjanos una reseña. Si tienes comentarios o ideas para futuros episodios, puedes escribirnos a speakingofpsychology@apa.org. Speaking of Psychology es producido por Lea Winerman.</p>
+        <p>Gracias por escuchar. Por la Asociación Americana de Psicología, soy Kim Mills.</p>
+      </article>
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Laboratorio CAT en la Penn State University</a></li>
+    </ul>
+
+    <h2>Sobre la serie</h2>
+    <div class="tarjeta">
+      <p>Esta serie de podcasts de audio destaca algunas de las investigaciones psicológicas más recientes, importantes y pertinentes que se realizan en la actualidad. Producidos por la Asociación Americana de Psicología, estos podcasts ayudan a los oyentes a aplicar la ciencia de la psicología a su vida cotidiana.</p>
+      <p><strong>Tu anfitriona: Kim I. Mills.</strong> Kim I. Mills creó Speaking of Psychology en 2013 y asumió el rol de anfitriona en 2020. Es exdirectora sénior de comunicaciones externas estratégicas y asuntos públicos de la Asociación Americana de Psicología, y trabajó 14 años como reportera y editora de The Associated Press. Mills también ha escrito para publicaciones como The Washington Post, Fast Company, American Journalism Review, Dallas Morning News y Harvard Business Review.</p>
+    </div>
+
+    <footer>
+      <p>Fecha de creación: noviembre de 2024 · Speaking of Psychology</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#transcripcion p');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en la transcripción.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#transcripcion mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

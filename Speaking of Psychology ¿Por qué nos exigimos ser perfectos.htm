@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Speaking of Psychology: ¿Por qué nos exigimos ser perfectos? Con Thomas Curran, PhD</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .episodio {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .expertos h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+      color: var(--acento);
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .turno {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-left: 4px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: border-color .15s;
+    }
+
+    .turno:hover {
+      border-left-color: var(--acento);
+    }
+
+    .turno.anfitriona {
+      border-left-color: var(--acento);
+      background: var(--acento-suave);
+    }
+
+    .hablante {
+      margin: 0 0 .5rem;
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--acento);
+    }
+
+    .turno p {
+      margin: 0 0 .75rem;
+    }
+
+    .turno p:last-child {
+      margin-bottom: 0;
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="episodio">Episodio 312</span>
+      <h1>Speaking of Psychology: ¿Por qué nos exigimos ser perfectos?</h1>
+      <p class="subtitulo">Con Thomas Curran, PhD</p>
+    </header>
+
+    <div class="tarjeta">
+      <p>En las entrevistas de trabajo y en la vida, el perfeccionismo suele verse como un punto a favor: una virtud disfrazada de defecto. Pero a medida que los psicólogos han encontrado tasas crecientes de perfeccionismo en Estados Unidos y en todo el mundo en las últimas décadas, han comenzado a reconocer el peaje que la necesidad de ser perfecto puede cobrar en la salud mental y el bienestar de las personas. Thomas Curran, PhD, autor de <em>The Perfection Trap: Embracing the Power of Good Enough</em> («La trampa de la perfección: abrazar el poder de lo suficientemente bueno»), habla sobre los diferentes tipos de perfeccionismo, por qué cada vez más personas sentimos la necesidad de impulsarnos hacia la perfección y qué podemos hacer —como individuos, como padres y como sociedad— para reconocer que, a menudo, «bueno» es suficientemente bueno.</p>
+    </div>
+
+    <h2>Sobre el experto</h2>
+    <div class="tarjeta expertos">
+      <h3>Thomas Curran, PhD</h3>
+      <p>Es profesor asociado en el departamento de ciencia psicológica y del comportamiento de la London School of Economics. Es uno de los principales expertos en perfeccionismo y ha escrito sobre este y otros temas relacionados para la revista TIME y Harvard Business Review. Su trabajo ha aparecido en New Scientist, The Wall Street Journal y The New York Times, entre muchas otras publicaciones. En 2018 dio una charla TEDMED titulada «Nuestra peligrosa obsesión con el perfeccionismo está empeorando» y en 2023 publicó su primer libro, <em>The Perfection Trap</em> («La trampa de la perfección»).).</p>
+    </div>
+
+    <h2>Transcripción</h2>
+
+    <input type="search" id="buscador" class="buscador" placeholder="Buscar en la transcripción...">
+    <p class="contador" id="contador"></p>
+
+    <div id="transcripcion">
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Alguna vez has estado en una entrevista de trabajo en la que te preguntan: «¿cuál es tu mayor debilidad?» ¿Y respondiste: «ay, es que soy muy perfeccionista»? Hay una buena razón por la que esta respuesta se ha convertido en un cliché de las entrevistas de trabajo. La perfección, después de todo, suele verse como un punto a favor, una virtud disfrazada de defecto. Al fin y al cabo, ¿quién no querría contratar a un empleado perfecto?</p>
+        <p>Pero la investigación de los psicólogos sugiere que el perfeccionismo quizá no sea algo a lo que valga la pena aspirar. En los últimos años, los investigadores han encontrado tasas crecientes de perfeccionismo en Estados Unidos y en todo el mundo, y han comenzado a reconocer el peaje que la necesidad de ser perfecto puede cobrar en la salud mental y el bienestar de las personas.</p>
+        <p>¿Por qué cada vez más personas sentimos la necesidad de impulsarnos hacia la perfección? ¿Nuestra cultura del logro lo exige? ¿Son las redes sociales y las comparaciones infinitas que conllevan? ¿Y qué significa ser perfeccionista, en realidad? ¿En qué se diferencia el perfeccionismo de simplemente esforzarse por la excelencia? ¿Y qué podemos hacer como individuos, como padres, como sociedad, para ayudarnos a nosotros mismos y unos a otros a reconocer que, a menudo, «bueno» es suficientemente bueno?</p>
+        <p>Bienvenidos a Speaking of Psychology, el podcast insignia de la Asociación Americana de Psicología, que examina los vínculos entre la ciencia psicológica y la vida cotidiana. Soy Kim Mills.</p>
+        <p>Mi invitado de hoy es el Dr. Thomas Curran, profesor asociado en el departamento de ciencia psicológica y del comportamiento de la London School of Economics. Es uno de los principales expertos en el perfeccionismo y en cómo este está aumentando en el mundo moderno. Su popular charla TED sobre el perfeccionismo ha sido vista más de 3 millones de veces, y su investigación ha sido cubierta por medios como The New York Times, The Wall Street Journal, NPR y CNN.com. Su primer libro es <em>The Perfection Trap: Embracing the Power of Good Enough</em> («La trampa de la perfección: abrazar el poder de lo suficientemente bueno»).</p>
+        <p>Dr. Curran, gracias por acompañarme hoy.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Es un placer hablar contigo, Kim.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>En 2019 publicaste un estudio que encontró tasas crecientes de perfeccionismo en los jóvenes de Estados Unidos, Canadá y el Reino Unido durante las últimas décadas. Cuéntanos sobre ese trabajo. ¿Qué tipo de datos analizaste? ¿Qué encontraste?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Sí, ese fue, supongo, el mayor artículo que he publicado jamás. Y en su momento no me daba cuenta de que iba a convertirse en toda una historia. Fue realmente una corazonada. A veces las mejores ideas son las ideas más simples, y yo simplemente tenía una corazonada. Veía a jóvenes en mi despacho —soy profesor, así que trabajo mucho con jóvenes—. Y con los años se hizo evidente para mí que había mucha presión que los jóvenes se imponían a sí mismos. Sentían que no eran lo suficientemente buenos o que, por mucho que lo intentaran, no lograban alcanzar las metas que esperaban alcanzar. Y estaba viendo muchas solicitudes no solo de apoyo académico, sino también de apoyo de salud mental. Y todo esto parecía estar ligado a esta idea de la presión autoimpuesta.</p>
+        <p>Así que una de las cosas que decidí hacer fue intentar ver si había una tendencia aquí, algo sucediendo, algo en el aire con los jóvenes, y si podíamos tal vez detectar algunos de esos cambios en los niveles de perfeccionismo. Esa fue la corazonada, y recopilé toda la información posible que pudiéramos reunir sobre los niveles de perfeccionismo en estudiantes universitarios de Estados Unidos, el Reino Unido y Canadá, comenzando alrededor de 1989, es decir, a finales de los ochenta, y hasta aproximadamente 2021, 2022. Y como los estudiantes universitarios tienen características ampliamente similares —lo cual, por cierto, es algo terrible para el muestreo en general en psicología—, resulta que tiene una ventaja cuando se trata de comparar entre generaciones, porque son comparaciones fiables al ser ampliamente similares. Y si los extiendes a lo largo del tiempo, ves niveles crecientes de perfeccionismo entre los jóvenes. Esa corazonada se confirmó en los datos, y esos aumentos fueron bastante pronunciados, particularmente para lo que se llama perfeccionismo prescrito socialmente, que es la sensación de que otras personas y todos los que me rodean esperan que yo sea perfecto. Eso estaba aumentando exponencialmente, a un ritmo de aproximadamente un 33 % desde finales de los años ochenta. Así que sí, unos hallazgos realmente interesantes y desafiantes, y eso me impulsó, supongo, al ámbito de las charlas TED y a escribir un libro y todo lo demás, porque la gente realmente quería saber sobre este fenómeno.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Bueno, ¿cómo miden los investigadores el perfeccionismo? ¿Había algún tipo de escala que usaras o tuviste que crear una?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Sí, por suerte existe una escala que la mayoría de los investigadores usan cuando estudian el perfeccionismo. Se llama la Escala Multidimensional de Perfeccionismo. Fue desarrollada por dos psicólogos: el psicólogo canadiense Paul Hewitt y Gordon Flett. Creo que Gordon Flett ya estuvo anteriormente en el podcast. Eruditos increíbles. Ellos hicieron gran parte del trabajo pesado en esta área, desarrollaron la escala, y eso es lo que hemos estado usando a lo largo de los años. Y eso es asombroso, porque tenemos una herramienta consistente. Es un cuestionario de papel y lápiz que mide el perfeccionismo prescrito socialmente, como mencioné, pero también algo llamado perfeccionismo autodirigido, que es el perfeccionismo que viene de dentro: estándares personales altos y excesivos. Y los estudiantes han respondido a esta misma encuesta durante unos 30 o 35 años. Eso nos da un verdadero tesoro de datos para hacer estos análisis de cohortes, y eso es lo que hemos usado para derivar nuestras conclusiones.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Cuáles son un par de las preguntas? Para que nuestros oyentes puedan entender qué les preguntas a las personas y qué indica que, sí, eres perfeccionista.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>El perfeccionismo autodirigido es una forma de perfeccionismo que viene de dentro de nosotros. Son metas y expectativas altas que nos fijamos a nosotros mismos, y podríamos usar un ítem como «Espero ser perfecto» o «Todo lo que hago tiene que ser perfecto». Y podríamos medirlo en una escala Likert de 1 a 5. Así que si no estás realmente de acuerdo con esa afirmación, podrías decir que no estás de acuerdo. Sería un 1. Si estás realmente de acuerdo, totalmente de acuerdo, pondrías un 5, y todo lo que hay en medio.</p>
+        <p>Estos constructos perfeccionistas realmente operan en un espectro. Más alto o más bajo: la mayoría de las personas está en el medio, y ese punto medio está aumentando con el tiempo. Como vimos en nuestros datos, el perfeccionismo prescrito socialmente es otra forma de perfeccionismo que medimos, y realmente está enraizado en las presiones del mundo exterior. Otras personas que esperan que yo sea perfecto; mis padres esperan que yo sea perfecto, por ejemplo. Esas son las clases de cosas que podríamos preguntar para medir el perfeccionismo prescrito socialmente. Y de nuevo, el mismo principio: si no estás de acuerdo es un 1, si estás de acuerdo es un 5, y todo lo que hay en medio. Y una vez que agregas esos ítems y obtienes un promedio, puedes hacerte una idea razonablemente buena de dónde te sitúas en el espectro.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Ahora, has hablado de diferentes tipos de perfeccionismo. Dijiste autodirigido, orientado a los demás y prescrito socialmente. ¿Todos ellos han estado aumentando?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Sí, pero es importante tener en cuenta que el perfeccionismo autodirigido partía de una línea base alta. A finales de los años ochenta ya era bastante alto. Es una escala Likert de 5 puntos, y estaba alrededor de 4: las puntuaciones medias a través de muchísimas muestras de estudiantes universitarios. Así que ya empezó alto, y con el tiempo subió aún más. Pero lo realmente interesante no es necesariamente el perfeccionismo autodirigido —aunque ese fue un hallazgo interesante—, sino lo que estaba pasando con el prescrito socialmente, que es realmente interesante porque no empezó muy alto. Empezó alrededor de 3, es decir, cerca del punto medio de la escala. Básicamente, la mayoría de la gente respondía más o menos que no a esos ítems. Sin embargo, ahora lo vemos con una aceleración pronunciada. Hemos actualizado el artículo de 2019 con datos nuevos y estamos viendo una aceleración fuerte en los últimos años en las presiones prescritas socialmente.</p>
+        <p>Y eso es realmente preocupante, porque son esas presiones sociales las que más nos preocupan cuando se trata de cosas como la salud mental. Tienen el vínculo más fuerte con la depresión, la ansiedad, la preocupación, la rumiación. Eso es lo que nos preocupa, porque lo que solíamos ver quizá en el pasado era un gran esfuerzo o un perfeccionismo autodirigido alto, pero niveles moderados de perfeccionismo prescrito socialmente. Pero ahora lo que vemos es un patrón ligeramente diferente en las generaciones recientes, donde hay un perfeccionismo autodirigido alto y, a la vez, un perfeccionismo prescrito socialmente en aceleración rápida.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Qué crees que está impulsando estos aumentos? Es decir, ¿qué ha cambiado en nuestra sociedad en las últimas décadas que llevaría a este perfeccionismo creciente?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Eso es todo un libro en sí mismo. Quiero decir, en primer lugar, no es un análisis causal. Así que, esencialmente, cualquier cosa que diga aquí será especulativa, pero aun así, podemos decir con una confianza razonable que hay una serie de factores, uno de los cuales hemos puesto a prueba empíricamente. Una de las cosas que creemos que está sucediendo es que los comportamientos parentales están cambiando. La manera en que criamos a los hijos está cambiando. Hay mucha más presión, mucha más vigilancia, mucho más monitoreo de los jóvenes —y con buena razón—, y también muchas más expectativas depositadas en los jóvenes, particularmente en el ámbito académico. Y hay mucha evidencia que respalda esas afirmaciones. Pero hemos demostrado empíricamente que los jóvenes perciben que los padres les exigen más, particularmente en la vía académica. Y esas demandas más altas, esas expectativas más altas, están altamente correlacionadas con el perfeccionismo.</p>
+        <p>Así que juntas esas dos cosas y empiezas a ver que el cambio en las prácticas parentales hacia formas de crianza más expectantes y controlistas tiene una correlación directa con el perfeccionismo. Y esa puede ser una de las razones por las que el perfeccionismo está aumentando entre los jóvenes. Pero hay factores que van mucho más allá de la crianza. Y también es importante reconocer que esto no es algo que los padres hagan intencionadamente. Solo están respondiendo a las presiones del mundo exterior, ¿verdad? Quiero decir, las tasas de admisión de las universidades de la Ivy League están hoy alrededor del 5 %. En 2014 eran del 10 %. Esa es una cantidad increíble de presión que los padres ven, que sienten, y naturalmente la van a transmitir hacia abajo a sus hijos en forma de mayores expectativas académicas, porque saben que es aún más difícil entrar en las universidades de élite. Y la educación universitaria de élite es realmente importante si quieres entrar en las profesiones de élite.</p>
+        <p>Así que los padres solo están respondiendo a presiones más amplias que ocurren en el entorno general, y eso no es solo en las escuelas o universidades, cuando se trata de pruebas estandarizadas y criterios de admisión más estrictos. También es la economía en general: nos hemos ralentizado, y eso significa menos oportunidades para los jóvenes, particularmente en el ámbito laboral. Así que esa es una presión añadida que sienten los jóvenes y que también sienten los padres. De nuevo, eso eleva la presión. Y por supuesto hay otros factores. Las redes sociales entre ellos, que han entrado en escena en los últimos 10 años y que ciertamente no han ayudado cuando se trata de esas presiones sociales y esas imágenes idealizadas de cómo deberíamos vernos, aparecer y comportarnos. Hay muchos factores que podríamos señalar, pero en nuestro trabajo y en nuestra teorización, esos son los principales.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Ahora, tu estudio analizó el perfeccionismo en estudiantes universitarios, pero ¿también está aumentando en otros grupos de edad? Y hablaste de que los padres van, digamos, marcando el camino. ¿Son ellos mismos perfeccionistas o simplemente se lo están imponiendo a sus hijos?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Un poco de ambas cosas. El perfeccionismo de los padres está muy fuertemente correlacionado con el perfeccionismo de los hijos. Tenemos que ser un poco cuidadosos ahí, porque desagregar qué es modelado social de qué son los genes es complicado. Sabemos que alrededor del 30-40 % del perfeccionismo es herencia, así que gran parte es genético. Pero más allá de eso, habrá una socialización parental en juego. Y hay muchos caminos diferentes por los que los padres pueden transmitir el perfeccionismo a los jóvenes: a través de las expectativas, como he comentado, pero también a través de algo llamado consideración condicional. Existe una condicionalidad de la aprobación que puede darse en los padres y que enseña a los niños que solo valen algo cuando han logrado o hecho algo bien. Así que la consideración condicional es un factor grande.</p>
+        <p>También entran en juego formas ansiosas de crianza. Cuando los niños ven a sus padres comportándose con ansiedad, o temiendo al fracaso, o tratando los errores y fracasos como algo muy grave, como grandes problemas, eso les enseña a los propios niños que esas cosas son grandes problemas y que hay que evitarlas. Así que hay toda clase de caminos diferentes a través de los cuales la crianza puede impactar en el perfeccionismo, pero también es importante recordar que es altamente genético.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Has podido hacer seguimiento a estudiantes universitarios a lo largo del tiempo? Es decir, cuando terminan la carrera y entran al mundo laboral, ¿conservan ese perfeccionismo?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Sí, lo conservan. No hay mucho análisis del curso de vida cuando se trata del perfeccionismo, así que es muy difícil decir si esto es algo que se atenúa o no se atenúa con el tiempo. Sabemos que el neuroticismo sí se atenúa con el tiempo, así que puede argumentarse que ocurre lo mismo con el perfeccionismo. Necesitamos ponerlo a prueba. Hubo un par de estudios que muestran que el perfeccionismo puede ser quizá un poco más persistente que el neuroticismo. Un estudio muestra que el perfeccionismo y la irritabilidad perfeccionista parecen ser bastante persistentes a lo largo de la vida, pero es un estudio aislado. Necesitamos investigar más ahí. Así que puede que el perfeccionismo sea un constructo un poco más estable en el tiempo que algo como el neuroticismo, o quizá no. Simplemente no lo sabemos.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Qué papel crees que está jugando este aumento del perfeccionismo y de la cultura del logro en la crisis de salud mental juvenil?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Bueno, no es todo el cuadro, por supuesto. Estamos muy empeñados en destacar el perfeccionismo como una preocupación de salud pública. Creemos que estas son tendencias que nos dicen algo sobre la manera en que los jóvenes se perciben o se ven a sí mismos en relación con otras personas, la manera en que perciben el entorno social, cuán exigente es y qué se espera de ellos. Y creemos que son tendencias muy relevantes en esos aspectos. Y como el perfeccionismo, particularmente el prescrito socialmente, tiene una correlación tan fuerte con cosas como la depresión, la ansiedad y las preocupaciones de autopresentación —y entre los psicólogos, cuando digo gran correlación, me refiero a correlaciones grandes para la investigación en psicología—, estamos hablando de alrededor del 25 % de varianza explicada en depresión y ansiedad. Y eso es mucho cuando se trata de investigación en psicología. Como comparten una correlación tan grande, sí creemos que el perfeccionismo puede ser una parte de la crisis de salud mental juvenil que estamos viendo actualmente. No la única parte, pero ciertamente una parte.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Cuando pensamos en los estereotipos de la cultura del logro —como la presión por sacar notas perfectas y, en Estados Unidos, esas puntuaciones altas en el SAT para entrar en la universidad, o participar en las actividades extracurriculares correctas—, parece algo que aplica sobre todo al extremo superior de la escalera socioeconómica. ¿Es correcto o esta tendencia atraviesa todo el espectro socioeconómico?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>No, sería correcto decirlo. Y el Dr. Luthar ha publicado investigaciones increíblemente importantes sobre este tema que muestran que los adolescentes más adinerados son en realidad aquellos que sufren de manera desproporcionada, en términos de su salud mental, por las presiones de logro que experimentan en la escuela; los que están preparados de forma más agresiva para la universidad de élite. Y experimentan muchas dificultades psicológicas, problemas de abuso de sustancias y problemas de conducta, muchos de los cuales en realidad no están tan documentados, creo, como quizá deberían estarlo, porque con toda razón nos centramos en el extremo más desfavorecido del espectro socioeconómico. Absolutamente lo hacemos, porque hay mucho sufrimiento allí por muchas, muchas razones. Pero también, al mismo tiempo, creo que es importante que destaquemos que hay adolescentes en el extremo superior del espectro socioeconómico que sufren por una necesidad excesiva de lograr; tanta presión que se imponen a sí mismos, enraizada en parte en el perfeccionismo, pero que tiene impactos más amplios en su salud mental.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Está contribuyendo el propio sistema educativo a esto? Es decir, sé que los niños de hoy llegan a casa con horas de deberes. Cuando yo era niña, quizá tenía media hora o como máximo una hora de deberes cada noche. No sé cómo lo hacen los niños hoy.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Es un proceso escolar increíblemente duro. Creo que, en promedio, hay alrededor de 130 pruebas estandarizadas que los jóvenes realizarán desde el jardín de infancia hasta el 12.º grado, el último curso de secundaria. Quiero decir, esa es una cantidad increíble de exámenes, de clasificación, de cribado y de selección. Y así que solo puedes imaginar las maneras en que los jóvenes empiezan a construir un sentido de sí mismos y una identidad en esos contextos, que es esencialmente una identidad propia anclada a lo bien que rendimos, a dónde nos situamos en el rango. Por supuesto, ese es un sentido de valía personal muy frágil, porque en el momento en que las cosas salen mal, o en el momento en que obtenemos una mala puntuación en un examen, nuestra autoestima se desploma y empezamos a experimentar mucha rumiación, vergüenza, culpa, estrés. Y no hay duda de que hay mucha presión en la escolarización. Y entiendo la necesidad de las pruebas estandarizadas. Por supuesto que tienen su lugar. Pero creo que lo que tenemos en este momento es una cultura excesiva de pruebas estandarizadas, que está creando mucha preocupación, mucha ansiedad.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Dado que conoces todo esto, ¿eres indulgente con tus estudiantes? ¿Les das menos exámenes?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>No quiero darles ningún examen si puedo evitarlo. Siento que a estas alturas ya han hecho suficientes. Pero no, la manera en que intento evaluar consiste realmente en enfatizar la retroalimentación, asegurándome de que, especialmente en el primer año —porque en el sistema del Reino Unido el primer año casi no cuenta—, intentamos ni siquiera darles una calificación. Todo se trata de qué se hizo bien, qué podría mejorarse, y en qué cosas centrarse a medida que desarrollas tu comprensión y tu conocimiento en un área determinada. Y eso es difícil, porque es realmente desconcertante para los estudiantes entrar en esa manera diferente de aprender, no tener una calificación, no tener algo a lo que anclar su sentido de sí mismos. Pero en última instancia, creo que es una manera mucho más saludable de aprender.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Existe algo así como un perfeccionismo saludable? Es decir, ¿puedes ser perfeccionista de una manera que no sea perjudicial para tu bienestar?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Voy a decir que no, pero es un tema polémico, y si hablas con otros psicólogos del área, puede que obtengas respuestas diferentes. Es todo muy divertido. Pero sí toca, creo, algo realmente importante. Y es la pregunta de si este es un constructo en el que necesitamos encontrar los aspectos positivos, o si es algo para lo que necesitamos encontrar una senda completamente distinta; que no hay nada positivo en el perfeccionismo y que necesitamos tomar un camino diferente.</p>
+        <p>Incluso los estándares altos, los estándares excesivos, son en sí mismos negativos en mi opinión, por dos razones. La primera es porque, aunque cumplamos esos estándares altos y excesivos, el perfeccionista nunca puede disfrutarlos, porque siempre tiene que haber algo más. Así que no podemos apreciar nuestros éxitos incluso cuando los conseguimos. Y también, por supuesto, hay problemas cuando las cosas no van del todo bien para esos perfeccionistas con altos estándares personales, porque eso es un duro golpe para su autoestima.</p>
+        <p>Y lo que tienden a hacer es evitar, repetir y posponer: tratar de evitar esos sentimientos de vergüenza y culpa por cometer un error o sufrir un revés. Eso en realidad bloquea nuestro progreso al final, no nos lleva hacia adelante. Así que, en mi opinión, creo que los aspectos negativos superan con creces cualquier positivo que puedas encontrar al ser perfeccionista. Es mucho mejor intentar situarnos en una mejor senda, donde nos centramos en nuestros esfuerzos, nos centramos en el proceso de aprendizaje. Intentamos alcanzar metas más altas, pero mantenemos el sentido de la perspectiva y nos permitimos disfrutar de los éxitos cuando llegan. Todos esos son indicadores de una persona de alto rendimiento, y tomar una senda ligeramente diferente no excluye el alto logro. Pero lo que sí significa es que podemos disfrutar del proceso y, como consecuencia, podemos encontrar bienestar psicológico, propósito y significado a través de ese proceso, cosas que simplemente no podemos hacer si el perfeccionismo va en el asiento del conductor.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Parte de tu historia es que tú fuiste perfeccionista. ¿Es cierto? Es decir, lo reconociste en ti mismo y eso cambió de alguna manera tu forma de abordar la vida. ¿Puedes hablar un poco sobre eso?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Sí, como mucha gente hoy en día que intenta escalar puestos en la carrera profesional, el perfeccionismo realmente se apoderó de mi vida, particularmente a principios y mediados de mis veinte, cuando trabajaba todo tipo de horas para intentar elevarme por encima de los demás, para intentar publicar todos los artículos que pudiera, para intentar conseguir todas las subvenciones que pudiera, mirando alrededor cómo les iba a otras personas y usando eso como mi referencia de lo bien que yo debería estar haciéndolo. Y hay un argumento que sugiere que fue parte de la razón por la que estoy aquí, pero también tuvo un costo muy alto y me llevó al agotamiento. Tuve que dejar de trabajar durante varios meses. Fue un período muy difícil también en mi vida personal, porque creó todo tipo de daños colaterales en mis relaciones con otras personas.</p>
+        <p>Así que hubo mucho daño colateral. Y aunque aparentemente parecía que era una persona de alto rendimiento, por debajo me estaba hundiendo realmente. Y ese fue el impulso para tomar una dirección diferente, elegir una senda distinta, intentar eliminar esas tendencias narcisistas de autorreferencia que llevaba dentro, esa autoestima contingente que llevaba dentro, basada en mis logros y en cómo aparecía en comparación con otras personas. Y en realidad, simplemente tratar de estar más centrado y enfocarme en qué es lo que quiero dejar en el mundo, qué es lo que quiero aprender y lo que quiero compartir. Y cambiar ese interruptor realmente me ayudó, porque me dio un propósito más grande. Me hizo mirar de manera más holística. Me hizo querer hacerse preguntas más grandes sobre lo que está sucediendo a nivel societal. Y en última instancia, esa fue la verdadera razón por la que creo que estoy aquí: porque si hubiera continuado por ese camino, me habría agotado y estaría realmente en apuros. Pero ahora puedo tener un buen equilibrio entre el trabajo y la vida personal y hacerme preguntas realmente interesantes, que es, supongo, una de las razones por las que estoy hablando contigo.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Dada esa experiencia y también la investigación que has hecho, ¿tienes consejos, consejos realmente específicos, para las personas que reconocen sus tendencias perfeccionistas dañinas y quieren cambiar? ¿Qué pueden hacer?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Hay muchísimas cosas que tener en cuenta —y de nuevo, eso probablemente sea otro libro—, pero hay unas cuantas cosas que he encontrado realmente útiles en mi experiencia y que además tienen evidencia detrás. La primera es que la autocompasión es una gran parte de combatir el perfeccionismo, y la autocompasión se trata realmente de reconocer que somos seres humanos falibles y agotables, y que vamos a cometer errores y a sufrir reveses, y eso es simplemente parte de lo que significa ser humano. Así que reconocerlo e internalizarlo de verdad, y luego asegurarnos de revisar cómo estamos cuando las cosas salen mal, ser indulgentes con nosotros mismos y, quizá cuando somos duramente autocríticos —¿cómo puedes ser tan estúpido?, ¿qué estabas pensando?—, asegurarnos de intervenir activamente en esos momentos y encontrar maneras constructivas y compasivas de avanzar es realmente, realmente importante. Porque silenciar a ese crítico interior es una gran parte de combatir el perfeccionismo.</p>
+        <p>Creo que también, en el ámbito laboral, una de las cosas que he encontrado realmente útil es intentar priorizar, clasificar mis prioridades en categorías. Hay cosas que requieren un alto nivel de diligencia. Hay cosas para las que basta con que las actividades sean lo suficientemente buenas, y luego hay cosas que simplemente hay que hacer. No todo tiene que hacerse a toda velocidad. No todo tiene que hacerse al minuto, absolutamente perfecto. Quizás algunas cosas requieren un poco de escrupulosidad, pero en realidad, la mayoría de las cosas en el trabajo que he hecho —y, para ser un trabajador eficiente, también tenemos que priorizar eficientemente—, tenemos que reconocer que hay algunas tareas donde lo suficientemente bueno es suficiente, y en realidad progresar es más importante que hacer las cosas absolutamente perfectas a la primera. Así que definitivamente me ha ayudado en términos de priorizar y clasificar mis tareas en categorías, permitirme, darme permiso para que las cosas no alcancen cierto estándar en tareas que no necesitan alcanzarlo.</p>
+        <p>Y finalmente, también me gusta llevar un diario. Creo que hay mucha evidencia sobre llevar un diario para todo tipo de males psicológicos, pero particularmente para el perfeccionismo, simplemente escribir nuestros miedos puede ser importantísimo, porque una de las cosas que bloquea a las personas perfeccionistas es el miedo a que las cosas puedan salir mal. Catastrofizan mucho. Así que escribir tus miedos —no ignorarlos ni suprimirlos, sino realmente escribirlos—: ¿qué es lo que te preocupa? ¿Qué te impide progresar en este momento? Y escribirlo, apuntarlo en el diario, y luego preguntarte: bueno, ¿qué pasos prácticos puedo poner en marcha para evitar que ese peor escenario suceda? Y luego llevarlo hasta su conclusión si llegara a suceder. Digamos que sí sucedió, ¿qué podemos hacer para volver al punto de partida?</p>
+        <p>Y simplemente poner esos miedos bajo el microscopio y plantear maneras prácticas de evitarlos en primer lugar, pero luego, en el caso de que realmente sucedan, cómo recuperar terreno, es una manera realmente, realmente buena de desmontar esos miedos, y nos permite tener una hoja de ruta para avanzar, y entonces podemos ponernos manos a la obra sin que ese miedo nos frene.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Y qué hay de los padres y otros cuidadores? ¿Qué pueden hacer para animar a sus hijos al tiempo que los protegen de las presiones que conducen al perfeccionismo? Es decir, quieres que tu hijo entre en la mejor escuela, pero ¿cómo puedes evitar que tu hijo se vuelva excesivamente ansioso y sufra?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Sí, hay algunas cosas que recomendaría a los padres. Lo primero es no ponerse demasiada presión a uno mismo, porque criar a los hijos es uno de los trabajos más difíciles. Puedes entrar en ello con las mejores intenciones y descubrir muy rápidamente que has quedado reducido a un espectador impotente, y eso es simplemente normal y natural, parte integral del proceso. Así que creo que eso es lo primero: ponerte demasiada presión para que todo salga perfecto. La idea del padre suficientemente bueno de Winnicott es algo que me viene a la mente cuando pienso en la crianza: no puedes perfeccionar todo, y eso es bueno para los niños, porque la vida no es perfecta.</p>
+        <p>Bueno, un par de cosas prácticas. En primer lugar, no vincules tu aprobación al logro ni al esfuerzo que los niños ponen, particularmente cuando se trata de deportes o actividades académicas. Es bueno tener estándares. Es bueno querer que los niños hagan lo mejor que puedan, pero tienes que tener mucho cuidado como padre de no calificar sutilmente tu aprobación basándote en la expectativa de que los jóvenes hagan más. Es muy fácil caer en esa trampa: los jóvenes lo han hecho bien, han vuelto a casa, han sacado un sobresaliente en su examen, y dices: eso está genial; vale, sigue trabajando, ¿verdad? Porque esa aprobación completa, esa validación completa, ese reconocimiento de los padres se retiene sutilmente bajo el entendimiento de «más». Así que, en esencia, lo que estamos haciendo es mantener a los jóvenes de puntillas bajo la expectativa de que sigan esforzándose. Y eso les enseña que solo valen algo realmente en este mundo si se esfuerzan y se esfuerzan y se esfuerzan, y si logran y logran y logran; y en el momento en que no lo hacen, la implicación es que otras personas les valoran menos. Así que la aceptación condicional es realmente problemática cuando se trata del desarrollo del perfeccionismo.</p>
+        <p>Así que es muy importante que des a tus hijos una aprobación completa e incondicional cuando lo han hecho bien, pero también cuando las cosas no han ido del todo bien: les das un abrazo, les dices que está bien. Es solo un examen de los muchos exámenes, ¿verdad? No es una condena para ti. No dice nada sobre si a tu maestro le agradas o si eres bueno en esta asignatura en particular. Es solo un examen. Y lo más importante es sumergirte en el proceso de aprendizaje, y las cosas se darán la vuelta si sigues haciendo el repaso, la lectura y todo lo demás. Creo que es muy importante rodear con nuestro brazo a nuestros hijos en esos momentos y asegurarnos de dar exactamente la misma aceptación cuando lo han hecho bien y cuando no lo han hecho tan bien.</p>
+        <p>Y la segunda cosa que diría es también simplemente normalizar los errores, los fracasos, los reveses. Si has tenido un mal día en el trabajo, está bien comunicárselo a los jóvenes. Está bien sentarse alrededor de la mesa del comedor y reírse de ello. Les deja saber que estas cosas suceden como parte integral del mundo real, y que si sus padres pueden reírse de ello, si sus padres pueden compartirlo abiertamente, eso les da permiso para hacerlo también. Así que esas son las dos principales. Pero como dije al principio, es realmente, realmente difícil. Y a cualquier padre que esté ahí fuera: estáis haciendo un gran trabajo.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Hay algo que podamos hacer a nivel societal para frenar este aumento del perfeccionismo?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Sí. Una de las cosas de las que escribo en la parte final del libro es cómo la sociedad podría necesitar cambiar para proporcionar menos presión, o proporcionar un contexto de menos presión, particularmente sobre los jóvenes. Hay muchas cosas que he recomendado, ninguna de las cuales creo que vaya a implementarse necesariamente, pero que son casi bastante utópicas en cierto modo. Pero sí creo que, si se implementaran, veríamos menos presión. Una de ellas es la expansión del acceso a la educación superior. Creo que, en realidad, es escandaloso que las universidades no hayan ampliado el acceso, porque lo único que estamos haciendo es excluir a más y más jóvenes a medida que las universidades se vuelven más y más competitivas, y ese no es el camino a seguir. Y se necesita una inversión enorme en educación. La educación tiene tantos beneficios a nivel societal, no solo para los jóvenes, sino para la sociedad en general.</p>
+        <p>Cuanto más no ampliemos el pastel en las universidades, más competitivas se volverán y más presión habrá sobre los jóvenes para conseguir una plaza. Así que creo que eso es algo que podríamos hacer para ayudar. Otra cosa es, a un nivel más amplio: soy un gran defensor del ingreso básico universal. Es algo que probablemente veremos de todos modos a medida que la IA entre para capturar mucha productividad y muchos empleos. Creo que se necesitará como una medida de emergencia para tender un puente entre este mundo actual y el mundo nuevo donde la IA hace mucho del trabajo que solíamos hacer nosotros.</p>
+        <p>Pero creo que eso tendrá muchísimos beneficios. Y en particular, eliminará esa especie de escasez que a menudo es el combustible del perfeccionismo: esta idea de que, si tomamos un riesgo y no sale bien, vamos a acabar en la miseria. Es mucho miedo, son muchas preocupaciones, mucha precariedad, y eso crea mucho perfeccionismo a nivel societal. Y el ingreso básico universal ha sido defendido desde todos los frentes, de izquierda a derecha, por su capacidad de estimular la creatividad, de impulsar la innovación, de dar casi una red de seguridad que nos permita probar cosas nuevas y ser innovadores. Y sin él, se asfixia esa innovación, porque el perfeccionismo nos frena. Hay otras cosas que defiendo en el libro, pero creo que esas son las dos grandes.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>¿Y qué viene ahora para ti? ¿En qué estás trabajando? ¿Cuál es tu próximo libro?</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>¿Ahora mismo? Voy a tomarme un poco de tiempo libre para recuperarme de lo que han sido uno o dos años agotadores. Me ha encantado escribir el libro. Me ha encantado salir ahí fuera. Me ha encantado hablar con la gente. Me ha encantado hablar del perfeccionismo. Realmente, una de las razones por las que lo hice fue difundir el mensaje, pero al mismo tiempo es bastante agotador. Y ahora tengo una familia joven, y creo que es momento de cambiar un poco de marcha y centrarme en mi familia. Y luego, quizá en unos años, escribiré otro libro. Tengo algunas ideas sobre lo que podría venir después, pero creo que, por ahora, voy a escuchar mi propio consejo y conseguir un poco de equilibrio entre el trabajo y la vida personal.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Bueno, Dr. Curran, quiero agradecerle por acompañarme hoy.</p>
+      </article>
+
+      <article class="turno">
+        <h3 class="hablante">Thomas Curran, PhD:</h3>
+        <p>Ha sido fantástico conversar. Gracias por invitarme.</p>
+      </article>
+
+      <article class="turno anfitriona">
+        <h3 class="hablante">Kim Mills:</h3>
+        <p>Para leer más sobre la investigación del Dr. Curran y de otros psicólogos sobre el perfeccionismo, visita el número de octubre de la revista de la APA, Monitor on Psychology. Entra en www.apa.org/monitor. Puedes encontrar episodios anteriores de Speaking of Psychology en nuestro sitio web, speakingofpsychology.org, o en Apple, Spotify, YouTube o donde sea que escuches tus podcasts. Y si te gustó lo que escuchaste, suscríbete y déjanos una reseña.</p>
+        <p>Y para quienes quieran saber más sobre la psicología y el trabajo de la APA, pueden unirse como simpatizantes. No hace falta ser psicólogo. Los beneficios incluyen una suscripción a nuestra galardonada revista, que acabo de mencionar, Monitor on Psychology, así como descuentos en nuestros libros y otras publicaciones. Así que si la psicología es tu pasión, o si solo quieres saber más sobre la ciencia, puedes convertirte en simpatizante visitando at.apa.org/speaking. Eso es at.apa.org/speaking.</p>
+        <p>Si tienes comentarios o ideas para futuros episodios, puedes escribirnos a speakingofpsychology@apa.org. Speaking of Psychology es producido por Lea Winerman.</p>
+        <p>Gracias por escuchar. Por la Asociación Americana de Psicología, soy Kim Mills.</p>
+      </article>
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Thomas Curran, PhD</a></li>
+      <li><a href="#">«El perfeccionismo y la cultura del éxito de alto riesgo» (Monitor on Psychology, octubre de 2024)</a></li>
+    </ul>
+
+    <h2>Sobre la serie</h2>
+    <div class="tarjeta">
+      <p>Esta serie de podcasts de audio destaca algunas de las investigaciones psicológicas más recientes, importantes y pertinentes que se realizan en la actualidad. Producidos por la Asociación Americana de Psicología, estos podcasts ayudan a los oyentes a aplicar la ciencia de la psicología a su vida cotidiana.</p>
+      <p><strong>Tu anfitriona: Kim I. Mills.</strong> Kim I. Mills creó Speaking of Psychology en 2013 y asumió el rol de anfitriona en 2020. Es exdirectora sénior de comunicaciones externas estratégicas y asuntos públicos de la Asociación Americana de Psicología, y trabajó 14 años como reportera y editora de The Associated Press. Mills también ha escrito para publicaciones como The Washington Post, Fast Company, American Journalism Review, Dallas Morning News y Harvard Business Review.</p>
+    </div>
+
+    <footer>
+      <p>Fecha de creación: diciembre de 2024 · Speaking of Psychology</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#transcripcion p');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en la transcripción.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#transcripcion mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

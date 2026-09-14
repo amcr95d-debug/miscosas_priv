@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cambiar de opinión puede ser arriesgado</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .cita {
+      border-left: 4px solid var(--borde);
+      margin: 1rem 0;
+      padding: .5rem 1rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    .cita strong {
+      color: var(--texto);
+      font-style: normal;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .estudio {
+      border-left: 4px solid var(--acento);
+    }
+
+    .estudio h3 {
+      margin-top: 0;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado {
+      border-left: 4px solid var(--acento);
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Nota de prensa · 8 de junio de 2017</span>
+      <h1>Cambiar de opinión puede ser arriesgado</h1>
+      <p class="subtitulo">Los líderes que cambian de postura sobre una posición moral se ven como hipócritas y menos eficaces, según un estudio</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Personalidad</span>
+      <span class="tema">Liderazgo</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p>Washington — Cuando los líderes usan un argumento moral en lugar de uno pragmático como base de una postura, pueden ser juzgados con dureza si cambian esa postura más tarde. Son percibidos como hipócritas, menos eficaces y menos dignos de apoyo futuro, según una investigación publicada por la Asociación Americana de Psicología.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>Los líderes pueden optar por adoptar posturas morales, creyendo que esto mejorará las percepciones de la audiencia. Y lo hace, al principio. Pero todas las personas, incluso los líderes, tienen que cambiar de opinión a veces</strong>», dijo la autora principal Tamar Kreps, PhD, de la Universidad de Utah. «Nuestra investigación muestra que los líderes que cambian de opinión moral se ven como más hipócritas, y no como valientes o flexibles, en comparación con aquellos cuya opinión inicial se basó en un argumento pragmático. Debido a esta percepción de hipocresía, también se ven como menos eficaces y menos dignos de apoyo».</p>
+        <p class="articulo-ref">La investigación fue publicada en el <em>Journal of Personality and Social Psychology</em>.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>En el estudio, Kreps y sus colegas realizaron una serie de 15 experimentos en línea con más de 5500 participantes de Estados Unidos con edades comprendidas entre los 18 y los 77 años. En cada experimento, los participantes conocían a líderes políticos o empresariales que habían cambiado de opinión sobre un tema. A algunos participantes se les informaba que las posturas iniciales de los líderes se basaban en una postura moral. A otros se les decía que la postura se basaba en un argumento pragmático (por ejemplo, que era bueno para la economía).</p>
+        <p>A lo largo de los estudios, los participantes calificaron al líder que cambió de opinión sobre una postura moral como más hipócrita y, en la mayoría de los casos, menos eficaz y digno de su apoyo que a los líderes cuya postura inicial era pragmática.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Lo que más sorprendió a los investigadores fue lo difícil que resultó eliminar el efecto, según Kreps. «En diferentes estudios, intentamos poner a prueba diversos factores que pensábamos que podrían debilitar el efecto. Por ejemplo, ¿y si el líder usara el mismo valor moral en su visión posterior que en la anterior? ¿Y si el líder no dependiera del apoyo popular y por tanto no tuviera razón para aparentar? ¿Qué pasa con los participantes que creían en el relativismo moral, la visión de que no hay realidad objetiva en primer lugar? Ninguna de esas cosas marcó la diferencia: los que inicialmente cambiaban de opinión moral consistentemente parecían más hipócritas», dijo.</p>
+        <p class="cita">«<strong>En conjunto, estos resultados pintan un panorama sombrío para los líderes inicialmente morales. Cuando los líderes adoptan una postura moral, parece que hay poco que puedan hacer para evitar ser percibidos como hipócritas si descubren que más tarde tienen que cambiar de opinión</strong>», dijo Kreps.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Para los líderes que insisten en argumentos morales, hay algunas buenas noticias si tienen que cambiar de opinión más tarde, según Kreps. Aunque en todos los casos, los líderes que cambiaron de posición sobre una postura moral se vieron como más hipócritas, si los líderes enmarcaban el cambio como resultado de una experiencia personalmente transformadora o fuera de su control debido a fuerzas externas, no se veían como menos eficaces ni indignos de apoyo.</p>
+        <p class="cita">«<strong>Sabemos que las creencias morales tienden a mantenerse más constantes a lo largo del tiempo. Así que los líderes deberían adoptar posturas morales solo si tienen las creencias subyacentes para respaldar esas posturas</strong>», dijo Kreps. «Adoptar una postura moral inauténtica para aparentar ante una audiencia moralizadora podría salir el tiro por la culata si un líder necesita cambiar esa postura más adelante».</p>
+        <p class="articulo-ref"><strong>Artículo:</strong> «Hypocritical Flip-Flop or Courageous Evolution? When Leaders Change Their Moral Minds» («¿Giro hipócrita o evolución valiente? Cuando los líderes cambian de opinión moral»), de Tamar Kreps, PhD, Universidad de Utah; Kristin Laurin, PhD, Universidad de Columbia Británica; y Anna Merritt, PhD, Universidad de Stanford. <em>Journal of Personality and Social Psychology</em>, publicado en línea el 8 de junio de 2017.</p>
+      </div>
+
+      <h2>El artículo científico</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Resumen</h3>
+        <p>¿Cómo reaccionan las audiencias ante los líderes que cambian de opinión tras adoptar posturas morales? Proponemos que las personas creen que las posturas morales son compromisos más fuertes, en comparación con las posturas pragmáticas; exploramos, por tanto, si y cuándo las audiencias creen que esos compromisos pueden romperse. Encontramos que las audiencias creen que los compromisos morales no deberían romperse, y así ridiculizan como hipócritas a los líderes que reclaman un compromiso moral y luego cambian de opinión. Además, los ven como menos eficaces y menos dignos de apoyo. Aunque los participantes encontraron al que cambia de opinión moral especialmente hipócrita cuando no estaban de acuerdo con la nueva visión, el efecto persistió incluso entre los participantes que respaldaban plenamente la nueva visión. Sacamos estas conclusiones de análisis y metaanálisis de 15 estudios (<em>N</em> total = 5552), usando avances estadísticos recientes para verificar la robustez de nuestros hallazgos. En varios estudios pusimos a prueba posibles moderadores; en general solo encontramos un hallazgo prometedor: cierta evidencia de que dos justificaciones específicas —citar una experiencia personalmente transformadora, o culpar a las circunstancias externas en lugar de reconocer un cambio de opinión— ayudan a los líderes morales a parecer más valientes, pero no menos hipócritas.</p>
+        <p class="articulo-ref"><strong>Palabras clave:</strong> hipocresía, liderazgo, moralidad, cambio de opinión, percepción social.</p>
+      </div>
+
+      <h2>Las tres hipótesis enfrentadas</h2>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Hipótesis de la hipocresía</h3>
+          <p>Si moralizar una actitud es como casarse: un compromiso de mantener esa actitud para siempre, entonces romperlo no solo sería sorprendente, sino moralmente engañoso. Al abandonar un principio moral, o bien la afirmación inicial (o su compromiso de duración) era falso, o lo es la nueva. Cualquiera de las dos possibilities implicaría que una de las declaraciones se hizo por razones egoístas. El «girista» pragmático inicial, que nunca prometió durar, no habría fingido nada.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Hipótesis de la evolución valiente</h3>
+          <p>Quizá las personas creen que moralizar restringe la conducta futura del moralizador pero <em>no</em> que debería. «Casarse» con una postura sería más un obstáculo para actualizar las opiniones que un compromiso que debe mantenerse. Quien logra superar las probabilidades y admitir el cambio sería especialmente admirable: valiente y flexible. Los precedentes anecdóticos abundan: elogios al coraje de Obama al apoyar el matrimonio igualitario tras oponerse por razones religiosas, o la veneración por Lincoln, que pasó de defensor de los derechos de los estados a presidente que abolió la esclavitud.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Hipótesis del partidismo</h3>
+          <p>Las interpretaciones podrían depender de la dirección del cambio respecto a las convicciones de la audiencia: quien cambia de un «error» moral a una «verdad» podría ser visto como valiente (Obama para los partidarios del matrimonio igualitario, Lincoln para los abolicionistas), y quien va de «verdad» a «error» como hipócrita. Sería un efecto interactivo de la concordancia entre el lector y la posición final del líder.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <p>Las tres hipótesis descansan sobre supuestos distintos sobre la norma de mantener posturas moralizadas: ¿es solo descriptiva (así son las cosas) o también prescriptiva (así deberían ser)? La hipótesis de la hipocresía presupone una norma prescriptiva: los moralizadores <em>deberían</em> mantener sus creencias. La de la evolución valiente, solo descriptiva: los moralizadores <em>tienden</em> a mantenerlas sin que eso se juzgue bueno. Y el partidismo propone que las personas flexibilizan la interpretación de la norma según sus motivaciones. A esto se añaden consecuencias para el líder: si parece hipócrita, será difícil de predecir, poco fiable y difícil de coordinar, perdiendo eficacia y apoyo; si parece valiente, cosechará los premios del «altruismo competitivo».</p>
+        <p class="datos"><strong>Estudio piloto previo:</strong> antes de los 15 estudios, se pidió a los participantes valorar posturas morales y pragmáticas según normas descriptivas y prescriptivas. Encontraron cierta evidencia de la norma prescriptiva (se cree que «deberían» mantenerse más las posturas morales) y de la descriptiva (se observa que «se mantienen» aún más de lo que se cree que deberían). Ambas normas coexisten, sin decantar claramente la balanza, lo que justificó los 15 estudios posteriores.</p>
+      </div>
+
+      <h2>El estudio de ejemplo (estudio 14)</h2>
+
+      <div class="tarjeta">
+        <p>En el estudio de ejemplo, 817 trabajadores de Mechanical Turk leyeron los comentarios de un congresista del Medio Oeste sobre la pena de muerte o el matrimonio igualitario. La manipulación principal era el encuadre inicial: moral (justicia y merecido castigo para criminales violentos; igualdad y respeto a la tradición) o pragmático (costes económicos). Los líderes cambiaban luego de bando, siempre reconociendo el cambio de opinión, y se manipulaba si la nueva postura se enmarcaba moral o pragmáticamente. Se midieron percepciones del personaje (hipocresía, valentía, flexibilidad), eficacia como líder, apoyo electoral y relativismo moral de los participantes.</p>
+        <p><strong>Resultados:</strong> fuerte apoyo a la hipótesis de la hipocresía: el líder inicialmente moral pareció más hipócrita (<em>b</em> = 0,32; <em>p</em> &lt; ,001), menos eficaz (<em>b</em> = −0,16; <em>p</em> = ,027) y menos digno de apoyo (<em>b</em> = −0,29; <em>p</em> = ,005), con efectos indirectos de la hipocresía sobre eficacia y apoyo. Sin apoyo para la evolución valiente: ni valentía ni flexibilidad aumentaron. Apoyo mixto al partidismo: la interacción solo alcanzó significación marginal para la hipocresía, con un análisis de foco mostrando que el efecto era significativo siempre que la concordancia con la posición final fuera menor de 1,54 (escala de −3 a 3), y nunca se invirtió: incluso en concordancia total, los inicialmente morales seguían pareciendo (no significativamente) más hipócritas.</p>
+      </div>
+
+      <h2>Los 15 estudios en conjunto</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Estudio</th>
+              <th>Contexto / Tema</th>
+              <th><em>N</em></th>
+              <th>Características</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1-2</td><td>Empresa: sistema medioambiental</td><td>151 y 198</td><td>Primeros estudios; efectos en la dirección prevista sin alcanzar significación</td></tr>
+            <tr><td>3-4</td><td>Política: uso ritual de drogas / matrimonio igualitario</td><td>387 y 398</td><td>Primera manipulación del encuadre posterior (moral/pragmático)</td></tr>
+            <tr><td>5-6</td><td>Política (dentro de sujetos)</td><td>167 y 206</td><td>Dos líderes por participante; apoyo medido como voto binario</td></tr>
+            <tr><td>7</td><td>Política: anuncios de ataque realistas</td><td>297</td><td>Estímulo en vídeo con ecología real</td></tr>
+            <tr><td>8-9</td><td>Medio ambiente: gestor vs. senador; alta/baja dependencia del apoyo popular</td><td>301 y 450</td><td>Descartada la motivación de aparentar como explicación</td></tr>
+            <tr><td>10-11</td><td>Matrimonio igualitario: misma justificación de valor</td><td>303 y 306</td><td>El cambio justificado con el mismo valor moral subyacente</td></tr>
+            <tr><td>12-13</td><td>Reforma migratoria / anuncios sexualizados</td><td>404 y 401</td><td>Se añadieron medidas de valentía y flexibilidad</td></tr>
+            <tr><td>14</td><td>Pena de muerte / matrimonio igualitario (ejemplo)</td><td>777</td><td>Dos temas; medidas validadas; relativismo moral</td></tr>
+            <tr><td>15</td><td>Pena de muerte (con preregistro)</td><td>806</td><td>Justificaciones por transformación personal o circunstancias externas</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tarjeta">
+        <p><strong>Transparencia metodológica:</strong> los autores reportaron los 15 estudios completos, sin selección de resultados favorables (archivo de cajón vacío, salvo tres estudios con problemas de manipulación documentados en nota al pie). El tamaño muestral se fijó a priori, se aplicaron controles de atención (126 exclusiones, el 2,2 % de la muestra total, dejando <em>N</em> = 5552), y el estudio 15 fue preregistrado en el Open Science Framework. Los datos están disponibles públicamente.</p>
+      </div>
+
+      <h2>Resultados metaanalíticos</h2>
+
+      <div class="tarjeta">
+        <p>Siguiendo los métodos de Johnson y Eagly (2000) para calcular, ponderar y estimar los tamaños del efecto globales:</p>
+        <div class="tabla-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Variable dependiente</th>
+                <th><em>d</em> metaanalítico [IC 95 %]</th>
+                <th>Interpretación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Hipocresía percibida</td><td>0,22 [0,17, 0,27]</td><td>El líder inicialmente moral parece significativamente más hipócrita</td></tr>
+              <tr><td>Eficacia como líder</td><td>0,14 [0,08, 0,19]</td><td>Y significativamente menos eficaz</td></tr>
+              <tr><td>Apoyo (voto)</td><td>0,11 [0,03, 0,19]</td><td>Y significativamente menos digno de apoyo</td></tr>
+              <tr><td>Valentía</td><td>−0,06 [−0,16, 0,04]</td><td>Sin efecto: no se le ve más valiente</td></tr>
+              <tr><td>Flexibilidad</td><td>−0,03 [−0,13, 0,07]</td><td>Sin efecto: no se le ve más flexible</td></tr>
+              <tr><td>Interacción (hipocresía × concordancia)</td><td>−0,05 [−0,10, −0,003]</td><td>Ligero matiz partidista, pero sin eliminar el efecto principal</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Los efectos indirectos de la hipocresía sobre eficacia (0,22) y apoyo (0,21) fueron significativos, confirmando que la percepción de hipocresía es el mecanismo que traduce el encuadre moral inicial en sanciones posteriores.</p>
+      </div>
+
+      <div class="tarjeta destacado">
+        <h3 style="margin-top:0;">La robustez ante resultados mixtos</h3>
+        <p>Los resultados individuales eran mixtos: significativos en 11 de 15 estudios para hipocresía, en 5 de 15 para eficacia y en 3 de 5 para apoyo, siempre con 33 de 35 efectos en la dirección prevista. Los autores aplicaron dos verificaciones modernas de robustez:</p>
+        <p><strong>Razón de verosimilitud de Lakens y Etz:</strong> dado el bajo poder post hoc (56 % para hipocresía, 27 % para eficacia, 23 % para apoyo), la razón de verosimilitud del patrón observado bajo la hipótesis de la hipocresía frente a la nula fue superior a 16 mil millones para la hipocresía, 329,58 para la eficacia y 63,95 para el apoyo: evidencia fuerte de que los nulos reflejan potencia insuficiente, no efectos inexistentes.</p>
+        <p><strong>Prueba de Q de Cochran:</strong> sin heterogeneidad significativa en ningún efecto (por ejemplo, Q(14) = 4,91; <em>p</em> = ,987 para hipocresía), lo que indica tamaños del efecto consistentes entre estudios sin moderadores ocultos.</p>
+        <p>E incluso en la prueba más conservadora —participantes que concordaban plenamente con la posición final del líder—, los inicialmente morales siguieron pareciendo más hipócritas (<em>d</em> = 0,09; <em>p</em> &lt; ,001).</p>
+      </div>
+
+      <h2>Discusión general</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Las normas morales de la audiencia</h3>
+        <p>Los hallazgos hablan de las creencias cotidianas sobre las afirmaciones morales y destacan dos aspectos. Primero: <strong>las posiciones morales deberían perdurar</strong>. No solo se espera —se exige— mayor consistencia de quien moraliza, y se le degrada si falla: es la primera demostración de que los observadores sostienen la norma prescriptiva correspondiente, no solo la descriptiva. Segundo: <strong>dónde está la hipocresía</strong>. Cuando se preguntó a los participantes por la verdadera opinión de los líderes, tendían a dudar de la visión posterior y a aferrarse a la inicial (que seguían viendo como más auténtica), percibiendo la hipocresía en el giro drástico, no en la primera declaración como mera apariencia. Sorprendentemente, no encontraron que los cambiantes morales «no tuvieran núcleo verdadero alguno», aunque en contextos electorales reales algunos líderes han sido tachados de «giristas crónicos» (por ejemplo, Mitt Romney): quizá haga falta cambiar de opinión varias veces para parecer carente de núcleo.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">El matiz del encuadre posterior</h3>
+        <p>Una pregunta separada e interesante: ¿ayuda o perjudica adoptar un encuadre moral <em>después</em> del cambio, sea cual sea el inicial? La respuesta parece ser que ayuda: cuando hubo efectos, los encuadres morales posteriores hacían a los giristas parecer menos hipócritas (metaanalíticamente <em>d</em> = 0,16) y mejores en general (eficacia: <em>d</em> = 0,16; apoyo: <em>d</em> = 0,24). El contraste con el efecto robusto del encuadre inicial sugiere que las posturas morales ayudan en general fuera del contexto de un cambio de opinión, o quizá que prometen un yo especialmente consistente «de ahora en adelante» (aunque un segundo giro volvería a costar caro).</p>
+        <p>Los autores también exploran —sin datos que lo decidan— una posibilidad no probada: quizá las personas duden no de las posiciones, sino de las <em>justificaciones</em>: si los compromisos morales son tan fuertes que son imposibles de romper, quien parece romper uno no debió tenerlo de verdad desde el principio.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">La única esperanza: dos justificaciones prometedoras</h3>
+        <p>En el estudio 15 se probaron dos justificaciones adicionales del cambio. En la de <strong>experiencia transformadora</strong>, el líder narraba un acontecimiento que le hizo replantearse las cosas (pasar tiempo con un recluso en el corredor de la muerte y ver la injusticia del sistema). En la de <strong>circunstancias externas</strong>, el líder negaba haber cambiado de actitud, alegando impedimentos ajenos a su control. Los resultados, con cautela por proceder de un único estudio: ninguna de las dos hizo parecer menos hipócrita al líder, pero ambas hicieron que pareciera <em>más valiente</em>, lo que se asoció con parecer más eficaz y digno de apoyo. Tres advertencias: estos efectos surgieron junto a los de hipocresía (el líder moral seguía sin salir ganando); culpar a factores externos fue perjudicial para todos los líderes; y la evidencia es imperfecta, digna de investigación futura.</p>
+        <p>Una idea prometedora para el futuro: el <strong>tiempo</strong>. Si un cambio sincero de opinión sobre un asunto de peso «debería» tomar su tiempo, quizá alargar el intervalo entre declaraciones (o la velocidad del anuncio del cambio) haga el giro moral más aceptable. Los líderes astutos que experimenten cambios morales rápidos pero verdaderos podrían hacer bien en guardar silencio un tiempo.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Limitaciones</h3>
+        <p>Todos los estudios se realizaron en línea, con medidas autoinformadas de percepciones e intenciones; aunque se intentó hacer los mensajes realistas (tomados de webs de políticos reales, anuncios semejantes a los auténticos), la investigación de campo es una tarea pendiente. Y el foco se limitó a líderes: se eligieron por las consecuencias específicas de la hipocresía en roles de liderazgo (pérdida de confianza, daño a la influencia moral, deterioro de la coordinación, visibilidad pública), pero el razonamiento teórico basado en una norma prescriptiva de consistencia moral aplicaría igualmente a personas corrientes, algo que la investigación futura podría examinar.</p>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>Los líderes que adoptan una postura moral pueden parecer más auténticos e inspiradores, pero también se enfrentan a un riesgo: si más tarde cambian de opinión, las audiencias probablemente los verán como especialmente hipócritas y, por tanto, poco agradables y poco dignos de apoyo. Lejos de ser apreciados por su madurez y coraje al reconocer la evolución de sus ideas, esos líderes sufren rechazo en una variedad de contextos, aunque en algunos casos no entre quienes creen que han pasado de «mal» a «bien». En otras palabras, la gente no solo espera que otros se mantengan en sus posturas morales: ve ese compromiso como una obligación moral y se vuelve contra quien lo rompe. En este sentido, hablar de moral no es gratis: quienes se desvían de sus posturas morales iniciales pagan el precio de parecer finalmente más hipócritas, menos eficaces y menos dignos de apoyo, y los líderes harían bien en evitarlo en ausencia de una convicción verdadera y duradera.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Hypocritical Flip-Flop, or Courageous Evolution? (PDF, 182 KB) — artículo original</a></li>
+      <li><a href="#">Journal of Personality and Social Psychology — revista de la APA</a></li>
+    </ul>
+
+    <footer>
+      <p>Fecha de creación: 8 de junio de 2017 · Nota de prensa de la Asociación Americana de Psicología</p>
+      <p>Contacto de prensa: Jim Sliwa · (202) 336-5707</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>

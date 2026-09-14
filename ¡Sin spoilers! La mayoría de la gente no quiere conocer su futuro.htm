@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¡Sin spoilers! La mayoría de la gente no quiere conocer su futuro</title>
+  <style>
+    :root {
+      --fondo: #f5f7fa;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --texto-suave: #6b7280;
+      --acento: #2563eb;
+      --acento-suave: #eff6ff;
+      --borde: #e5e7eb;
+      --marca: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .03em;
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin: 0 0 .5rem;
+      line-height: 1.25;
+    }
+
+    .subtitulo {
+      color: var(--texto-suave);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid var(--borde);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 .5rem;
+      color: var(--acento);
+    }
+
+    .temas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .tema {
+      font-size: .8rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      color: var(--texto-suave);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: .75rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+
+    .tarjeta p {
+      margin: 0 0 .75rem;
+    }
+
+    .tarjeta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entradilla {
+      border-left: 4px solid var(--acento);
+      font-size: 1.05rem;
+    }
+
+    .buscador {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      font-size: 1rem;
+      margin: .5rem 0 .25rem;
+      outline: none;
+    }
+
+    .buscador:focus {
+      border-color: var(--acento);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    }
+
+    .contador {
+      font-size: .85rem;
+      color: var(--texto-suave);
+      min-height: 1.3em;
+      margin: 0 0 1rem;
+    }
+
+    .cita {
+      border-left: 4px solid var(--borde);
+      margin: 1rem 0;
+      padding: .5rem 1rem;
+      color: var(--texto-suave);
+      font-style: italic;
+    }
+
+    .cita strong {
+      color: var(--texto);
+      font-style: normal;
+    }
+
+    .tabla-scroll {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--tarjeta);
+      font-size: .92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--borde);
+      padding: .5rem .75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-weight: 600;
+    }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: .75rem;
+    }
+
+    .pilares h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+    }
+
+    .pilares .num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      text-align: center;
+      background: var(--acento);
+      color: #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+      margin-right: .4rem;
+    }
+
+    .estudio {
+      border-left: 4px solid var(--acento);
+    }
+
+    .estudio h3 {
+      margin-top: 0;
+    }
+
+    .datos {
+      font-size: .9rem;
+      color: var(--texto-suave);
+      background: var(--acento-suave);
+      border-radius: .5rem;
+      padding: .5rem .75rem;
+      margin-top: .75rem;
+    }
+
+    .destacado {
+      border-left: 4px solid var(--acento);
+    }
+
+    .ejemplo {
+      background: var(--acento-suave);
+      border: 1px dashed var(--acento);
+      border-radius: .5rem;
+      padding: .75rem 1rem;
+      margin: .75rem 0;
+      font-size: .95rem;
+    }
+
+    .articulo-ref {
+      font-size: .92rem;
+      color: var(--texto-suave);
+    }
+
+    mark {
+      background: var(--marca);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .relacionados {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .5rem;
+    }
+
+    .relacionados a {
+      display: block;
+      padding: .85rem 1.1rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: .75rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+
+    .relacionados a:hover {
+      color: var(--acento);
+      border-color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      color: var(--texto-suave);
+      font-size: .9rem;
+    }
+
+    footer p {
+      margin: .25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header>
+      <span class="etiqueta">Nota de prensa · 22 de febrero de 2017</span>
+      <h1>¡Sin spoilers! La mayoría de la gente no quiere conocer su futuro</h1>
+      <p class="subtitulo">Aprender lo que depara el futuro, bueno o malo, no resulta atractivo para la mayoría, según un estudio</p>
+    </header>
+
+    <div class="temas">
+      <span class="tema">Personalidad</span>
+    </div>
+
+    <div class="tarjeta entradilla">
+      <p>Washington — Dada la oportunidad de ver el futuro, la mayoría de las personas preferiría no saber lo que la vida les tiene reservado, incluso si creen que esos eventos podrían hacerlas felices, según una nueva investigación publicada por la Asociación Americana de Psicología.</p>
+    </div>
+
+    <div id="contenido">
+
+      <input type="search" id="buscador" class="buscador" placeholder="Buscar en el artículo...">
+      <p class="contador" id="contador"></p>
+
+      <div class="tarjeta">
+        <p class="cita">«<strong>En la mitología griega, Casandra, hija del rey de Troya, tenía el poder de prever el futuro. Pero también estaba maldita y nadie creía sus profecías</strong>», dijo el autor principal del estudio, Gerd Gigerenzer, PhD, del Instituto Max Planck para el Desarrollo Humano. «En nuestro estudio, hemos encontrado que la gente prefirió declinar los poderes que hicieron famosa a Casandra, en un esfuerzo por evitar el sufrimiento que conocer el futuro puede causar, evitar el arrepentimiento y mantener también el disfrute del suspense que los eventos placenteros proporcionan».</p>
+        <p>Dos estudios nacionalmente representativos con más de 2000 adultos en Alemania y España encontraron que entre el 85 y el 90 % de las personas no querría saber sobre próximos eventos negativos, y entre el 40 y el 70 % prefería permanecer ignorante de próximos eventos positivos. Solo el 1 % de los participantes quería de manera consistente saber lo que el futuro deparaba. Los hallazgos se publican en la revista <em>Psychological Review</em> de la APA.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Los investigadores también encontraron que las personas que prefieren no conocer el futuro son más reacias al riesgo y compran con más frecuencia seguros de vida y legales que quienes quieren conocer el futuro. Esto sugiere que quienes eligen ser ignorantes anticipan el arrepentimiento, dijo Gigerenzer. El tiempo que falta hasta que ocurra un evento también jugó un papel: la ignorancia deliberada era más probable cuanto más cerca estaba el evento. Por ejemplo, los adultos mayores tenían menos probabilidades que los jóvenes de querer saber cuándo morirían ellos o su pareja, y la causa de la muerte.</p>
+        <p>Se preguntó a los participantes sobre una amplia gama de eventos potenciales, tanto positivos como negativos. Por ejemplo, se les preguntó si querían saber quién ganó un partido de fútbol que tenían planeado ver más tarde, qué les regalarían en Navidad, si hay vida después de la muerte y si su matrimonio acabaría eventualmente en divorcio. Averiguar el sexo de su hijo no nacido fue el único ítem de la encuesta en el que más personas querían saber que no, con solo el 37 % de los participantes diciendo que no querrían saberlo.</p>
+      </div>
+
+      <div class="tarjeta">
+        <p>Aunque las personas que viven en Alemania y España varían en edad, educación y otros aspectos importantes, el patrón de ignorancia deliberada fue altamente consistente entre los dos países, según el artículo, incluida su prevalencia y previsibilidad.</p>
+        <p class="cita">«<strong>Querer saber parece ser la condición natural de la humanidad, y no necesita justificación. Las personas no solo son invitadas, sino que a menudo se espera que participen en la detección temprana de cribados de cáncer o en chequeos de salud regulares, que sometan a sus bebés no nacidos a docenas de pruebas genéticas prenatales, o que usen dispositivos de autosupervisión de la salud</strong>», dijo Gigerenzer. «No querer saber parece contraintuitivo y puede levantar sospechas, pero la ignorancia deliberada, como hemos demostrado aquí, no solo existe: es un estado mental extendido».</p>
+        <p class="articulo-ref"><strong>Artículo:</strong> «Cassandra's Regret: The Psychology of Not Wanting to Know» («El arrepentimiento de Casandra: la psicología de no querer saber»), de Gerd Gigerenzer, PhD, Instituto Max Planck para el Desarrollo Humano, y Rocio Garcia-Retamero, PhD, Universidad de Granada, España. <em>Psychological Review</em>, marzo, vol. 124, n.º 2.</p>
+      </div>
+
+      <h2>El artículo científico</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Resumen</h3>
+        <p>La ignorancia generalmente se retrata como un estado mental no deseado, y el acto de ignorancia voluntaria puede levantar sospechas. Sin embargo, las personas no siempre quieren saber, mostrando una falta de curiosidad en desacuerdo con las teorías que postulan una necesidad general de certeza, aversión a la ambigüedad o el principio bayesiano de la evidencia total. Proponemos una teoría del arrepentimiento de la ignorancia deliberada que cubre tanto los sentimientos negativos que pueden surgir del conocimiento previo de eventos negativos, como la muerte y el divorcio, como los sentimientos positivos de sorpresa y suspense que pueden surgir del conocimiento previo de eventos positivos, como saber el sexo de un hijo no nacido. Realizamos los primeros estudios representativos a escala nacional para estimar la prevalencia y previsibilidad de la ignorancia deliberada para una muestra de 10 eventos. Su prevalencia es alta: entre el 85 % y el 90 % de las personas no querría saber sobre próximos eventos negativos, y entre el 40 % y el 70 % prefiere permanecer ignorante de los eventos positivos. Solo el 1 % de los participantes quería saber de manera consistente. También deducimos y ponemos a prueba varias predicciones de la teoría del arrepentimiento: las personas que prefieren permanecer ignorantes son más reacias al riesgo y compran más frecuentemente seguros de vida y legales. La teoría también implica la hipótesis del tiempo hasta el evento, que afirma que para los propensos al arrepentimiento, la ignorancia deliberada es más probable cuanto más cerca esté el evento. Validamos cruzadamente estos hallazgos usando dos muestras nacionales representativas por cuotas en dos países europeos. En suma, mostramos que la ignorancia deliberada existe, se relaciona con la aversión al riesgo y puede explicarse como la evitación del arrepentimiento anticipado.</p>
+        <p class="articulo-ref"><strong>Palabras clave:</strong> arrepentimiento anticipado, ignorancia deliberada, aversión al riesgo, seguros.</p>
+      </div>
+
+      <h2>La maldición de Casandra</h2>
+
+      <div class="tarjeta">
+        <p>Según la mitología griega, Apolo otorgó a Casandra, hija del rey de Troya, el poder de prever el futuro. Pero tras su fallido intento de seducirla, la maldijo para que sus profecías jamás fueran creídas. Casandra previó la caída de Troya, la muerte de su padre, la hora de su propia muerte y el nombre de su asesino. Observar impotente el acercamiento de los horrores futuros se convirtió en una fuente de dolor, sufrimiento y arrepentimiento sin fin por su terrible conocimiento solitario.</p>
+        <p>A diferencia de Casandra, gran parte de la filosofía y la psicología ha asignado un valor categóricamente positivo al poder de conocer y predecir el futuro. «Todos los hombres desean por naturaleza saber», así comenzó Aristóteles su <em>Metafísica</em>. Uno de los fundadores de la psicología cognitiva del siglo XX, George Miller, propuso que así como el cuerpo sobrevive ingiriendo entropía negativa, la mente sobrevive ingiriendo información: la visión del <em>Homo sapiens</em> como «informívoro» subyace a conceptos como la aversión a la ambigüedad y la necesidad de cierre. Pero no ha pasado desapercibido que la gente a veces no quiere saber: unos investigadores médicos preguntaron por qué alrededor del 10 % de los adultos canadienses con antecedentes familiares de Huntington eligió no hacerse la prueba predictiva, o por qué el 20 % de los adultos de Malawi en riesgo de VIH eligió no conocer los resultados de una prueba incluso con incentivos monetarios. Como Dylan, los investigadores suelen vincular el no querer saber con la autoengaño y la evasión de responsabilidades.</p>
+        <p>El progreso tecnológico desplaza constantemente la línea entre lo conocible y lo incognoscible en dirección a los poderes de Casandra: clínicas que ofrecen cribados prenatales para docenas de anomalías, análisis del genoma completo, biomarcadores que predicen cuándo y de qué morirá una persona, y tests que pretenden predecir si y cuándo una pareja se divorciará. Pero ¿querrías saber durante la ceremonia de boda si tu matrimonio va a acabar en divorcio? A diferencia de Casandra, cada vez más a menudo tenemos la opción de elegir.</p>
+      </div>
+
+      <h2>¿Qué es la ignorancia deliberada?</h2>
+
+      <div class="tarjeta">
+        <p>Se usa el término <strong>ignorancia deliberada</strong> para referirse a la decisión voluntaria de no saber, en oposición a la incapacidad de acceder a la información o al desinterés por la pregunta. Se trata de «desconocidos conocidos», no de «desconocidos desconocidos». Existen dos condiciones definitorias:</p>
+        <div class="pilares">
+          <div class="tarjeta">
+            <h3><span class="num">1</span>Elección de la ignorancia aunque la información sea gratis</h3>
+            <p>La razón de no querer saber no son los costes de búsqueda: la ignorancia se mantiene incluso si los costes de búsqueda son insignificantes o la información es gratuita.</p>
+          </div>
+          <div class="tarjeta">
+            <h3><span class="num">2</span>Elección de la ignorancia pese al interés personal</h3>
+            <p>Tampoco se trata de indiferencia: la ignorancia deliberada se aplica a preguntas de interés personal significativo.</p>
+          </div>
+        </div>
+        <p>Estas condiciones la distinguen de otros fenómenos: no es el olvido (que es mayormente automático), ni la exposición selectiva a información confirmatoria (donde se busca activamente, aunque sesgadamente, mientras que aquí se evita la búsqueda en primer lugar), ni la <strong>agnotología</strong> (la producción sistemática de ignorancia pública por fuentes externas, como la industria del tabaco; la ignorancia deliberada, en cambio, implica mantener la ignorancia personal).</p>
+      </div>
+
+      <h2>Los cuatro motivos de la ignorancia deliberada</h2>
+
+      <div class="pilares">
+        <div class="tarjeta">
+          <h3><span class="num">1</span>Evitar emociones negativas</h3>
+          <p>Evitar potencialmente malas noticias, particularmente cuando no hay medios para prevenirlas. Por ejemplo, James Watson, codescubridor del ADN, estipuló al secuenciar su genoma que su genotipo ApoE4, que indica riesgo de alzhéimer, fuera borrado de la secuencia publicada y no revelado a sí mismo.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">2</span>Mantener sorpresa y suspense</h3>
+          <p>Mantener las emociones positivas de sorpresa y suspense sobre eventos personalmente importantes. Algunas embarazadas sienten con fuerza no querer saber el sexo de su bebé para preservar el suspense, mientras que otras quieren saberlo para planificar.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">3</span>Ventaja estratégica</h3>
+          <p>Beneficiarse estratégicamente de permanecer ignorante: en teoría de juegos, quien finge ignorancia explota a otros agentes. También incluye esquivar responsabilidades y evitar la responsabilidad legal.</p>
+        </div>
+        <div class="tarjeta">
+          <h3><span class="num">4</span>Imparcialidad y justicia</h3>
+          <p>La Dama de la Justicia lleva venda en los ojos; en derecho estadounidense, el historial delictivo del acusado no es admisible; el velo de la ignorancia de Rawls; el experimento doble ciego en ciencias. Los tres «sabios» monos del santuario Toshogu en Japón encarnan el principio moral de darse la vuelta al mal permaneciendo deliberadamente ignorante.</p>
+        </div>
+      </div>
+
+      <h2>La teoría del arrepentimiento</h2>
+
+      <div class="tarjeta">
+        <p>La teoría propuesta asume que la ignorancia deliberada se basa en el <strong>arrepentimiento anticipado</strong>: la emoción que ocurre antes de que la elección se haga. Se distinguen dos opciones: <em>K</em> (querer saber) e <em>I</em> (permanecer ignorante). Además de las dos condiciones definitorias, se requieren dos condiciones más para que sea posible experimentar arrepentimiento: <strong>retroalimentación</strong> (el verdadero resultado de la opción no elegida se revela) y <strong>conflicto aproximación-evitación</strong> (conocer el verdadero resultado genera consecuencias tanto favorables como desfavorables). El valor de saber un resultado tiene dos componentes: un beneficio y un coste, anticipados respecto al statu quo de permanecer ignorante.</p>
+        <p>El criterio de decisión es el <strong>minimax</strong>: elegir la opción que evita el máximo arrepentimiento anticipado posible. Si el resultado con mayor valor absoluto tiene signo positivo —los beneficios de saber dominan las emociones negativas—, se elige querer saber; si tiene signo negativo, se elige la ignorancia deliberada. Y, contra la intuición, la misma lógica funciona para los eventos positivos: para el partido de fútbol grabado, el amigo que sabe el resultado, el regalo de Navidad o el sexo del bebé, el coste de saber es la <em>pérdida de la sorpresa y el suspense</em>. Así, la teoría explica por primera vez tanto no querer saber sobre eventos negativos (muerte, divorcio) como positivos (victoria del equipo de casa): la ignorancia deliberada no es necesariamente autoengaño o debilidad moral, sino que tiene una doble función: evitar el arrepentimiento negativo y mantener el disfrute del suspense.</p>
+      </div>
+
+      <h2>Las cuatro predicciones</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Predicción</th>
+              <th>Enunciado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Las personas reacias al riesgo <em>para las ganancias</em> muestran más ignorancia deliberada (contra la intuición: el mismo arrepentimiento anticipado motiva ambas).</td></tr>
+            <tr><td>2</td><td>Las personas reacias al riesgo <em>para las pérdidas</em> muestran más ignorancia deliberada. Junto a la 1: importa la aversión al riesgo, no la distinción ganancias/pérdidas.</td></tr>
+            <tr><td>3</td><td>Quienes compran seguros <em>no obligatorios</em> (vida, hogar, responsabilidad civil, defensa jurídica) muestran más ignorancia deliberada.</td></tr>
+            <tr><td>4</td><td><strong>Hipótesis del tiempo hasta el evento:</strong> cuanto más cerca temporalmente está el evento, más probable es no querer saber (contra la «miopía temporal», que predeciría lo contrario).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Los diez eventos y los dos estudios nacionales</h2>
+
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Evento (pregunta)</th>
+              <th>% que no quiere saber</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Negativo</td><td>¿Cuándo morirá tu pareja?</td><td>90,2 %</td></tr>
+            <tr><td>Negativo</td><td>¿De qué causa morirá tu pareja?</td><td>89,4 %</td></tr>
+            <tr><td>Negativo</td><td>¿Cuándo morirás tú?</td><td>86,7 %</td></tr>
+            <tr><td>Negativo</td><td>¿De qué causa morirás tú?</td><td>85,8 %</td></tr>
+            <tr><td>Negativo</td><td>¿Acabará tu matrimonio en divorcio?</td><td>86,2 %</td></tr>
+            <tr><td>Positivo</td><td>¿Quieres que te digan el final del partido grabado?</td><td>73,6 %</td></tr>
+            <tr><td>Positivo</td><td>¿Qué te regalarán en Navidad?</td><td>64,4 %</td></tr>
+            <tr><td>Positivo</td><td>¿Hay vida después de la muerte?</td><td>50,4 %</td></tr>
+            <tr><td>Positivo</td><td>¿Es auténtico el zafiro comprado en Sri Lanka?</td><td>51,9 %</td></tr>
+            <tr><td>Positivo</td><td>¿El sexo del bebé antes de nacer?</td><td>37,4 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 1: Alemania (N = 1016)</h3>
+        <p>Primera investigación diseñada para que las inferencias de la muestra a la población fueran válidas: muestra nacional representativa por cuotas del panel GfK, representativa de la población alemana en edad, sexo, región y tamaño del asentamiento, con entrevistas cara a cara en los hogares (para establecer rapport y poder explicar las preguntas) y experimentos de aversión al riesgo. Los entrevistadores desconocían el propósito e hipótesis del estudio.</p>
+        <p><strong>Resultados de prevalencia:</strong> entre el 86 % y el 90 % de la población general no querría saber la respuesta a los cinco eventos negativos (por ejemplo, el 89,5 % no quiere saber cuándo morirá su pareja; el 87,7 %, cuándo morirá él mismo). Entre los positivos, entre el 40 % y el 77 % no querría saber: el 76,9 % no quiere que le chiven el final del partido, el 59,6 % no quiere saber su regalo de Navidad, el 56,9 % no quiere saber si hay vida tras la muerte, el 48,6 % no haría analizar el zafiro, y el 40,3 % no querría saber el sexo de su bebé antes de nacer (y otro 16,3 % delegaría la decisión en su pareja). Quienes querían saber de manera consistente fueron extremadamente raros: solo el 1,1 %, mientras que el 98,9 % no quiso saber la respuesta a una o más preguntas.</p>
+      </article>
+
+      <article class="tarjeta estudio">
+        <h3>Estudio 2: España (N = 1002)</h3>
+        <p>Replicación en un segundo gran país europeo con el mismo método representativo por cuotas, la misma empresa encuestadora (GfK, oficina de Valencia), entrevistas cara a cara y traducción con retraducción de control. Aprobado por el comité de ética de la Universidad de Granada.</p>
+        <p><strong>Resultados:</strong> la prevalencia y previsibilidad replicaron bien los hallazgos alemanes. En todos los eventos, la prevalencia fue solo 1,5 puntos porcentuales más baja que en Alemania. La pequeña diferencia global resultaba de efectos específicos opuestos: menos españoles que alemanes preferirían la sorpresa sobre el sexo de su hijo (34,7 % frente a 40,3 %), pero más preferirían la sorpresa de los regalos de Navidad (69,2 % frente a 59,6 %). Los que querían saber de manera consistente: solo el 0,6 %. En términos de la teoría del arrepentimiento, el valor del suspense sobre el sexo del hijo parece mayor para los alemanes, y el de los regalos navideños para los españoles.</p>
+      </article>
+
+      <div class="tarjeta destacado">
+        <h3 style="margin-top:0;">Previsibilidad: ¿se puede predecir de un evento a otro?</h3>
+        <p>Tres resultados emergieron del análisis de correlaciones. Primero, las respuestas sobre <strong>eventos negativos estaban altamente correlacionadas</strong>: las mayores entre el tiempo y la causa de la muerte de la pareja (0,82) y entre el tiempo y la causa de la propia muerte (0,83). La previsibilidad es mayor manteniendo a la persona constante y variando el atributo (tiempo o causa) que al revés. Segundo, las correlaciones entre <strong>eventos positivos fueron consistentemente bajas</strong> (media de 0,14): no querer saber si hay vida tras la muerte no predice querer saber el resultado del partido de fútbol. Solo hay un patrón pequeño entre las tres preguntas de suspense mundano (fútbol, regalos y sexo del bebé). Tercero, las correlaciones entre eventos positivos y negativos también fueron bajas (media de 0,16). Notable: la ausencia total de correlaciones negativas —no hay evidencia de <em>compensación</em>: querer no saber nunca lleva consigo querer saber otra cosa.</p>
+        <p>Un análisis de <strong>escala de Guttman</strong> lo confirma: los eventos negativos forman una escala (coeficiente de reproducibilidad 0,95; en España 0,94), los positivos no (0,67). Esto implica solo seis tipos de individuos: del Tipo I, que no quiere saber nada de nada, al Tipo VI, que quiere saberlo todo, pasando por quien solo añadiría el divorcio, o también la causa de la propia muerte, y así sucesivamente en un orden fijo.</p>
+      </div>
+
+      <h2>Poner a prueba las cuatro predicciones</h2>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Aversión al riesgo y seguros (predicciones 1-3)</h3>
+        <p>Se midió la aversión al riesgo con el paradigma estándar: elegir entre una ganancia segura y una lotería (y análogamente para pérdidas), sin retroalimentación del resultado. En ambas muestras, el 54,7 % fue reacio al riesgo para ganancias y el 57,5 % buscador de riesgo para pérdidas.</p>
+        <p><strong>Predicción 1 confirmada:</strong> para cada uno de los 10 eventos, el porcentaje de quienes no querían saber fue mayor entre los reacios al riesgo para ganancias (diferencia media de 4,0 puntos porcentuales; la mayor, 7,2 puntos para la vida tras la muerte). <strong>Predicción 2 confirmada:</strong> lo mismo con la aversión al riesgo para pérdidas (media de 3,2 puntos), salvo para el fútbol. La distinción ganancias/pérdidas no importa: la aversión al riesgo, sea cual sea su dominio, se asocia con más ignorancia deliberada.</p>
+        <p><strong>Predicción 3 confirmada:</strong> se realizaron 40 pruebas posibles (4 seguros × 10 eventos). Quienes habían comprado un seguro de vida preferían más la ignorancia en 8 de 10 eventos (media de 1,8 puntos; 7,4 puntos para la vida tras la muerte); los del seguro de hogar, en 9 de 10 (media de 4,1); los de responsabilidad civil (1,8) y los del seguro jurídico (2,6), igualmente. En 33 de 40 pruebas, compradores de seguros mostraron más ignorancia deliberada: comprar un seguro, como la ignorancia deliberada, se motiva por evitar el arrepentimiento anticipado.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Hipótesis del tiempo hasta el evento (predicción 4)</h3>
+        <p>La «miopía temporal» sugiere que cuanto más lejano un evento, menos interés; la teoría del arrepentimiento predice lo contrario. Seis de los 10 eventos permitían ponerla a prueba:</p>
+        <p><strong>Muerte:</strong> el porcentaje que no quería saber cuándo moriría su pareja crecía del 87,3 % (18-35 años) al 90,7 % (36-50) y al 92,3 % (mayores de 50): un total de 5,0 puntos, que se mantenía en regresiones logísticas. Para el tiempo y causa de la muerte propia y la causa de la de la pareja, la ignorancia aumentaba con la edad en estricto orden (diferencia media joven-mayor de 3,95 puntos). <strong>Divorcio:</strong> del 83,1 % al 85,5 % y al 89,2 % por grupos de edad (6,1 puntos), consistente con que el arrepentimiento crece cuanto más probable se hace el evento; casados frente a solteros mostró la misma dirección (84,0 % frente a 87,6 %), aunque este último efecto desaparecía al controlar las demás variables. <strong>Vida tras la muerte:</strong> del 46,1 % al 53,9 % entre el grupo más joven y el mayor (7,8 puntos). En ninguna prueba hubo apoyo para la miopía temporal: la evidencia favorece consistentemente la hipótesis del tiempo hasta el evento.</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3 style="margin-top:0;">Diferencias individuales: la sorpresa de la religiosidad</h3>
+        <p>¿Qué explica las diferencias individuales? El resultado más sorprendente fue una variable que <strong>no</strong> las explicaba: el nivel educativo. Aunque por sí solo se asociaba con menos ignorancia deliberada, el efecto desaparecía en los modelos de regresión para los 10 eventos. Los factores clave coinciden con la teoría: aversión al riesgo, compra de seguros y edad. Pero había un factor adicional fuera de la teoría: la <strong>práctica religiosa</strong>. Quienes asistían a servicios religiosos con más frecuencia querían saber más, contra el estereotipo de las personas religiosas como abrazadoras de la fe en lugar del conocimiento (recuérdese el famoso aforismo de Nietzsche: «la "fe" significa no querer saber lo que es verdadero»). La única excepción fue el sexo del bebé no nacido, donde las personas religiosas preferían no saber por un margen de 17 puntos, efecto debido principalmente a la muestra española, quizá por su tradición mayoritariamente católica. En resumen: quienes quieren saber tienden a buscar riesgo, comprar menos seguros, ser más jóvenes y practicar religión; quienes eligen la ignorancia, a ser reacios al riesgo, asegurar más, ser mayores y no practicar.</p>
+      </div>
+
+      <h2>¿Las declaraciones se traducen en conducta?</h2>
+
+      <div class="tarjeta">
+        <p>Podría conjeturarse que todo es una preferencia hipotética que se derrumbaría ante una decisión real. El sexo del feto es el caso de prueba ideal, porque existe tecnología fiable. Dos estudios reales ya respondieron: en los Países Bajos, de 210 mujeres que acudían a una amniocentesis, el 31 % dijo no querer saber el sexo del bebé (rango similar al 35 % español y 40 % alemán); entre 148 mujeres que ya habían dado a luz, el 45 % había decidido no saberlo. Sus razones: «sorpresa en el nacimiento» (94 %) y «es más divertido no saberlo» (92 %). En un gran centro de referencia de Boston, el 42 % de madres y padres no quiso saberlo antes de la ecografía obstétrica, con «sorpresa en el nacimiento y suspense» como razón principal (73 % de madres, 67 % de padres). Ambos estudios confirman que la preferencia declarada no es mera hipótesis: se traduce en conducta, incluso con la tecnología disponible sin coste adicional.</p>
+      </div>
+
+      <h2>Limitaciones y extensiones</h2>
+
+      <div class="tarjeta">
+        <p><strong>Limitaciones:</strong> la teoría no cubre aquí los otros dos motivos (ventaja estratégica e imparcialidad); no se midió directamente la relación entre valores subjetivos y arrepentimiento anticipado (Ecuación 2), ni el criterio minimax (Ecuación 3); las pruebas de la hipótesis del tiempo hasta el evento usaron la edad como proxy en diseños transversales, sin separar la cercanía temporal del mero envejecimiento (harían falta estudios longitudinales); y, al no existir procedimiento para muestrear una «población de eventos», los resultados deben verse como una prueba de existencia de la ignorancia deliberada.</p>
+        <p><strong>Extensiones propuestas:</strong> la teoría podría extenderse a situaciones con probabilidades conocidas y estables (mediante heurísticas lexicográficas como la heurística de prioridad, o adaptando la utilidad esperada); el conflicto aproximación-evitación podría incluir la anticipación de no actuar conforme al conocimiento (el fumador que no quiere saber que morirá de cáncer de pulmón quizá también anticipe no tener voluntad para dejar de fumar, lo que prediría menos ignorancia deliberada cuanto mayor sea la sensación de control); y para los eventos positivos, no saber el sexo del bebé permite a los padres saborear ambas posibilidades, una hija nueva y un hijo nuevo. Finalmente, la relación entre arrepentimiento anticipado y arrepentimiento real conecta este trabajo con la investigación sobre pronóstico afectivo.</p>
+      </div>
+
+      <h2>Conclusiones</h2>
+
+      <div class="tarjeta entradilla">
+        <p>Querer saber parece ser la condición natural de la humanidad, y no necesita justificación. Las personas no solo son invitadas, sino que a menudo se espera de ellas que participen en cribados de cáncer, chequeos regulares, docenas de pruebas genéticas prenatales o dispositivos de autosupervisión de la salud. El filósofo Carnap argumentó que la información válida no debería quedar sobre la mesa, y en buena parte de la teoría de la decisión más información es siempre mejor, salvo que el coste de búsqueda exceda su beneficio. No querer saber, en contraste, parece contraintuitivo e irracional. En este artículo, por el contrario, se mostró que la ignorancia deliberada existe y, de hecho, es un estado mental extendido al tratar con asuntos como la muerte y el divorcio, así como con los eventos placenteros estudiados. La teoría del arrepentimiento de la ignorancia deliberada proporciona una base para entender por qué puede ocurrir este reverso de la curiosidad humana: al declinar los poderes que hicieron famosa a Casandra, se puede evitar el sufrimiento que conocer el futuro puede causar, evitar el arrepentimiento y mantener también el disfrute del suspense que los eventos placenteros proporcionan.</p>
+      </div>
+
+    </div>
+
+    <h2>Relacionados</h2>
+    <ul class="relacionados">
+      <li><a href="#">Cassandra's Regret (PDF, 204 KB) — artículo original</a></li>
+      <li><a href="#">Psychological Review — revista de la APA</a></li>
+      <li><a href="#">Instituto Max Planck para el Desarrollo Humano</a></li>
+    </ul>
+
+    <footer>
+      <p>Fecha de creación: 22 de febrero de 2017 · Nota de prensa de la Asociación Americana de Psicología</p>
+      <p>© 2026 Asociación Americana de Psicología · 750 First St. NE, Washington, DC 20002-4242</p>
+    </footer>
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    const parrafos = document.querySelectorAll('#contenido p, #contenido td, #contenido h3');
+    const contador = document.getElementById('contador');
+    const originales = Array.from(parrafos).map(p => p.innerHTML);
+
+    function escaparRegex(cadena) {
+      return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function limpiarMarcas() {
+      parrafos.forEach((p, i) => { p.innerHTML = originales[i]; });
+    }
+
+    buscador.addEventListener('input', () => {
+      const texto = buscador.value.trim();
+      limpiarMarcas();
+
+      if (texto.length < 2) {
+        contador.textContent = '';
+        return;
+      }
+
+      const regex = new RegExp(`(${escaparRegex(texto)})`, 'gi');
+      let coincidencias = 0;
+
+      parrafos.forEach((p, i) => {
+        const contenido = originales[i];
+        const veces = (contenido.match(regex) || []).length;
+        if (veces > 0) {
+          coincidencias += veces;
+          p.innerHTML = contenido.replace(regex, '<mark>$1</mark>');
+        }
+      });
+
+      contador.textContent = coincidencias > 0
+        ? `${coincidencias} coincidencia${coincidencias === 1 ? '' : 's'} encontrada${coincidencias === 1 ? '' : 's'}.`
+        : 'No se encontraron coincidencias en el artículo.';
+    });
+
+    buscador.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        buscador.value = '';
+        limpiarMarcas();
+        contador.textContent = '';
+      }
+      if (e.key === 'Enter') {
+        const primera = document.querySelector('#contenido mark');
+        if (primera) primera.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>
